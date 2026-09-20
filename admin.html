@@ -1,170 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SYMBLI | Admin Dashboard</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c3aed'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='700' font-size='56' fill='white'>S</text></svg>"/>
 <script src="https://cdn.tailwindcss.com"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
-  body{font-family:'Inter',sans-serif;background:#fafaf9}
-  .serif{font-family:'Instrument Serif',serif}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>body{font-family:Inter,sans-serif;background:#fafaf7} .serif{font-family:Fraunces,serif}</style>
 </head>
-<body class="bg-[#fafaf9] text-stone-900 antialiased">
-<header class="sticky top-0 z-20 bg-white/80 backdrop-blur-xl border-b border-stone-200">
-  <div class="max-w-[1280px] mx-auto px-6 h-[64px] flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-xl bg-[#7c3aed] text-white grid place-items-center font-bold serif text-[22px]">S</div>
-      <div class="text-[15px] tracking-tight"><span class="font-semibold">SYMBLI</span> <span class="font-light text-stone-500">Admin Dashboard</span></div>
-    </div>
-    <div class="hidden md:flex items-center gap-3">
-      <div id="syncBadge" class="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Cloud sync: LIVE • synced just now
-      </div>
-      <button onclick="document.getElementById('addModal').classList.remove('hidden')" class="h-9 px-4 rounded-full bg-[#10b981] text-white text-sm font-medium hover:bg-[#059669]">+ Add Studio</button>
+<body class="min-h-screen">
+<header class="sticky top-0 bg-white/90 backdrop-blur border-b border-stone-200 z-20">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-2 font-semibold">SYMBLI <span class="text-stone-500 font-normal">Admin Dashboard</span></a>
+    <div class="flex gap-2">
+      <span id="syncStatus" class="px-3 py-1 rounded-full bg-stone-100 text-sm">Cloud sync: checking…</span>
+      <a href="/add.html" class="px-4 py-1.5 rounded-full bg-emerald-500 text-white text-sm">+ Add Studio</a>
     </div>
   </div>
 </header>
-<main class="max-w-[1280px] mx-auto px-6 py-8 grid grid-cols-12 gap-6">
-  <div class="col-span-12 lg:col-span-8 space-y-6">
-    <div class="grid grid-cols-3 gap-4">
-      <div class="bg-white rounded-[20px] p-5 border border-stone-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"><div class="text-[11px] uppercase tracking-widest text-stone-400">Total Studios</div><div class="serif text-3xl mt-2" id="statStudios">3</div><div class="text-xs text-stone-500 mt-1"><span id="liveCount">2 live</span> • <span id="localCount">1 local backup</span></div></div>
-      <div class="bg-white rounded-[20px] p-5 border border-stone-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"><div class="text-[11px] uppercase tracking-widest text-stone-400">Total Views</div><div class="serif text-3xl mt-2" id="statViews">2,699</div><div class="text-xs text-emerald-600 mt-1">Stable from API • read-only</div></div>
-      <div class="bg-white rounded-[20px] p-5 border border-stone-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"><div class="text-[11px] uppercase tracking-widest text-stone-400">Booking Clicks</div><div class="serif text-3xl mt-2" id="statClicks">174</div><div class="text-xs text-stone-500 mt-1">Only on booking link click</div></div>
-    </div>
-    <div class="bg-white rounded-[24px] border border-stone-100 shadow-[0_8px_30px_rgba(0,0,0,0.04)] overflow-hidden">
-      <div class="p-5 flex items-center justify-between">
-        <h2 class="serif text-xl">Studios</h2>
-        <input id="search" placeholder="Search studios..." class="h-9 w-[220px] px-3 rounded-full bg-stone-50 border border-stone-200 text-sm outline-none focus:border-stone-300"/>
-      </div>
-      <div class="overflow-auto">
-        <table class="w-full text-sm"><thead class="text-[11px] uppercase tracking-widest text-stone-400 border-y border-stone-100 bg-stone-50/50"><tr><th class="text-left font-normal py-3 px-5">Studio</th><th class="text-left font-normal">Location</th><th class="text-left font-normal">Instagram</th><th class="text-left font-normal">Status</th><th class="text-left font-normal">Views</th><th class="text-left font-normal px-5">Actions</th></tr></thead><tbody id="tableBody" class="divide-y divide-stone-100"></tbody></table>
-      </div>
-    </div>
-  </div>
-  <div class="col-span-12 lg:col-span-4 space-y-4">
-    <div class="bg-white rounded-[20px] p-5 border border-stone-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-      <h3 class="font-medium text-sm">Quick info</h3>
-      <div class="mt-4 space-y-3 text-[13px] text-stone-600">
-        <div class="flex justify-between"><span>Storage key</span><span class="font-mono text-xs bg-stone-100 px-2 py-1 rounded">symbli_studios</span></div>
-        <div class="flex justify-between"><span>Local studios</span><span id="infoLocal">1</span></div>
-        <div class="flex justify-between"><span>Live API studios</span><span id="infoLive">2</span></div>
-        <div class="flex justify-between"><span>Unique total</span><span id="infoTotal">3</span></div>
-      </div>
-      <details class="mt-5 group"><summary class="list-none flex items-center justify-between text-sm font-medium cursor-pointer"><span class="flex items-center gap-2">API Settings</span><span class="text-stone-400 group-open:rotate-180 transition">⌄</span></summary>
-        <div class="mt-3 space-y-2"><label class="text-[11px] uppercase tracking-widest text-stone-400">API Base URL</label><input id="apiUrl" value="https://symbli.co.uk/api" class="w-full h-9 px-3 rounded-xl bg-stone-50 border border-stone-200 text-sm font-mono"/></div>
-      </details>
-      <div class="mt-5 grid grid-cols-1 gap-2">
-        <button onclick="document.getElementById('addModal').classList.remove('hidden')" class="h-10 rounded-full bg-stone-900 text-white text-sm">Add New Studio</button>
-        <a href="https://symbli.co.uk" target="_blank" class="h-10 rounded-full border border-stone-200 grid place-items-center text-sm hover:bg-stone-50">View Live Site ↗</a>
-        <button onclick="exportData()" class="h-10 rounded-full border border-stone-200 text-sm hover:bg-stone-50">Export Data</button>
-      </div>
-      <div class="mt-6 p-3 rounded-xl bg-amber-50 border border-amber-200 text-[12px] text-amber-800">
-        <strong>Bug fixed:</strong> Admin no longer increments views. Only homepage does: POST /api/track {type:'view'}. Booking clicks: POST {type:'click'}. Admin fetch: GET /api/stats every 5s, read-only.
-      </div>
-    </div>
-  </div>
-</main>
-<div id="addModal" class="hidden fixed inset-0 z-30 bg-stone-900/20 backdrop-blur-sm grid place-items-center p-4">
-  <div class="bg-white rounded-[24px] p-6 w-full max-w-md shadow-2xl">
-    <h3 class="serif text-2xl">Add Studio</h3>
-    <div class="mt-4 space-y-3">
-      <input id="mName" placeholder="Studio name" class="w-full h-11 px-4 rounded-xl border border-stone-200 bg-stone-50"/>
-      <input id="mLoc" placeholder="Location" class="w-full h-11 px-4 rounded-xl border border-stone-200 bg-stone-50"/>
-      <input id="mIg" placeholder="Instagram @handle" class="w-full h-11 px-4 rounded-xl border border-stone-200 bg-stone-50"/>
-    </div>
-    <div class="mt-6 flex gap-2">
-      <button onclick="document.getElementById('addModal').classList.add('hidden')" class="flex-1 h-11 rounded-full border border-stone-200">Cancel</button>
-      <button onclick="addStudio()" class="flex-1 h-11 rounded-full bg-[#10b981] text-white">Add</button>
-    </div>
-  </div>
-</div>
-<script>
-let studios = JSON.parse(localStorage.getItem('symbli_studios') || 'null') || [
-  {id:'1', name:'ARCHETYPE STUDIO', location:'Shoreditch, London', instagram:'@archetype_ldn', status:'Active', views:1240, clicks:89, domain:'symbli.co.uk'},
-  {id:'2', name:'FORM & LIGHT', location:'Hackney Wick, London', instagram:'@formandlight', status:'Active', views:892, clicks:54, domain:'symbli.uk'},
-  {id:'3', name:'STUDIO MØDE', location:'Peckham, London', instagram:'@studiomode', status:'Active', views:567, clicks:31, domain:'symbli.co.uk'},
-];
-let apiBase = localStorage.getItem('symbli_api_base') || 'https://symbli.co.uk/api';
-document.getElementById('apiUrl').value = apiBase;
-document.getElementById('apiUrl').addEventListener('change', e=>{ apiBase=e.target.value; localStorage.setItem('symbli_api_base', apiBase); });
-
-function render(){
-  const q = (document.getElementById('search').value||'').toLowerCase();
-  const filtered = studios.filter(s=> s.name.toLowerCase().includes(q) || s.location.toLowerCase().includes(q));
-  document.getElementById('tableBody').innerHTML = filtered.map(s=>`
-    <tr class="hover:bg-stone-50/70">
-      <td class="py-4 px-5"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-stone-100 grid place-items-center text-[10px] font-bold">${s.name[0]}</div><span class="font-medium">${s.name}</span></div></td>
-      <td class="text-stone-500">${s.location}</td>
-      <td class="text-stone-500">${s.instagram}</td>
-      <td><span class="px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px]">${s.status}</span></td>
-      <td class="font-mono">${s.views.toLocaleString()}</td>
-      <td class="px-5"><div class="flex gap-2"><button class="text-stone-400 hover:text-stone-900">Edit</button><button onclick="deleteStudio('${s.id}')" class="text-stone-400 hover:text-red-600">Delete</button></div></td>
-    </tr>`).join('');
-  const totalViews = studios.reduce((a,b)=>a+b.views,0);
-  const totalClicks = studios.reduce((a,b)=>a+b.clicks,0);
-  document.getElementById('statStudios').textContent = studios.length;
-  document.getElementById('statViews').textContent = totalViews.toLocaleString();
-  document.getElementById('statClicks').textContent = totalClicks.toLocaleString();
-  document.getElementById('infoTotal').textContent = studios.length;
-  document.getElementById('infoLive').textContent = studios.filter(s=>s.domain==='symbli.co.uk').length;
-  document.getElementById('infoLocal').textContent = studios.filter(s=>s.domain==='symbli.uk').length;
-  document.getElementById('liveCount').textContent = document.getElementById('infoLive').textContent + ' live';
-  document.getElementById('localCount').textContent = document.getElementById('infoLocal').textContent + ' local backup';
-}
-
-async function fetchStats(){
-  const badge = document.getElementById('syncBadge');
-  try{
-    // FIXED: Read-only fetch, no increment
-    const res = await fetch(apiBase + '/stats', {cache:'no-store'});
-    if(!res.ok) throw new Error('api offline');
-    const data = await res.json();
-    // expected: {studios:[{id, views, clicks}], events}
-    if(data.studios){
-      // merge views from API only
-      studios = studios.map(local=>{
-        const remote = data.studios.find(r=>r.id===local.id);
-        return remote ? {...local, views: remote.views, clicks: remote.clicks} : local;
-      });
-    }
-    badge.className = "flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200";
-    badge.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Cloud sync: LIVE • synced just now';
-  }catch(e){
-    // fallback to local, DO NOT increment
-    badge.className = "flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200";
-    badge.textContent = 'Local only • ' + studios.length + ' local • API offline';
-  }
-  render();
-}
-
-function addStudio(){
-  const name = document.getElementById('mName').value.trim();
-  const location = document.getElementById('mLoc').value.trim();
-  const instagram = document.getElementById('mIg').value.trim();
-  if(!name) return;
-  studios.unshift({id: Date.now().toString(), name, location, instagram, status:'Active', views:0, clicks:0, domain: location.hostname || 'symbli.co.uk'});
-  localStorage.setItem('symbli_studios', JSON.stringify(studios));
-  document.getElementById('addModal').classList.add('hidden');
-  render();
-}
-function deleteStudio(id){
-  studios = studios.filter(s=>s.id!==id);
-  localStorage.setItem('symbli_studios', JSON.stringify(studios));
-  render();
-}
-function exportData(){
-  const blob = new Blob([JSON.stringify(studios,null,2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download='symbli-export.json'; a.click();
-}
-document.getElementById('search').addEventListener('input', render);
-// FIX: 5s interval, no increment
-setInterval(fetchStats, 5000);
-render();
-fetchStats();
-</script>
-</body>
-</html>
+<main class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-12 gap-6">
+  <div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="bg-white rounded-2xl p-6 border"><div class="text-xs tracking-widest text-stone-400">TOTAL STUDIOS</div><div id="statStudios" class="serif text-4xl mt-2">0</div><div id="statStudiosSub" class="text-sm text-stone-500 mt-1"></div></div>
+    <div class="bg-white rounded-2xl p-6 border"><div class="text-xs tracking-widest text-stone-400">TOTAL VIEWS</div
