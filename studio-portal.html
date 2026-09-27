@@ -74,9 +74,67 @@ radial-gradient(circle at 95% 0,rgba(232,193,211,.18),transparent 27%),#fff;over
  .referralStat{padding:15px}.referralStat strong{font-size:24px}.quick{gap:6px}.quick button{padding:9px 11px;font-size:10px}
 }
 </style>
+
+<style id="symbli-layout-v3">
+/* Dashboard-first information architecture */
+#portal{display:grid;grid-template-columns:250px minmax(0,1fr);gap:18px;align-items:start}
+#portal>.hero{grid-column:1/-1}
+#portal>.portalSectionLabel{grid-column:2}
+#portal>#referrals,#portal>#ownerOnboarding,#portal>#details,#portal>#treatments,#portal>#vibes,#portal>#services,#portal>#photos{grid-column:2}
+#portal>#signOut{grid-column:1;grid-row:3;align-self:start;justify-self:stretch}
+.portalSide{grid-column:1;grid-row:2/span 20;position:sticky;top:18px;display:grid;gap:12px;padding:18px;border:1px solid #eadfd9;border-radius:23px;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);box-shadow:0 14px 38px rgba(18,34,56,.06)}
+.portalSideLabel{font-size:8px;font-weight:800;letter-spacing:.17em;color:#aa7c9e;text-transform:uppercase;padding:2px 5px 8px}
+.portalSide button{display:flex;align-items:center;gap:10px;width:100%;min-height:43px;padding:0 13px;border:0;border-radius:13px;background:transparent;color:#536070;font:600 11px Inter,sans-serif;text-align:left;cursor:pointer}
+.portalSide button:hover{background:#fff4ef;color:#172b43}.portalSide button.active{background:#172b43;color:#fff;box-shadow:0 7px 17px rgba(18,34,56,.13)}
+.portalSide .navIcon{display:grid;place-items:center;width:25px;height:25px;border-radius:9px;background:#f7ebe7;font-size:12px;color:#936a7f}
+.portalSide button.active .navIcon{background:rgba(255,255,255,.13);color:#fff}
+.portalSideDivider{height:1px;background:#eee2dc;margin:2px 4px}
+.portalSideHint{padding:8px 7px 2px;font-size:9px;line-height:1.55;color:#8b7970}
+.hero .quick{display:none}
+#referrals{margin-top:0}
+#ownerOnboarding{margin-bottom:0}
+#details,#treatments,#vibes,#services,#photos{margin-bottom:0}
+.portalSectionLabel{margin:5px 4px -4px}
+#details .grid2{margin-top:5px}
+.card .head{padding-bottom:5px}
+#photos{margin-bottom:18px!important}
+@media(max-width:900px){
+ #portal{display:block}
+ .portalSide{position:sticky;top:0;z-index:20;display:flex;overflow-x:auto;margin:12px 0 18px;padding:9px;border-radius:16px;box-shadow:0 8px 24px rgba(18,34,56,.08)}
+ .portalSideLabel,.portalSideDivider,.portalSideHint{display:none}
+ .portalSide button{width:auto;flex:none;min-height:39px;padding:0 11px}
+ .portalSide .navIcon{width:22px;height:22px}
+ #portal>#signOut{width:auto;margin-top:14px}
+}
+</style>
+
+<style id="symbli-preview-cta-v4">
+.heroActions{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.13)}
+.heroActions .previewBtn{position:relative;min-height:52px;padding:0 24px 0 21px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(135deg,#f2ba9f,#e9a58a);color:#15263b;font-size:12px;font-weight:800;letter-spacing:.015em;box-shadow:0 10px 26px rgba(233,149,118,.25)}
+.heroActions .previewBtn:before{content:'◉';display:grid;place-items:center;width:27px;height:27px;margin-right:10px;border-radius:50%;background:rgba(255,255,255,.52);font-size:11px}
+.heroActions .previewBtn{display:inline-flex;align-items:center}
+.heroActions .previewBtn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(233,149,118,.34)}
+.heroActions span{max-width:330px;font-size:10px;line-height:1.5;color:#d6e0e8}
+@media(max-width:720px){.heroActions{align-items:stretch}.heroActions .previewBtn{width:100%;justify-content:center}.heroActions span{text-align:center;max-width:none}}
+</style>
 </head><body><div class="wrap"><div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO PORTAL • MANAGE YOUR LISTING</div></div><div id="session" class="pill">Not signed in</div></div>
 <section id="auth" class="card login"><div class="welcomeMark">SYMBLI FOR STUDIOS</div><h1>Bring your studio to life.</h1><p class="muted">Sign in with the email linked to your studio. Build your listing at your own pace, preview it, then send it to SYMBLI for review.</p><div class="tabs"><button id="signInTab" class="active">Sign in</button><button id="signUpTab">Create account</button></div><label class="field"><span>EMAIL</span><input id="email" type="email"></label><label class="field"><span>PASSWORD</span><input id="password" type="password" minlength="8"></label><button id="authBtn" class="btn" style="width:100%;margin-top:16px">Sign in</button><div id="authStatus" class="status">Use your SYMBLI studio email.</div></section>
-<section id="portal" class="hidden"><div class="card hero"><div class="heroSplit"><div><div class="eyebrow">WELCOME TO YOUR STUDIO SPACE</div><h1 id="studioName">Studio Portal</h1><p id="studioIntro">Build a listing that feels like your studio.</p></div><div class="heroAside"><span>YOUR NEXT STEP</span><strong id="heroNext">Start with your studio details</strong><small id="heroVisibility">Your listing is in progress</small></div></div><div class="quick"><button data-target="referrals">Results</button><button data-target="details">Studio details</button><button data-target="treatments">Treatments</button><button data-target="vibes">Vibe</button><button data-target="services">Services</button><button data-target="photos">Photos</button></div><div class="heroActions"><button id="previewListing" class="btn previewBtn" type="button">Preview my listing →</button><span>Your preview uses your last saved details.</span></div><div class="notice">You can edit your own studio listing here. SYMBLI reviews and publishes it; your changes are not public until your studio goes live.</div></div>
+<section id="portal" class="hidden"><div class="card hero"><div class="heroSplit"><div><div class="eyebrow">WELCOME TO YOUR STUDIO SPACE</div><h1 id="studioName">Studio Portal</h1><p id="studioIntro">Build a listing that feels like your studio.</p></div><div class="heroAside"><span>YOUR NEXT STEP</span><strong id="heroNext">Start with your studio details</strong><small id="heroVisibility">Your listing is in progress</small></div></div><div class="quick"><button data-target="referrals">Results</button><button data-target="details">Studio details</button><button data-target="treatments">Treatments</button><button data-target="vibes">Vibe</button><button data-target="services">Services</button><button data-target="photos">Photos</button></div><div class="heroActions"><button id="previewListing" class="btn previewBtn" type="button">Preview my live-style listing →</button><span>See your studio exactly as customers will experience it before you publish changes.</span></div><div class="notice">You can edit your own studio listing here. SYMBLI reviews and publishes it; your changes are not public until your studio goes live.</div></div>
+
+<aside class="portalSide" aria-label="Studio portal navigation">
+ <div class="portalSideLabel">Studio dashboard</div>
+ <button data-side-target="referrals" class="active"><span class="navIcon">↗</span>Results</button>
+ <div class="portalSideDivider"></div>
+ <div class="portalSideLabel">Your listing</div>
+ <button data-side-target="ownerOnboarding"><span class="navIcon">✓</span>Setup progress</button>
+ <button data-side-target="details"><span class="navIcon">⌂</span>Studio details</button>
+ <button data-side-target="treatments"><span class="navIcon">✦</span>Treatments</button>
+ <button data-side-target="vibes"><span class="navIcon">♡</span>Studio vibe</button>
+ <button data-side-target="services"><span class="navIcon">£</span>Services & pricing</button>
+ <button data-side-target="photos"><span class="navIcon">▧</span>Photos</button>
+ <div class="portalSideDivider"></div>
+ <div class="portalSideHint">Your results update as SYMBLI sends customers to your studio.</div>
+</aside>
 <div class="portalSectionLabel">Performance</div><div class="card" id="referrals">
   <div class="head"><div><h2>Your SYMBLI Results</h2><p class="muted">See the customers, bookings and revenue SYMBLI has generated for your studio. Review new referrals here as they arrive.</p></div><span class="live">● Live referral data</span></div>
   <div class="referralStats">
@@ -89,7 +147,7 @@ radial-gradient(circle at 95% 0,rgba(232,193,211,.18),transparent 27%),#fff;over
   <div id="referralStatus" class="status">Loading referrals…</div>
   <div id="referralList" class="referralList"></div>
 </div>
-<div class="portalSectionLabel">Manage your listing</div><div class="onboardBox" id="ownerOnboarding"><div class="head"><div><div class="tag">LISTING ONBOARDING</div><h2>Get your listing ready</h2><p class="muted">Work through the five essentials below. Each section saves separately, so you can come back at any time.</p></div><span id="reviewState" class="reviewState">DRAFT</span></div><div class="progressLine"><strong id="ownerProgress">0%</strong><span class="muted" id="ownerProgressCopy">0 of 5 complete</span></div><div class="progressTrack"><div id="ownerProgressFill" class="progressFill"></div></div><div class="checkGrid"><div class="checkItem" id="checkDetails">01  Studio details</div><div class="checkItem" id="checkTreatments">02  Treatments</div><div class="checkItem" id="checkVibes">03  Studio vibe</div><div class="checkItem" id="checkServices">04  Services & pricing</div><div class="checkItem" id="checkPhotos">05  Photos</div></div><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px"><button id="nextMissing" class="btn secondary">Go to next missing section</button><button id="submitReview" class="btn" disabled>Submit listing for review</button></div><div id="reviewStatus" class="status">Complete your listing to submit it for review.</div><div class="afterReview"><div><b>1. You submit</b><span>We check the profile, photos and services.</span></div><div><b>2. We agree the details</b><span>SYMBLI shares the studio agreement and payment setup with you.</span></div><div><b>3. We publish</b><span>You review the final listing before it goes live.</span></div></div></div><div class="card" id="details"><div class="head"><div><h2>Studio details</h2><p class="muted">Tell customers who you are and how to book. Add at least one contact or booking option.</p></div><span class="live">● Live Supabase data</span></div><div class="grid2"><label class="field"><span>STUDIO NAME</span><input id="name"></label><label class="field"><span>TOWN</span><input id="town"></label><label class="field wide"><span>DESCRIPTION</span><textarea id="description"></textarea></label><label class="field"><span>BOOKING LINK</span><input id="booking" type="url"></label><label class="field"><span>WEBSITE</span><input id="website" type="url"></label><label class="field"><span>INSTAGRAM</span><input id="instagram" type="url"></label><label class="field"><span>PHONE</span><input id="phone" type="tel"></label><label class="field"><span>YEARS EXPERIENCE</span><input id="years" type="number" min="0" max="80"></label><label class="field wide"><span>QUALIFICATION LEVEL</span><input id="qualification"></label></div><button id="saveDetails" class="btn" style="margin-top:15px">Save details</button><div id="detailsStatus" class="status">Ready.</div></div>
+<div class="portalSectionLabel">Manage your listing</div><div class="onboardBox" id="ownerOnboarding"><div class="head"><div><div class="tag">LISTING ONBOARDING</div><h2>Listing health</h2><p class="muted">Keep the essentials below complete so customers always see a polished, useful studio profile.</p></div><span id="reviewState" class="reviewState">DRAFT</span></div><div class="progressLine"><strong id="ownerProgress">0%</strong><span class="muted" id="ownerProgressCopy">0 of 5 complete</span></div><div class="progressTrack"><div id="ownerProgressFill" class="progressFill"></div></div><div class="checkGrid"><div class="checkItem" id="checkDetails">01  Studio details</div><div class="checkItem" id="checkTreatments">02  Treatments</div><div class="checkItem" id="checkVibes">03  Studio vibe</div><div class="checkItem" id="checkServices">04  Services & pricing</div><div class="checkItem" id="checkPhotos">05  Photos</div></div><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px"><button id="nextMissing" class="btn secondary">Go to next missing section</button><button id="submitReview" class="btn" disabled>Submit listing for review</button></div><div id="reviewStatus" class="status">Complete your listing to submit it for review.</div><div class="afterReview"><div><b>1. You submit</b><span>We check the profile, photos and services.</span></div><div><b>2. We agree the details</b><span>SYMBLI shares the studio agreement and payment setup with you.</span></div><div><b>3. We publish</b><span>You review the final listing before it goes live.</span></div></div></div><div class="card" id="details"><div class="head"><div><h2>Studio details</h2><p class="muted">Tell customers who you are and how to book. Add at least one contact or booking option.</p></div><span class="live">● Live Supabase data</span></div><div class="grid2"><label class="field"><span>STUDIO NAME</span><input id="name"></label><label class="field"><span>TOWN</span><input id="town"></label><label class="field wide"><span>DESCRIPTION</span><textarea id="description"></textarea></label><label class="field"><span>BOOKING LINK</span><input id="booking" type="url"></label><label class="field"><span>WEBSITE</span><input id="website" type="url"></label><label class="field"><span>INSTAGRAM</span><input id="instagram" type="url"></label><label class="field"><span>PHONE</span><input id="phone" type="tel"></label><label class="field"><span>YEARS EXPERIENCE</span><input id="years" type="number" min="0" max="80"></label><label class="field wide"><span>QUALIFICATION LEVEL</span><input id="qualification"></label></div><button id="saveDetails" class="btn" style="margin-top:15px">Save details</button><div id="detailsStatus" class="status">Ready.</div></div>
 <div class="card" id="treatments"><div class="head"><div><h2>Treatments</h2><p class="muted">Choose every treatment category that fits. You can change these later.</p></div><span class="live">● Live Supabase data</span></div><div id="treatmentList" class="treatments"></div><button id="saveTreatments" class="btn" style="margin-top:15px">Save treatments</button><div id="treatmentStatus" class="status">Ready.</div></div>
 <div class="card" id="vibes"><div class="head"><div><h2>Vibe / Why choose you</h2><p class="muted">Choose a few honest words that describe the experience clients can expect.</p></div><span class="live">● Live Supabase data</span></div><div id="vibeList" class="vibes"></div><div class="rowadd"><input id="newVibe" placeholder="e.g. Calm"><button id="addVibe" class="btn secondary">+ Add vibe</button></div><button id="saveVibes" class="btn" style="margin-top:15px">Save vibes</button><div id="vibeStatus" class="status">Ready.</div></div>
 <div class="card" id="services"><div class="head"><div><h2>Services & pricing</h2><p class="muted">Add the services you want to show with clear prices. Save after adding or changing a row.</p></div><span class="live">● Live Supabase data</span></div><div id="serviceRows" class="services"></div><div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button id="addService" class="btn secondary">+ Add service</button><button id="saveServices" class="btn">Save services</button></div><div id="serviceStatus" class="status">Ready.</div></div>
@@ -239,5 +297,23 @@ document.querySelectorAll('.checkItem').forEach(item=>{
  const open=()=>document.getElementById(item.dataset.target)?.scrollIntoView({behavior:'smooth',block:'start'});
  item.onclick=open;item.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}};
 });
+
+document.querySelectorAll('[data-side-target]').forEach(b=>{
+ b.onclick=()=>{
+  const id=b.dataset.sideTarget,el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+ };
+});
+if('IntersectionObserver' in window){
+ const sideButtons=[...document.querySelectorAll('[data-side-target]')];
+ const observed=sideButtons.map(b=>document.getElementById(b.dataset.sideTarget)).filter(Boolean);
+ const navObserver=new IntersectionObserver(entries=>{
+  const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+  if(!visible)return;
+  sideButtons.forEach(b=>b.classList.toggle('active',b.dataset.sideTarget===visible.target.id));
+ },{rootMargin:'-20% 0px -65% 0px',threshold:[0,.15,.4]});
+ observed.forEach(el=>navObserver.observe(el));
+}
+
 document.querySelectorAll('.quick button').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.target)?.scrollIntoView({behavior:'smooth'}));$('signOut').onclick=()=>{sessionStorage.removeItem('symbli_owner_token');sessionStorage.removeItem('symbli_owner_refresh');location.reload()};(async()=>{token=sessionStorage.getItem('symbli_owner_token')||'';if(token){try{user=await api('/auth/v1/user');await boot()}catch(e){sessionStorage.removeItem('symbli_owner_token');token=''}}})();
 </script></body></html>
