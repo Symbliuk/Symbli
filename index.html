@@ -3969,7 +3969,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
 (function(){
  const URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';
  const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
- const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));
+ const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
  const validHttp=v=>{try{const u=new URL(String(v||'').trim());return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}};
  async function track(type,studioId,destination){
    if(!type)return;
