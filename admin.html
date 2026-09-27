@@ -1485,6 +1485,8 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    if(typeof window.supabase==='undefined' && typeof authFetch!=='function'){setTimeout(boot,200);return}
    const $x=id=>document.getElementById(id);
    let analyticsDays='30';
+   // Launch baseline applies to every studio and every analytics range.
+   const analyticsLaunchAt='2026-09-27T16:22:54Z';
    function renderAnalyticsStory(rows,counts){
      const views=counts.profile_view||0,bookings=counts.booking_click||0;
      const rate=views?Math.round(bookings/views*100):null;
@@ -1518,7 +1520,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
      });
      chart.setAttribute('aria-label',views+' profile views across '+(daily?analyticsDays+' days':'all recorded months'));
      $x('analyticsTrendTitle').textContent=daily?'Profile views by day':'Profile views by month';
-     $x('analyticsTrendPeriod').textContent=analyticsDays==='all'?'All recorded time':'Last '+analyticsDays+' days';
+     $x('analyticsTrendPeriod').textContent=analyticsDays==='all'?'Since launch':'Last '+analyticsDays+' days · since launch';
      $x('analyticsTrendTotal').textContent=views+' total profile '+(views===1?'view':'views');
    }
    async function loadAnalytics(){
@@ -1531,10 +1533,9 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
      const st=$x('analyticsStatus');if(st){st.textContent='Loading analytics…';st.className='status'}
      try{
        let query='/rest/v1/analytics?select=event_type,studio_id,created_at&studio_id=eq.'+encodeURIComponent(studioId);
-       if(analyticsDays!=='all'){
-         const since=new Date(Date.now()-Number(analyticsDays)*86400000).toISOString();
-         query+='&created_at=gte.'+encodeURIComponent(since);
-       }
+       const rangeStart=analyticsDays==='all'?0:Date.now()-Number(analyticsDays)*86400000;
+       const since=new Date(Math.max(Date.parse(analyticsLaunchAt),rangeStart)).toISOString();
+       query+='&created_at=gte.'+encodeURIComponent(since);
        query+='&order=created_at.desc&limit=5000';
        const rows=await authFetch(query);
        const counts={};(rows||[]).forEach(r=>counts[r.event_type]=(counts[r.event_type]||0)+1);
@@ -1545,7 +1546,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
        $x('metricInstagram').textContent=counts.instagram_click||0;
        $x('metricTotal').textContent=(rows||[]).length;
        renderAnalyticsStory(rows||[],counts);
-       const label=analyticsDays==='all'?'all time':analyticsDays+' days';
+       const label=analyticsDays==='all'?'since launch':analyticsDays+' days since launch';
        if(st){st.textContent='Live analytics loaded • '+(rows||[]).length+(rows?.length===5000?' latest events (report limit)':' events')+' • '+label;st.className='status ok'}
      }catch(e){
        if(st){st.textContent='Could not load analytics: '+(e.message||e);st.className='status bad'}
