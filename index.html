@@ -3972,6 +3972,27 @@ window.SYMBLI_ADD_DEMOS=function(d){
 #studioPopup #spFoundingPanel:after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.35) 50%,transparent 60%);transform:translateX(-150%);animation:symbliSealGlint 4.2s ease-in-out infinite}
 @keyframes symbliSealGlint{0%,58%{transform:translateX(-150%)}100%{transform:translateX(150%)}}
 @media(prefers-reduced-motion:reduce){#studioPopup #spFoundingPanel:after{display:none}}
+</style><style id="symbli-matching-gold-card-badges">
+/* Match the gold profile seal on both card layouts. */
+.studioRail .studioMiniCard .studioImage>.foundingBadge,
+.comparisonGrid .compareBadge .foundingBadge{
+ background:linear-gradient(112deg,#fff9f3 0%,#f8e7b4 48%,#fff6ed 100%)!important;
+ border:2px solid #d0a253!important;border-radius:14px!important;
+ outline:1px solid rgba(255,255,255,.86)!important;outline-offset:-5px!important;
+ box-shadow:0 8px 22px rgba(134,87,54,.17),0 0 17px rgba(239,207,150,.32)!important;
+}
+.studioRail .studioMiniCard .studioImage>.foundingBadge span:after,
+.comparisonGrid .compareBadge .foundingBadge span:after{color:#a97061!important}
+.studioRail .studioMiniCard:has(.foundingBadge),
+.comparisonGrid .compareCard:has(.foundingBadge){border-color:#cda55f!important;box-shadow:0 10px 30px rgba(205,165,95,.16),0 0 0 3px rgba(253,229,220,.45)!important}
+@media(max-width:639px){
+ #rail .studioMiniCard .studioImage>.foundingBadge,
+ .comparisonGrid .compareBadge .foundingBadge{
+  background:linear-gradient(112deg,#fff9f3,#f8e7b4,#fff6ed)!important;
+  border:1px solid #cda55f!important;border-radius:999px!important;
+  outline:0!important;box-shadow:0 3px 9px rgba(134,87,54,.19)!important;
+ }
+}
 </style></body><!-- EDIT 12C: repaired executable 12-per-page pagination; automatically activates Next when result count exceeds 12. Booking action wired to analytics + studio booking URL source. -->
 <!-- EDIT 13B: rebuilt from 12C latest pagination/profile/booking checkpoint; added For Studios panel and normal demo studio names. -->
 </html>
