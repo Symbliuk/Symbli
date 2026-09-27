@@ -2148,6 +2148,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
 
     const name=document.getElementById('spName');
     if(name)name.textContent=s.name||'Studio';
+    const oldLinks=document.getElementById('spLiveLinks');if(oldLinks)oldLinks.replaceChildren();
 
     // Set the gallery from this studio's own uploaded images before showing it.
     const pictures=(window.SYMBLI_LIVE_IMAGES?.imagesFor?.(s)||[]);
@@ -2337,7 +2338,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
    const link=x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-event="${x[1]}" data-destination="${esc(x[2])}" class="${x[3]}">${esc(x[0])}${x[4]==='booking'?' →':''}</a>`;
    const preview=x=>`<button type="button" data-demo-action="${x[4]}">${esc(x[0])} preview${x[4]==='booking'?' →':''}</button>`;
    host.innerHTML=demo
-     ? `<div class="symDemoActionGrid">${actions.map(x=>x[2]?link(x):preview(x)).join('')}</div><p class="symDemoActionNote" role="status">Example studio · Buttons with links added in admin are live.</p>`
+     ? `<div class="symDemoActionGrid symLiveActionGrid">${actions.map(x=>x[2]?link(x):preview(x)).join('')}</div><p class="symDemoActionNote" role="status">Example studio · Buttons with links added in admin are live.</p>`
      : actions.some(x=>x[2])
        ? `<div class="symLiveActionGrid">${actions.filter(x=>x[2]).map(link).join('')}</div>`
        : `<div class="symLiveNoActions">This studio has not added contact or booking links yet.</div>`;
@@ -2403,61 +2404,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
   .symDemoImageNote{position:absolute;left:12px;bottom:12px;z-index:8;background:rgba(255,250,247,.90);color:#24324a;border:1px solid rgba(36,50,74,.10);border-radius:999px;padding:5px 9px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(7px);pointer-events:none}
   .compareSlide img,.studioImage img{object-fit:cover}
 </style>
-<script id="sym40h-demo-visuals-script">
-(function(){
-  const DEMO=[
-    'https://images.unsplash.com/photo-1633681122703-3ce20f1e978d?auto=format&fit=crop&w=900&q=72',
-    'https://images.unsplash.com/photo-1781450090585-1a511b7066d9?auto=format&fit=crop&w=900&q=72',
-    'https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=900&q=72',
-    'https://images.unsplash.com/photo-1737214475292-949c0bf920b0?auto=format&fit=crop&w=900&q=72'
-  ];
-  function isReal(img){
-    const u=(img&&img.getAttribute('src')||'').trim();
-    return !!u && !u.startsWith('data:image/svg+xml') && !u.includes('f8eee8') && !u.includes('f7efea');
-  }
-  function seedFor(root){
-    const t=(root.textContent||'').toLowerCase();
-    if(t.includes('nail')) return 2;
-    if(t.includes('skin')||t.includes('facial')) return 0;
-    if(t.includes('brow')||t.includes('lip')) return 3;
-    const n=(root.querySelector('h3')?.textContent||root.dataset.supabaseStudioId||'').split('').reduce((a,c)=>a+c.charCodeAt(0),0);
-    return n%DEMO.length;
-  }
-  function urlsFor(root){const n=seedFor(root);return [0,1,2].map(i=>DEMO[(n+i)%DEMO.length]);}
-  function note(host){
-    if(window.matchMedia('(max-width:600px)').matches)return;
-    if(!host||host.querySelector('.symDemoImageNote'))return;
-    const x=document.createElement('span');x.className='symDemoImageNote';x.textContent='Preview imagery';host.appendChild(x);
-  }
-  function apply(root){
-    if(!root||root.dataset.symDemoReady==='1')return;
-    const imgs=[...root.querySelectorAll('.compareSlide img,.studioImage img')];
-    if(imgs.some(isReal)){root.dataset.symDemoReady='real';return;}
-    const urls=urlsFor(root);
-    if(root.classList.contains('compareCard')){
-      const slides=root.querySelector('.compareSlides');
-      if(slides){slides.innerHTML=urls.map((u,i)=>'<div class="compareSlide"><img loading="lazy" decoding="async" src="'+u+'" alt="Preview studio imagery '+(i+1)+'"></div>');slides.style.transform='translateX(0%)';}
-      const dots=root.querySelector('.compareDots');if(dots)dots.innerHTML=urls.map((_,i)=>'<button type="button" class="'+(i===0?'on':'')+'" aria-label="Photo '+(i+1)+'"></button>').join('');
-      root.dataset.liveImages=JSON.stringify(urls);
-      note(root.querySelector('.compareImage,.compareMedia'));
-    } else {
-      const host=root.querySelector('.studioImage');
-      if(host){const img=host.querySelector('img')||host.insertBefore(document.createElement('img'),host.firstChild);img.alt='Preview studio imagery';img.loading='lazy';img.decoding='async';img.src=urls[0];root.dataset.liveImages=JSON.stringify(urls);note(host);}
-    }
-    root.dataset.symDemoReady='1';
-  }
-  function run(){document.querySelectorAll('.compareCard,.studioMiniCard').forEach(apply)}
-  let rounds=0;const timer=setInterval(()=>{run();if(++rounds>16)clearInterval(timer)},400);
-  const mo=new MutationObserver(()=>requestAnimationFrame(run));
-  mo.observe(document.body,{childList:true,subtree:true});
-  document.addEventListener('click',e=>{
-    const card=e.target.closest&&e.target.closest('.compareCard,.studioMiniCard');
-    if(card&&card.dataset.symDemoReady==='1'&&!card.dataset.supabaseStudioId){
-      try{window.currentImgs=JSON.parse(card.dataset.liveImages||'[]');window.currentShot=0}catch(_){}
-    }
-  },true);
-})();
-</script>
+
 
 <style id="symbli-preview-content-polish">
 .symStudioIntro{margin:11px 0 0;color:#746a66;font:400 12px/1.55 Inter,sans-serif;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
