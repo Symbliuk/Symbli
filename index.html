@@ -2306,6 +2306,25 @@ window.SYMBLI_ADD_DEMOS=function(d){
      });
    }catch(e){}
  }
+ async function refreshAndRender(){
+   const s=studio(); if(!s)return;
+   if(window.SYMBLI_IS_DEMO?.(s)){ render(s); return; }
+   try{
+     const r=await fetch(URL+'/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=id,booking_url,website_url,instagram_url,phone',{
+       headers:{apikey:KEY,Authorization:'Bearer '+KEY}
+     });
+     if(r.ok){
+       const rows=await r.json();
+       if(rows?.[0]){
+         Object.assign(s,rows[0]);
+         render(s);
+         return;
+       }
+     }
+   }catch(e){}
+   render(s);
+ }
+
  function render(studioOverride){
    const s=studioOverride||studio(); if(!s)return;
    const popup=document.getElementById('studioPopup'); if(!popup)return;
@@ -2336,7 +2355,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
      ['Call studio','',phone?'tel:'+phone:null,'call','phone']
    ];
    const link=x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-event="${x[1]}" data-destination="${esc(x[2])}" class="${x[3]}">${esc(x[0])}${x[4]==='booking'?' →':''}</a>`;
-   const preview=x=>`<button type="button" data-demo-action="${x[4]}">${esc(x[0])} preview${x[4]==='booking'?' →':''}</button>`;
+   const preview=x=>`<button type="button" data-demo-action="${x[4]}" class="${x[3]}">${esc(x[0])}${x[4]==='booking'?' →':''}</button>`;
    host.innerHTML=demo
      ? `<div class="symDemoActionGrid symLiveActionGrid">${actions.map(x=>x[2]?link(x):preview(x)).join('')}</div><p class="symDemoActionNote" role="status">Example studio · Buttons with links added in admin are live.</p>`
      : actions.some(x=>x[2])
@@ -2348,7 +2367,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
 
  document.addEventListener('click',e=>{const button=e.target.closest?.('[data-demo-action]');if(!button)return;const note=document.querySelector('#studioPopup .symDemoActionNote');if(note)note.textContent='This is an example studio. '+({booking:'Booking',website:'Website',instagram:'Instagram',phone:'Calling'}[button.dataset.demoAction]||'This action')+' will be available when a real studio adds its link.';});
  document.addEventListener('click',e=>{
-   if(e.target.closest?.('.compareCard[data-supabase-studio-id],.studioMiniCard[data-supabase-studio-id]')) setTimeout(()=>render(),220);
+   if(e.target.closest?.('.compareCard[data-supabase-studio-id],.studioMiniCard[data-supabase-studio-id]')) setTimeout(()=>refreshAndRender(),220);
  },true);
  /* #40F: watch only the popup's own open/close style, never its subtree.
     This restores reliable action rendering without the old self-triggering DOM loop. */
@@ -2356,8 +2375,8 @@ window.SYMBLI_ADD_DEMOS=function(d){
  if(popup){
    const actionOpenObserver=new MutationObserver(function(){
      if(getComputedStyle(popup).display!=='none'){
-       setTimeout(()=>render(),120);
-       setTimeout(()=>render(),360);
+       setTimeout(()=>refreshAndRender(),120);
+       setTimeout(()=>refreshAndRender(),360);
      }
    });
    actionOpenObserver.observe(popup,{attributes:true,attributeFilter:['style']});
@@ -2368,24 +2387,24 @@ window.SYMBLI_ADD_DEMOS=function(d){
 <style id="edit39m-live-actions-style">
 #symbliLiveActions{margin-top:22px}
 .symLiveActionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.symLiveActionGrid a{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:12px 16px;border:1px solid transparent;border-radius:16px;text-decoration:none;font:700 13px/1.2 Inter,sans-serif;letter-spacing:.01em;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
-.symLiveActionGrid a::before{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:8px;font-size:15px;line-height:1;font-weight:500}
-.symLiveActionGrid a:hover{transform:translateY(-2px)}
-.symLiveActionGrid a:focus-visible{outline:3px solid #d77e65;outline-offset:3px}
-.symLiveActionGrid a.primary{background:#e8878a;color:#fff;border-color:#e8878a;box-shadow:0 8px 20px rgba(232,135,138,.19)}
-.symLiveActionGrid a.primary::before{content:'✦';background:rgba(255,255,255,.18);font-size:14px}
-.symLiveActionGrid a.primary:hover{background:#dc747b;box-shadow:0 12px 24px rgba(220,116,123,.27)}
-.symLiveActionGrid a.website{background:#edf1f4;color:#182b43;border-color:#dbe3e9}
-.symLiveActionGrid a.website::before{content:'↗';background:#dae3eb;color:#182b43;font-size:18px}
-.symLiveActionGrid a.website:hover{background:#e3ebf0;box-shadow:0 9px 19px rgba(24,43,67,.11)}
-.symLiveActionGrid a.instagram{background:linear-gradient(115deg,#fff1ec,#fae4ec);color:#843e61;border-color:#f0d4dc}
-.symLiveActionGrid a.instagram::before{content:'◎';background:#f6d8e2;color:#9b496e;font-size:21px}
-.symLiveActionGrid a.instagram:hover{background:linear-gradient(115deg,#ffe8e0,#f8d8e5);box-shadow:0 9px 19px rgba(158,79,111,.13)}
-.symLiveActionGrid a.call{background:#fffdfa;color:#795e50;border-color:#dfcbbd}
-.symLiveActionGrid a.call::before{content:'☎';background:#f7eee7;color:#936b58;font-size:16px}
-.symLiveActionGrid a.call:hover{background:#fbf3ed;box-shadow:0 9px 19px rgba(112,83,67,.10)}
+.symLiveActionGrid a,.symLiveActionGrid button{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:12px 16px;border:1px solid transparent;border-radius:16px;text-decoration:none;font:700 13px/1.2 Inter,sans-serif;letter-spacing:.01em;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease;cursor:pointer}
+.symLiveActionGrid a::before,.symLiveActionGrid button::before{display:inline-grid;place-items:center;flex:none;width:24px;height:24px;border-radius:8px;font-size:15px;line-height:1;font-weight:500}
+.symLiveActionGrid a:hover,.symLiveActionGrid button:hover{transform:translateY(-2px)}
+.symLiveActionGrid a:focus-visible,.symLiveActionGrid button:focus-visible{outline:3px solid #d77e65;outline-offset:3px}
+.symLiveActionGrid .primary{background:#e8878a;color:#fff;border-color:#e8878a;box-shadow:0 8px 20px rgba(232,135,138,.19)}
+.symLiveActionGrid .primary::before{content:'✦';background:rgba(255,255,255,.18);font-size:14px}
+.symLiveActionGrid .primary:hover{background:#dc747b;box-shadow:0 12px 24px rgba(220,116,123,.27)}
+.symLiveActionGrid .website{background:linear-gradient(135deg,#edf3f7,#e7eef4);color:#182b43;border-color:#d6e1e9}
+.symLiveActionGrid .website::before{content:'◎';background:#d8e5ee;color:#182b43;font-size:19px}
+.symLiveActionGrid .website:hover{background:linear-gradient(135deg,#e4edf3,#dce8f0);box-shadow:0 9px 19px rgba(24,43,67,.11)}
+.symLiveActionGrid .instagram{background:linear-gradient(115deg,#fff1ec,#fae4ec);color:#843e61;border-color:#f0d4dc}
+.symLiveActionGrid .instagram::before{content:'◉';background:#f6d8e2;color:#9b496e;font-size:16px}
+.symLiveActionGrid .instagram:hover{background:linear-gradient(115deg,#ffe8e0,#f8d8e5);box-shadow:0 9px 19px rgba(158,79,111,.13)}
+.symLiveActionGrid .call{background:#fffdfa;color:#795e50;border-color:#dfcbbd}
+.symLiveActionGrid .call::before{content:'☎';background:#f7eee7;color:#936b58;font-size:16px}
+.symLiveActionGrid .call:hover{background:#fbf3ed;box-shadow:0 9px 19px rgba(112,83,67,.10)}
 .symLiveNoActions{padding:14px 16px;border:1px solid #eadbd2;border-radius:14px;color:#89766d;font-size:12px;text-align:center}
-@media(max-width:620px){.symLiveActionGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.symLiveActionGrid a{min-height:50px;padding:10px 8px;font-size:12px;gap:6px}.symLiveActionGrid a::before{width:21px;height:21px}}
+@media(max-width:620px){.symLiveActionGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.symLiveActionGrid a,.symLiveActionGrid button{min-height:50px;padding:10px 8px;font-size:12px;gap:6px}.symLiveActionGrid a::before,.symLiveActionGrid button::before{width:21px;height:21px}}
 @media(max-width:360px){.symLiveActionGrid{grid-template-columns:1fr}}
 </style>
 
@@ -2847,7 +2866,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
 
 #symDemoIntro{margin:26px 0 8px;padding:8px 0 20px;border-bottom:1px solid #eadcde;color:#73636b}#symDemoIntro .symDemoEyebrow{display:block;margin-bottom:8px;color:#b47994;font:700 10px Inter,sans-serif;letter-spacing:.19em}#symDemoIntro strong{display:block;color:#25364c;font:400 clamp(25px,3vw,36px) Fraunces,Georgia,serif}#symDemoIntro p{max-width:660px;margin:9px 0 0;font:13px/1.6 Inter,sans-serif}
 .symDemoProfile .profileKicker{font-weight:700}.symDemoProfile .profileReviews,.symDemoProfile .googleReputation{display:none!important}
-.symDemoActionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.symDemoActionGrid button{padding:15px;border-radius:18px;border:1px solid #e9cedb;background:#fff8fb;color:#694c65;font:600 14px Inter,sans-serif;cursor:pointer}.symDemoActionGrid button:first-child{background:#ad7e9e;color:white}.symDemoActionGrid button:hover{filter:brightness(.96)}.symDemoActionNote{font:12px/1.5 Inter,sans-serif;color:#755d6b;margin:12px 0}
+.symDemoActionGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.symDemoActionGrid button{font-family:Inter,sans-serif}.symDemoActionGrid button:hover{filter:brightness(.985)}.symDemoActionNote{font:12px/1.5 Inter,sans-serif;color:#755d6b;margin:12px 0}
 </style>
 <script id="symbli-twelve-demo-intro">(()=>{function boot(){const g=document.querySelector('.comparisonGrid');if(!g||g.dataset.liveReady!=='true'){setTimeout(boot,150);return}const intro=document.createElement('div');intro.id='symDemoIntro';intro.innerHTML='<span class="symDemoEyebrow">A PREVIEW OF SYMBLI</span><strong>Find your kind of studio</strong><p>Explore the cards, open a profile and see how SYMBLI helps you get a feel for a place. These twelve profiles are previews; real studios will join the collection as they come on board.</p>';document.querySelector('.resultsHead')?.insertAdjacentElement('afterend',intro);const proof=document.getElementById('symDbProof');if(proof)proof.style.display='none'}setTimeout(boot,1500)})();</script>
 <style id="symbli-map-zoom-and-uniform-profile-pills">
