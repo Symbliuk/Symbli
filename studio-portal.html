@@ -117,6 +117,90 @@ radial-gradient(circle at 95% 0,rgba(232,193,211,.18),transparent 27%),#fff;over
 .heroActions span{max-width:330px;font-size:10px;line-height:1.5;color:#d6e0e8}
 @media(max-width:720px){.heroActions{align-items:stretch}.heroActions .previewBtn{width:100%;justify-content:center}.heroActions span{text-align:center;max-width:none}}
 </style>
+
+<style id="symbli-referral-inbox-v5">
+.referralQueueHead,.referralHistoryHead{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:20px}
+.referralQueueTitle,.referralHistoryTitle{font:500 18px Fraunces,serif;color:var(--navy)}
+.referralQueueCount{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 9px;border-radius:999px;background:#fff0e9;color:#9b604d;font-size:10px;font-weight:800}
+.referralQueue{display:grid;gap:11px;margin-top:11px}
+.referralQueue .referralItem{border-left:4px solid var(--peach);background:linear-gradient(145deg,#fffaf7,#fff)}
+.referralHistoryWrap{margin-top:24px;padding-top:20px;border-top:1px solid #eee1d8}
+.referralHistoryTools{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
+.referralHistoryTools select{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;color:#725f55;font:600 10px Inter,sans-serif;outline:none}
+.referralHistoryList{display:grid;gap:9px}
+.referralHistoryList .referralItem{padding:14px;background:#fffdfb}
+.referralLoadMore{display:block;margin:13px auto 0}
+.referralEmpty{padding:17px;border:1px dashed #e7d8d0;border-radius:14px;background:#fffaf7;color:#8b786e;font-size:11px;text-align:center;line-height:1.55}
+.referralStatusLine{margin-top:12px;font-size:10px;color:#8a766c}
+@media(max-width:720px){.referralQueueHead,.referralHistoryHead{align-items:flex-start}.referralHistoryTools select{flex:1;min-width:135px}}
+</style>
+
+<style id="symbli-results-dashboard-v6">
+#referrals{padding:0!important;background:#fff!important}
+.resultsHero{padding:29px 29px 24px;background:radial-gradient(circle at 93% 0,rgba(232,193,211,.18),transparent 31%),linear-gradient(145deg,#fffaf7,#fff);border-bottom:1px solid #eee1d8}
+.resultsHeroTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+.resultsHero h2{font-size:29px!important}.resultsPeriod{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;color:#725f55;font:600 10px Inter,sans-serif}
+.resultsRevenue{margin-top:23px}.resultsRevenue span{display:block;font-size:9px;font-weight:800;letter-spacing:.14em;color:#aa7c9e;text-transform:uppercase}.resultsRevenue strong{display:block;margin-top:5px;font:500 40px Fraunces,serif;color:var(--navy)}.resultsRevenue small{display:block;margin-top:5px;color:#8a766c;font-size:10px}
+.resultsMiniStats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:18px;max-width:610px}
+.resultsMiniStat{padding:12px 14px;border:1px solid #eadfd9;border-radius:15px;background:rgba(255,255,255,.8)}
+.resultsMiniStat span{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#917a70}.resultsMiniStat strong{display:block;margin-top:5px;font:500 21px Fraunces,serif}
+.resultsBody{padding:22px 29px 29px}
+.attentionCard{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 19px;border:1px solid #efcfbf;border-radius:18px;background:linear-gradient(135deg,#fff4ee,#fffaf7)}
+.attentionIcon{display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:13px;background:#e99576;color:#fff;font-weight:900}
+.attentionCopy{display:flex;gap:13px;align-items:center;flex:1}.attentionCopy strong{display:block;font-size:13px}.attentionCopy span{display:block;margin-top:4px;font-size:10px;line-height:1.5;color:#826f65}
+.attentionBtn{white-space:nowrap}
+.attentionResolved{border-color:#dbe9df;background:#f4faf5}.attentionResolved .attentionIcon{background:#6c9678}
+.pendingDrawer{margin-top:11px;padding:5px 0 2px}.pendingDrawer.hidden{display:none!important}
+.recentBlock{margin-top:24px;padding-top:20px;border-top:1px solid #eee1d8}.recentHead{display:flex;justify-content:space-between;gap:12px;align-items:center}.recentHead h3{margin:0;font:500 19px Fraunces,serif}.textBtn{border:0;background:transparent;color:#9a6c83;font-size:10px;font-weight:800;cursor:pointer}
+.recentRows{display:grid;margin-top:10px}.recentRow{display:grid;grid-template-columns:32px 1fr auto;gap:11px;align-items:center;padding:11px 3px;border-bottom:1px solid #f1e8e3}.recentIcon{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;background:#eef8f1;color:#356a45;font-size:11px;font-weight:900}.recentIcon.no{background:#f3f1f0;color:#766b65}.recentMain b{display:block;font-size:11px}.recentMain span{display:block;margin-top:3px;font-size:9px;color:#8b7970}.recentMoney{text-align:right;font-size:11px;font-weight:800}.recentMoney small{display:block;margin-top:3px;font-size:8px;font-weight:500;color:#9b867c}
+.historyDrawer{margin-top:19px;padding-top:18px;border-top:1px solid #eee1d8}.historyDrawer.hidden{display:none!important}
+@media(max-width:720px){
+ .resultsHero,.resultsBody{padding:20px}.resultsHeroTop{display:block}.resultsPeriod{margin-top:13px}.resultsRevenue strong{font-size:36px}
+ .resultsMiniStats{grid-template-columns:repeat(3,1fr)}.resultsMiniStat{padding:11px 9px}.resultsMiniStat strong{font-size:19px}
+ .attentionCard{align-items:stretch;flex-direction:column}.attentionCopy{align-items:flex-start}.attentionBtn{width:100%}
+}
+</style>
+
+<style id="symbli-results-polish-v7">
+/* V7 visual polish only: keeps the V6 referral workflow intact */
+#referrals{border:1px solid #eadfd9!important;box-shadow:0 20px 52px rgba(18,34,56,.075)!important}
+.resultsHero{position:relative;overflow:hidden;padding:34px 34px 29px;background:
+ radial-gradient(circle at 90% 2%,rgba(198,151,184,.20),transparent 29%),
+ radial-gradient(circle at 72% 105%,rgba(236,169,142,.16),transparent 30%),
+ linear-gradient(145deg,#fff9f5,#fff 65%)}
+.resultsHero:after{content:'';position:absolute;right:-42px;top:-58px;width:180px;height:180px;border:1px solid rgba(170,124,158,.12);border-radius:50%}
+.resultsHeroTop,.resultsRevenue,.resultsMiniStats{position:relative;z-index:1}
+.resultsHeroTop .tag{display:inline-flex;align-items:center;gap:7px;color:#9c6e8e}
+.resultsHeroTop .tag:before{content:'↗';display:grid;place-items:center;width:23px;height:23px;border-radius:8px;background:#f5e9f1;color:#9b6f91;font-size:11px}
+.resultsHero h2{margin-top:8px!important;font-size:31px!important}
+.resultsHeroTop .muted{max-width:560px;margin:7px 0 0;font-size:11px}
+.resultsPeriod{position:relative;z-index:2;box-shadow:0 5px 15px rgba(18,34,56,.04)}
+.resultsRevenue{display:inline-block;margin-top:27px;padding:17px 21px 16px;border:1px solid #eadbe5;border-radius:19px;background:rgba(255,255,255,.76);box-shadow:0 8px 24px rgba(18,34,56,.035);backdrop-filter:blur(8px)}
+.resultsRevenue strong{font-size:44px;letter-spacing:-.02em}.resultsRevenue small{font-weight:600}
+.resultsMiniStats{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.resultsMiniStat{min-height:82px;padding:15px 17px;background:#fff;box-shadow:0 7px 20px rgba(18,34,56,.028)}
+.resultsMiniStat strong{font-size:24px}.resultsMiniStat:nth-child(3){background:linear-gradient(145deg,#f8eef6,#fff);border-color:#ead9e6}
+.resultsBody{padding:25px 34px 32px;background:linear-gradient(180deg,#fff,#fffdfb)}
+.attentionCard{position:relative;overflow:hidden;padding:20px 21px;border-color:#efd1c2;box-shadow:0 8px 22px rgba(233,149,118,.06)}
+.attentionCard:after{content:'';position:absolute;right:-25px;top:-30px;width:90px;height:90px;border-radius:50%;background:rgba(233,149,118,.07)}
+.attentionCopy,.attentionBtn{position:relative;z-index:1}.attentionIcon{box-shadow:0 6px 15px rgba(233,149,118,.24)}
+.attentionCopy strong{font-size:14px}.attentionCopy span{font-size:10px}
+.attentionBtn{min-height:40px;box-shadow:0 7px 18px rgba(233,149,118,.18)}
+.attentionResolved{box-shadow:none}.attentionResolved:after{background:rgba(108,150,120,.06)}
+.recentBlock{margin-top:27px}.recentHead{padding:0 2px 8px}.recentHead h3{margin-top:5px;font-size:21px}.textBtn{padding:8px 10px;border-radius:999px}.textBtn:hover{background:#f8eef6}
+.recentRows{border:1px solid #eee2dc;border-radius:17px;overflow:hidden;background:#fff}
+.recentRow{padding:13px 15px;border-bottom:1px solid #f1e8e3}.recentRow:last-child{border-bottom:0}.recentRow:hover{background:#fffaf7}
+.recentIcon{width:33px;height:33px;border-radius:11px}.recentMain b{font-size:11px}.recentMoney{font-size:12px}
+.pendingDrawer{padding:12px 0 0}.pendingDrawer .referralItem{box-shadow:0 8px 22px rgba(18,34,56,.035)}
+.historyDrawer{padding:20px;border:1px solid #eee2dc;border-radius:18px;background:#fffaf7}
+.referralHistoryTools select{background:#fff;box-shadow:0 3px 10px rgba(18,34,56,.025)}
+@media(max-width:720px){
+ #referrals{border-radius:22px!important}.resultsHero,.resultsBody{padding:21px 18px}
+ .resultsHero h2{font-size:27px!important}.resultsRevenue{display:block;padding:15px 17px}.resultsRevenue strong{font-size:38px}
+ .resultsMiniStats{gap:7px}.resultsMiniStat{min-height:72px;padding:12px 10px}.resultsMiniStat strong{font-size:21px}
+ .attentionCard{padding:17px}.recentRow{padding:12px 10px}.historyDrawer{padding:15px}
+}
+</style>
 </head><body><div class="wrap"><div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO PORTAL • MANAGE YOUR LISTING</div></div><div id="session" class="pill">Not signed in</div></div>
 <section id="auth" class="card login"><div class="welcomeMark">SYMBLI FOR STUDIOS</div><h1>Bring your studio to life.</h1><p class="muted">Sign in with the email linked to your studio. Build your listing at your own pace, preview it, then send it to SYMBLI for review.</p><div class="tabs"><button id="signInTab" class="active">Sign in</button><button id="signUpTab">Create account</button></div><label class="field"><span>EMAIL</span><input id="email" type="email"></label><label class="field"><span>PASSWORD</span><input id="password" type="password" minlength="8"></label><button id="authBtn" class="btn" style="width:100%;margin-top:16px">Sign in</button><div id="authStatus" class="status">Use your SYMBLI studio email.</div></section>
 <section id="portal" class="hidden"><div class="card hero"><div class="heroSplit"><div><div class="eyebrow">WELCOME TO YOUR STUDIO SPACE</div><h1 id="studioName">Studio Portal</h1><p id="studioIntro">Build a listing that feels like your studio.</p></div><div class="heroAside"><span>YOUR NEXT STEP</span><strong id="heroNext">Start with your studio details</strong><small id="heroVisibility">Your listing is in progress</small></div></div><div class="quick"><button data-target="referrals">Results</button><button data-target="details">Studio details</button><button data-target="treatments">Treatments</button><button data-target="vibes">Vibe</button><button data-target="services">Services</button><button data-target="photos">Photos</button></div><div class="heroActions"><button id="previewListing" class="btn previewBtn" type="button">Preview my live-style listing →</button><span>See your studio exactly as customers will experience it before you publish changes.</span></div><div class="notice">You can edit your own studio listing here. SYMBLI reviews and publishes it; your changes are not public until your studio goes live.</div></div>
@@ -136,16 +220,40 @@ radial-gradient(circle at 95% 0,rgba(232,193,211,.18),transparent 27%),#fff;over
  <div class="portalSideHint">Your results update as SYMBLI sends customers to your studio.</div>
 </aside>
 <div class="portalSectionLabel">Performance</div><div class="card" id="referrals">
-  <div class="head"><div><h2>Your SYMBLI Results</h2><p class="muted">See the customers, bookings and revenue SYMBLI has generated for your studio. Review new referrals here as they arrive.</p></div><span class="live">● Live referral data</span></div>
-  <div class="referralStats">
-    <div class="referralStat"><span>Referrals</span><strong id="refTotal">0</strong></div>
-    <div class="referralStat"><span>Confirmed bookings</span><strong id="refBooked">0</strong></div>
-    <div class="referralStat"><span>Revenue generated</span><strong id="refRevenue">£0.00</strong></div>
-    <div class="referralStat"><span>5% commission</span><strong id="refCommission">£0.00</strong></div>
+  <div class="resultsHero">
+    <div class="resultsHeroTop"><div><div class="tag">YOUR SYMBLI RESULTS</div><h2>Performance at a glance</h2><p class="muted">See what SYMBLI is generating for your studio and deal with new referrals when they arrive.</p></div>
+      <select id="resultsPeriod" class="resultsPeriod" aria-label="Results period"><option value="this_month">This month</option><option value="last_month">Last month</option><option value="all">All time</option></select>
+    </div>
+    <div class="resultsRevenue"><span>Revenue generated</span><strong id="refRevenue">£0.00</strong><small id="refFeeLine">£0.00 SYMBLI fee on confirmed revenue</small></div>
+    <div class="resultsMiniStats">
+      <div class="resultsMiniStat"><span>Referrals</span><strong id="refTotal">0</strong></div>
+      <div class="resultsMiniStat"><span>Bookings</span><strong id="refBooked">0</strong></div>
+      <div class="resultsMiniStat"><span>Conversion</span><strong id="refConversion">0%</strong></div>
+    </div>
   </div>
-  <div class="notice">New referrals appear here automatically. When you know the outcome, confirm the booking value or mark the referral as “Didn’t book”.</div>
-  <div id="referralStatus" class="status">Loading referrals…</div>
-  <div id="referralList" class="referralList"></div>
+  <div class="resultsBody">
+    <div id="attentionCard" class="attentionCard">
+      <div class="attentionCopy"><div class="attentionIcon">!</div><div><strong id="attentionTitle">Checking new referrals…</strong><span id="attentionText">New SYMBLI referrals that need an outcome will appear here.</span></div></div>
+      <button id="reviewPending" type="button" class="btn attentionBtn">Review referrals →</button>
+    </div>
+    <div id="pendingDrawer" class="pendingDrawer hidden"><div id="referralPendingList" class="referralQueue"></div></div>
+
+    <div class="recentBlock">
+      <div class="recentHead"><div><div class="tag">LATEST OUTCOMES</div><h3>Recent activity</h3></div><button id="viewAllHistory" class="textBtn" type="button">View all →</button></div>
+      <div id="recentReferralRows" class="recentRows"></div>
+    </div>
+
+    <div id="historyDrawer" class="historyDrawer hidden">
+      <div class="referralHistoryHead"><div><div class="tag">FULL LEDGER</div><div class="referralHistoryTitle">Referral history</div></div><button id="closeHistory" class="textBtn" type="button">Close ↑</button></div>
+      <div class="referralHistoryTools">
+        <select id="refHistoryStatus" aria-label="Filter referral history by status"><option value="all">All outcomes</option><option value="booked">Booked</option><option value="not_booked">Didn't book</option></select>
+        <select id="refHistoryPeriod" aria-label="Filter referral history by date"><option value="this_month">This month</option><option value="last_month">Last month</option><option value="all" selected>All time</option></select>
+      </div>
+      <div id="referralHistoryList" class="referralHistoryList"></div>
+      <button id="refLoadMore" type="button" class="btn secondary referralLoadMore hidden">Load more</button>
+    </div>
+    <div id="referralStatus" class="referralStatusLine">Loading referrals…</div>
+  </div>
 </div>
 <div class="portalSectionLabel">Manage your listing</div><div class="onboardBox" id="ownerOnboarding"><div class="head"><div><div class="tag">LISTING ONBOARDING</div><h2>Listing health</h2><p class="muted">Keep the essentials below complete so customers always see a polished, useful studio profile.</p></div><span id="reviewState" class="reviewState">DRAFT</span></div><div class="progressLine"><strong id="ownerProgress">0%</strong><span class="muted" id="ownerProgressCopy">0 of 5 complete</span></div><div class="progressTrack"><div id="ownerProgressFill" class="progressFill"></div></div><div class="checkGrid"><div class="checkItem" id="checkDetails">01  Studio details</div><div class="checkItem" id="checkTreatments">02  Treatments</div><div class="checkItem" id="checkVibes">03  Studio vibe</div><div class="checkItem" id="checkServices">04  Services & pricing</div><div class="checkItem" id="checkPhotos">05  Photos</div></div><div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:16px"><button id="nextMissing" class="btn secondary">Go to next missing section</button><button id="submitReview" class="btn" disabled>Submit listing for review</button></div><div id="reviewStatus" class="status">Complete your listing to submit it for review.</div><div class="afterReview"><div><b>1. You submit</b><span>We check the profile, photos and services.</span></div><div><b>2. We agree the details</b><span>SYMBLI shares the studio agreement and payment setup with you.</span></div><div><b>3. We publish</b><span>You review the final listing before it goes live.</span></div></div></div><div class="card" id="details"><div class="head"><div><h2>Studio details</h2><p class="muted">Tell customers who you are and how to book. Add at least one contact or booking option.</p></div><span class="live">● Live Supabase data</span></div><div class="grid2"><label class="field"><span>STUDIO NAME</span><input id="name"></label><label class="field"><span>TOWN</span><input id="town"></label><label class="field wide"><span>DESCRIPTION</span><textarea id="description"></textarea></label><label class="field"><span>BOOKING LINK</span><input id="booking" type="url"></label><label class="field"><span>WEBSITE</span><input id="website" type="url"></label><label class="field"><span>INSTAGRAM</span><input id="instagram" type="url"></label><label class="field"><span>PHONE</span><input id="phone" type="tel"></label><label class="field"><span>YEARS EXPERIENCE</span><input id="years" type="number" min="0" max="80"></label><label class="field wide"><span>QUALIFICATION LEVEL</span><input id="qualification"></label></div><button id="saveDetails" class="btn" style="margin-top:15px">Save details</button><div id="detailsStatus" class="status">Ready.</div></div>
 <div class="card" id="treatments"><div class="head"><div><h2>Treatments</h2><p class="muted">Choose every treatment category that fits. You can change these later.</p></div><span class="live">● Live Supabase data</span></div><div id="treatmentList" class="treatments"></div><button id="saveTreatments" class="btn" style="margin-top:15px">Save treatments</button><div id="treatmentStatus" class="status">Ready.</div></div>
@@ -196,35 +304,89 @@ function renderReviewState(){if(!$('reviewState'))return;const st=reviewSubmissi
 $('nextMissing').onclick=()=>{const id=$('nextMissing').dataset.target;if(id)$(id)?.scrollIntoView({behavior:'smooth',block:'start'})};
 $('submitReview').onclick=async()=>{const checks=ownerChecks();if(checks.some(x=>!x.ok))return updateOwnerOnboarding();if(!confirm('Send your listing to SYMBLI for review? You can still edit it afterwards.'))return;status('reviewStatus','Submitting listing…');try{const body={studio_id:studio.id,status:'submitted',submitted_at:new Date().toISOString(),reviewed_at:null,admin_note:null};if(reviewSubmission)await api('/rest/v1/studio_listing_submissions?studio_id=eq.'+encodeURIComponent(studio.id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)});else await api('/rest/v1/studio_listing_submissions',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify(body)});await loadReviewSubmission();updateOwnerOnboarding()}catch(e){status('reviewStatus','Could not submit: '+clean(e),'bad')}};
 
-let bookingReferrals=[];
+let bookingReferrals=[],refHistoryLimit=10;
 const money=n=>'£'+Number(n||0).toFixed(2);
 function referralLabel(r){
   const d=r.clicked_at?new Date(r.clicked_at):null;
   return d&&!isNaN(d)?d.toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Referral';
 }
+function referralCard(r,pending=false){
+  const short=String(r.referral_id||'').slice(0,8);
+  const statusText=r.status==='booked'?'Booked':r.status==='not_booked'?"Didn't book":'Pending';
+  return `<div class="referralItem" data-ref="${esc(r.id)}">
+    <div class="referralTop"><div><b>SYMBLI referral • ${esc(referralLabel(r))}</b><div class="referralMeta">Reference ${esc(short)}${r.status==='booked'&&r.booking_value!=null?' • '+money(r.booking_value)+' booking • '+money(r.commission_amount ?? Number(r.booking_value||0)*.05)+' commission':''}</div></div><span class="referralBadge ${esc(r.status)}">${esc(statusText)}</span></div>
+    ${pending?`<div class="referralActions"><button class="bookedBtn" onclick="showReferralValue('${esc(r.id)}')">Booked</button><button onclick="markNotBooked('${esc(r.id)}')">Didn't book</button></div><div class="referralValue hidden" id="value-${esc(r.id)}"><span>£</span><input type="number" min="0.01" step="0.01" placeholder="Final booking value"><button class="btn" onclick="confirmReferralBooking('${esc(r.id)}')">Confirm booking</button><small>SYMBLI commission: 5%</small></div>`:''}
+  </div>`;
+}
+function inHistoryPeriod(r,period){
+  if(period==='all')return true;
+  const d=new Date(r.confirmed_at||r.clicked_at||r.created_at);
+  if(isNaN(d))return false;
+  const now=new Date();
+  if(period==='this_month')return d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth();
+  const last=new Date(now.getFullYear(),now.getMonth()-1,1);
+  return d.getFullYear()===last.getFullYear()&&d.getMonth()===last.getMonth();
+}
+function filteredResultRows(){
+  const period=$('resultsPeriod')?.value||'this_month';
+  return (bookingReferrals||[]).filter(r=>inHistoryPeriod(r,period));
+}
+function renderReferralHistory(){
+  const statusFilter=$('refHistoryStatus')?.value||'all',period=$('refHistoryPeriod')?.value||'all';
+  let rows=(bookingReferrals||[]).filter(r=>r.status!=='pending');
+  if(statusFilter!=='all')rows=rows.filter(r=>r.status===statusFilter);
+  rows=rows.filter(r=>inHistoryPeriod(r,period));
+  const shown=rows.slice(0,refHistoryLimit);
+  $('referralHistoryList').innerHTML=shown.map(r=>referralCard(r,false)).join('')||'<div class="referralEmpty">No completed referrals match these filters.</div>';
+  $('refLoadMore')?.classList.toggle('hidden',shown.length>=rows.length);
+}
+function renderRecentActivity(){
+  const rows=(bookingReferrals||[]).filter(r=>r.status!=='pending').slice(0,4);
+  $('recentReferralRows').innerHTML=rows.length?rows.map(r=>{
+    const booked=r.status==='booked',date=referralLabel(r),short=String(r.referral_id||'').slice(0,8);
+    return `<div class="recentRow"><div class="recentIcon ${booked?'':'no'}">${booked?'✓':'×'}</div><div class="recentMain"><b>${booked?'Booked':"Didn't book"}</b><span>${esc(date)} · Ref ${esc(short)}</span></div><div class="recentMoney">${booked?money(r.booking_value):'—'}<small>${booked?money(r.commission_amount ?? Number(r.booking_value||0)*.05)+' fee':'No fee'}</small></div></div>`;
+  }).join(''):'<div class="referralEmpty">No completed referral activity yet.</div>';
+}
 function renderReferrals(){
-  const rows=bookingReferrals||[],booked=rows.filter(r=>r.status==='booked');
+  const all=bookingReferrals||[],pending=all.filter(r=>(r.status||'pending')==='pending');
+  const rows=filteredResultRows(),booked=rows.filter(r=>r.status==='booked');
   const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0);
   const commission=booked.reduce((a,r)=>a+Number(r.commission_amount ?? (Number(r.booking_value||0)*Number(r.commission_rate||.05))),0);
+  const conversion=rows.length?Math.round(booked.length/rows.length*100):0;
   $('refTotal').textContent=rows.length;$('refBooked').textContent=booked.length;
-  $('refRevenue').textContent=money(revenue);$('refCommission').textContent=money(commission);
-  $('referralList').innerHTML=rows.map(r=>{
-    const short=String(r.referral_id||'').slice(0,8);
-    const statusText=r.status==='booked'?'Booked':r.status==='not_booked'?"Didn't book":'Pending';
-    const completed=r.status!=='pending';
-    return `<div class="referralItem" data-ref="${esc(r.id)}">
-      <div class="referralTop"><div><b>SYMBLI referral • ${esc(referralLabel(r))}</b><div class="referralMeta">Reference ${esc(short)}${r.status==='booked'&&r.booking_value!=null?' • '+money(r.booking_value)+' booking • '+money(r.commission_amount)+' commission':''}</div></div><span class="referralBadge ${esc(r.status)}">${esc(statusText)}</span></div>
-      ${completed?'':`<div class="referralActions"><button class="bookedBtn" onclick="showReferralValue('${esc(r.id)}')">Booked</button><button onclick="markNotBooked('${esc(r.id)}')">Didn't book</button></div><div class="referralValue hidden" id="value-${esc(r.id)}"><span>£</span><input type="number" min="0.01" step="0.01" placeholder="Final booking value"><button class="btn" onclick="confirmReferralBooking('${esc(r.id)}')">Confirm booking</button><small>SYMBLI commission: 5%</small></div>`}
-    </div>`
-  }).join('')||'<div class="muted">No SYMBLI booking referrals yet.</div>';
-  status('referralStatus',rows.length?rows.length+' referral(s) loaded.':'No booking referrals yet.','ok');
+  $('refRevenue').textContent=money(revenue);$('refConversion').textContent=conversion+'%';
+  $('refFeeLine').textContent=money(commission)+' SYMBLI fee on '+money(revenue)+' confirmed revenue';
+  const card=$('attentionCard');
+  if(pending.length){
+    card.classList.remove('attentionResolved');
+    $('attentionTitle').textContent=pending.length+' referral'+(pending.length===1?' needs':'s need')+' your attention';
+    $('attentionText').textContent='Tell us whether '+(pending.length===1?'this customer booked':'these customers booked')+' so your SYMBLI results stay accurate.';
+    $('reviewPending').textContent='Review '+pending.length+' referral'+(pending.length===1?'':'s')+' →';
+    $('reviewPending').classList.remove('hidden');
+  }else{
+    card.classList.add('attentionResolved');
+    $('attentionTitle').textContent='You’re all caught up ✓';
+    $('attentionText').textContent='No new referrals need an outcome right now.';
+    $('reviewPending').classList.add('hidden');$('pendingDrawer').classList.add('hidden');
+  }
+  $('referralPendingList').innerHTML=pending.map(r=>referralCard(r,true)).join('');
+  renderRecentActivity();renderReferralHistory();
+  $('referralStatus').textContent=all.length?all.length+' referral'+(all.length===1?'':'s')+' stored in your SYMBLI record.':'Your referral activity will appear here.';
 }
 async function loadReferrals(){
   try{
     bookingReferrals=await api('/rest/v1/booking_referrals?select=*&studio_id=eq.'+encodeURIComponent(studio.id)+'&order=clicked_at.desc');
     renderReferrals();
-  }catch(e){bookingReferrals=[];renderReferrals();status('referralStatus','Could not load referrals: '+clean(e),'bad')}
+  }catch(e){bookingReferrals=[];renderReferrals();$('referralStatus').textContent='Could not load referrals: '+clean(e)}
 }
+$('refHistoryStatus').onchange=()=>{refHistoryLimit=10;renderReferralHistory()};
+$('resultsPeriod').onchange=()=>renderReferrals();
+$('reviewPending').onclick=()=>{$('pendingDrawer').classList.toggle('hidden');if(!$('pendingDrawer').classList.contains('hidden'))$('pendingDrawer').scrollIntoView({behavior:'smooth',block:'nearest'})};
+$('viewAllHistory').onclick=()=>{$('historyDrawer').classList.remove('hidden');$('historyDrawer').scrollIntoView({behavior:'smooth',block:'nearest'})};
+$('closeHistory').onclick=()=>$('historyDrawer').classList.add('hidden');
+$('refHistoryPeriod').onchange=()=>{refHistoryLimit=10;renderReferralHistory()};
+$('refLoadMore').onclick=()=>{refHistoryLimit+=10;renderReferralHistory()};
+
 function showReferralValue(id){$('value-'+id)?.classList.remove('hidden');$('value-'+id)?.querySelector('input')?.focus()}
 async function markNotBooked(id){
   if(!confirm("Mark this SYMBLI referral as Didn't book?"))return;
