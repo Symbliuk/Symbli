@@ -584,7 +584,7 @@ window.submitFoundingForm=async function(e){
  const inputs=form.querySelectorAll('input'); const ta=form.querySelector('textarea');
  const btn=form.querySelector('button[type="submit"]'); const old=btn.textContent;
  btn.disabled=true; btn.textContent='SENDING...';
- const payload={studio_name:inputs[0].value.trim(),contact_name:inputs[1].value.trim(),email:inputs[2].value.trim(),location:inputs[3].value.trim(),instagram_or_website:inputs[4].value.trim()||null,message:ta.value.trim()||null,status:'new'};
+ const payload={studio_name:inputs[0].value.trim(),contact_name:inputs[1].value.trim(),email:inputs[2].value.trim(),location:inputs[3].value.trim(),instagram_or_website:inputs[4].value.trim()||null,message:ta.value.trim()||null,status:'pending'};
  try{
   await api('studio_applications',{method:'POST',headers:{'Prefer':'return=minimal'},body:JSON.stringify(payload)});
   document.getElementById('foundFormWrap').style.display='none';
