@@ -550,7 +550,245 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .ownerAccessForm input{width:100%;font-family:monospace;font-size:12px}
 @media(max-width:650px){.ownerAccessForm{flex-direction:column;align-items:stretch}.ownerAccessForm button{width:100%}.ownerAccessRow{align-items:flex-start;flex-direction:column}}
 .ownerEmailQuick{margin-top:16px;padding:17px 19px;border:1px solid #e6c9b9;border-radius:15px;background:#fff9f5}.ownerEmailQuick input{width:100%;max-width:550px}.ownerEmailQuick .field{margin:0!important}.ownerEmailQuick button{margin-top:10px}.ownerEmailQuick .smallNote{margin-left:10px}
-</style></head><body><div class="wrap">
+</style>
+<style id="symbli-admin-layout-v54">
+/* =========================================================
+   SYMBLI ADMIN V54 — dashboard-first layout
+   Layout / UX only. Existing Admin workflows remain intact.
+   ========================================================= */
+#adminView{
+  display:grid;
+  grid-template-columns:238px minmax(0,1fr);
+  column-gap:22px;
+  align-items:start;
+}
+#adminView.hidden{display:none!important}
+
+/* Turn the existing top tabs into a proper Admin navigation rail */
+#adminTopTabs{
+  grid-column:1!important;
+  grid-row:1!important;
+  position:sticky!important;
+  top:18px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:7px!important;
+  margin:0!important;
+  padding:17px!important;
+  overflow:visible!important;
+  border:1px solid #eaded6!important;
+  border-radius:22px!important;
+  background:rgba(255,253,251,.93)!important;
+  box-shadow:0 16px 42px rgba(31,38,51,.065)!important;
+  backdrop-filter:blur(14px);
+}
+#adminTopTabs:before{
+  content:"ADMIN CONTROL CENTRE";
+  display:block;
+  padding:3px 8px 10px;
+  color:#b77a65;
+  font-size:8px;
+  font-weight:850;
+  letter-spacing:.16em;
+}
+#adminTopTabs:after{
+  content:"Manage the SYMBLI network from one place.";
+  display:block;
+  margin-top:7px;
+  padding:13px 8px 2px;
+  border-top:1px solid #eee3dd;
+  color:#95857d;
+  font-size:9px;
+  line-height:1.55;
+}
+#adminTopTabs .adminTopTab{
+  position:relative;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  min-height:45px!important;
+  margin:0!important;
+  padding:0 12px 0 43px!important;
+  border:0!important;
+  border-radius:13px!important;
+  background:transparent!important;
+  color:#657080!important;
+  text-align:left!important;
+  font-size:11px!important;
+  font-weight:750!important;
+  box-shadow:none!important;
+}
+#adminTopTabs .adminTopTab:before{
+  position:absolute;left:10px;top:9px;
+  display:grid;place-items:center;
+  width:27px;height:27px;border-radius:9px;
+  background:#f8ece7;color:#9b6f81;
+  font-size:12px;font-weight:800;
+}
+#adminTopTabs [data-admin-tab="overview"]:before{content:"⌂"}
+#adminTopTabs [data-admin-tab="applications"]:before{content:"↘"}
+#adminTopTabs [data-admin-tab="reviews"]:before{content:"✓"}
+#adminTopTabs [data-admin-tab="studios"]:before{content:"◇"}
+#adminTopTabs [data-admin-tab="analytics"]:before{content:"↗"}
+#adminTopTabs [data-admin-tab="referrals"]:before{content:"£"}
+#adminTopTabs [data-admin-tab="add"]:before{content:"+"}
+#adminTopTabs .adminTopTab:hover{background:#fff4ef!important;color:#172b43!important}
+#adminTopTabs .adminTopTab.active{
+  background:linear-gradient(135deg,#132a45,#1d3a59)!important;
+  color:#fff!important;
+  box-shadow:0 8px 20px rgba(18,34,56,.15)!important;
+}
+#adminTopTabs .adminTopTab.active:before{background:rgba(255,255,255,.13)!important;color:#fff!important}
+#adminTopTabs .adminTopTab.add{
+  margin-top:7px!important;
+  background:#fff3ed!important;
+  color:#a6634f!important;
+  border:1px solid #f0d5c9!important;
+}
+#adminTopTabs .adminTopTab.add:hover{background:#fbe7de!important}
+#adminTopTabs .count{margin-left:auto!important}
+
+/* Every tab becomes the main workspace */
+#adminView>.adminTabPane{
+  grid-column:2!important;
+  grid-row:1!important;
+  min-width:0;
+}
+.adminPaneIntro{
+  margin:3px 0 18px!important;
+  padding:0 3px 15px!important;
+  border-bottom:1px solid #eadfd9;
+}
+.adminPaneIntro h2{font-size:32px!important}
+.adminPaneIntro p{font-size:12px!important;max-width:700px}
+
+/* Overview gets a clearer command-centre feel */
+#adminPane-overview .opsHero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 90% 0,rgba(233,149,118,.18),transparent 31%),
+    linear-gradient(135deg,#122238,#213b58)!important;
+}
+#adminPane-overview .opsHero:after{
+  content:"";position:absolute;right:-70px;bottom:-110px;width:250px;height:250px;
+  border:1px solid rgba(255,255,255,.07);border-radius:50%;
+}
+.opsMetrics{position:relative;z-index:1}
+.opsMetric{backdrop-filter:blur(8px)}
+.opsMetric strong{font-family:Georgia,serif;font-weight:400!important}
+.opsSectionTitle{padding:0 3px}
+
+/* Studio manager reads as a workspace rather than one endless settings page */
+#adminPane-studios>.studioManagerCard{
+  position:relative;
+  border-left:4px solid #e99576!important;
+}
+#adminPane-studios #adminDashboard{margin-top:4px}
+#adminPane-studios .adminHero{padding:25px!important}
+#adminPane-studios .adminQuickNav{
+  position:sticky!important;top:12px!important;z-index:55!important;
+  margin:12px 0 20px!important;
+}
+#adminPane-studios .adminQuickNav:before{
+  content:"EDIT STUDIO";
+  align-self:center;
+  padding:0 7px;
+  color:#b47a65;font-size:8px;font-weight:850;letter-spacing:.14em;
+}
+#adminPane-studios .adminQuickNav button{
+  background:transparent!important;border:0!important;
+}
+#adminPane-studios .adminQuickNav button:hover,
+#adminPane-studios .adminQuickNav button.active{
+  background:#172e49!important;color:#fff!important;
+}
+
+/* Give the long edit cards more visual rhythm */
+#adminPane-studios #detailsCard,
+#adminPane-studios #treatmentsCard,
+#adminPane-studios #vibesCard,
+#adminPane-studios #servicesCard,
+#adminPane-studios #reviewsCard,
+#adminPane-studios #imagesCard{
+  scroll-margin-top:78px;
+}
+#adminPane-studios .card>.headRow{align-items:flex-start!important}
+#adminPane-studios .card>.headRow .muted{max-width:680px}
+
+/* Applications / review queues */
+#adminPane-applications .applicationsCard,
+#adminPane-reviews .opsLane,
+#adminPane-analytics .opsLane{
+  border-radius:22px!important;
+  box-shadow:0 14px 38px rgba(18,34,56,.05)!important;
+}
+#adminPane-applications .applicationsCard{padding:24px!important}
+
+/* Analytics: one obvious route into studio performance */
+#adminPane-analytics>.opsLane:first-of-type{
+  background:linear-gradient(135deg,#fffaf7,#fff)!important;
+  border-left:4px solid #aa7c9e!important;
+}
+
+/* More consistent page width and spacing */
+.wrap{max-width:1320px!important}
+#adminView .card,#adminView .ownerReviewPanel,#adminView .readinessHero,#adminView .publishPanel{margin-bottom:16px!important}
+
+/* Tablet and phone: nav becomes a swipeable sticky rail */
+@media(max-width:960px){
+ #adminView{display:block!important}
+ #adminTopTabs{
+   position:sticky!important;top:0!important;z-index:90!important;
+   flex-direction:row!important;overflow-x:auto!important;
+   gap:6px!important;padding:8px!important;margin:0 0 18px!important;
+   border-radius:16px!important;
+ }
+ #adminTopTabs:before,#adminTopTabs:after{display:none!important}
+ #adminTopTabs .adminTopTab{
+   flex:none!important;width:auto!important;min-height:40px!important;
+   padding:0 12px 0 39px!important;white-space:nowrap!important;
+ }
+ #adminTopTabs .adminTopTab:before{left:8px;top:7px;width:25px;height:25px}
+ #adminTopTabs .adminTopTab.add{margin-top:0!important}
+ #adminView>.adminTabPane{width:100%}
+ #adminPane-studios .adminQuickNav{top:57px!important}
+}
+@media(max-width:620px){
+ .wrap{padding-left:12px!important;padding-right:12px!important}
+ .adminPaneIntro h2{font-size:27px!important}
+ #adminPane-overview .opsHero{padding:21px!important}
+ #adminPane-studios .adminQuickNav{padding:7px!important}
+ #adminPane-studios .adminQuickNav:before{display:none}
+}
+</style>
+
+<style id="symbli-admin-referrals-v55">
+.refAdminHero{padding:27px;border-radius:24px;background:linear-gradient(130deg,#122238,#203b59 62%,#674b61);color:#fff;box-shadow:0 20px 48px rgba(18,34,56,.14);margin-bottom:16px}
+.refAdminHeroTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.refAdminHero h2{margin:6px 0 5px;font:400 30px Georgia,serif}.refAdminHero p{margin:0;color:#d4dce5;font-size:12px;line-height:1.55;max-width:680px}
+.refAdminRefresh{background:rgba(255,255,255,.11)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)!important}
+.refAdminMetrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:22px}
+.refAdminMetric{padding:15px;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.075)}
+.refAdminMetric span{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#becbd9}.refAdminMetric strong{display:block;margin-top:6px;font:500 27px Georgia,serif}
+.refAdminGrid{display:grid;grid-template-columns:.78fr 1.22fr;gap:16px}
+.refAdminPanel{background:#fff;border:1px solid #eadfd9;border-radius:20px;padding:20px;box-shadow:0 12px 34px rgba(18,34,56,.045)}
+.refAdminPanel h3{margin:4px 0;font:400 22px Georgia,serif;color:#122238}.refAdminPanel>p{margin:0 0 14px;color:#85736a;font-size:11px}
+.refStudioRows,.refLedgerRows{display:grid;gap:8px}
+.refStudioRow{border:1px solid #eee2dc;border-radius:14px;padding:12px;background:#fffaf7}
+.refStudioTop{display:flex;justify-content:space-between;gap:10px;align-items:center}.refStudioName{font-weight:800;font-size:12px;color:#17283d}.refStudioMeta{margin-top:5px;font-size:9px;color:#8a766c}
+.refStudioMoney{text-align:right;font-weight:800;color:#17283d;font-size:12px}.refStudioMoney small{display:block;font-weight:500;color:#9a8378;font-size:8px;margin-top:3px}
+.refFilters{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.refFilter{border:1px solid #e5d7cf;background:#fff;border-radius:999px;padding:7px 11px;font-size:9px;font-weight:800;color:#77645b;cursor:pointer}.refFilter.active{background:#122238;color:#fff;border-color:#122238}
+.refLedgerRow{display:grid;grid-template-columns:1.3fr .7fr .65fr auto;gap:10px;align-items:center;padding:12px;border:1px solid #eee2dc;border-radius:14px;background:#fff}
+.refLedgerTitle{font-weight:800;color:#17283d;font-size:11px}.refLedgerMeta{font-size:9px;color:#8b776d;margin-top:4px;overflow-wrap:anywhere}
+.refBadge{display:inline-block;padding:6px 8px;border-radius:999px;font-size:8px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;background:#fff0e9;color:#a86650}.refBadge.booked{background:#edf7f0;color:#477257}.refBadge.not_booked{background:#f4eeee;color:#8c6666}
+.refMoney{font-size:11px;font-weight:800;color:#17283d}.refMoney small{display:block;font-size:8px;font-weight:500;color:#9b867c;margin-top:3px}
+.refEmpty{padding:18px;border:1px dashed #e7d8d0;border-radius:14px;background:#fffaf7;color:#8b786e;font-size:11px;text-align:center;line-height:1.55}
+@media(max-width:950px){.refAdminMetrics{grid-template-columns:repeat(3,1fr)}.refAdminGrid{grid-template-columns:1fr}}
+@media(max-width:600px){.refAdminHero{padding:20px}.refAdminMetrics{grid-template-columns:1fr 1fr}.refLedgerRow{grid-template-columns:1fr 1fr}.refLedgerRow>div:first-child{grid-column:1/-1}}
+</style>
+</head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
 <div id="sessionPill" class="pill">Not signed in</div></div>
@@ -1643,11 +1881,12 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const admin=q('adminView'); if(!admin||q('adminTopTabs'))return;
    admin.insertAdjacentHTML('afterbegin',`
 <nav class="adminTopTabs" id="adminTopTabs" aria-label="SYMBLI Admin sections">
- <button class="adminTopTab active" data-admin-tab="overview">Overview</button>
+ <button class="adminTopTab active" data-admin-tab="overview">Dashboard</button>
  <button class="adminTopTab" data-admin-tab="applications">Applications <span class="count" id="tabApplicationsCount">0</span></button>
- <button class="adminTopTab" data-admin-tab="reviews">Owner Reviews <span class="count" id="tabReviewsCount">0</span></button>
+ <button class="adminTopTab" data-admin-tab="reviews">Listing Reviews <span class="count" id="tabReviewsCount">0</span></button>
  <button class="adminTopTab" data-admin-tab="studios">Studios</button>
  <button class="adminTopTab" data-admin-tab="analytics">Analytics</button>
+ <button class="adminTopTab" data-admin-tab="referrals">Referrals <span class="count" id="tabReferralsCount">0</span></button>
  <button class="adminTopTab add" data-admin-tab="add">+ Add Studio</button>
 </nav>
 `);
@@ -1656,10 +1895,34 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    if(dash){dash.parentNode.insertBefore(overview,dash);overview.appendChild(dash)}
    const applications=makePane('applications','Studio applications','Businesses that have applied to join SYMBLI themselves.');
    const reviews=makePane('reviews','Owner reviews','Listings that studio owners have submitted for your approval.');
-   const studios=makePane('studios','Studios','Manage every studio already in SYMBLI.');
-   const analytics=makePane('analytics','Analytics','Choose a studio, then view its live SYMBLI performance data.');
+   const studios=makePane('studios','Studio Manager','Choose a studio, then manage its profile, readiness, publishing and content from one workspace.');
+   const analytics=makePane('analytics','Performance','See how individual studios are performing across SYMBLI.');
+   const referrals=makePane('referrals','','');
    const add=makePane('add','Add a studio','Create a studio manually from the Admin side.');
-   overview.after(applications,reviews,studios,analytics,add);
+   overview.after(applications,reviews,studios,analytics,referrals,add);
+
+   referrals.innerHTML=`
+   <div class="refAdminHero">
+    <div class="refAdminHeroTop">
+     <div><div class="opsEyebrow">BOOKING ATTRIBUTION</div><h2>Referrals & revenue</h2><p>See the customer opportunities SYMBLI has sent to studios, what converted, the revenue generated and the 5% commission recorded.</p></div>
+     <button type="button" class="btn refAdminRefresh" id="refAdminRefresh">↻ Refresh referrals</button>
+    </div>
+    <div class="refAdminMetrics">
+     <div class="refAdminMetric"><span>Total referrals</span><strong id="refMetricTotal">0</strong></div>
+     <div class="refAdminMetric"><span>Pending</span><strong id="refMetricPending">0</strong></div>
+     <div class="refAdminMetric"><span>Confirmed bookings</span><strong id="refMetricBooked">0</strong></div>
+     <div class="refAdminMetric"><span>Revenue generated</span><strong id="refMetricRevenue">£0</strong></div>
+     <div class="refAdminMetric"><span>SYMBLI commission</span><strong id="refMetricCommission">£0</strong></div>
+    </div>
+   </div>
+   <div class="refAdminGrid">
+    <section class="refAdminPanel"><div class="opsEyebrow">BY STUDIO</div><h3>Studio performance</h3><p>Referral volume, confirmed revenue and commission by studio.</p><div id="refStudioRows" class="refStudioRows"><div class="refEmpty">Loading studio performance…</div></div></section>
+    <section class="refAdminPanel"><div class="opsEyebrow">REFERRAL LEDGER</div><h3>All referrals</h3><p>A live operational view of the referrals recorded by SYMBLI.</p>
+     <div class="refFilters"><button class="refFilter active" data-ref-filter="all">All</button><button class="refFilter" data-ref-filter="pending">Pending</button><button class="refFilter" data-ref-filter="booked">Booked</button><button class="refFilter" data-ref-filter="not_booked">Didn't book</button></div>
+     <div id="refLedgerRows" class="refLedgerRows"><div class="refEmpty">Loading referrals…</div></div>
+    </section>
+   </div>`;
+
 
    const appCard=[...admin.querySelectorAll('*')].find(el=>el.children?.length && /Studio Applications/.test(el.textContent||'') && (el.classList.contains('card')||el.tagName==='SECTION'));
    if(appCard)applications.appendChild(appCard);
@@ -1792,6 +2055,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    window.scrollTo({top:0,behavior:'smooth'});
    if(name==='add')setTimeout(()=>q('quickCreateName')?.focus(),100);
    if(name==='reviews')hydrateTabQueues();
+   if(name==='referrals' && window.SYMBLI_LOAD_ADMIN_REFERRALS) window.SYMBLI_LOAD_ADMIN_REFERRALS();
    if(name==='analytics'){
      const srcSel=q('studioSelect'), dst=q('analyticsStudioSelect');
      if(srcSel&&dst){dst.innerHTML='<option value="">Choose studio…</option>'+[...srcSel.options].filter(o=>o.value).map(o=>'<option value="'+o.value+'">'+o.textContent+'</option>').join('');}
@@ -1978,4 +2242,69 @@ document.addEventListener('click',function(e){
 
 
 
+
+<script id="symbli-admin-referrals-v55-js">
+(function(){
+ let allRefs=[], studioMap=new Map(), activeFilter='all';
+ const q=id=>document.getElementById(id);
+ const money=n=>'£'+Number(n||0).toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:2});
+ const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ function render(){
+   const refs=allRefs||[];
+   const booked=refs.filter(r=>r.status==='booked');
+   const pending=refs.filter(r=>(r.status||'pending')==='pending');
+   const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0);
+   const commission=booked.reduce((a,r)=>a+Number(r.commission_amount||0),0);
+   if(q('refMetricTotal'))q('refMetricTotal').textContent=refs.length;
+   if(q('refMetricPending'))q('refMetricPending').textContent=pending.length;
+   if(q('refMetricBooked'))q('refMetricBooked').textContent=booked.length;
+   if(q('refMetricRevenue'))q('refMetricRevenue').textContent=money(revenue);
+   if(q('refMetricCommission'))q('refMetricCommission').textContent=money(commission);
+   if(q('tabReferralsCount'))q('tabReferralsCount').textContent=pending.length;
+
+   const grouped=new Map();
+   refs.forEach(r=>{
+     const k=String(r.studio_id||'');
+     if(!grouped.has(k))grouped.set(k,{total:0,booked:0,revenue:0,commission:0});
+     const g=grouped.get(k);g.total++;
+     if(r.status==='booked'){g.booked++;g.revenue+=Number(r.booking_value||0);g.commission+=Number(r.commission_amount||0)}
+   });
+   const sr=[...grouped.entries()].sort((a,b)=>b[1].revenue-a[1].revenue);
+   if(q('refStudioRows'))q('refStudioRows').innerHTML=sr.length?sr.map(([id,g])=>{
+     const st=studioMap.get(id), rate=g.total?Math.round(g.booked/g.total*100):0;
+     return `<div class="refStudioRow"><div class="refStudioTop"><div><div class="refStudioName">${esc(st?.name||'Unknown studio')}</div><div class="refStudioMeta">${g.total} referral${g.total===1?'':'s'} · ${g.booked} booked · ${rate}% conversion</div></div><div class="refStudioMoney">${money(g.revenue)}<small>${money(g.commission)} commission</small></div></div></div>`;
+   }).join(''):'<div class="refEmpty">No referral activity yet.</div>';
+
+   const shown=activeFilter==='all'?refs:refs.filter(r=>(r.status||'pending')===activeFilter);
+   if(q('refLedgerRows'))q('refLedgerRows').innerHTML=shown.length?shown.map(r=>{
+     const st=studioMap.get(String(r.studio_id||'')), status=r.status||'pending';
+     const when=r.clicked_at||r.created_at;
+     const date=when?new Date(when).toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Unknown time';
+     const ref=String(r.referral_id||r.id||'').slice(0,8);
+     return `<div class="refLedgerRow"><div><div class="refLedgerTitle">${esc(st?.name||'Unknown studio')}</div><div class="refLedgerMeta">${date} · Ref ${esc(ref)}</div></div><div><span class="refBadge ${esc(status)}">${status==='not_booked'?"Didn't book":esc(status)}</span></div><div class="refMoney">${status==='booked'?money(r.booking_value):'—'}<small>${status==='booked'?money(r.commission_amount)+' commission':'No commission yet'}</small></div><div class="refLedgerMeta">${esc(r.confirmation_source||'SYMBLI')}</div></div>`;
+   }).join(''):'<div class="refEmpty">No referrals match this filter.</div>';
+ }
+ async function load(){
+   if(typeof authFetch!=='function')return;
+   const box=q('refLedgerRows'); if(box)box.innerHTML='<div class="refEmpty">Refreshing referral data…</div>';
+   try{
+     const [refs,studios]=await Promise.all([
+       authFetch('/rest/v1/booking_referrals?select=*&order=clicked_at.desc&limit=500'),
+       authFetch('/rest/v1/studios?select=id,name,is_active')
+     ]);
+     allRefs=Array.isArray(refs)?refs:[];
+     studioMap=new Map((Array.isArray(studios)?studios:[]).map(x=>[String(x.id),x]));
+     render();
+   }catch(e){
+     if(box)box.innerHTML='<div class="refEmpty">Could not load referrals. Admin SELECT access to booking_referrals may still need enabling in Supabase.</div>';
+   }
+ }
+ document.addEventListener('click',e=>{
+   const f=e.target.closest?.('[data-ref-filter]');
+   if(f){activeFilter=f.dataset.refFilter;document.querySelectorAll('.refFilter').forEach(x=>x.classList.toggle('active',x===f));render()}
+ });
+ document.addEventListener('click',e=>{if(e.target.closest?.('#refAdminRefresh'))load()});
+ window.SYMBLI_LOAD_ADMIN_REFERRALS=load;
+})();
+</script>
 </body></html>
