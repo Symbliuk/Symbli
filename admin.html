@@ -788,6 +788,29 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 @media(max-width:950px){.refAdminMetrics{grid-template-columns:repeat(3,1fr)}.refAdminGrid{grid-template-columns:1fr}}
 @media(max-width:600px){.refAdminHero{padding:20px}.refAdminMetrics{grid-template-columns:1fr 1fr}.refLedgerRow{grid-template-columns:1fr 1fr}.refLedgerRow>div:first-child{grid-column:1/-1}}
 </style>
+
+<style id="symbli-admin-referrals-v56-polish">
+/* V56: scalable referral control-room polish */
+#pane-referrals .adminRefHero,#referralsPane .adminRefHero,.refAdminHero{
+ position:relative;overflow:hidden;border-radius:25px!important;
+ background:radial-gradient(circle at 91% 7%,rgba(231,177,151,.20),transparent 29%),
+ radial-gradient(circle at 72% 115%,rgba(171,126,158,.18),transparent 32%),
+ linear-gradient(130deg,#122238,#263b57)!important;
+ box-shadow:0 20px 48px rgba(18,34,56,.14)!important
+}
+#pane-referrals .adminRefHero:after,#referralsPane .adminRefHero:after,.refAdminHero:after{
+ content:'';position:absolute;right:-45px;top:-65px;width:190px;height:190px;border:1px solid rgba(255,255,255,.10);border-radius:50%
+}
+.adminReferralAttention{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:15px 0 18px;padding:16px 18px;border:1px solid #efd2c3;border-radius:17px;background:linear-gradient(135deg,#fff3ed,#fffaf7)}
+.adminReferralAttention strong{font-size:12px}.adminReferralAttention span{display:block;margin-top:4px;font-size:9px;color:#826f65}
+.adminReferralAttention .count{display:grid;place-items:center;min-width:34px;height:34px;padding:0 10px;border-radius:11px;background:#e99576;color:#fff;font-weight:800}
+.adminReferralToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:13px 0}
+.adminReferralToolbar input,.adminReferralToolbar select{min-height:38px;border:1px solid #e7d9d2;border-radius:999px;background:#fff;padding:0 13px;color:#5f5652;font:600 10px Inter,sans-serif;outline:none}
+.adminReferralToolbar input{min-width:210px;flex:1}.adminReferralToolbar input:focus,.adminReferralToolbar select:focus{border-color:#c99bad;box-shadow:0 0 0 3px rgba(170,124,158,.08)}
+.adminReferralLedgerWrap{border:1px solid #eadfd9;border-radius:18px;overflow:hidden;background:#fff}
+.adminReferralPager{display:flex;justify-content:center;padding:14px;border-top:1px solid #eee4df}
+@media(max-width:720px){.adminReferralAttention{align-items:flex-start}.adminReferralToolbar input{width:100%;flex-basis:100%}}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -1916,7 +1939,9 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
     </div>
    </div>
    <div class="refAdminGrid">
-    <section class="refAdminPanel"><div class="opsEyebrow">BY STUDIO</div><h3>Studio performance</h3><p>Referral volume, confirmed revenue and commission by studio.</p><div id="refStudioRows" class="refStudioRows"><div class="refEmpty">Loading studio performance…</div></div></section>
+    <section class="refAdminPanel"><div class="adminReferralAttention" id="adminReferralAttention"><div style="display:flex;gap:11px;align-items:center"><div class="count" id="adminPendingBadge">0</div><div><strong id="adminAttentionTitle">No referrals need attention</strong><span>Pending studio outcomes stay visible here until they are resolved.</span></div></div></div>
+<div class="adminReferralToolbar"><input id="adminReferralSearch" type="search" placeholder="Search studio or referral reference…"><select id="adminReferralPeriod"><option value="all">All time</option><option value="this_month">This month</option><option value="last_month">Last month</option></select></div>
+<div class="opsEyebrow">BY STUDIO</div><h3>Studio performance</h3><p>Referral volume, confirmed revenue and commission by studio.</p><div id="refStudioRows" class="refStudioRows"><div class="refEmpty">Loading studio performance…</div></div></section>
     <section class="refAdminPanel"><div class="opsEyebrow">REFERRAL LEDGER</div><h3>All referrals</h3><p>A live operational view of the referrals recorded by SYMBLI.</p>
      <div class="refFilters"><button class="refFilter active" data-ref-filter="all">All</button><button class="refFilter" data-ref-filter="pending">Pending</button><button class="refFilter" data-ref-filter="booked">Booked</button><button class="refFilter" data-ref-filter="not_booked">Didn't book</button></div>
      <div id="refLedgerRows" class="refLedgerRows"><div class="refEmpty">Loading referrals…</div></div>
@@ -2243,27 +2268,44 @@ document.addEventListener('click',function(e){
 
 
 
-<script id="symbli-admin-referrals-v55-js">
+<script id="symbli-admin-referrals-v57-js">
 (function(){
- let allRefs=[], studioMap=new Map(), activeFilter='all';
+ let allRefs=[], studioMap=new Map(), activeFilter='all', searchTerm='', activePeriod='all';
  const q=id=>document.getElementById(id);
  const money=n=>'£'+Number(n||0).toLocaleString('en-GB',{minimumFractionDigits:0,maximumFractionDigits:2});
  const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ function periodMatch(r,p){
+   if(p==='all')return true;
+   const d=new Date(r.confirmed_at||r.clicked_at||r.created_at);if(isNaN(d))return false;
+   const n=new Date();
+   if(p==='this_month')return d.getFullYear()===n.getFullYear()&&d.getMonth()===n.getMonth();
+   const l=new Date(n.getFullYear(),n.getMonth()-1,1);
+   return d.getFullYear()===l.getFullYear()&&d.getMonth()===l.getMonth();
+ }
+ function searchMatch(r){
+   if(!searchTerm)return true;
+   const st=studioMap.get(String(r.studio_id||''));
+   const hay=[st?.name,r.referral_id,r.id,r.status,r.confirmation_source].map(v=>String(v||'').toLowerCase()).join(' ');
+   return hay.includes(searchTerm);
+ }
+ function filteredRefs(){
+   return (allRefs||[]).filter(r=>periodMatch(r,activePeriod)&&searchMatch(r));
+ }
  function render(){
-   const refs=allRefs||[];
-   const booked=refs.filter(r=>r.status==='booked');
-   const pending=refs.filter(r=>(r.status||'pending')==='pending');
-   const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0);
-   const commission=booked.reduce((a,r)=>a+Number(r.commission_amount||0),0);
+   const refs=allRefs||[], booked=refs.filter(r=>r.status==='booked'), pending=refs.filter(r=>(r.status||'pending')==='pending');
+   const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0), commission=booked.reduce((a,r)=>a+Number(r.commission_amount||0),0);
    if(q('refMetricTotal'))q('refMetricTotal').textContent=refs.length;
    if(q('refMetricPending'))q('refMetricPending').textContent=pending.length;
    if(q('refMetricBooked'))q('refMetricBooked').textContent=booked.length;
    if(q('refMetricRevenue'))q('refMetricRevenue').textContent=money(revenue);
    if(q('refMetricCommission'))q('refMetricCommission').textContent=money(commission);
    if(q('tabReferralsCount'))q('tabReferralsCount').textContent=pending.length;
+   if(q('adminPendingBadge'))q('adminPendingBadge').textContent=pending.length;
+   if(q('adminAttentionTitle'))q('adminAttentionTitle').textContent=pending.length?pending.length+' pending referral'+(pending.length===1?' needs':'s need')+' an outcome':'No referrals need attention';
 
+   const filtered=filteredRefs();
    const grouped=new Map();
-   refs.forEach(r=>{
+   filtered.forEach(r=>{
      const k=String(r.studio_id||'');
      if(!grouped.has(k))grouped.set(k,{total:0,booked:0,revenue:0,commission:0});
      const g=grouped.get(k);g.total++;
@@ -2271,22 +2313,22 @@ document.addEventListener('click',function(e){
    });
    const sr=[...grouped.entries()].sort((a,b)=>b[1].revenue-a[1].revenue);
    if(q('refStudioRows'))q('refStudioRows').innerHTML=sr.length?sr.map(([id,g])=>{
-     const st=studioMap.get(id), rate=g.total?Math.round(g.booked/g.total*100):0;
+     const st=studioMap.get(id),rate=g.total?Math.round(g.booked/g.total*100):0;
      return `<div class="refStudioRow"><div class="refStudioTop"><div><div class="refStudioName">${esc(st?.name||'Unknown studio')}</div><div class="refStudioMeta">${g.total} referral${g.total===1?'':'s'} · ${g.booked} booked · ${rate}% conversion</div></div><div class="refStudioMoney">${money(g.revenue)}<small>${money(g.commission)} commission</small></div></div></div>`;
-   }).join(''):'<div class="refEmpty">No referral activity yet.</div>';
+   }).join(''):`<div class="refEmpty">No studios match ${searchTerm?'“'+esc(searchTerm)+'”':'these filters'}.</div>`;
 
-   const shown=activeFilter==='all'?refs:refs.filter(r=>(r.status||'pending')===activeFilter);
+   let shown=filtered;
+   if(activeFilter!=='all')shown=shown.filter(r=>(r.status||'pending')===activeFilter);
    if(q('refLedgerRows'))q('refLedgerRows').innerHTML=shown.length?shown.map(r=>{
-     const st=studioMap.get(String(r.studio_id||'')), status=r.status||'pending';
-     const when=r.clicked_at||r.created_at;
+     const st=studioMap.get(String(r.studio_id||'')),status=r.status||'pending',when=r.clicked_at||r.created_at;
      const date=when?new Date(when).toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'Unknown time';
      const ref=String(r.referral_id||r.id||'').slice(0,8);
      return `<div class="refLedgerRow"><div><div class="refLedgerTitle">${esc(st?.name||'Unknown studio')}</div><div class="refLedgerMeta">${date} · Ref ${esc(ref)}</div></div><div><span class="refBadge ${esc(status)}">${status==='not_booked'?"Didn't book":esc(status)}</span></div><div class="refMoney">${status==='booked'?money(r.booking_value):'—'}<small>${status==='booked'?money(r.commission_amount)+' commission':'No commission yet'}</small></div><div class="refLedgerMeta">${esc(r.confirmation_source||'SYMBLI')}</div></div>`;
-   }).join(''):'<div class="refEmpty">No referrals match this filter.</div>';
+   }).join(''):`<div class="refEmpty">No referrals match ${searchTerm?'“'+esc(searchTerm)+'”':'these filters'}.</div>`;
  }
  async function load(){
    if(typeof authFetch!=='function')return;
-   const box=q('refLedgerRows'); if(box)box.innerHTML='<div class="refEmpty">Refreshing referral data…</div>';
+   const box=q('refLedgerRows');if(box)box.innerHTML='<div class="refEmpty">Refreshing referral data…</div>';
    try{
      const [refs,studios]=await Promise.all([
        authFetch('/rest/v1/booking_referrals?select=*&order=clicked_at.desc&limit=500'),
@@ -2295,15 +2337,19 @@ document.addEventListener('click',function(e){
      allRefs=Array.isArray(refs)?refs:[];
      studioMap=new Map((Array.isArray(studios)?studios:[]).map(x=>[String(x.id),x]));
      render();
-   }catch(e){
-     if(box)box.innerHTML='<div class="refEmpty">Could not load referrals. Admin SELECT access to booking_referrals may still need enabling in Supabase.</div>';
-   }
+   }catch(e){if(box)box.innerHTML='<div class="refEmpty">Could not load referrals. Admin SELECT access to booking_referrals may still need enabling in Supabase.</div>'}
  }
  document.addEventListener('click',e=>{
    const f=e.target.closest?.('[data-ref-filter]');
    if(f){activeFilter=f.dataset.refFilter;document.querySelectorAll('.refFilter').forEach(x=>x.classList.toggle('active',x===f));render()}
+   if(e.target.closest?.('#refAdminRefresh'))load();
  });
- document.addEventListener('click',e=>{if(e.target.closest?.('#refAdminRefresh'))load()});
+ document.addEventListener('input',e=>{
+   if(e.target?.id==='adminReferralSearch'){searchTerm=e.target.value.trim().toLowerCase();render()}
+ });
+ document.addEventListener('change',e=>{
+   if(e.target?.id==='adminReferralPeriod'){activePeriod=e.target.value||'all';render()}
+ });
  window.SYMBLI_LOAD_ADMIN_REFERRALS=load;
 })();
 </script>
