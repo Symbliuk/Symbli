@@ -3965,6 +3965,57 @@ window.SYMBLI_ADD_DEMOS=function(d){
   outline:0!important;box-shadow:0 3px 9px rgba(134,87,54,.19)!important;
  }
 }
-</style>\n<script id="symbli-final-action-source-of-truth">\n(function(){\n const URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';\n const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';\n const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));\n const validHttp=v=>{try{const u=new URL(String(v||'').trim());return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}};\n async function track(type,studioId,destination){\n   if(!type)return;\n   const referralId=(crypto&&crypto.randomUUID)?crypto.randomUUID():'sym-'+Date.now()+'-'+Math.random().toString(36).slice(2);\n   try{await fetch(URL+'/rest/v1/analytics',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({event_type:type,studio_id:studioId||null,metadata:{source:'studio_profile',destination_url:destination||null,referral_id:referralId,status:'clicked'}})});}catch(e){console.warn('SYMBLI tracking',e)}\n }\n async function renderFinalActions(){\n   const popup=document.getElementById('studioPopup');\n   if(!popup||getComputedStyle(popup).display==='none')return;\n   const name=(document.getElementById('spName')?.textContent||'').trim();\n   if(!name)return;\n   let rows=[];\n   try{\n     const q=URL+'/rest/v1/studios?select=id,name,booking_url,website_url,instagram_url,phone&name=eq.'+encodeURIComponent(name)+'&limit=1';\n     const r=await fetch(q,{headers:{apikey:KEY,Authorization:'Bearer '+KEY}});\n     if(r.ok)rows=await r.json();\n   }catch(e){console.warn('SYMBLI action fetch',e)}\n   const s=rows&&rows[0]; if(!s)return;\n   let host=document.getElementById('symFinalActions');\n   if(!host){\n     host=document.createElement('div');host.id='symFinalActions';\n     const direct=document.getElementById('spDirect');\n     if(direct)direct.insertAdjacentElement('beforebegin',host);\n     else document.querySelector('#studioPopup .profileRight')?.appendChild(host);\n   }\n   document.querySelectorAll('#studioPopup .profileButtons,#studioPopup #spLiveLinks,#studioPopup #spExternalLinks,#studioPopup .symLiveActionGrid,#studioPopup .symLiveNoActions').forEach(el=>{if(el!==host)el.style.display='none'});\n   const phone=String(s.phone||'').replace(/[^+\\d]/g,'');\n   const actions=[\n     ['Book now','booking_click',validHttp(s.booking_url),'primary',' →'],\n     ['Website','website_click',validHttp(s.website_url),'website',''],\n     ['Instagram','instagram_click',validHttp(s.instagram_url),'instagram',''],\n     ['Call studio','',phone?'tel:'+phone:null,'call','']\n   ].filter(x=>x[2]);\n   host.className='symLiveActionGrid';\n   host.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 10px';\n   host.innerHTML=actions.map(x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-final-event="${x[1]}" data-final-studio="${esc(s.id)}" style="display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:16px;text-decoration:none;font-weight:800;border:1px solid #eadfd8;padding:0 14px;${x[0]==='Book now'?'background:#df737a;color:white;':'background:#fffaf6;color:#273246;'}">${esc(x[0]+x[4])}</a>`).join('');\n   host.querySelectorAll('[data-final-event]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.finalEvent,a.dataset.finalStudio,a.href),{once:true}));\n   const direct=document.getElementById('spDirect');if(direct){direct.style.display='';direct.textContent=s.booking_url?'Bookings stay directly with '+s.name+'.':'This studio has not added a booking link yet.'}\n }\n document.addEventListener('click',e=>{\n   if(e.target.closest('.compareCard,.studioMiniCard')){setTimeout(renderFinalActions,80);setTimeout(renderFinalActions,350);setTimeout(renderFinalActions,900)}\n },true);\n new MutationObserver(()=>{const p=document.getElementById('studioPopup');if(p&&getComputedStyle(p).display!=='none')setTimeout(renderFinalActions,60)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['style']});\n window.SYMBLI_RENDER_FINAL_ACTIONS=renderFinalActions;\n})();\n</script>\n</body><!-- EDIT 12C: repaired executable 12-per-page pagination; automatically activates Next when result count exceeds 12. Booking action wired to analytics + studio booking URL source. -->
+</style>\n<script id="symbli-final-action-source-of-truth">
+(function(){
+ const URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';
+ const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
+ const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',\"'\":'&#39;'}[c]));
+ const validHttp=v=>{try{const u=new URL(String(v||'').trim());return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}};
+ async function track(type,studioId,destination){
+   if(!type)return;
+   const referralId=(crypto&&crypto.randomUUID)?crypto.randomUUID():'sym-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+   try{await fetch(URL+'/rest/v1/analytics',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({event_type:type,studio_id:studioId||null,metadata:{source:'studio_profile',destination_url:destination||null,referral_id:referralId,status:'clicked'}})});}catch(e){console.warn('SYMBLI tracking',e)}
+ }
+ async function renderFinalActions(){
+   const popup=document.getElementById('studioPopup');
+   if(!popup||getComputedStyle(popup).display==='none')return;
+   const name=(document.getElementById('spName')?.textContent||'').trim();
+   if(!name)return;
+   let rows=[];
+   try{
+     const q=URL+'/rest/v1/studios?select=id,name,booking_url,website_url,instagram_url,phone&name=eq.'+encodeURIComponent(name)+'&limit=1';
+     const r=await fetch(q,{headers:{apikey:KEY,Authorization:'Bearer '+KEY}});
+     if(r.ok)rows=await r.json();
+   }catch(e){console.warn('SYMBLI action fetch',e)}
+   const s=rows&&rows[0]; if(!s)return;
+   let host=document.getElementById('symFinalActions');
+   if(!host){
+     host=document.createElement('div');host.id='symFinalActions';
+     const direct=document.getElementById('spDirect');
+     if(direct)direct.insertAdjacentElement('beforebegin',host);
+     else document.querySelector('#studioPopup .profileRight')?.appendChild(host);
+   }
+   document.querySelectorAll('#studioPopup .profileButtons,#studioPopup #spLiveLinks,#studioPopup #spExternalLinks,#studioPopup .symLiveActionGrid,#studioPopup .symLiveNoActions').forEach(el=>{if(el!==host)el.style.display='none'});
+   const phone=String(s.phone||'').replace(/[^+\\d]/g,'');
+   const actions=[
+     ['Book now','booking_click',validHttp(s.booking_url),'primary',' →'],
+     ['Website','website_click',validHttp(s.website_url),'website',''],
+     ['Instagram','instagram_click',validHttp(s.instagram_url),'instagram',''],
+     ['Call studio','',phone?'tel:'+phone:null,'call','']
+   ].filter(x=>x[2]);
+   host.className='symLiveActionGrid';
+   host.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 10px';
+   host.innerHTML=actions.map(x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-final-event="${x[1]}" data-final-studio="${esc(s.id)}" style="display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:16px;text-decoration:none;font-weight:800;border:1px solid #eadfd8;padding:0 14px;${x[0]==='Book now'?'background:#df737a;color:white;':'background:#fffaf6;color:#273246;'}">${esc(x[0]+x[4])}</a>`).join('');
+   host.querySelectorAll('[data-final-event]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.finalEvent,a.dataset.finalStudio,a.href),{once:true}));
+   const direct=document.getElementById('spDirect');if(direct){direct.style.display='';direct.textContent=s.booking_url?'Bookings stay directly with '+s.name+'.':'This studio has not added a booking link yet.'}
+ }
+ document.addEventListener('click',e=>{
+   if(e.target.closest('.compareCard,.studioMiniCard')){setTimeout(renderFinalActions,80);setTimeout(renderFinalActions,350);setTimeout(renderFinalActions,900)}
+ },true);
+ new MutationObserver(()=>{const p=document.getElementById('studioPopup');if(p&&getComputedStyle(p).display!=='none')setTimeout(renderFinalActions,60)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['style']});
+ window.SYMBLI_RENDER_FINAL_ACTIONS=renderFinalActions;
+})();
+</script>
+</body><!-- EDIT 12C: repaired executable 12-per-page pagination; automatically activates Next when result count exceeds 12. Booking action wired to analytics + studio booking URL source. -->
 <!-- EDIT 13B: rebuilt from 12C latest pagination/profile/booking checkpoint; added For Studios panel and normal demo studio names. -->
 </html>
