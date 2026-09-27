@@ -2326,20 +2326,26 @@ window.SYMBLI_ADD_DEMOS=function(d){
      if(el.children.length===0 && /has not added a booking link yet/i.test(el.textContent||'')) el.style.display='none';
    });
    const demo=window.SYMBLI_IS_DEMO(s);
-   const items=[];
-   if(!demo&&s.booking_url) items.push(['Book now','booking_click',s.booking_url,'primary']);
-   if(!demo&&s.website_url) items.push(['Website','website_click',s.website_url,'website']);
-   if(!demo&&s.instagram_url) items.push(['Instagram','instagram_click',s.instagram_url,'instagram']);
-   if(!demo&&s.phone) items.push(['Call studio','','tel:'+String(s.phone).replace(/\s+/g,''),'call']);
-
-   host.innerHTML=demo?'<div class="symDemoActionGrid"><button type="button" data-demo-action="Book now">Try booking →</button><button type="button" data-demo-action="Website">Website</button><button type="button" data-demo-action="Instagram">Instagram</button><button type="button" data-demo-action="Call studio">Call studio</button></div><p class="symDemoActionNote" role="status">Example profile · Buttons demonstrate the journey; no external studio link is connected.</p>':items.length
-     ? `<div class="symLiveActionGrid">${items.map((x,i)=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-event="${x[1]}" data-destination="${esc(x[2])}" class="${x[3]}">${esc(x[0])}${i===0?' →':''}</a>`).join('')}</div>`
-     : `<div class="symLiveNoActions">This studio has not added contact or booking links yet.</div>`;
+   const httpLink=value=>{try{const url=new URL(String(value||'').trim());return ['https:','http:'].includes(url.protocol)?url.href:null}catch{return null}};
+   const phone=String(s.phone||'').replace(/[^+\d]/g,'');
+   const actions=[
+     ['Book now','booking_click',httpLink(s.booking_url),'primary','booking'],
+     ['Website','website_click',httpLink(s.website_url),'website','website'],
+     ['Instagram','instagram_click',httpLink(s.instagram_url),'instagram','instagram'],
+     ['Call studio','',phone?'tel:'+phone:null,'call','phone']
+   ];
+   const link=x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-event="${x[1]}" data-destination="${esc(x[2])}" class="${x[3]}">${esc(x[0])}${x[4]==='booking'?' →':''}</a>`;
+   const preview=x=>`<button type="button" data-demo-action="${x[4]}">${esc(x[0])} preview${x[4]==='booking'?' →':''}</button>`;
+   host.innerHTML=demo
+     ? `<div class="symDemoActionGrid">${actions.map(x=>x[2]?link(x):preview(x)).join('')}</div><p class="symDemoActionNote" role="status">Example studio · Buttons with links added in admin are live.</p>`
+     : actions.some(x=>x[2])
+       ? `<div class="symLiveActionGrid">${actions.filter(x=>x[2]).map(link).join('')}</div>`
+       : `<div class="symLiveNoActions">This studio has not added contact or booking links yet.</div>`;
 
 
  }
 
- document.addEventListener('click',e=>{const button=e.target.closest?.('[data-demo-action]');if(!button)return;const note=document.querySelector('#studioPopup .symDemoActionNote');if(note)note.textContent=button.dataset.demoAction+' is ready for a real studio link. This is an example profile.';});
+ document.addEventListener('click',e=>{const button=e.target.closest?.('[data-demo-action]');if(!button)return;const note=document.querySelector('#studioPopup .symDemoActionNote');if(note)note.textContent='This is an example studio. '+({booking:'Booking',website:'Website',instagram:'Instagram',phone:'Calling'}[button.dataset.demoAction]||'This action')+' will be available when a real studio adds its link.';});
  document.addEventListener('click',e=>{
    if(e.target.closest?.('.compareCard[data-supabase-studio-id],.studioMiniCard[data-supabase-studio-id]')) setTimeout(()=>render(),220);
  },true);
