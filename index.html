@@ -1967,21 +1967,9 @@ window.SYMBLI_ADD_DEMOS=function(d){
     return studio||null;
   }
 
-  function referralId(){
-    return 'sym_'+(crypto.randomUUID?crypto.randomUUID():Date.now()+'_'+Math.random().toString(16).slice(2));
-  }
-
-  async function saveOutbound(eventType,studio,destination){
+  async function saveOutbound(eventType,studio){
     if(!studio?.id)return false;
     try{
-      const metadata={source:'studio_profile',destination_url:destination||null};
-      // Every booking click gets a unique referral breadcrumb. Later the Studio Portal
-      // can confirm this referral as booked/not booked and attach the completed £ value.
-      if(eventType==='booking_click'){
-        metadata.referral_id=referralId();
-        metadata.referral_status='clicked';
-        metadata.tracking_version='symbli_referral_v1';
-      }
       const r=await fetch(URL+'/rest/v1/analytics',{
         method:'POST',
         headers:{
@@ -1990,7 +1978,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
           'Content-Type':'application/json',
           Prefer:'return=minimal'
         },
-        body:JSON.stringify({event_type:eventType,studio_id:studio.id,metadata})
+        body:JSON.stringify({event_type:eventType,studio_id:studio.id,metadata:eventType==='booking_click'?{source:'studio_profile',referral_id:(globalThis.crypto?.randomUUID?.()||('sym-'+Date.now()+'-'+Math.random().toString(16).slice(2))),status:'clicked'}:{source:'studio_profile'}})
       });
       if(!r.ok){
         console.warn('SYMBLI outbound analytics',eventType,await r.text());
@@ -2024,7 +2012,7 @@ window.SYMBLI_ADD_DEMOS=function(d){
     e.preventDefault();
     e.stopImmediatePropagation();
     const tab=window.open('about:blank','_blank');
-    await saveOutbound(eventType,studio,href);
+    await saveOutbound(eventType,studio);
     if(tab){
       try{ tab.opener=null; }catch(_){}
       tab.location.href=href;
@@ -2320,9 +2308,13 @@ window.SYMBLI_ADD_DEMOS=function(d){
  }
  async function refreshAndRender(){
    const s=studio(); if(!s)return;
-   if(window.SYMBLI_IS_DEMO?.(s)){ render(s); return; }
    try{
-     const r=await fetch(URL+'/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=id,booking_url,website_url,instagram_url,phone',{
+     let query='id=eq.'+encodeURIComponent(s.id);
+     if(window.SYMBLI_IS_DEMO?.(s)){
+       const visibleName=(document.getElementById('spName')?.textContent||s.name||'').trim();
+       query='name=eq.'+encodeURIComponent(visibleName);
+     }
+     const r=await fetch(URL+'/rest/v1/studios?'+query+'&select=id,name,booking_url,website_url,instagram_url,phone&limit=1',{
        headers:{apikey:KEY,Authorization:'Bearer '+KEY}
      });
      if(r.ok){
@@ -3977,7 +3969,6 @@ window.SYMBLI_ADD_DEMOS=function(d){
   outline:0!important;box-shadow:0 3px 9px rgba(134,87,54,.19)!important;
  }
 }
-</style></body><!-- SYMBLI STEP 1 REFERRAL TRACKING: booking_click events now include unique referral_id, clicked status, source and destination URL. -->
-<!-- EDIT 12C: repaired executable 12-per-page pagination; automatically activates Next when result count exceeds 12. Booking action wired to analytics + studio booking URL source. -->
+</style></body><!-- EDIT 12C: repaired executable 12-per-page pagination; automatically activates Next when result count exceeds 12. Booking action wired to analytics + studio booking URL source. -->
 <!-- EDIT 13B: rebuilt from 12C latest pagination/profile/booking checkpoint; added For Studios panel and normal demo studio names. -->
 </html>
