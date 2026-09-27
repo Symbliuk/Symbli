@@ -3965,89 +3965,152 @@ window.SYMBLI_ADD_DEMOS=function(d){
   outline:0!important;box-shadow:0 3px 9px rgba(134,87,54,.19)!important;
  }
 }
-</style>
-
-
-<style id="symbli-actions-v4-style">
-#symbliActionsV4{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 10px}
-#symbliActionsV4 a{display:flex!important;align-items:center;justify-content:center;min-height:52px;border-radius:16px;text-decoration:none;font:700 13px/1.2 Inter,sans-serif;padding:0 14px;border:1px solid #eadfd8;background:#fffaf6;color:#273246}
-#symbliActionsV4 a.book{background:#df737a;color:#fff;border-color:#df737a}
-@media(max-width:639px){#symbliActionsV4{grid-template-columns:1fr 1fr}}
-</style>
-<script id="symbli-actions-v4">
+</style>\n<script id="symbli-final-action-source-of-truth">
 (function(){
-  const SB='https://hbfajmdwwdamdrxqrrvl.supabase.co';
-  const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
-  const popup=document.getElementById('studioPopup');
-  if(!popup) return;
+ const URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';
+ const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
+ const esc=v=>String(v??'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+ const validHttp=v=>{try{const u=new URL(String(v||'').trim());return ['http:','https:'].includes(u.protocol)?u.href:null}catch{return null}};
+ async function track(type,studioId,destination){
+   if(!type)return;
+   const referralId=(crypto&&crypto.randomUUID)?crypto.randomUUID():'sym-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+   try{await fetch(URL+'/rest/v1/analytics',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({event_type:type,studio_id:studioId||null,metadata:{source:'studio_profile',destination_url:destination||null,referral_id:referralId,status:'clicked'}})});}catch(e){console.warn('SYMBLI tracking',e)}
+ }
+ async function renderFinalActions(){
+   const popup=document.getElementById('studioPopup');
+   if(!popup||getComputedStyle(popup).display==='none')return;
+   const name=(document.getElementById('spName')?.textContent||'').trim();
+   if(!name)return;
+   let rows=[];
+   try{
+     const q=URL+'/rest/v1/studios?select=id,name,booking_url,website_url,instagram_url,phone&name=eq.'+encodeURIComponent(name)+'&limit=1';
+     const r=await fetch(q,{headers:{apikey:KEY,Authorization:'Bearer '+KEY}});
+     if(r.ok)rows=await r.json();
+   }catch(e){console.warn('SYMBLI action fetch',e)}
+   const s=rows&&rows[0]; if(!s)return;
+   let host=document.getElementById('symFinalActions');
+   if(!host){
+     host=document.createElement('div');host.id='symFinalActions';
+     const direct=document.getElementById('spDirect');
+     if(direct)direct.insertAdjacentElement('beforebegin',host);
+     else document.querySelector('#studioPopup .profileRight')?.appendChild(host);
+   }
+   document.querySelectorAll('#studioPopup .profileButtons,#studioPopup #spLiveLinks,#studioPopup #spExternalLinks,#studioPopup .symLiveActionGrid,#studioPopup .symLiveNoActions').forEach(el=>{if(el!==host)el.style.display='none'});
+   const phone=String(s.phone||'').replace(/[^+\\d]/g,'');
+   const actions=[
+     ['Book now','booking_click',validHttp(s.booking_url),'primary',' →'],
+     ['Website','website_click',validHttp(s.website_url),'website',''],
+     ['Instagram','instagram_click',validHttp(s.instagram_url),'instagram',''],
+     ['Call studio','',phone?'tel:'+phone:null,'call','']
+   ].filter(x=>x[2]);
+   host.className='symLiveActionGrid';
+   host.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 10px';
+   host.innerHTML=actions.map(x=>`<a href="${esc(x[2])}" ${x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':''} data-final-event="${x[1]}" data-final-studio="${esc(s.id)}" style="display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:16px;text-decoration:none;font-weight:800;border:1px solid #eadfd8;padding:0 14px;${x[0]==='Book now'?'background:#df737a;color:white;':'background:#fffaf6;color:#273246;'}">${esc(x[0]+x[4])}</a>`).join('');
+   host.querySelectorAll('[data-final-event]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.finalEvent,a.dataset.finalStudio,a.href),{once:true}));
+   const direct=document.getElementById('spDirect');if(direct){direct.style.display='';direct.textContent=s.booking_url?'Bookings stay directly with '+s.name+'.':'This studio has not added a booking link yet.'}
+ }
+ document.addEventListener('click',e=>{
+   if(e.target.closest('.compareCard,.studioMiniCard')){setTimeout(renderFinalActions,80);setTimeout(renderFinalActions,350);setTimeout(renderFinalActions,900)}
+ },true);
+ new MutationObserver(()=>{const p=document.getElementById('studioPopup');if(p&&getComputedStyle(p).display!=='none')setTimeout(renderFinalActions,60)}).observe(document.documentElement,{subtree:true,attributes:true,attributeFilter:['style']});
+ window.SYMBLI_RENDER_FINAL_ACTIONS=renderFinalActions;
+})();
+</script>
 
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const http=v=>{try{const u=new URL(String(v||'').trim());return /^(https?:)$/.test(u.protocol)?u.href:null}catch(e){return null}};
-  const phone=v=>String(v||'').replace(/[^+\d]/g,'');
+<style id="symbli-action-hotfix-41">
+#symbliActionHotfix41{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0 10px}
+#symbliActionHotfix41 a,#symbliActionHotfix41 button{display:flex!important;align-items:center;justify-content:center;min-height:52px;border-radius:16px;text-decoration:none;font:700 13px/1.2 Inter,sans-serif;padding:0 14px;border:1px solid #eadfd8;background:#fffaf6;color:#273246;cursor:pointer}
+#symbliActionHotfix41 .book{background:#df737a;color:#fff;border-color:#df737a}
+</style>
+<script id="symbli-action-hotfix-41-js">
+(function(){
+ const SB='https://hbfajmdwwdamdrxqrrvl.supabase.co';
+ const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
+ const H={apikey:KEY,Authorization:'Bearer '+KEY};
+ const popup=document.getElementById('studioPopup');
+ if(!popup)return;
+ let selectedId='',selectedName='';
 
-  async function track(type,id,dest){
-    if(!type)return;
-    const rid=(globalThis.crypto?.randomUUID?.()||('sym-'+Date.now()+'-'+Math.random().toString(36).slice(2)));
-    try{
-      await fetch(SB+'/rest/v1/analytics',{
-        method:'POST',
-        headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
-        body:JSON.stringify({event_type:type,studio_id:id,metadata:{source:'studio_profile',destination_url:dest,referral_id:rid,status:'clicked'}})
-      });
-    }catch(e){}
-  }
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const http=v=>{try{const u=new URL(String(v||'').trim());return /^https?:$/.test(u.protocol)?u.href:null}catch(e){return null}};
+ const cleanPhone=v=>String(v||'').replace(/[^+\d]/g,'');
 
-  async function render(){
-    if(getComputedStyle(popup).display==='none') return;
-    const id=popup.dataset.liveStudioId;
-    if(!id) return;
+ async function getStudio(){
+   let q='';
+   if(selectedId) q='id=eq.'+encodeURIComponent(selectedId);
+   else {
+     const name=selectedName||(document.getElementById('spName')?.textContent||'').trim();
+     if(!name)return null;
+     q='name=eq.'+encodeURIComponent(name);
+   }
+   try{
+     const r=await fetch(SB+'/rest/v1/studios?'+q+'&select=id,name,slug,booking_url,website_url,instagram_url,phone&limit=1',{headers:H,cache:'no-store'});
+     if(!r.ok)return null;
+     const rows=await r.json(); return rows[0]||null;
+   }catch(e){return null}
+ }
 
-    let row=null;
-    try{
-      const r=await fetch(SB+'/rest/v1/studios?id=eq.'+encodeURIComponent(id)+'&select=id,name,booking_url,website_url,instagram_url,phone&limit=1',{
-        headers:{apikey:KEY,Authorization:'Bearer '+KEY},
-        cache:'no-store'
-      });
-      if(r.ok){ const a=await r.json(); row=a[0]||null; }
-    }catch(e){}
-    if(!row)return;
+ async function track(type,row,dest){
+   if(!type||!row?.id)return;
+   const referral=(globalThis.crypto?.randomUUID?.()||('sym-'+Date.now()+'-'+Math.random().toString(36).slice(2)));
+   try{await fetch(SB+'/rest/v1/analytics',{method:'POST',headers:{...H,'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({event_type:type,studio_id:row.id,session_id:referral,referral_id:referral,destination_url:dest,referral_status:'clicked'})});}catch(e){}
+ }
 
-    document.querySelectorAll('#studioPopup .profileButtons,#studioPopup #symbliLiveActions,#studioPopup #symFinalActions').forEach(x=>x.style.setProperty('display','none','important'));
+ function host(){
+   let el=document.getElementById('symbliActionHotfix41');
+   if(el)return el;
+   el=document.createElement('div');el.id='symbliActionHotfix41';
+   const direct=document.getElementById('spDirect');
+   if(direct)direct.insertAdjacentElement('beforebegin',el);
+   else popup.querySelector('.profileRight')?.appendChild(el);
+   return el;
+ }
 
-    let host=document.getElementById('symbliActionsV4');
-    if(!host){
-      host=document.createElement('div');
-      host.id='symbliActionsV4';
-      const direct=document.getElementById('spDirect');
-      if(direct) direct.insertAdjacentElement('beforebegin',host);
-      else popup.querySelector('.profileRight')?.appendChild(host);
-    }
+ async function render(){
+   if(getComputedStyle(popup).display==='none')return;
+   const el=host();
+   const row=await getStudio();
+   if(!row){
+     el.innerHTML='';
+     return;
+   }
+   selectedId=row.id;
+   popup.dataset.liveStudioId=row.id;
 
-    const acts=[
-      ['Book now','book',http(row.booking_url),'booking_click'],
-      ['Website','website',http(row.website_url),'website_click'],
-      ['Instagram','instagram',http(row.instagram_url),'instagram_click'],
-      ['Call studio','call',phone(row.phone)?'tel:'+phone(row.phone):null,'']
-    ].filter(x=>x[2]);
+   // This hotfix is the sole visible action area.
+   document.querySelectorAll('#studioPopup .profileButtons,#studioPopup #symbliLiveActions,#studioPopup #spLiveLinks,#studioPopup #spExternalLinks,#studioPopup #symFinalActions').forEach(x=>x.style.setProperty('display','none','important'));
 
-    host.innerHTML=acts.map(x=>'<a class="'+x[1]+'" href="'+esc(x[2])+'" '+(x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':'')+' data-event="'+x[3]+'">'+esc(x[0])+(x[0]==='Book now'?' →':'')+'</a>').join('');
-    host.querySelectorAll('a[data-event]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.event,row.id,a.href),{once:true}));
+   const p=cleanPhone(row.phone);
+   const acts=[
+    ['Book now','book',http(row.booking_url),'booking_click'],
+    ['Website','website',http(row.website_url),'website_click'],
+    ['Instagram','instagram',http(row.instagram_url),'instagram_click'],
+    ['Call studio','call',p?'tel:'+p:null,'']
+   ].filter(x=>x[2]);
 
-    const direct=document.getElementById('spDirect');
-    if(direct) direct.textContent=row.booking_url?'Bookings stay directly with '+row.name+'.':'This studio has not added a booking link yet.';
-  }
+   el.innerHTML=acts.map(x=>'<a class="'+x[1]+'" href="'+esc(x[2])+'" '+(x[2].startsWith('http')?'target="_blank" rel="noopener noreferrer"':'')+' data-track="'+x[3]+'">'+esc(x[0])+(x[0]==='Book now'?' →':'')+'</a>').join('');
+   el.querySelectorAll('[data-track]').forEach(a=>a.addEventListener('click',()=>track(a.dataset.track,row,a.href),{once:true}));
+ }
 
-  document.addEventListener('click',e=>{
-    if(e.target.closest('.compareCard[data-supabase-studio-id],.studioMiniCard[data-supabase-studio-id]')){
-      setTimeout(render,120); setTimeout(render,500);
-    }
-  },true);
+ // Capture the clicked studio BEFORE any of the older profile handlers run.
+ document.addEventListener('click',function(e){
+   const card=e.target.closest?.('.compareCard,.studioMiniCard');
+   if(!card)return;
+   selectedId=card.dataset.supabaseStudioId||'';
+   selectedName=(card.querySelector('.compareTitleRow h3,.studioMiniBody h3,h3')?.textContent||'').replace(/✦/g,'').trim();
+   if(selectedId)popup.dataset.liveStudioId=selectedId;
+   setTimeout(render,100);setTimeout(render,350);setTimeout(render,800);
+ },true);
 
-  new MutationObserver(()=>{
-    if(getComputedStyle(popup).display!=='none'){setTimeout(render,80);setTimeout(render,350);}
-  }).observe(popup,{attributes:true,attributeFilter:['style']});
-
-  window.SYMBLI_ACTIONS_V4=render;
+ // Also recover from any profile opened by older code.
+ new MutationObserver(function(){
+   if(getComputedStyle(popup).display!=='none'){
+     const existing=popup.dataset.liveStudioId;
+     if(existing)selectedId=existing;
+     setTimeout(render,80);setTimeout(render,300);
+   }
+ }).observe(popup,{attributes:true,attributeFilter:['style']});
+ window.SYMBLI_ACTION_HOTFIX_41=render;
 })();
 </script>
 
