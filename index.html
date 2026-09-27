@@ -176,7 +176,39 @@
 .fmModalBadge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 13px;border-radius:999px;background:linear-gradient(110deg,#fffaf6,#fde9e2);border:1px solid #d8b474;box-shadow:0 4px 14px rgba(103,66,46,.09),0 0 12px rgba(239,215,162,.2);font-size:9px;font-weight:700;letter-spacing:.15em;color:#122238}.fmModalBadge:before{content:'✦';font-size:15px;color:#c99c4c;text-shadow:0 0 8px rgba(212,180,131,.45)}
 /* Keep the existing shimmer, but make it warmer and visible on the light surface. */
 .founderPill,.banner,.foundingPanel,.foundingCta,.foundSubmit,.fmModalBadge{position:relative;overflow:hidden}.founderPill:after,.foundingPanel:after,.foundingCta:after,.foundSubmit:after,.fmModalBadge:after{content:'';position:absolute;inset:0;transform:translateX(-135%);background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.8) 50%,transparent 65%);animation:fm-shimmer 3.6s ease-in-out infinite;pointer-events:none}@keyframes fm-shimmer{0%,55%{transform:translateX(-135%)}85%,100%{transform:translateX(135%)}}
-</style>\n<style id="edit18b-founding-studio-seal">\n/* EDIT 18B: premium founding-studio seal on studio cards only */\n.studioImage>.foundingBadge,\n.compareBadge .foundingBadge{\n  width:auto!important;height:auto!important;min-height:46px!important;\n  padding:7px 18px 6px!important;border-radius:14px!important;\n  background:linear-gradient(108deg,rgba(255,250,246,.98) 0%,rgba(253,229,220,.98) 45%,rgba(255,248,239,.98) 100%)!important;\n  border:1px solid #cda55f!important;\n  outline:1px solid rgba(255,255,255,.88)!important;outline-offset:-4px!important;\n  box-shadow:0 7px 22px rgba(105,66,42,.18),0 0 18px rgba(232,196,128,.38),inset 0 1px 0 #fff!important;\n  display:flex!important;align-items:center!important;justify-content:center!important;\n  text-align:center!important;color:#122238!important;overflow:hidden!important;\n  backdrop-filter:blur(9px)!important;\n}\n.studioImage>.foundingBadge{position:absolute!important;top:auto!important;bottom:12px!important;left:14px!important;right:14px!important;z-index:38!important}\n.compareBadge{position:absolute!important;top:auto!important;bottom:12px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:88%!important;z-index:38!important}\n.compareBadge .foundingBadge{width:100%!important}\n.studioImage>.foundingBadge:before,.compareBadge .foundingBadge:before{content:'✦'!important;font-size:15px!important;color:#bd8e3f!important;margin-right:10px!important;text-shadow:0 0 9px rgba(212,180,131,.65)!important;animation:sparkle-twinkle 2s ease-in-out infinite!important}\n.studioImage>.foundingBadge:after,.compareBadge .foundingBadge:after{content:'✦'!important;position:static!important;background:none!important;transform:none!important;width:auto!important;height:auto!important;font-size:15px!important;color:#bd8e3f!important;margin-left:10px!important;text-shadow:0 0 9px rgba(212,180,131,.65)!important;animation:sparkle-twinkle 2s .6s ease-in-out infinite!important}\n.studioImage>.foundingBadge span,.compareBadge .foundingBadge span{font-size:0!important;line-height:1!important;color:#122238!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:3px!important}\n.studioImage>.foundingBadge span:before,.compareBadge .foundingBadge span:before{content:'SYMBLI FOUNDING STUDIO'!important;font:700 9px/1 Inter,sans-serif!important;letter-spacing:.17em!important;color:#122238!important;white-space:nowrap!important}\n.studioImage>.foundingBadge span:after,.compareBadge .foundingBadge span:after{content:'FOUNDING MEMBER · 2026'!important;font:600 7px/1 Inter,sans-serif!important;letter-spacing:.13em!important;color:#a56f4e!important;white-space:nowrap!important}\n.studioImage>.foundingBadge b,.studioImage>.foundingBadge small,.compareBadge .foundingBadge b,.compareBadge .foundingBadge small{display:none!important}\n/* a restrained pearl shimmer across the seal */\n.studioImage>.foundingBadge i,.compareBadge .foundingBadge i{display:none!important}\n@media(max-width:639px){\n .studioImage>.foundingBadge{left:10px!important;right:10px!important;bottom:10px!important}\n .compareBadge{width:90%!important;bottom:10px!important}\n .studioImage>.foundingBadge span:before,.compareBadge .foundingBadge span:before{font-size:8px!important}\n}\n</style>\n
+</style>
+<style id="edit18b-founding-studio-seal">
+/* EDIT 18B: premium founding-studio seal on studio cards only */
+.studioImage>.foundingBadge,
+.compareBadge .foundingBadge{
+  width:auto!important;height:auto!important;min-height:46px!important;
+  padding:7px 18px 6px!important;border-radius:14px!important;
+  background:linear-gradient(108deg,rgba(255,250,246,.98) 0%,rgba(253,229,220,.98) 45%,rgba(255,248,239,.98) 100%)!important;
+  border:1px solid #cda55f!important;
+  outline:1px solid rgba(255,255,255,.88)!important;outline-offset:-4px!important;
+  box-shadow:0 7px 22px rgba(105,66,42,.18),0 0 18px rgba(232,196,128,.38),inset 0 1px 0 #fff!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  text-align:center!important;color:#122238!important;overflow:hidden!important;
+  backdrop-filter:blur(9px)!important;
+}
+.studioImage>.foundingBadge{position:absolute!important;top:auto!important;bottom:12px!important;left:14px!important;right:14px!important;z-index:38!important}
+.compareBadge{position:absolute!important;top:auto!important;bottom:12px!important;left:50%!important;right:auto!important;transform:translateX(-50%)!important;width:88%!important;z-index:38!important}
+.compareBadge .foundingBadge{width:100%!important}
+.studioImage>.foundingBadge:before,.compareBadge .foundingBadge:before{content:'✦'!important;font-size:15px!important;color:#bd8e3f!important;margin-right:10px!important;text-shadow:0 0 9px rgba(212,180,131,.65)!important;animation:sparkle-twinkle 2s ease-in-out infinite!important}
+.studioImage>.foundingBadge:after,.compareBadge .foundingBadge:after{content:'✦'!important;position:static!important;background:none!important;transform:none!important;width:auto!important;height:auto!important;font-size:15px!important;color:#bd8e3f!important;margin-left:10px!important;text-shadow:0 0 9px rgba(212,180,131,.65)!important;animation:sparkle-twinkle 2s .6s ease-in-out infinite!important}
+.studioImage>.foundingBadge span,.compareBadge .foundingBadge span{font-size:0!important;line-height:1!important;color:#122238!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:3px!important}
+.studioImage>.foundingBadge span:before,.compareBadge .foundingBadge span:before{content:'SYMBLI FOUNDING STUDIO'!important;font:700 9px/1 Inter,sans-serif!important;letter-spacing:.17em!important;color:#122238!important;white-space:nowrap!important}
+.studioImage>.foundingBadge span:after,.compareBadge .foundingBadge span:after{content:'FOUNDING MEMBER · 2026'!important;font:600 7px/1 Inter,sans-serif!important;letter-spacing:.13em!important;color:#a56f4e!important;white-space:nowrap!important}
+.studioImage>.foundingBadge b,.studioImage>.foundingBadge small,.compareBadge .foundingBadge b,.compareBadge .foundingBadge small{display:none!important}
+/* a restrained pearl shimmer across the seal */
+.studioImage>.foundingBadge i,.compareBadge .foundingBadge i{display:none!important}
+@media(max-width:639px){
+ .studioImage>.foundingBadge{left:10px!important;right:10px!important;bottom:10px!important}
+ .compareBadge{width:90%!important;bottom:10px!important}
+ .studioImage>.foundingBadge span:before,.compareBadge .foundingBadge span:before{font-size:8px!important}
+}
+</style>
+
 <style id="edit18c-discover-founding-seal">
 /* EDIT 18C: apply the premium Founding Studio seal explicitly to Discover cards */
 .studioRail .studioMiniCard .studioImage>.foundingBadge{
@@ -695,7 +727,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
    action.append(btn,hint); body.appendChild(action);
  });
 })();
-</script>\n<script id="edit12-functional-pagination">
+</script>
+<script id="edit12-functional-pagination">
 (function(){
  const PAGE_SIZE=12;
  const grid=document.querySelector('.comparisonGrid');
@@ -730,7 +763,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  window.symbliPagination={reset:function(){page=1;render(false)},refresh:function(){render(false)},pageSize:PAGE_SIZE};
  render(false);
 })();
-</script>\n<script id="edit11-booking-wire-real">
+</script>
+<script id="edit11-booking-wire-real">
 (function(){
  const SUPABASE_URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';
  const SUPABASE_KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
@@ -750,7 +784,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
    window.openStudio=function(card){original(card); const name=card.querySelector('.compareTitleRow h3').childNodes[0].textContent.trim(); const b=document.getElementById('spBook'); if(b)b.onclick=()=>window.symbliBookStudio(name);};
  }
 })();
-</script>\n<div class="symInfoOverlay" id="symInfoOverlay" aria-hidden="true"><div class="symInfoCard" role="dialog" aria-modal="true" aria-labelledby="symInfoTitle"><button class="symInfoClose" type="button" aria-label="Close">×</button><p class="symInfoEyebrow" id="symInfoEyebrow">SYMBLI</p><h2 id="symInfoTitle"></h2><div id="symInfoBody"></div></div></div><script id="edit14cFooterFunctions">
+</script>
+<div class="symInfoOverlay" id="symInfoOverlay" aria-hidden="true"><div class="symInfoCard" role="dialog" aria-modal="true" aria-labelledby="symInfoTitle"><button class="symInfoClose" type="button" aria-label="Close">×</button><p class="symInfoEyebrow" id="symInfoEyebrow">SYMBLI</p><h2 id="symInfoTitle"></h2><div id="symInfoBody"></div></div></div><script id="edit14cFooterFunctions">
 (function(){
  function ready(fn){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fn);else fn();}
  function scrollToEl(el){if(!el)return false;el.scrollIntoView({behavior:'smooth',block:'start'});return true;}
