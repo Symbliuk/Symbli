@@ -1197,6 +1197,11 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 }
 </style>
 
+
+<style id="symbli-v69b-referrals-tab-only">
+#referralsCard{display:none!important}
+#adminPane-referrals.active #referralsCard{display:block!important}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -2281,16 +2286,26 @@ async function setApplicationStatus(id,next){
   await loadApplications();status($('applicationsStatus'),next==='rejected'?'Application rejected.':'Changes requested.','ok');
  }catch(e){status($('applicationsStatus'),'Could not update application: '+cleanErr(e),'bad')}
 }
-function openCreatedDraft(studioId){
+async function openCreatedDraft(studioId){
+ const studiosTab=document.querySelector('.adminTopTab[data-admin-tab="studios"]');
+ if(studiosTab)studiosTab.click();
+
+ // Refresh the studio list so a newly-approved draft exists in the selector,
+ // then open that exact draft.
+ try{
+   await loadStudios(String(studioId));
+ }catch(e){
+   console.warn('Could not refresh studio list before opening draft',e);
+ }
+
  const select=$('studioSelect');
  if(select){
    select.value=String(studioId);
    select.dispatchEvent(new Event('change',{bubbles:true}));
  }
- const studiosTab=document.querySelector('.adminTopTab[data-tab="studios"]');
- if(studiosTab)studiosTab.click();
+
  setTimeout(()=>{
-   const target=$('adminDashboard')||$('detailsCard')||document.querySelector('.studioManagerCard');
+   const target=document.querySelector('.studioManagerCard')||$('adminDashboard')||$('detailsCard');
    target?.scrollIntoView({behavior:'smooth',block:'start'});
  },180);
 }
@@ -2664,6 +2679,13 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 
    
    setTimeout(()=>{try{removeLegacyStudioReferralBlocksV69()}catch(e){}},50);
+
+   // Keep referral management exclusively inside the Referrals tab.
+   const referralPane=q('adminPane-referrals');
+   const referralCard=q('referralsCard');
+   if(referralPane&&referralCard&&referralCard.parentElement!==referralPane){
+     referralPane.appendChild(referralCard);
+   }
 
    const existingAnalytics=q('analyticsCard');
    analytics.insertAdjacentHTML('beforeend',`
