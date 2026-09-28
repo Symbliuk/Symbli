@@ -1213,6 +1213,54 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 #adminPane-referrals.active:not([hidden]){display:block!important}
 #adminPane-referrals[hidden]{display:none!important}
 </style>
+
+<style id="symbli-v70b-executive-dashboard">
+#adminPane-overview{padding-top:4px}
+#adminPane-overview #opsDashboard{display:none!important}
+#v70bDashboard{max-width:1370px;margin:0 auto 34px}
+.v70bHero{position:relative;overflow:hidden;border-radius:30px;padding:38px;background:
+ radial-gradient(circle at 88% 5%,rgba(239,164,132,.25),transparent 28%),
+ linear-gradient(135deg,#102b47,#173c5e 62%,#244e70);color:white;box-shadow:0 25px 65px rgba(18,43,68,.18)}
+.v70bHeroRow{display:flex;justify-content:space-between;gap:25px;align-items:flex-start}
+.v70bEyebrow{font-size:10px;font-weight:900;letter-spacing:.23em;text-transform:uppercase;color:#f2a487}
+.v70bHero h1{font-family:Georgia,serif;font-weight:500;font-size:40px;line-height:1.05;margin:10px 0 10px}
+.v70bHero p{margin:0;max-width:650px;color:rgba(255,255,255,.69);line-height:1.55}
+.v70bDate{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);padding:10px 14px;border-radius:999px;font-size:11px;color:rgba(255,255,255,.72);white-space:nowrap}
+.v70bStats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}
+.v70bStat{padding:17px 16px;border-radius:17px;background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(10px)}
+.v70bStat label{display:block;font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:rgba(255,255,255,.55);margin-bottom:9px}
+.v70bStat strong{font:500 28px Georgia,serif}.v70bStat small{display:block;margin-top:5px;font-size:9px;color:rgba(255,255,255,.46)}
+.v70bMid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin:17px 0}
+.v70bPanel{border:1px solid #eaded8;background:linear-gradient(180deg,#fff,#fffbf8);border-radius:23px;padding:23px;box-shadow:0 12px 34px rgba(18,43,68,.055)}
+.v70bHead{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:17px}
+.v70bHead h2{font:500 24px Georgia,serif;color:#102d49;margin:4px 0 4px}.v70bHead p{margin:0;color:#8d7165;font-size:11px}
+.v70bChip{padding:7px 10px;border-radius:999px;background:#fff0e9;color:#b7664b;font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:900}
+.v70bTasks{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.v70bTask{border:1px solid #eee2dc;border-radius:15px;background:white;padding:14px}
+.v70bTask strong{display:block;color:#153450;font-size:23px;font-family:Georgia,serif}.v70bTask span{font-size:10px;color:#907469}
+.v70bProgressTop{display:flex;align-items:flex-end;gap:8px;margin-top:10px}.v70bProgressTop strong{font:500 44px Georgia,serif;color:#153450}.v70bProgressTop span{padding-bottom:7px;color:#94766a}
+.v70bTrack{height:10px;background:#f0e7e2;border-radius:999px;overflow:hidden;margin:15px 0 9px}.v70bFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#e68f70,#f0b08e)}
+.v70bNetwork{border:1px solid #eaded8;background:#fff;border-radius:25px;padding:25px;box-shadow:0 14px 38px rgba(18,43,68,.055)}
+.v70bTools{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0 19px}
+#v70bSearch{flex:1;min-width:230px;border:1px solid #e5d8d1;border-radius:13px;padding:11px 13px;font:inherit;font-size:13px}
+.v70bFilter{border:1px solid #e6d8d1;background:white;color:#765d52;border-radius:999px;padding:8px 12px;font-size:10px;font-weight:900;cursor:pointer}.v70bFilter.on{background:#143450;color:white;border-color:#143450}
+#v70bGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.v70bStudio{position:relative;border:1px solid #eaded8;background:linear-gradient(145deg,#fff,#fffcfa);border-radius:17px;padding:16px;min-height:108px;cursor:pointer;transition:.16s ease;outline:none}
+.v70bStudio:hover,.v70bStudio:focus{transform:translateY(-2px);border-color:#eca88d;box-shadow:0 12px 25px rgba(18,43,68,.09)}
+.v70bStudio:after{content:"→";position:absolute;right:15px;bottom:14px;color:#d78668;font-weight:900}
+.v70bStudioName{font-size:14px;font-weight:900;color:#102d49;padding-right:25px}.v70bMeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.v70bBadge{font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;border-radius:999px;padding:6px 8px;background:#f3eeeb;color:#826b61}
+.v70bBadge.live{background:#e7f5eb;color:#39784f}.v70bBadge.founder{background:#fff0dd;color:#a66a28}
+.v70bEmpty{grid-column:1/-1;border:1px dashed #e3d5ce;border-radius:15px;padding:24px;text-align:center;color:#8c7166}
+@media(max-width:1050px){.v70bStats{grid-template-columns:repeat(3,1fr)}.v70bMid{grid-template-columns:1fr}#v70bGrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.v70bHero{padding:25px 20px;border-radius:22px}.v70bHeroRow{display:block}.v70bDate{display:inline-block;margin-top:17px}.v70bHero h1{font-size:31px}.v70bStats{grid-template-columns:repeat(2,1fr)}.v70bTasks{grid-template-columns:1fr}#v70bGrid{grid-template-columns:1fr}.v70bNetwork,.v70bPanel{padding:18px}}
+</style>
+
+<style id="symbli-v70c-white-background">
+html, body, .page, main, #adminDashboard {
+  background: #ffffff !important;
+}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -3125,6 +3173,116 @@ document.addEventListener('click',function(e){
    if(e.target?.id==='adminReferralPeriod'){activePeriod=e.target.value||'all';render()}
  });
  window.SYMBLI_LOAD_ADMIN_REFERRALS=load;
+})();
+</script>
+
+<script id="symbli-v70b-dashboard">
+(function(){
+ const q=id=>document.getElementById(id);
+ const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+ let ST=[],AP=[],RF=[],filter='all';
+
+ async function get(path){try{return await authFetch(path)}catch(e){console.warn('Dashboard data:',path,e);return []}}
+ function stat(v){return String(v||'').toLowerCase()}
+ function money(n){return '£'+Number(n||0).toLocaleString('en-GB',{maximumFractionDigits:0})}
+
+ async function goStudio(id){
+   // Use the same tab mechanism as the working top navigation.
+   const tab=document.querySelector('.adminTopTab[data-admin-tab="studios"]');
+   if(tab)tab.click();
+   await new Promise(r=>setTimeout(r,80));
+   try{await loadStudios(String(id))}catch(e){console.warn(e)}
+   const sel=q('studioSelect');
+   if(sel){
+     sel.value=String(id);
+     sel.dispatchEvent(new Event('change',{bubbles:true}));
+     try{await Promise.all([loadStudioDetail(),loadTreatments(),loadServices(),loadReviews(),loadVibes(),loadImages(),loadOwnerReview()])}catch(e){}
+   }
+   setTimeout(()=>{
+     const target=q('studioSelect')?.closest('.card')||q('studioSelect');
+     target?.scrollIntoView({behavior:'smooth',block:'start'});
+   },120);
+ }
+ window.SYMBLI_V70B_OPEN_STUDIO=goStudio;
+
+ function shell(){
+   const pane=q('adminPane-overview'); if(!pane)return null;
+   let d=q('v70bDashboard');
+   if(!d){d=document.createElement('div');d.id='v70bDashboard';pane.appendChild(d)}
+   return d;
+ }
+ function render(){
+   const d=shell();if(!d)return;
+   const live=ST.filter(x=>x.is_active===true).length, drafts=ST.length-live;
+   const founders=ST.filter(x=>x.is_founding===true), founderLive=founders.filter(x=>x.is_active===true).length;
+   const apps=AP.filter(x=>stat(x.status)==='pending').length;
+   const pending=RF.filter(x=>['pending','new','sent'].includes(stat(x.status))).length;
+   const booked=RF.filter(x=>['booked','confirmed','completed'].includes(stat(x.status)));
+   const revenue=booked.reduce((a,x)=>a+Number(x.revenue_amount??x.revenue??x.booking_value??0),0);
+   const pc=Math.min(100,founderLive*10);
+   const date=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+   d.innerHTML=`
+    <section class="v70bHero">
+     <div class="v70bHeroRow"><div><div class="v70bEyebrow">SYMBLI · CONTROL CENTRE</div><h1>Good evening. Here’s SYMBLI.</h1><p>A live view of the network, what needs your attention and where every studio sits.</p></div><div class="v70bDate">${esc(date)}</div></div>
+     <div class="v70bStats">
+      <div class="v70bStat"><label>Live studios</label><strong>${live}</strong><small>Public on SYMBLI</small></div>
+      <div class="v70bStat"><label>Draft studios</label><strong>${drafts}</strong><small>Still being prepared</small></div>
+      <div class="v70bStat"><label>Founding studios</label><strong>${founders.length}</strong><small>${founderLive} currently live</small></div>
+      <div class="v70bStat"><label>Applications</label><strong>${apps}</strong><small>Awaiting review</small></div>
+      <div class="v70bStat"><label>Pending referrals</label><strong>${pending}</strong><small>Awaiting outcome</small></div>
+      <div class="v70bStat"><label>Revenue generated</label><strong>${money(revenue)}</strong><small>Confirmed referrals</small></div>
+     </div>
+    </section>
+    <div class="v70bMid">
+     <section class="v70bPanel"><div class="v70bHead"><div><div class="v70bEyebrow">TODAY</div><h2>Needs attention</h2><p>The shortest route to what needs doing.</p></div><span class="v70bChip">${apps+pending+drafts} items</span></div>
+      <div class="v70bTasks"><div class="v70bTask"><strong>${apps}</strong><span>applications to review</span></div><div class="v70bTask"><strong>${pending}</strong><span>referrals awaiting outcome</span></div><div class="v70bTask"><strong>${drafts}</strong><span>studio drafts off-site</span></div></div>
+     </section>
+     <section class="v70bPanel"><div class="v70bHead"><div><div class="v70bEyebrow">FOUNDING 10</div><h2>Launch milestone</h2><p>Live Founding Studios towards the first ten.</p></div><span class="v70bChip">${pc}%</span></div>
+      <div class="v70bProgressTop"><strong>${founderLive}</strong><span>/ 10 live</span></div><div class="v70bTrack"><div class="v70bFill" style="width:${pc}%"></div></div><div style="font-size:10px;color:#8d7165">${Math.max(0,10-founderLive)} remaining</div>
+     </section>
+    </div>
+    <section class="v70bNetwork">
+     <div class="v70bHead"><div><div class="v70bEyebrow">STUDIO NETWORK</div><h2>Your studios</h2><p>Search or filter the network. Click any card to open that studio directly.</p></div><span class="v70bChip">${ST.length} total</span></div>
+     <div class="v70bTools"><input id="v70bSearch" type="search" placeholder="Search by studio name…">
+      <button class="v70bFilter on" data-f="all">All</button><button class="v70bFilter" data-f="live">Live</button><button class="v70bFilter" data-f="draft">Draft</button><button class="v70bFilter" data-f="founding">Founding</button>
+     </div><div id="v70bGrid"></div>
+    </section>`;
+   q('v70bSearch').addEventListener('input',renderStudios);
+   d.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;d.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));renderStudios()});
+   renderStudios();
+ }
+ function renderStudios(){
+   const grid=q('v70bGrid');if(!grid)return;
+   const term=(q('v70bSearch')?.value||'').toLowerCase().trim();
+   const rows=ST.filter(x=>{
+     if(term&&!String(x.name||'').toLowerCase().includes(term))return false;
+     if(filter==='live'&&x.is_active!==true)return false;
+     if(filter==='draft'&&x.is_active===true)return false;
+     if(filter==='founding'&&x.is_founding!==true)return false;
+     return true;
+   });
+   grid.innerHTML=rows.length?rows.map(x=>`<div class="v70bStudio" tabindex="0" role="button" data-id="${esc(x.id)}"><div class="v70bStudioName">${esc(x.name||'Untitled studio')}</div><div class="v70bMeta"><span class="v70bBadge ${x.is_active?'live':''}">${x.is_active?'Live':'Draft'}</span>${x.is_founding?'<span class="v70bBadge founder">Founding Studio</span>':''}</div></div>`).join(''):'<div class="v70bEmpty">No studios match this view.</div>';
+   grid.querySelectorAll('[data-id]').forEach(c=>{c.onclick=()=>goStudio(c.dataset.id);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();goStudio(c.dataset.id)}}});
+ }
+ async function load(){
+   // Independent requests: one missing table/column cannot kill the whole dashboard.
+   const results=await Promise.allSettled([
+     get('/rest/v1/studios?select=*'),
+     get('/rest/v1/studio_applications?select=id,status,created_at'),
+     get('/rest/v1/referrals?select=*')
+   ]);
+   ST=results[0].status==='fulfilled'&&Array.isArray(results[0].value)?results[0].value:[];
+   AP=results[1].status==='fulfilled'&&Array.isArray(results[1].value)?results[1].value:[];
+   RF=results[2].status==='fulfilled'&&Array.isArray(results[2].value)?results[2].value:[];
+   ST.sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
+   render();
+ }
+ function boot(){
+   const dashTab=document.querySelector('.adminTopTab[data-admin-tab="overview"]');
+   if(dashTab&&!dashTab.dataset.v70b){dashTab.dataset.v70b='1';dashTab.addEventListener('click',()=>setTimeout(load,60))}
+   if(q('adminPane-overview')?.classList.contains('active'))load();
+ }
+ setTimeout(boot,700);
 })();
 </script>
 </body></html>
