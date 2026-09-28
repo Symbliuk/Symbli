@@ -1202,6 +1202,9 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 #referralsCard{display:none!important}
 #adminPane-referrals.active #referralsCard{display:block!important}
 </style>
+<style id="symbli-v69c-hard-tab-isolation">
+.adminTabPane[hidden]{display:none!important}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -2633,6 +2636,8 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const referrals=makePane('referrals','','');
    const add=makePane('add','Add a studio','Create a studio manually from the Admin side.');
    overview.after(applications,reviews,studios,analytics,referrals,add);
+   [applications,reviews,studios,analytics,referrals,add].forEach(p=>p.hidden=true);
+   overview.hidden=false;
 
    referrals.innerHTML=`
    <div class="refAdminHero">
@@ -2807,7 +2812,11 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
  }
  function switchTab(name){
    document.querySelectorAll('.adminTopTab').forEach(b=>b.classList.toggle('active',b.dataset.adminTab===name));
-   document.querySelectorAll('.adminTabPane').forEach(p=>p.classList.toggle('active',p.id==='adminPane-'+name));
+   document.querySelectorAll('.adminTabPane').forEach(p=>{
+     const isActive=p.id==='adminPane-'+name;
+     p.classList.toggle('active',isActive);
+     p.hidden=!isActive;
+   });
    window.scrollTo({top:0,behavior:'smooth'});
    if(name==='add')setTimeout(()=>q('quickCreateName')?.focus(),100);
    if(name==='reviews')hydrateTabQueues();
