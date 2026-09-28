@@ -1030,6 +1030,173 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin:0!important}
 }
 </style>
+
+<style id="symbli-v58-founding-applications">
+.applicationDetail{padding:18px!important;background:#fffdfb;border-radius:14px;margin-top:4px}
+.appDetailGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.appDetailBlock{padding:13px;border:1px solid #eee2da;border-radius:13px;background:#fff}
+.appDetailBlock.wide{grid-column:1/-1}
+.appDetailBlock span{display:block;font-size:8px;font-weight:850;letter-spacing:.13em;color:#c6785e;text-transform:uppercase;margin-bottom:5px}
+.appDetailBlock b{color:#122238}
+.appTreatmentTable{width:100%;border-collapse:collapse;margin-top:5px}
+.appTreatmentTable td{padding:7px 5px;border-bottom:1px solid #f0e6df;font-size:11px}
+.appTreatmentTable td:last-child{text-align:right}
+.appFoundingTerms{margin-top:12px;padding:14px;border-radius:13px;background:#fff5ef;border:1px solid #efd8ca;color:#65564e}
+.appFoundingTerms strong{display:block;color:#122238;margin-bottom:4px}
+.appDecisionBar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:13px;border-top:1px solid #eee2da}
+.appDecisionBar .approveApp{background:#26804b!important;color:#fff!important}
+.appDecisionBar .requestApp{background:#fff!important;color:#a65f43!important;border:1px solid #e3b8a7!important}
+.appDecisionBar .rejectApp{background:#fff!important;color:#a33e3e!important;border:1px solid #dfaaaa!important}
+.applicationStatus.changes_requested{background:#fff5df;color:#966c22}
+.applicationStatus.rejected{background:#fff0f1;color:#9c4450}
+@media(max-width:650px){.appDetailGrid{grid-template-columns:1fr}.appDetailBlock.wide{grid-column:auto}}
+</style>
+
+
+<style id="symbli-v61-draft-handoff">
+.draftHandoff{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:12px;padding:14px 16px;border:1px solid #cfe5d5;border-radius:14px;background:#f1f9f3}
+.draftHandoffText b{display:block;color:#285d39;font-size:12px}
+.draftHandoffText span{display:block;margin-top:3px;color:#64806c;font-size:10px}
+.openDraftBtn{background:#122238!important;color:#fff!important;border-color:#122238!important}
+@media(max-width:560px){.draftHandoff{align-items:stretch}.openDraftBtn{width:100%}}
+</style>
+
+
+<style id="symbli-v62-founding-clock">
+#foundingClockCard{margin:18px 0;padding:20px 22px;border:1px solid #ead8c8;border-radius:20px;background:linear-gradient(135deg,#fff8f2,#fffdfb);box-shadow:0 12px 32px rgba(18,34,56,.05)}
+#foundingClockCard.hidden{display:none!important}
+.fClockTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.fClockEyebrow{font-size:9px;font-weight:850;letter-spacing:.16em;color:#c7785e}
+.fClockTop h3{margin:5px 0 4px;font:400 23px Georgia,serif;color:#122238}
+.fClockTop p{margin:0;color:#806f66;font-size:11px;line-height:1.55}
+.fClockDays{text-align:right;min-width:120px}.fClockDays strong{display:block;font:500 32px Georgia,serif;color:#122238}.fClockDays span{font-size:9px;font-weight:800;letter-spacing:.1em;color:#8a776d}
+.fClockTrack{height:8px;background:#f1e6df;border-radius:99px;overflow:hidden;margin:17px 0 13px}.fClockFill{height:100%;background:#e99576;border-radius:99px;width:0;transition:width .3s}
+.fClockMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.fClockMeta div{padding:10px 12px;border:1px solid #eee2da;border-radius:12px;background:#fff}.fClockMeta span{display:block;font-size:8px;letter-spacing:.11em;font-weight:850;color:#a27d6c}.fClockMeta b{display:block;margin-top:4px;font-size:11px;color:#122238}
+.fClockTriggered{margin-top:12px;padding:11px 13px;border-radius:12px;background:#edf7f0;color:#477257;font-size:10px;font-weight:750}.fClockTriggered.due{background:#fff0e9;color:#a86650}.fBillingBadge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf7f0;color:#477257;font-size:9px;font-weight:850;letter-spacing:.06em}
+@media(max-width:650px){.fClockDays{text-align:left}.fClockMeta{grid-template-columns:1fr}}
+</style>
+
+
+<style id="symbli-v64-studio-overview">
+#studioOverviewV64{margin:14px 0 18px;padding:18px 20px;border:1px solid #eaded6;border-radius:20px;background:linear-gradient(135deg,#fffdfb,#fff8f3);box-shadow:0 10px 30px rgba(18,34,56,.045)}
+#studioOverviewV64.hidden{display:none!important}
+.v64Top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.v64Name{font:400 24px Georgia,serif;color:#122238}.v64Sub{margin-top:4px;font-size:10px;color:#8a776d}
+.v64Badges{display:flex;gap:6px;flex-wrap:wrap}.v64Badge{padding:6px 9px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:8px;font-weight:850;letter-spacing:.08em}.v64Badge.live{background:#edf7f0;color:#477257}.v64Badge.founding{background:#fff0e9;color:#a86650}
+.v64Stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.v64Stat{padding:10px 11px;border:1px solid #eee3dc;border-radius:12px;background:#fff}.v64Stat span{display:block;font-size:8px;font-weight:850;letter-spacing:.1em;color:#9b8174}.v64Stat b{display:block;margin-top:4px;color:#122238;font-size:11px}
+.v64Actions{display:flex;gap:7px;flex-wrap:wrap}.v64Jump{border:1px solid #e6d9d1;background:#fff;color:#263548;border-radius:10px;padding:8px 10px;font-size:9px;font-weight:750;cursor:pointer}.v64Jump:hover{background:#fff6f0}
+#foundingClockCard{padding:14px 16px!important;margin:10px 0 18px!important}
+#foundingClockCard .fClockTop h3{font-size:18px!important}
+#foundingClockCard .fClockMeta{display:none}
+#foundingClockCard.v64Expanded .fClockMeta{display:grid}
+#foundingClockCard .fClockTrack{margin:11px 0 9px}
+#foundingClockCard .fClockDays strong{font-size:26px}
+.v64ClockToggle{margin-top:10px;border:0;background:transparent;color:#b66f57;font-size:9px;font-weight:800;cursor:pointer;padding:0}
+.publishPanel{padding:15px 17px!important;margin:12px 0 18px!important}
+.publishPanel h2{font-size:19px!important}.publishChecklist{margin:12px 0!important}.publishCheck{padding:7px 9px!important}
+@media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.v64Stats{grid-template-columns:1fr}.v64Actions{display:grid;grid-template-columns:1fr 1fr}.v64Jump{width:100%}}
+</style>
+
+
+<style id="symbli-v65-workspace">
+/* V65: turn Studios into a focused listing workspace */
+#studioOverviewV64{padding:22px!important;margin:12px 0 14px!important;background:#fff!important}
+.v64Top{align-items:center!important}.v64Name{font-size:28px!important}.v64Sub{font-size:11px!important}
+.v64Stats{grid-template-columns:repeat(4,minmax(0,1fr))!important;margin:18px 0 14px!important}
+.v64Stat{padding:13px 14px!important;background:#fbf8f5!important;border-color:#eee4dd!important}
+.v64Stat b{font-size:12px!important}
+.v64Actions{padding-top:13px;border-top:1px solid #eee4dd;gap:8px!important}
+.v64Jump{padding:10px 13px!important;background:#fff!important}
+.v65SectionNav{position:sticky;top:8px;z-index:15;display:flex;gap:6px;overflow-x:auto;padding:8px;margin:0 0 14px;border:1px solid #eaded6;border-radius:14px;background:rgba(255,253,251,.96);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(18,34,56,.05);scrollbar-width:none}
+.v65SectionNav::-webkit-scrollbar{display:none}.v65NavBtn{white-space:nowrap;border:0;border-radius:9px;background:transparent;color:#78675f;padding:9px 12px;font-size:9px;font-weight:800;cursor:pointer}.v65NavBtn:hover{background:#f8efea;color:#122238}.v65NavBtn.primary{background:#122238;color:#fff}
+.v65WorkspaceTitle{margin:24px 0 9px;font:400 20px Georgia,serif;color:#122238}.v65WorkspaceHint{margin:-4px 0 13px;font-size:10px;color:#8a776d}
+#foundingClockCard{border-radius:16px!important}
+.publishPanel{border-radius:16px!important;box-shadow:none!important}
+.v65HiddenStudioAnalytics{display:none!important}
+@media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr!important}.v65SectionNav{top:4px}}
+@media(max-width:440px){.v64Stats{grid-template-columns:1fr 1fr!important}.v64Stat{padding:10px!important}.v64Name{font-size:23px!important}}
+</style>
+
+
+<style id="symbli-v67-countdown-header">
+#foundingClockCard{
+ margin:12px 0 16px!important;
+ padding:18px 20px!important;
+ border:1px solid #eadbd2!important;
+ border-radius:18px!important;
+ background:linear-gradient(135deg,#fff7f1 0%,#fffdfb 58%,#fff 100%)!important;
+ box-shadow:0 8px 24px rgba(18,34,56,.05)!important;
+}
+#foundingClockCard .fClockTop{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important}
+#foundingClockCard .fClockEyebrow{font-size:9px!important;letter-spacing:.14em!important}
+#foundingClockCard .fClockTop h3{margin:3px 0 3px!important;font-size:19px!important}
+#foundingClockCard .fClockTop p{margin:0!important}
+#foundingClockCard .fClockDays{display:flex!important;flex-direction:column!important;align-items:flex-end!important;min-width:130px!important}
+#foundingClockCard .fClockDays strong{font-size:34px!important;line-height:.95!important}
+#foundingClockCard .fClockTrack{height:6px!important;margin:13px 0 8px!important}
+#foundingClockCard .fClockMeta{display:none!important}
+#foundingClockCard.v64Expanded .fClockMeta{display:grid!important}
+#foundingClockCard .v64ClockToggle{margin-top:8px!important}
+@media(max-width:600px){
+ #foundingClockCard .fClockTop{align-items:flex-start!important}
+ #foundingClockCard .fClockDays{min-width:auto!important;align-items:flex-start!important}
+}
+</style>
+
+
+<style id="symbli-v68-premium-countdown">
+#foundingClockCard{
+ position:relative!important;
+ overflow:hidden!important;
+ margin:14px 0 18px!important;
+ padding:0!important;
+ border:1px solid rgba(211,171,145,.38)!important;
+ border-radius:22px!important;
+ background:
+   radial-gradient(circle at 88% 8%,rgba(231,190,166,.22),transparent 34%),
+   linear-gradient(135deg,#fffaf7 0%,#fff 58%,#fff8f3 100%)!important;
+ box-shadow:0 14px 38px rgba(73,49,38,.075)!important;
+}
+#foundingClockCard:before{
+ content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+ background:linear-gradient(#d9a98c,#efcbbb,#c89072)
+}
+#foundingClockCard .fClockTop{padding:20px 22px 14px!important;display:grid!important;grid-template-columns:1fr auto!important;gap:22px!important;align-items:center!important}
+#foundingClockCard .fClockEyebrow{
+ display:inline-flex!important;align-items:center!important;width:max-content!important;
+ padding:5px 9px!important;border-radius:999px!important;
+ background:#fff0e7!important;color:#a66b50!important;
+ font-size:8px!important;font-weight:900!important;letter-spacing:.13em!important
+}
+#foundingClockCard .fClockTop h3{font:400 21px/1.15 Georgia,serif!important;color:#15243a!important;margin:7px 0 4px!important}
+#foundingClockCard .fClockTop p{font-size:9px!important;line-height:1.55!important;color:#8d7b71!important;max-width:460px!important}
+#foundingClockCard .fClockDays{
+ min-width:138px!important;padding:12px 15px!important;border:1px solid #eee0d7!important;
+ border-radius:16px!important;background:rgba(255,255,255,.78)!important;text-align:center!important;
+ box-shadow:0 6px 18px rgba(73,49,38,.04)!important
+}
+#foundingClockCard .fClockDays strong{display:block!important;font:400 34px/1 Georgia,serif!important;color:#c37e5e!important}
+#foundingClockCard .fClockDays span{display:block!important;margin-top:5px!important;font-size:7px!important;font-weight:900!important;letter-spacing:.12em!important;color:#8f776b!important}
+#foundingClockCard .fClockTrack{height:7px!important;margin:0 22px 9px!important;border-radius:999px!important;background:#f2e8e2!important;overflow:hidden!important}
+#foundingClockCard .fClockTrack>div{height:100%!important;border-radius:999px!important;background:linear-gradient(90deg,#d79a7b,#edc1ac)!important}
+#foundingClockCard .fClockCopy{margin:0 22px 15px!important;font-size:9px!important;color:#88756c!important}
+#foundingClockCard .fClockMeta{margin:0 22px 15px!important;padding:14px!important;border-radius:14px!important;background:#fff!important;border:1px solid #eee4dd!important}
+#foundingClockCard .fClockTriggered{margin:0 22px 14px!important}
+#foundingClockCard .v64ClockToggle{
+ margin:0!important;width:100%!important;padding:11px 22px!important;border:0!important;border-top:1px solid #eee3dc!important;
+ background:rgba(255,255,255,.58)!important;text-align:left!important;color:#a66b50!important;
+ font-size:8px!important;font-weight:900!important;letter-spacing:.05em!important;cursor:pointer!important
+}
+#foundingClockCard .v64ClockToggle:hover{background:#fff!important}
+@media(max-width:600px){
+ #foundingClockCard .fClockTop{grid-template-columns:1fr!important;padding:18px 18px 13px!important;gap:13px!important}
+ #foundingClockCard .fClockDays{min-width:0!important;width:100%!important;text-align:left!important}
+ #foundingClockCard .fClockTrack{margin-left:18px!important;margin-right:18px!important}
+ #foundingClockCard .fClockCopy,#foundingClockCard .fClockMeta,#foundingClockCard .fClockTriggered{margin-left:18px!important;margin-right:18px!important}
+}
+</style>
+
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -1070,6 +1237,13 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 <div class="toolbar"><label class="field"><span>STUDIO</span><select id="studioSelect"><option>Loading studios…</option></select></label><button id="addStudioBtn" class="btn">+ Add Studio</button><button id="refreshBtn" class="btn secondary">Refresh</button></div>      <div class="ownerEmailQuick"><label class="field" for="studioOwnerEmail"><span>OWNER EMAIL · PORTAL ACCESS</span><input id="studioOwnerEmail" type="email" autocomplete="off" placeholder="owner@example.com"></label><div style="display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap"><button id="saveOwnerEmailBtn" class="btn secondary" type="button">Save owner email</button><span id="ownerEmailStatus" class="smallNote" role="status">Owners create their own portal account with this email.</span></div></div></div>
 
 
+
+<div id="foundingClockCard" class="hidden">
+ <div class="fClockTop"><div><div class="fClockEyebrow">FOUNDING STUDIO</div><h3>Founding membership clock</h3><p id="foundingClockCopy">The 90-day clock begins only when this studio goes live.</p></div><div class="fClockDays"><strong id="foundingDays">90</strong><span id="foundingDaysLabel">DAYS REMAINING</span></div></div>
+ <div class="fClockTrack"><div class="fClockFill" id="foundingClockFill"></div></div>
+ <div class="fClockMeta"><div><span>WENT LIVE</span><b id="foundingLiveDate">Not live yet</b></div><div><span>90-DAY DATE</span><b id="foundingDueDate">Starts when published</b></div><div><span>LIVE STUDIOS</span><b id="foundingStudioCount">Checking…</b></div><div><span>BILLING STATUS</span><b id="foundingBillingStatus">Free period</b></div><div><span>BILLING START</span><b id="foundingBillingStart">Not triggered</b></div><div><span>FOUNDING RATE</span><b id="foundingRate">£29.99/month locked</b></div></div>
+ <div id="foundingClockTrigger" class="fClockTriggered hidden"></div><button class="v64ClockToggle" type="button" onclick="toggleV64Clock()">View billing details ↓</button>
+</div>
 
 <div class="card applicationsCard" id="applicationsCard">
  <div class="applicationsHeader"><div><div class="adminEyebrow" style="color:#c67d63">STUDIO PIPELINE</div><h2>Studio Applications</h2><p class="muted">Review businesses that want to join SYMBLI. Approving an application creates a private draft studio and sends it into the onboarding workflow.</p></div><span class="applicationCount" id="applicationCount">0</span></div>
@@ -1115,6 +1289,26 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  <div class="readinessMissing" id="readinessMissing">Choose a studio to begin.</div>
  <button type="button" class="btn secondary readinessJump" id="readinessJump" disabled>Go to missing requirement</button>
 </div>
+<div id="studioOverviewV64" class="hidden">
+ <div class="v64Top"><div><div class="v64Name" id="v64StudioName">Studio</div><div class="v64Sub" id="v64StudioTown">Studio overview</div></div><div class="v64Badges"><span class="v64Badge" id="v64StateBadge">DRAFT</span><span class="v64Badge founding hidden" id="v64FoundingBadge">FOUNDING STUDIO</span></div></div>
+ <div class="v64Stats"><div class="v64Stat"><span>LISTING</span><b id="v64Listing">0% complete</b></div><div class="v64Stat"><span>STATUS</span><b id="v64Status">Draft</b></div><div class="v64Stat"><span>FOUNDING</span><b id="v64Founding">Standard studio</b></div><div class="v64Stat"><span>BILLING</span><b id="v64Billing">Not applicable</b></div></div>
+ <div class="v64Actions">
+  <button class="v64Jump" type="button" data-target="detailsForm">Profile</button>
+  <button class="v64Jump" type="button" data-target="gallery">Photos</button>
+  <button class="v64Jump" type="button" data-target="serviceRows">Treatments</button>
+  <button class="v64Jump" type="button" data-target="ownerAccessCard">Owner access</button>
+  <button class="v64Jump" type="button" onclick="document.getElementById('foundingClockCard')?.scrollIntoView({behavior:'smooth',block:'center'})">Billing</button>
+ </div>
+</div>
+<div class="v65SectionNav" id="v65SectionNav">
+ <button class="v65NavBtn primary" type="button" data-v65target="studioOverviewV64">Overview</button>
+ <button class="v65NavBtn" type="button" data-v65target="detailsForm">Profile</button>
+ <button class="v65NavBtn" type="button" data-v65target="serviceRows">Treatments</button>
+ <button class="v65NavBtn" type="button" data-v65target="gallery">Photos</button>
+ <button class="v65NavBtn" type="button" data-v65target="ownerAccessCard">Owner access</button>
+ <button class="v65NavBtn" type="button" data-v65target="foundingClockCard">Founding billing</button>
+</div>
+
 <div class="publishPanel" id="publishPanel">
  <div class="publishTop"><div><div class="publishEyebrow">PUBLISHING</div><h2>Ready for SYMBLI?</h2><p id="publishCopy">Choose a studio to check whether its listing is ready to publish.</p></div><div class="publishState" id="publishState">NO STUDIO SELECTED</div></div>
  <div class="publishChecklist" id="publishChecklist">
@@ -1767,7 +1961,154 @@ function getListingReadiness(){
  const done=Object.values(checks).filter(Boolean).length;
  return {checks,done,pct:Math.round(done/6*100),ready:done===6,active:studioDetail.is_active!==false};
 }
+function foundingDate(v){
+ if(!v)return null;const d=new Date(v);return Number.isNaN(d.getTime())?null:d;
+}
+function fmtFoundingDate(d){
+ return d?new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(d):'—';
+}
+let foundingMilestoneCache=null;
+async function getFoundingMilestone(){
+ if(foundingMilestoneCache!==null)return foundingMilestoneCache;
+ try{
+  const rows=await authFetch('/rest/v1/symbli_settings?key=eq.founding_10_live_milestone_at&select=key,value&limit=1');
+  foundingMilestoneCache=rows?.[0]?.value||'';
+ }catch(e){foundingMilestoneCache=''}
+ return foundingMilestoneCache;
+}
+async function setFoundingMilestoneIfNeeded(){
+ try{
+  const live=await authFetch('/rest/v1/studios?select=id&is_active=eq.true');
+  const count=Array.isArray(live)?live.length:0;
+  let milestone=await getFoundingMilestone();
+  if(count>=10&&!milestone){
+   const now=new Date().toISOString();
+   const rows=await authFetch('/rest/v1/symbli_settings?on_conflict=key',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=representation'},
+    body:JSON.stringify({key:'founding_10_live_milestone_at',value:now})
+   });
+   milestone=rows?.[0]?.value||now;foundingMilestoneCache=milestone;
+  }
+  return {count,milestone};
+ }catch(e){return {count:null,milestone:await getFoundingMilestone()}}
+}
+async function persistFoundingBillingTrigger(studio, billingStart, reason){
+ if(!studio?.id||studio.founding_billing_started_at)return studio;
+ try{
+  const body={founding_billing_started_at:billingStart.toISOString(),founding_billing_trigger:reason,founding_monthly_rate:29.99};
+  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(studio.id)+'&select=*',{
+   method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)
+  });
+  if(Array.isArray(rows)&&rows.length===1){studioDetail=rows[0];studioColumns=Object.keys(studioDetail);return rows[0]}
+ }catch(e){}
+ return studio;
+}
+async function updateFoundingClock(){
+ const card=$('foundingClockCard');if(!card)return;
+ let st=studioDetail;
+ if(!st||st.is_founding!==true){card.classList.add('hidden');return}
+ card.classList.remove('hidden');
+
+ const rate=Number(st.founding_monthly_rate||29.99);
+ $('foundingRate').textContent='£'+rate.toFixed(2)+'/month locked';
+
+ const live=foundingDate(st.went_live_at);
+ const state=await setFoundingMilestoneIfNeeded();
+ $('foundingStudioCount').textContent=state.count===null?'Unavailable':Math.min(state.count,10)+' / 10 live';
+
+ $('foundingLiveDate').textContent=live?fmtFoundingDate(live):(st.is_active===true?'Live date not recorded':'Not live yet');
+ if(!live){
+  $('foundingDays').textContent='90';$('foundingDaysLabel').textContent='DAYS READY';
+  $('foundingDueDate').textContent='Starts when published';$('foundingClockFill').style.width='0%';
+  $('foundingBillingStatus').textContent='Free period not started';$('foundingBillingStart').textContent='Not triggered';
+  $('foundingClockCopy').textContent='The 90-day clock begins only when this studio goes live.';
+  $('foundingClockTrigger').classList.add('hidden');return;
+ }
+
+ const due90=new Date(live.getTime()+90*86400000);
+ $('foundingDueDate').textContent=fmtFoundingDate(due90);
+
+ const milestone=foundingDate(state.milestone);
+ let triggerDate=null, reason='';
+ if(milestone && milestone>=live && milestone<=due90){triggerDate=milestone;reason='10_studios'}
+ else if(new Date()>=due90){triggerDate=due90;reason='90_days'}
+
+ if(triggerDate && !st.founding_billing_started_at){
+  st=await persistFoundingBillingTrigger(st,triggerDate,reason);
+ }
+
+ const storedStart=foundingDate(st.founding_billing_started_at)||triggerDate;
+ const storedReason=st.founding_billing_trigger||reason;
+ const now=new Date();
+ const remaining=Math.max(0,Math.ceil((due90-now)/86400000));
+ const elapsed=Math.min(90,Math.max(0,90-remaining));
+ $('foundingDays').textContent=String(storedStart?0:remaining);
+ $('foundingDaysLabel').textContent=storedStart?'FREE PERIOD ENDED':(remaining===1?'DAY REMAINING':'DAYS REMAINING');
+ $('foundingClockFill').style.width=(storedStart?100:(elapsed/90*100))+'%';
+
+ const trig=$('foundingClockTrigger');
+ if(storedStart){
+  const label=storedReason==='10_studios'?'10 live studios':'90-day milestone';
+  $('foundingBillingStatus').textContent='SUBSCRIPTION DUE';
+  $('foundingBillingStart').textContent=fmtFoundingDate(storedStart);
+  $('foundingClockCopy').textContent='Founding free period has ended. Payment setup/collection is handled separately.';
+  trig.textContent='Subscription triggered by '+label+' • £'+rate.toFixed(2)+'/month due from '+fmtFoundingDate(storedStart)+'.';
+  trig.classList.remove('hidden');trig.classList.add('due');
+ }else{
+  $('foundingBillingStatus').textContent='FREE PERIOD';
+  $('foundingBillingStart').textContent='Not triggered';
+  $('foundingClockCopy').textContent='Subscription begins at the earlier of 10 live SYMBLI studios or this studio’s 90-day date.';
+  if(milestone&&milestone<live){
+   trig.textContent='SYMBLI had already reached 10 live studios before this studio went live. Review billing terms for this later-joining studio.';
+   trig.classList.remove('hidden');trig.classList.remove('due');
+  }else trig.classList.add('hidden');
+ }
+}
+function toggleV64Clock(){
+ const c=$('foundingClockCard'),b=c?.querySelector('.v64ClockToggle');if(!c)return;
+ const open=c.classList.toggle('v64Expanded');if(b)b.textContent=open?'Hide billing details ↑':'View billing details ↓';
+}
+function cleanStudioWorkspaceV65(){
+ const studioArea=$('detailsForm')?.parentElement;
+ if(!studioArea)return;
+ const nodes=[...studioArea.querySelectorAll('section,.card,.panel,div')];
+ nodes.forEach(el=>{
+   if(el.id==='foundingClockCard'||el.id==='studioOverviewV64')return;
+   const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
+   if((t.includes('referrals')&&t.includes('revenue')&&t.includes('analytics')) ||
+      (t.startsWith('referrals & revenue')&&t.length<5000)){
+     el.classList.add('v65HiddenStudioAnalytics');
+   }
+ });
+}
+document.addEventListener('click',e=>{
+ const b=e.target.closest?.('[data-v65target]');if(!b)return;
+ const el=$(b.dataset.v65target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+});
+function updateStudioOverviewV64(){
+ setTimeout(cleanStudioWorkspaceV65,0);
+ const box=$('studioOverviewV64'),st=studioDetail,r=getListingReadiness();if(!box)return;
+ if(!st||!r){box.classList.add('hidden');return}
+ box.classList.remove('hidden');
+ $('v64StudioName').textContent=st.name||currentStudio()?.name||'Studio';
+ $('v64StudioTown').textContent=st.town||'Studio overview';
+ const active=st.is_active===true, founding=st.is_founding===true;
+ $('v64StateBadge').textContent=active?'LIVE':'DRAFT';$('v64StateBadge').classList.toggle('live',active);
+ $('v64FoundingBadge').classList.toggle('hidden',!founding);
+ $('v64Listing').textContent=r.pct+'% complete';$('v64Status').textContent=active?'Live':'Draft';
+ if(!founding){$('v64Founding').textContent='Standard studio';$('v64Billing').textContent='Standard plan';return}
+ const live=foundingDate(st.went_live_at),started=foundingDate(st.founding_billing_started_at);
+ if(!live){$('v64Founding').textContent='90 days ready';$('v64Billing').textContent='Not started'}
+ else if(started){$('v64Founding').textContent='Free period ended';$('v64Billing').textContent='£'+Number(st.founding_monthly_rate||29.99).toFixed(2)+' due'}
+ else{
+  const due=new Date(live.getTime()+90*86400000),days=Math.max(0,Math.ceil((due-new Date())/86400000));
+  $('v64Founding').textContent=days+' days remaining';$('v64Billing').textContent='Free period';
+ }
+}
 function updateListingCompleteness(){
+ setTimeout(updateStudioOverviewV64,0);
+ updateFoundingClock();
  const s=currentStudio(),r=getListingReadiness();
  if(!s||!studioDetail||!r){
   $('dashboardStudioName').textContent='Choose a studio';$('dashboardStudioCopy').textContent='Select a studio above to see its listing readiness and jump straight to the section you need.';
@@ -1816,14 +2157,14 @@ async function publishStudio(){
  if(!window.confirm('Publish '+(studioDetail.name||s.name)+' to SYMBLI? It will become eligible to appear on the public website.'))return;
  status($('detailsStatus'),'Publishing studio…');
  try{
-  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=*',{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({is_active:true})});
+  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=*',{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({is_active:true,...(studioDetail.went_live_at?{}:{went_live_at:new Date().toISOString()})})});
   if(!Array.isArray(rows)||rows.length!==1)throw new Error('Supabase returned an invalid update.');
-  studioDetail=rows[0];studioColumns=Object.keys(studioDetail);await loadStudios(s.id);setTimeout(updateListingCompleteness,120);status($('detailsStatus'),'Published to SYMBLI. This studio is now live.','ok');
+  studioDetail=rows[0];studioColumns=Object.keys(studioDetail);foundingMilestoneCache=null;await setFoundingMilestoneIfNeeded();await loadStudios(s.id);setTimeout(updateListingCompleteness,120);status($('detailsStatus'),'Published to SYMBLI. This studio is now live. Founding billing milestones have been checked.','ok');
  }catch(e){status($('detailsStatus'),'Could not publish studio: '+cleanErr(e),'bad')}
 }
 
 document.addEventListener('click',e=>{
- const b=e.target.closest?.('.adminQuickNav [data-target], .onboardStep[data-target]');
+ const b=e.target.closest?.('.adminQuickNav [data-target], .onboardStep[data-target], .v64Jump[data-target]');
  if(!b)return; e.preventDefault(); jumpAdminSection(b.dataset.target);
 });
 
@@ -1860,6 +2201,50 @@ async function setOwnerReview(statusValue){
 }
 let studioApplications=[];
 function appEsc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function formatApplicationDateTime(v){
+ if(!v)return 'Date unavailable';
+ const d=new Date(v);
+ if(Number.isNaN(d.getTime()))return 'Date unavailable';
+ return new Intl.DateTimeFormat('en-GB',{
+   day:'2-digit',month:'short',year:'numeric',
+   hour:'2-digit',minute:'2-digit',hour12:false
+ }).format(d);
+}
+function parseFoundingApplication(a){
+ const raw=String(a?.message||'');
+ if(!raw.startsWith('FOUNDING ONBOARDING V1'))return {legacy:true,description:raw};
+ let json=raw.replace(/^FOUNDING ONBOARDING V1/,'').trim();
+ // Public onboarding stores the separator as the literal characters "\\n".
+ // Remove those before parsing the JSON payload.
+ json=json.replace(/^(?:\\\\n|\\n)+/,'').trim();
+ try{return {legacy:false,...JSON.parse(json)}}catch(e){return {legacy:true,description:raw}}
+}
+function appLink(v,label){
+ const x=String(v||'').trim();if(!x)return 'Not supplied';
+ const href=/^https?:\/\//i.test(x)?x:(x.startsWith('@')?'https://instagram.com/'+x.slice(1):'https://'+x);
+ return `<a href="${appEsc(href)}" target="_blank" rel="noopener">${appEsc(label||x)}</a>`;
+}
+function applicationDetailHtml(a){
+ const d=parseFoundingApplication(a);
+ if(d.legacy)return `<div class="appDetailGrid"><div class="appDetailBlock wide"><span>Application notes</span>${appEsc(d.description||'No extra information supplied.')}</div></div>`;
+ const treatments=Array.isArray(d.treatments)?d.treatments.filter(x=>x&&(x.name||x.treatment||x.service_name)):[];
+ const methods=Array.isArray(d.contact_methods)?d.contact_methods.join(', '):(d.contact_methods||'Not supplied');
+ const rows=treatments.length?treatments.map(t=>{
+   const name=t.name||t.treatment||t.service_name||'Treatment';
+   const price=t.price||t.price_from||'';
+   const duration=t.duration||'';
+   return `<tr><td><b>${appEsc(name)}</b>${duration?`<br><small>${appEsc(duration)}</small>`:''}</td><td>${price?appEsc(String(price).match(/^£/)?price:'£'+price):'Price not supplied'}</td></tr>`;
+ }).join(''):'<tr><td>No treatments supplied</td><td></td></tr>';
+ return `<div class="appDetailGrid">
+   <div class="appDetailBlock"><span>Contact</span><b>${appEsc(a.contact_name||'Not supplied')}</b><br>${appEsc(a.email||'')}<br>${appEsc(d.phone||a.phone||'No phone supplied')}</div>
+   <div class="appDetailBlock"><span>Studio location</span><b>${appEsc(a.town||'Not supplied')}</b><br>${appEsc(d.address||d.full_address||'Full address not supplied')}<br>${d.show_address?'Address may be shown publicly':'Keep full address private'}</div>
+   <div class="appDetailBlock wide"><span>About the studio</span>${appEsc(d.description||'No description supplied.')}</div>
+   <div class="appDetailBlock"><span>Online</span>Instagram: ${appLink(d.instagram||a.instagram_url,'Open Instagram')}<br>Website: ${appLink(d.website||a.website_url,'Open website')}<br>Booking: ${appLink(d.booking_url,'Open booking link')}<br>WhatsApp: ${appLink(d.whatsapp,'Open WhatsApp')}</div>
+   <div class="appDetailBlock"><span>Client contact methods</span>${appEsc(methods||'Not supplied')} ${d.notes?`<br><br><b>Notes:</b> ${appEsc(d.notes)}`:''}</div>
+   <div class="appDetailBlock wide"><span>Treatments & pricing</span><table class="appTreatmentTable">${rows}</table></div>
+ </div>
+ <div class="appFoundingTerms"><strong>Founding Studio offer</strong>£29.99/month locked in while continuously subscribed. Monthly subscription begins when SYMBLI reaches 10 live studios or 90 days after this studio profile goes live, whichever comes first. 5% commission applies to SYMBLI-generated revenue.</div>`;
+}
 async function loadApplications(){
  const box=$('applicationsStatus'),rowsEl=$('applicationRows');if(!box||!rowsEl)return;
  status(box,'Loading applications…');
@@ -1868,28 +2253,71 @@ async function loadApplications(){
   studioApplications=Array.isArray(rows)?rows:[];
   const pending=studioApplications.filter(x=>(x.status||'pending')==='pending');$('applicationCount').textContent=pending.length;
   rowsEl.innerHTML=studioApplications.length?studioApplications.map(a=>{
-   const st=a.status||'pending',approved=st==='approved';
-   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(a.phone||'No phone')}</div></div><div><span class="applicationStatus ${approved?'approved':''}">${appEsc(st)}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View</button>${approved?'':`<button class="btn" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button>`}</div><div class="applicationDetail"><b>About:</b> ${appEsc(a.message||'No extra information supplied.')}<br><b>Website:</b> ${appEsc(a.website_url||'Not supplied')} &nbsp; <b>Instagram:</b> ${appEsc(a.instagram_url||'Not supplied')}${a.studio_id?`<br><b>Created studio:</b> ${appEsc(a.studio_id)}`:''}</div></div>`;
+   const st=a.status||'pending',approved=st==='approved',d=parseFoundingApplication(a);
+   const phone=d.phone||a.phone||'No phone';
+   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(phone)}<br><b>Submitted:</b> ${appEsc(formatApplicationDateTime(a.created_at))}</div></div><div><span class="applicationStatus ${appEsc(st)}">${appEsc(st.replaceAll('_',' '))}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View application</button></div><div class="applicationDetail">${applicationDetailHtml(a)}${approved?'':`<div class="appDecisionBar"><button class="btn approveApp" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button><button class="btn requestApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','changes_requested')">Request changes</button><button class="btn rejectApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','rejected')">Reject</button></div>`}${a.studio_id?`<div class="smallNote" style="margin-top:10px">Created studio: ${appEsc(a.studio_id)}</div>`:''}</div></div>`;
   }).join(''):'<div class="empty">No studio applications yet.</div>';
   status(box,pending.length?`${pending.length} application${pending.length===1?'':'s'} waiting for review.`:'No applications waiting for review.','ok');
- }catch(e){status(box,'Could not load applications: '+cleanErr(e),'bad');rowsEl.innerHTML='<div class="empty">Applications unavailable. Run the #44 Supabase setup SQL first.</div>'}
+ }catch(e){status(box,'Could not load applications: '+cleanErr(e),'bad');rowsEl.innerHTML='<div class="empty">Applications unavailable.</div>'}
 }
 function toggleApplication(id){document.querySelector(`.applicationRow[data-app-id="${CSS.escape(String(id))}"]`)?.classList.toggle('open')}
+async function setApplicationStatus(id,next){
+ const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
+ const label=next==='rejected'?'reject':'request changes for';
+ if(!confirm(`Are you sure you want to ${label} ${a.studio_name||'this application'}?`))return;
+ try{
+  await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:next,reviewed_at:new Date().toISOString()})});
+  await loadApplications();status($('applicationsStatus'),next==='rejected'?'Application rejected.':'Changes requested.','ok');
+ }catch(e){status($('applicationsStatus'),'Could not update application: '+cleanErr(e),'bad')}
+}
+function openCreatedDraft(studioId){
+ const select=$('studioSelect');
+ if(select){
+   select.value=String(studioId);
+   select.dispatchEvent(new Event('change',{bubbles:true}));
+ }
+ const studiosTab=document.querySelector('.adminTopTab[data-tab="studios"]');
+ if(studiosTab)studiosTab.click();
+ setTimeout(()=>{
+   const target=$('adminDashboard')||$('detailsCard')||document.querySelector('.studioManagerCard');
+   target?.scrollIntoView({behavior:'smooth',block:'start'});
+ },180);
+}
 async function approveApplication(id){
  const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
- if(!window.confirm('Approve '+(a.studio_name||'this studio')+'? This creates a PRIVATE draft listing for onboarding.'))return;
- status($('applicationsStatus'),'Creating private draft studio…');
+ const d=parseFoundingApplication(a);
+ if(!window.confirm('Approve '+(a.studio_name||'this studio')+'? This creates a PRIVATE Founding Studio draft listing.'))return;
+ status($('applicationsStatus'),'Creating private Founding Studio draft…');
  try{
   let base=slugifyStudio(a.studio_name),slug=base||('studio-'+Date.now());
   const existing=await authFetch('/rest/v1/studios?select=id,slug&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
   if(existing&&existing.length)slug=slug+'-'+slugifyStudio(a.town||'studio')+'-'+String(Date.now()).slice(-5);
-  const body={name:a.studio_name,slug,town:a.town,description:a.message||null,website_url:a.website_url||null,instagram_url:a.instagram_url||null,phone:a.phone||null,is_founding:false,is_active:false};
+  const body={
+    name:a.studio_name,slug,town:a.town,
+    description:(d.description&&!d.legacy)?d.description:(a.message||null),
+    website_url:d.website||a.website_url||null,
+    instagram_url:d.instagram||a.instagram_url||null,
+    booking_url:d.booking_url||null,
+    phone:d.phone||a.phone||null,
+    is_founding:true,founding_monthly_rate:29.99,is_active:false
+  };
   const made=await authFetch('/rest/v1/studios?select=*',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)});
   if(!Array.isArray(made)||made.length!==1)throw new Error('Supabase did not return the new studio.');
   const created=made[0];
+  if(!d.legacy&&Array.isArray(d.treatments)){
+    for(let i=0;i<d.treatments.length;i++){
+      const t=d.treatments[i]||{},name=t.name||t.treatment||t.service_name;
+      if(!name)continue;
+      let price=t.price??t.price_from??null;
+      if(typeof price==='string')price=Number(price.replace(/[^0-9.]/g,''))||null;
+      const note=t.duration?String(t.duration):null;
+      await authFetch('/rest/v1/studio_services',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({studio_id:created.id,service_name:name,price:price,price_note:note,sort_order:i,is_active:true})});
+    }
+  }
   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:'approved',studio_id:created.id,reviewed_at:new Date().toISOString()})});
-  await Promise.all([loadApplications(),loadStudios(created.id)]);setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
-  status($('applicationsStatus'),'Application approved. Private draft created and opened in onboarding.','ok');
+  await Promise.all([loadApplications(),loadStudios(created.id)]);
+  setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
+  status($('applicationsStatus'),`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The Founding Studio 90-day clock starts only when the studio goes live.</span></div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${created.id}')">Open studio draft →</button></div>`,'ok');
  }catch(e){status($('applicationsStatus'),'Could not approve application: '+cleanErr(e),'bad')}
 }
 function slugifyStudio(v){
