@@ -1,5 +1,8 @@
-<!doctype html><html><head><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png?v=2"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SYMBLI Admin • Studio Images</title>
-<style>
+<!doctype html>
+<!-- SYMBLI ADMIN V72 CLEAN MASTER | conservative cleanup: CSS consolidated, behavior preserved -->
+<html><head><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png?v=2"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SYMBLI Admin • Studio Images</title>
+<style id="symbli-clean-master-styles">
+/* SYMBLI ADMIN V72 CLEAN MASTER: consolidated in original cascade order */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
 *{box-sizing:border-box}body{margin:0;background:#fffaf6;color:#122238;font-family:Inter,sans-serif}.wrap{max-width:1080px;margin:auto;padding:34px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-family:Fraunces,serif;letter-spacing:.14em;font-size:22px}.tag{font-size:10px;letter-spacing:.18em;color:#d27e67;margin-top:5px}.pill{border:1px solid #ead8ce;background:#fff;border-radius:999px;padding:9px 13px;font-size:11px;color:#6f5e54}.card{background:#fff;border:1px solid #eee1d8;border-radius:24px;box-shadow:0 12px 38px rgba(18,34,56,.06);padding:24px;margin-bottom:18px}.card h1,.card h2{font-family:Fraunces,serif;font-weight:400;margin:0}.card h1{font-size:34px}.card h2{font-size:23px}.muted{color:#7c6d64;font-size:12px;line-height:1.6}.login{max-width:460px;margin:70px auto}.field{display:grid;gap:6px;margin-top:12px}.field span{font-size:10px;letter-spacing:.1em;color:#8e7568}.field input,.field select{height:44px;border:1px solid #eadbd2;border-radius:13px;background:#fffdfa;padding:0 13px;font:inherit;color:#122238;outline:none}.field input:focus,.field select:focus{border-color:#df9b83}.btn{border:0;border-radius:999px;height:44px;padding:0 19px;background:#e69a7d;color:#fff;font-weight:600;cursor:pointer}.btn.secondary{background:#fff;color:#7b5c50;border:1px solid #e7cfc2}.btn.danger{background:#fff;color:#b55462;border:1px solid #eccbd0}.btn:disabled{opacity:.5;cursor:not-allowed}.login .btn{width:100%;margin-top:16px}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.toolbar .field{min-width:260px;flex:1}.drop{margin-top:18px;border:2px dashed #e4b7a5;background:#fff8f4;border-radius:20px;padding:30px;text-align:center;cursor:pointer}.drop strong{display:block;font-family:Fraunces,serif;font-size:20px;font-weight:400}.drop input{display:none}.status{margin-top:12px;padding:10px 12px;border-radius:12px;background:#f8f2ed;font-size:11px;color:#6f625a}.status.ok{background:#eef8f1;color:#356a45}.status.bad{background:#fff0f1;color:#9c4450}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.photo{border:1px solid #eadfd8;border-radius:18px;overflow:hidden;background:#fff}.photo.cover{box-shadow:0 0 0 2px #d9a44c}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f4ebe5}.photoBody{padding:11px}.photoMeta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#806f65}.coverTag{color:#a67525;font-weight:700}.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.actions button{height:30px;padding:0 10px;border-radius:999px;border:1px solid #eadbd2;background:#fff;color:#62534c;font-size:10px;cursor:pointer}.actions button:hover{background:#fff5ef}.empty{text-align:center;padding:34px 10px;color:#8c7b71;font-size:12px}.hidden{display:none!important}.headRow{display:flex;justify-content:space-between;gap:16px;align-items:center}.saveHint{font-size:10px;color:#a18475}.liveDot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#59a36a;margin-right:5px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.top,.headRow{align-items:flex-start;flex-direction:column}.card{padding:18px}.card h1{font-size:29px}.toolbar{align-items:stretch}.toolbar .field{min-width:100%}}
@@ -14,7 +17,6 @@
 .detailsActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
 .smallNote{font-size:10px;color:#9a887e;line-height:1.5}
 @media(max-width:720px){.detailsGrid{grid-template-columns:1fr}.detailsGrid .wide{grid-column:auto}}
-
 
 .treatmentList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
 .treatmentOption{display:flex;align-items:center;gap:10px;border:1px solid #eadfd8;border-radius:14px;padding:13px 14px;background:#fff;cursor:pointer}
@@ -184,7 +186,6 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 @media(max-width:850px){.opsMetrics{grid-template-columns:1fr 1fr}.opsLanes{grid-template-columns:1fr}.opsStudioGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.opsStudioGrid{grid-template-columns:1fr}.opsHero{padding:20px}.opsMetric strong{font-size:24px}}
 
-
 /* #48B Top-level Admin Tabs */
 .adminTopTabs{
   position:sticky;top:0;z-index:50;
@@ -214,7 +215,6 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .adminPaneIntro h2{font-family:Georgia,serif;font-size:30px;font-weight:400;color:#13263d;margin:0 0 5px}
 .adminPaneIntro p{color:#806e65;font-size:12px;margin:0}
 
-
 /* #50 Studio deletion */
 .dangerZone{margin-top:18px;padding:20px;border:1px solid #efc9c9;border-radius:18px;background:#fff8f7}
 .dangerZone h3{margin:0 0 5px;color:#8f3737;font-family:Georgia,serif;font-size:22px;font-weight:400}
@@ -228,7 +228,6 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .deletePanel input{width:100%;box-sizing:border-box;margin-top:10px}
 .deleteActions{display:flex;justify-content:flex-end;gap:9px;margin-top:16px}
 .deleteConfirm{background:#a64040!important;border-color:#a64040!important;color:#fff!important}
-
 
 /* #51 make readiness impossible to miss */
 .readinessHero{margin:18px 0 20px;padding:24px;border:2px solid #efb29d;border-radius:22px;background:linear-gradient(135deg,#fff8f4,#fff);box-shadow:0 14px 34px rgba(37,48,65,.07)}
@@ -253,8 +252,7 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .publishBtn:not(:disabled):hover{transform:translateY(-1px)!important;box-shadow:0 14px 28px rgba(20,43,70,.24)!important}
 .publishBtn.readyPulse{background:linear-gradient(135deg,#e9896b,#dc7658)!important;color:#fff!important;border-color:#dc7658!important;box-shadow:0 12px 28px rgba(220,118,88,.28)!important}
 @media(max-width:600px){.publishBtn{width:100%!important;min-width:0!important}.publishActions{align-items:stretch!important}}
-</style>
-<style id="edit53-final-admin-visual">
+
 /* =========================================================
    SYMBLI ADMIN #53 — long-term visual master
    Visual/UX refinement only. Existing IDs and workflows stay intact.
@@ -465,10 +463,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 @media(max-width:410px){
  .analyticsMetrics,.opsMetrics,.onboardingFlow{grid-template-columns:1fr!important}
 }
-</style>
 
-
-<style id="edit53b-add-studio-flow">
 .addStudioFlow{max-width:940px;margin:0 auto 40px}
 .addStudioIntro{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin:4px 0 18px;padding:0 4px}
 .addStudioIntro h2{font-family:Georgia,serif;color:#122238;font-size:34px;line-height:1;margin:5px 0 8px}
@@ -506,9 +501,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  .addTwo{grid-template-columns:1fr}.addTwo .wide{grid-column:auto}
  .addFormSection{padding:18px}.addCreateBar{align-items:stretch;flex-direction:column;padding:18px}.addCreatePrimary{width:100%}
 }
-</style>
 
-<style id="symbli-analytics-refresh">
 #analyticsCard{overflow:hidden;border-color:#e9d9d1;box-shadow:0 18px 44px rgba(27,31,49,.07)}
 #analyticsCard .analyticsTop{background:linear-gradient(125deg,#16263d,#24384e 58%,#704f64);color:white;padding:26px 26px 20px}
 #analyticsCard .analyticsTop h2,#analyticsCard .analyticsTop .muted{color:white}
@@ -539,7 +532,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .analyticsTrendLegend{display:flex;justify-content:space-between;gap:10px;margin-top:25px;font-size:11px;color:#776d6a}
 .analyticsTrendLegend i{display:inline-block;width:8px;height:8px;border-radius:3px;background:#dc9980;margin-right:5px}
 @media(max-width:700px){#analyticsCard .analyticsTop{padding:22px 17px}#analyticsCard .analyticsMetrics{padding:16px} .analyticsStory{margin:0 16px 14px;padding:18px;align-items:flex-start}.analyticsStory h3{font-size:21px}.analyticsStoryRate{min-width:80px;padding-left:12px}.analyticsStoryRate strong{font-size:27px}.analyticsTrend{margin:0 16px 14px;padding:17px}.analyticsTrendChart{height:110px}}
-</style><style id="symbli-owner-access-style">
+
 .ownerAccessCard{border-color:#ead7ce;background:linear-gradient(130deg,#fffdfa,#fff8f4)}
 .ownerAccessCurrent{padding:14px;border:1px solid #eaded6;border-radius:13px;background:white;font-size:12px;color:#625750}
 .ownerAccessRow{display:flex;justify-content:space-between;align-items:center;gap:12px;overflow-wrap:anywhere}
@@ -550,8 +543,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .ownerAccessForm input{width:100%;font-family:monospace;font-size:12px}
 @media(max-width:650px){.ownerAccessForm{flex-direction:column;align-items:stretch}.ownerAccessForm button{width:100%}.ownerAccessRow{align-items:flex-start;flex-direction:column}}
 .ownerEmailQuick{margin-top:16px;padding:17px 19px;border:1px solid #e6c9b9;border-radius:15px;background:#fff9f5}.ownerEmailQuick input{width:100%;max-width:550px}.ownerEmailQuick .field{margin:0!important}.ownerEmailQuick button{margin-top:10px}.ownerEmailQuick .smallNote{margin-left:10px}
-</style>
-<style id="symbli-admin-layout-v54">
+
 /* =========================================================
    SYMBLI ADMIN V54 — dashboard-first layout
    Layout / UX only. Existing Admin workflows remain intact.
@@ -762,9 +754,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #adminPane-studios .adminQuickNav{padding:7px!important}
  #adminPane-studios .adminQuickNav:before{display:none}
 }
-</style>
 
-<style id="symbli-admin-referrals-v55">
 .refAdminHero{padding:27px;border-radius:24px;background:linear-gradient(130deg,#122238,#203b59 62%,#674b61);color:#fff;box-shadow:0 20px 48px rgba(18,34,56,.14);margin-bottom:16px}
 .refAdminHeroTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .refAdminHero h2{margin:6px 0 5px;font:400 30px Georgia,serif}.refAdminHero p{margin:0;color:#d4dce5;font-size:12px;line-height:1.55;max-width:680px}
@@ -787,9 +777,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .refEmpty{padding:18px;border:1px dashed #e7d8d0;border-radius:14px;background:#fffaf7;color:#8b786e;font-size:11px;text-align:center;line-height:1.55}
 @media(max-width:950px){.refAdminMetrics{grid-template-columns:repeat(3,1fr)}.refAdminGrid{grid-template-columns:1fr}}
 @media(max-width:600px){.refAdminHero{padding:20px}.refAdminMetrics{grid-template-columns:1fr 1fr}.refLedgerRow{grid-template-columns:1fr 1fr}.refLedgerRow>div:first-child{grid-column:1/-1}}
-</style>
 
-<style id="symbli-admin-referrals-v56-polish">
 /* V56: scalable referral control-room polish */
 #pane-referrals .adminRefHero,#referralsPane .adminRefHero,.refAdminHero{
  position:relative;overflow:hidden;border-radius:25px!important;
@@ -810,9 +798,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .adminReferralLedgerWrap{border:1px solid #eadfd9;border-radius:18px;overflow:hidden;background:#fff}
 .adminReferralPager{display:flex;justify-content:center;padding:14px;border-top:1px solid #eee4df}
 @media(max-width:720px){.adminReferralAttention{align-items:flex-start}.adminReferralToolbar input{width:100%;flex-basis:100%}}
-</style>
 
-<style id="symbli-admin-top-studios-v58">
 .topStudiosSection{margin:18px 0;padding:21px;border:1px solid #eadfd9;border-radius:20px;background:linear-gradient(145deg,#fff,#fffaf7);box-shadow:0 10px 28px rgba(18,34,56,.04)}
 .topStudiosHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;margin-bottom:15px}
 .topStudiosHead h3{margin:4px 0 0;font:500 24px Georgia,serif;color:#17283e}.topStudiosHead p{margin:5px 0 0;font-size:9px;color:#8a766c}
@@ -822,9 +808,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .topStudioTable{border:1px solid #eee2dc;border-radius:16px;overflow:hidden;background:#fff}.topStudioRow{display:grid;grid-template-columns:minmax(150px,1.5fr) repeat(5,minmax(70px,.7fr));gap:8px;align-items:center;padding:11px 13px;border-bottom:1px solid #f1e8e3;font-size:9px}.topStudioRow:last-child{border-bottom:0}.topStudioRow.head{background:#faf5f2;color:#9a7f73;font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.topStudioName{font-weight:800;color:#203149}.topStudioRank{display:inline-grid;place-items:center;width:22px;height:22px;margin-right:7px;border-radius:8px;background:#f7ebe6;color:#9b6856;font-size:9px}.topStudioValue{font-weight:700;color:#4c4541}
 @media(max-width:900px){.topStudioWins{grid-template-columns:repeat(2,1fr)}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:720px}}
 @media(max-width:560px){.topStudioWins{grid-template-columns:1fr 1fr}.topStudiosSection{padding:16px}}
-</style>
 
-<style id="symbli-admin-top-studios-v59-ux">
 /* V59: larger, clearer Top Studios workspace */
 .topStudiosSection{padding:27px!important;border-radius:23px!important}
 .topStudiosHead{margin-bottom:20px!important;align-items:center!important}
@@ -853,9 +837,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  .topStudioWin strong{margin-top:3px!important}.topStudioWin small{margin-top:3px!important}
  .topStudioTable{overflow-x:auto}.topStudioRow{min-width:760px}
 }
-</style>
 
-<style id="symbli-admin-top-studios-v60">
 /* V60: executive Top Studios board */
 .topStudiosSection{padding:30px!important;background:linear-gradient(155deg,#fff,#fffaf7 70%)!important}
 .topStudiosHead{padding-bottom:18px;border-bottom:1px solid #eee2dc;margin-bottom:20px!important}
@@ -877,9 +859,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .topStudioRow:nth-child(4) .topStudioRank{background:#ead9d1!important;color:#755c50!important}
 @media(max-width:1100px){.topStudioWins{grid-template-columns:repeat(2,1fr)!important}}
 @media(max-width:720px){.topStudiosSection{padding:18px!important}.topStudioWins{grid-template-columns:1fr!important}.topStudioWin{min-height:112px!important;display:block}.topStudioWin .icon{margin-bottom:8px}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:820px}}
-</style>
 
-<style id="symbli-admin-v61-wide-shell">
 /* V61: desktop top-nav shell + full-width workspaces */
 @media(min-width:961px){
  #adminView{display:block!important;max-width:none!important;width:100%!important}
@@ -911,9 +891,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
  #adminPane-referrals .topStudioWins{grid-template-columns:repeat(2,1fr)!important}
 }
-</style>
 
-<style id="symbli-admin-v62-nav-fix">
 /* V62: repair desktop top navigation after V61 sidebar conversion */
 @media(min-width:961px){
  #adminView{
@@ -951,9 +929,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 @media(min-width:961px) and (max-width:1180px){
  #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
 }
-</style>
 
-<style id="symbli-admin-v64-referrals-only">
 /* V64: referral page only. Keep V62 top navigation untouched. */
 @media(min-width:961px){
  #adminPane-referrals{
@@ -1008,9 +984,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #adminPane-referrals .refLedgerRow{min-width:700px!important}
  #adminPane-referrals .refLedgerCard,#adminPane-referrals .refLedgerPanel{overflow-x:auto!important}
 }
-</style>
 
-<style id="symbli-admin-v65-no-desktop-nav-scroll">
 /* Desktop only: fit all Admin tabs in one row. Mobile behaviour unchanged. */
 @media(min-width:961px){
  #adminTopTabs{
@@ -1029,9 +1003,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  }
  #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin:0!important}
 }
-</style>
 
-<style id="symbli-v58-founding-applications">
 .applicationDetail{padding:18px!important;background:#fffdfb;border-radius:14px;margin-top:4px}
 .appDetailGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
 .appDetailBlock{padding:13px;border:1px solid #eee2da;border-radius:13px;background:#fff}
@@ -1050,19 +1022,13 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .applicationStatus.changes_requested{background:#fff5df;color:#966c22}
 .applicationStatus.rejected{background:#fff0f1;color:#9c4450}
 @media(max-width:650px){.appDetailGrid{grid-template-columns:1fr}.appDetailBlock.wide{grid-column:auto}}
-</style>
 
-
-<style id="symbli-v61-draft-handoff">
 .draftHandoff{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:12px;padding:14px 16px;border:1px solid #cfe5d5;border-radius:14px;background:#f1f9f3}
 .draftHandoffText b{display:block;color:#285d39;font-size:12px}
 .draftHandoffText span{display:block;margin-top:3px;color:#64806c;font-size:10px}
 .openDraftBtn{background:#122238!important;color:#fff!important;border-color:#122238!important}
 @media(max-width:560px){.draftHandoff{align-items:stretch}.openDraftBtn{width:100%}}
-</style>
 
-
-<style id="symbli-v62-founding-clock">
 #foundingClockCard{margin:18px 0;padding:20px 22px;border:1px solid #ead8c8;border-radius:20px;background:linear-gradient(135deg,#fff8f2,#fffdfb);box-shadow:0 12px 32px rgba(18,34,56,.05)}
 #foundingClockCard.hidden{display:none!important}
 .fClockTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
@@ -1074,10 +1040,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .fClockMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.fClockMeta div{padding:10px 12px;border:1px solid #eee2da;border-radius:12px;background:#fff}.fClockMeta span{display:block;font-size:8px;letter-spacing:.11em;font-weight:850;color:#a27d6c}.fClockMeta b{display:block;margin-top:4px;font-size:11px;color:#122238}
 .fClockTriggered{margin-top:12px;padding:11px 13px;border-radius:12px;background:#edf7f0;color:#477257;font-size:10px;font-weight:750}.fClockTriggered.due{background:#fff0e9;color:#a86650}.fBillingBadge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf7f0;color:#477257;font-size:9px;font-weight:850;letter-spacing:.06em}
 @media(max-width:650px){.fClockDays{text-align:left}.fClockMeta{grid-template-columns:1fr}}
-</style>
 
-
-<style id="symbli-v64-studio-overview">
 #studioOverviewV64{margin:14px 0 18px;padding:18px 20px;border:1px solid #eaded6;border-radius:20px;background:linear-gradient(135deg,#fffdfb,#fff8f3);box-shadow:0 10px 30px rgba(18,34,56,.045)}
 #studioOverviewV64.hidden{display:none!important}
 .v64Top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
@@ -1096,10 +1059,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .publishPanel h2{font-size:19px!important}.publishChecklist{margin:12px 0!important}.publishCheck{padding:7px 9px!important}
 @media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr}}
 @media(max-width:440px){.v64Stats{grid-template-columns:1fr}.v64Actions{display:grid;grid-template-columns:1fr 1fr}.v64Jump{width:100%}}
-</style>
 
-
-<style id="symbli-v65-workspace">
 /* V65: turn Studios into a focused listing workspace */
 #studioOverviewV64{padding:22px!important;margin:12px 0 14px!important;background:#fff!important}
 .v64Top{align-items:center!important}.v64Name{font-size:28px!important}.v64Sub{font-size:11px!important}
@@ -1116,10 +1076,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .v65HiddenStudioAnalytics{display:none!important}
 @media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr!important}.v65SectionNav{top:4px}}
 @media(max-width:440px){.v64Stats{grid-template-columns:1fr 1fr!important}.v64Stat{padding:10px!important}.v64Name{font-size:23px!important}}
-</style>
 
-
-<style id="symbli-v67-countdown-header">
 #foundingClockCard{
  margin:12px 0 16px!important;
  padding:18px 20px!important;
@@ -1142,10 +1099,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #foundingClockCard .fClockTop{align-items:flex-start!important}
  #foundingClockCard .fClockDays{min-width:auto!important;align-items:flex-start!important}
 }
-</style>
 
-
-<style id="symbli-v68-premium-countdown">
 #foundingClockCard{
  position:relative!important;
  overflow:hidden!important;
@@ -1195,26 +1149,18 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #foundingClockCard .fClockTrack{margin-left:18px!important;margin-right:18px!important}
  #foundingClockCard .fClockCopy,#foundingClockCard .fClockMeta,#foundingClockCard .fClockTriggered{margin-left:18px!important;margin-right:18px!important}
 }
-</style>
 
-
-<style id="symbli-v69b-referrals-tab-only">
 #referralsCard{display:none!important}
 #adminPane-referrals.active #referralsCard{display:block!important}
-</style>
-<style id="symbli-v69c-hard-tab-isolation">
-.adminTabPane[hidden]{display:none!important}
-</style>
 
-<style id="symbli-v69d-referrals-visibility-final">
+.adminTabPane[hidden]{display:none!important}
+
 /* Final authority: Referrals exists ONLY on the active Referrals tab.
    This overrides the legacy V64 desktop display:block!important rule. */
 #adminPane-referrals{display:none!important}
 #adminPane-referrals.active:not([hidden]){display:block!important}
 #adminPane-referrals[hidden]{display:none!important}
-</style>
 
-<style id="symbli-v70b-executive-dashboard">
 #adminPane-overview{padding-top:4px}
 #adminPane-overview #opsDashboard{display:none!important}
 #v70bDashboard{max-width:1370px;margin:0 auto 34px}
@@ -1254,15 +1200,11 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .v70bEmpty{grid-column:1/-1;border:1px dashed #e3d5ce;border-radius:15px;padding:24px;text-align:center;color:#8c7166}
 @media(max-width:1050px){.v70bStats{grid-template-columns:repeat(3,1fr)}.v70bMid{grid-template-columns:1fr}#v70bGrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:650px){.v70bHero{padding:25px 20px;border-radius:22px}.v70bHeroRow{display:block}.v70bDate{display:inline-block;margin-top:17px}.v70bHero h1{font-size:31px}.v70bStats{grid-template-columns:repeat(2,1fr)}.v70bTasks{grid-template-columns:1fr}#v70bGrid{grid-template-columns:1fr}.v70bNetwork,.v70bPanel{padding:18px}}
-</style>
 
-<style id="symbli-v70c-white-background">
 html, body, .page, main, #adminDashboard {
   background: #ffffff !important;
 }
-</style>
 
-<style id="symbli-v71a-live-clock">
 #foundingClockCard .fClockDays{display:grid!important;grid-template-columns:repeat(4,minmax(68px,1fr))!important;gap:7px!important;min-width:350px!important;align-items:stretch!important}
 #foundingClockCard .v71Unit{padding:10px 8px 8px!important;border:1px solid #eaded6!important;border-radius:12px!important;background:rgba(255,255,255,.82)!important;text-align:center!important}
 #foundingClockCard .v71Unit strong{display:block!important;font:400 25px/1 Georgia,serif!important;color:#c37e5e!important;font-variant-numeric:tabular-nums!important}
@@ -1272,6 +1214,7 @@ html, body, .page, main, #adminDashboard {
 #foundingClockCard.v71Triggered .v71Unit:first-child strong{font-size:16px!important}
 @media(max-width:760px){#foundingClockCard .fClockDays{width:100%!important;min-width:0!important;grid-template-columns:repeat(4,1fr)!important}#foundingClockCard .v71Unit{padding:9px 3px!important}}
 </style>
+
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -1310,8 +1253,6 @@ html, body, .page, main, #adminDashboard {
 
 <div class="card studioManagerCard"><div class="headRow"><div><div class="adminEyebrow">STUDIO MANAGER</div><h1>Manage studio</h1><p class="muted">Choose a studio to manage its listing, content, photos, services, publishing and performance.</p></div><button id="logoutBtn" class="btn secondary">Sign out</button></div>
 <div class="toolbar"><label class="field"><span>STUDIO</span><select id="studioSelect"><option>Loading studios…</option></select></label><button id="addStudioBtn" class="btn">+ Add Studio</button><button id="refreshBtn" class="btn secondary">Refresh</button></div>      <div class="ownerEmailQuick"><label class="field" for="studioOwnerEmail"><span>OWNER EMAIL · PORTAL ACCESS</span><input id="studioOwnerEmail" type="email" autocomplete="off" placeholder="owner@example.com"></label><div style="display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap"><button id="saveOwnerEmailBtn" class="btn secondary" type="button">Save owner email</button><span id="ownerEmailStatus" class="smallNote" role="status">Owners create their own portal account with this email.</span></div></div></div>
-
-
 
 <div id="foundingClockCard" class="hidden">
  <div class="fClockTop"><div><div class="fClockEyebrow">FOUNDING STUDIO</div><h3>Founding membership clock</h3><p id="foundingClockCopy">The 90-day clock begins only when this studio goes live.</p></div><div class="fClockDays">
@@ -1431,7 +1372,6 @@ html, body, .page, main, #adminDashboard {
  </div>
 </div>
 
-
 <div class="card" id="detailsCard">
   <div class="headRow">
     <div>
@@ -1474,10 +1414,6 @@ html, body, .page, main, #adminDashboard {
   </div>
 </div>
 
-
-
-
-
 <div class="card" id="treatmentsCard">
   <div class="headRow">
     <div>
@@ -1496,8 +1432,6 @@ html, body, .page, main, #adminDashboard {
     </div>
   </div>
 </div>
-
-
 
 <div class="card" id="servicesCard">
   <div class="headRow">
@@ -1518,7 +1452,6 @@ html, body, .page, main, #adminDashboard {
     </div>
   </div>
 </div>
-
 
 <div class="card" id="reviewsCard">
   <div class="headRow">
@@ -1867,7 +1800,6 @@ async function saveServices(){
  }catch(e){status($('servicesStatus'),'Could not save services: '+cleanErr(e),'bad')}
 }
 
-
 function reviewEsc(v){return String(v??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function reviewRowHtml(r={},i=0){
  const rating=Number(r.rating||5);
@@ -1996,8 +1928,6 @@ async function patchImage(id,body){await authFetch('/rest/v1/studio_images?id=eq
 async function moveImage(id,dir){const i=images.findIndex(x=>x.id===id),j=i+dir;if(i<0||j<0||j>=images.length)return;try{await patchImage(images[i].id,{sort_order:j+1});await patchImage(images[j].id,{sort_order:i+1});await loadImages()}catch(e){status($('uploadStatus'),'Could not reorder: '+cleanErr(e),'bad')}}
 async function setCover(id){const s=currentStudio();try{await authFetch('/rest/v1/studio_images?studio_id=eq.'+encodeURIComponent(s.id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({is_cover:false})});await patchImage(id,{is_cover:true,sort_order:1});await loadImages();status($('uploadStatus'),'Cover image updated.','ok')}catch(e){status($('uploadStatus'),'Could not set cover: '+cleanErr(e),'bad')}}
 async function deleteImage(id){const x=images.find(a=>a.id===id);if(!x||!confirm('Delete this image from the studio gallery?'))return;try{const marker='/storage/v1/object/public/'+BUCKET+'/';const path=x.image_url.includes(marker)?x.image_url.split(marker)[1]:'';await authFetch('/rest/v1/studio_images?id=eq.'+encodeURIComponent(id),{method:'DELETE',headers:{'Prefer':'return=minimal'}});if(path){await fetch(SUPABASE_URL+'/storage/v1/object/'+BUCKET+'/'+path,{method:'DELETE',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+token}})}await loadImages();status($('uploadStatus'),'Image deleted.','ok')}catch(e){status($('uploadStatus'),'Could not delete image: '+cleanErr(e),'bad')}}
-
-
 
 function refreshAnalyticsPresentation(){
  const num=id=>Number(String($(id)?.textContent||'0').replace(/[^0-9.-]/g,''))||0;
@@ -2284,11 +2214,9 @@ document.addEventListener('click',e=>{
  if(!b)return; e.preventDefault(); jumpAdminSection(b.dataset.target);
 });
 
-
 const onboardingRefreshObserver=new MutationObserver(()=>setTimeout(updateListingCompleteness,60));
 ['treatmentList','vibeList','serviceRows','gallery'].forEach(id=>{const el=$(id);if(el)onboardingRefreshObserver.observe(el,{childList:true,subtree:true,attributes:true,attributeFilter:['checked','src']})});
 document.addEventListener('change',e=>{if(e.target.closest?.('#detailsForm,#treatmentsForm,#vibesForm,#servicesForm'))setTimeout(updateListingCompleteness,60)});
-
 
 let ownerReviewSubmission=null;
 async function loadOwnerReview(){
@@ -2718,7 +2646,6 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 })();
 </script>
 
-
 <script>
 /* #48B tab navigation */
 (function(){
@@ -2790,14 +2717,12 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
     </section>
    </div>`;
 
-
    const appCard=[...admin.querySelectorAll('*')].find(el=>el.children?.length && /Studio Applications/.test(el.textContent||'') && (el.classList.contains('card')||el.tagName==='SECTION'));
    if(appCard)applications.appendChild(appCard);
 
    const candidates=[...admin.children].filter(el=>el!==q('adminTopTabs')&&!el.classList.contains('adminTabPane'));
    candidates.forEach(el=>studios.appendChild(el));
 
-   
    setTimeout(()=>{try{removeLegacyStudioReferralBlocksV69()}catch(e){}},50);
 
    // Keep referral management exclusively inside the Referrals tab.
@@ -2976,7 +2901,6 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 })();
 </script>
 
-
 <div class="deleteModal" id="deleteStudioModal">
  <div class="deletePanel">
   <div class="adminEyebrow" style="color:#a64a4a">PERMANENT ACTION</div>
@@ -2987,7 +2911,6 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
   <div class="deleteActions"><button type="button" class="btn secondary" id="cancelDeleteStudio">Cancel</button><button type="button" class="btn deleteConfirm" id="confirmDeleteStudio">Permanently delete</button></div>
  </div>
 </div>
-
 
 <script>
 /* #50 safe Admin studio deletion */
@@ -3110,7 +3033,6 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 })();
 </script>
 
-
 <script>
 document.addEventListener('click',function(e){
  const b=e.target&&e.target.closest?e.target.closest('#readinessJump'):null;if(!b||b.disabled)return;
@@ -3119,9 +3041,6 @@ document.addEventListener('click',function(e){
  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
 });
 </script>
-
-
-
 
 <script id="symbli-admin-referrals-v57-js">
 (function(){
