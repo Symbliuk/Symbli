@@ -1205,6 +1205,14 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 <style id="symbli-v69c-hard-tab-isolation">
 .adminTabPane[hidden]{display:none!important}
 </style>
+
+<style id="symbli-v69d-referrals-visibility-final">
+/* Final authority: Referrals exists ONLY on the active Referrals tab.
+   This overrides the legacy V64 desktop display:block!important rule. */
+#adminPane-referrals{display:none!important}
+#adminPane-referrals.active:not([hidden]){display:block!important}
+#adminPane-referrals[hidden]{display:none!important}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
