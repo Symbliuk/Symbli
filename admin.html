@@ -811,6 +811,225 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .adminReferralPager{display:flex;justify-content:center;padding:14px;border-top:1px solid #eee4df}
 @media(max-width:720px){.adminReferralAttention{align-items:flex-start}.adminReferralToolbar input{width:100%;flex-basis:100%}}
 </style>
+
+<style id="symbli-admin-top-studios-v58">
+.topStudiosSection{margin:18px 0;padding:21px;border:1px solid #eadfd9;border-radius:20px;background:linear-gradient(145deg,#fff,#fffaf7);box-shadow:0 10px 28px rgba(18,34,56,.04)}
+.topStudiosHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;margin-bottom:15px}
+.topStudiosHead h3{margin:4px 0 0;font:500 24px Georgia,serif;color:#17283e}.topStudiosHead p{margin:5px 0 0;font-size:9px;color:#8a766c}
+.topStudioWins{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:17px}
+.topStudioWin{padding:13px 14px;border:1px solid #eadfd9;border-radius:15px;background:#fff}
+.topStudioWin .icon{font-size:15px}.topStudioWin span{display:block;margin-top:8px;font-size:7px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#aa7c9e}.topStudioWin strong{display:block;margin-top:4px;font-size:11px;color:#203149;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topStudioWin small{display:block;margin-top:3px;font-size:8px;color:#8c7970}
+.topStudioTable{border:1px solid #eee2dc;border-radius:16px;overflow:hidden;background:#fff}.topStudioRow{display:grid;grid-template-columns:minmax(150px,1.5fr) repeat(5,minmax(70px,.7fr));gap:8px;align-items:center;padding:11px 13px;border-bottom:1px solid #f1e8e3;font-size:9px}.topStudioRow:last-child{border-bottom:0}.topStudioRow.head{background:#faf5f2;color:#9a7f73;font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.topStudioName{font-weight:800;color:#203149}.topStudioRank{display:inline-grid;place-items:center;width:22px;height:22px;margin-right:7px;border-radius:8px;background:#f7ebe6;color:#9b6856;font-size:9px}.topStudioValue{font-weight:700;color:#4c4541}
+@media(max-width:900px){.topStudioWins{grid-template-columns:repeat(2,1fr)}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:720px}}
+@media(max-width:560px){.topStudioWins{grid-template-columns:1fr 1fr}.topStudiosSection{padding:16px}}
+</style>
+
+<style id="symbli-admin-top-studios-v59-ux">
+/* V59: larger, clearer Top Studios workspace */
+.topStudiosSection{padding:27px!important;border-radius:23px!important}
+.topStudiosHead{margin-bottom:20px!important;align-items:center!important}
+.topStudiosHead h3{font-size:29px!important;letter-spacing:-.02em}
+.topStudiosHead p{font-size:10px!important;line-height:1.5;max-width:540px}
+.topStudioWins{gap:13px!important;margin-bottom:22px!important}
+.topStudioWin{position:relative;min-height:132px;padding:18px 18px 16px!important;border-radius:18px!important;box-shadow:0 8px 22px rgba(18,34,56,.035);overflow:hidden}
+.topStudioWin:after{content:'';position:absolute;right:-22px;top:-24px;width:78px;height:78px;border-radius:50%;background:rgba(170,124,158,.055)}
+.topStudioWin .icon{display:grid!important;place-items:center;width:35px;height:35px;border-radius:11px;background:#faf0eb;font-size:17px!important}
+.topStudioWin span{margin-top:13px!important;font-size:8px!important}
+.topStudioWin strong{margin-top:6px!important;font-size:14px!important;line-height:1.3}
+.topStudioWin small{margin-top:5px!important;font-size:9px!important}
+.topStudioTable{border-radius:18px!important}
+.topStudioRow{grid-template-columns:minmax(190px,1.55fr) repeat(5,minmax(85px,.72fr))!important;min-height:55px;padding:13px 16px!important;font-size:10px!important}
+.topStudioRow.head{min-height:43px;font-size:8px!important}
+.topStudioName{display:flex;align-items:center;font-size:11px!important}
+.topStudioRank{flex:0 0 28px;width:28px!important;height:28px!important;margin-right:10px!important;border-radius:9px!important;font-size:10px!important}
+.topStudioValue{font-size:10px!important}
+.topStudioRow:not(.head):hover{background:#fff9f6}
+@media(max-width:1050px){.topStudioWins{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:720px){
+ .topStudiosSection{padding:18px!important}.topStudiosHead h3{font-size:25px!important}
+ .topStudioWins{grid-template-columns:1fr!important;gap:9px!important}
+ .topStudioWin{min-height:0;padding:15px!important;display:grid;grid-template-columns:38px 1fr;column-gap:11px}
+ .topStudioWin .icon{grid-row:1/4}.topStudioWin span,.topStudioWin strong,.topStudioWin small{grid-column:2;margin-top:0!important}
+ .topStudioWin strong{margin-top:3px!important}.topStudioWin small{margin-top:3px!important}
+ .topStudioTable{overflow-x:auto}.topStudioRow{min-width:760px}
+}
+</style>
+
+<style id="symbli-admin-top-studios-v60">
+/* V60: executive Top Studios board */
+.topStudiosSection{padding:30px!important;background:linear-gradient(155deg,#fff,#fffaf7 70%)!important}
+.topStudiosHead{padding-bottom:18px;border-bottom:1px solid #eee2dc;margin-bottom:20px!important}
+.topStudiosHead h3{font-size:31px!important}.topStudiosHead p{font-size:11px!important}
+.topStudioWins{grid-template-columns:1.35fr repeat(3,1fr)!important;gap:12px!important}
+.topStudioWin{min-height:150px!important;padding:19px!important;display:flex;flex-direction:column}
+.topStudioWin:first-child{background:linear-gradient(145deg,#17283e,#263d59)!important;border-color:#17283e!important}
+.topStudioWin:first-child span,.topStudioWin:first-child small{color:#d8cbd5!important}.topStudioWin:first-child strong{color:#fff!important;font-size:17px!important}
+.topStudioWin:first-child .icon{background:rgba(255,255,255,.12)!important}
+.topStudioWin strong{font-size:15px!important;white-space:normal!important}
+.topStudioWin small{font-size:10px!important}
+.topStudioTable{margin-top:5px;box-shadow:0 7px 20px rgba(18,34,56,.025)}
+.topStudioRow{grid-template-columns:minmax(220px,1.7fr) repeat(3,minmax(90px,.72fr)) minmax(115px,.9fr) minmax(115px,.9fr)!important;min-height:61px!important;padding:14px 18px!important}
+.topStudioRow.head{min-height:45px!important;background:#f8f2ee!important}
+.topStudioName{font-size:12px!important}.topStudioValue{font-size:11px!important}
+.topStudioRank{width:31px!important;height:31px!important;flex-basis:31px!important}
+.topStudioRow:nth-child(2) .topStudioRank{background:#17283e!important;color:#fff!important}
+.topStudioRow:nth-child(3) .topStudioRank{background:#ead7bd!important;color:#6e5233!important}
+.topStudioRow:nth-child(4) .topStudioRank{background:#ead9d1!important;color:#755c50!important}
+@media(max-width:1100px){.topStudioWins{grid-template-columns:repeat(2,1fr)!important}}
+@media(max-width:720px){.topStudiosSection{padding:18px!important}.topStudioWins{grid-template-columns:1fr!important}.topStudioWin{min-height:112px!important;display:block}.topStudioWin .icon{margin-bottom:8px}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:820px}}
+</style>
+
+<style id="symbli-admin-v61-wide-shell">
+/* V61: desktop top-nav shell + full-width workspaces */
+@media(min-width:961px){
+ #adminView{display:block!important;max-width:none!important;width:100%!important}
+ #adminTopTabs{
+  position:sticky!important;top:0!important;z-index:100!important;width:100%!important;height:auto!important;
+  display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;
+  padding:10px 18px!important;margin:0 0 20px!important;border:1px solid #eadfd9!important;border-radius:17px!important;
+  background:rgba(255,252,250,.94)!important;box-shadow:0 10px 28px rgba(18,34,56,.06)!important;backdrop-filter:blur(14px)
+ }
+ #adminTopTabs:before{content:'SYMBLI ADMIN';display:block!important;margin:0 14px 0 2px!important;padding-right:16px;border-right:1px solid #e9ddd7;color:#17283e;font-size:9px;font-weight:900;letter-spacing:.13em;white-space:nowrap}
+ #adminTopTabs button,#adminTopTabs .tab{width:auto!important;min-width:0!important;flex:0 0 auto!important;margin:0!important;padding:10px 13px!important;border-radius:11px!important;font-size:9px!important;white-space:nowrap}
+ #adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:auto!important}
+ #adminMain,#adminContent,.adminMain,.adminWorkspace{width:100%!important;max-width:none!important;margin:0!important}
+ .adminPane{max-width:none!important;width:100%!important}
+}
+#adminPane-referrals{max-width:none!important}
+#adminPane-referrals .refAdminHero,#adminPane-referrals [class*="refHero"]{width:100%}
+#adminPane-referrals .refMetrics{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important}
+#adminPane-referrals .topStudiosSection{padding:32px!important}
+#adminPane-referrals .topStudioWins{grid-template-columns:1.45fr repeat(3,1fr)!important;gap:15px!important}
+#adminPane-referrals .topStudioWin{min-height:165px!important}
+#adminPane-referrals .topStudioTable{width:100%!important}
+#adminPane-referrals .topStudioRow{grid-template-columns:minmax(250px,1.8fr) repeat(3,minmax(105px,.7fr)) minmax(140px,.9fr) minmax(140px,.9fr)!important}
+#adminPane-referrals .refStudioRow{padding:16px 18px!important}
+#adminPane-referrals .refLedgerRow{grid-template-columns:minmax(250px,1.6fr) minmax(110px,.7fr) minmax(150px,.9fr) minmax(110px,.7fr)!important;padding:15px 18px!important}
+@media(max-width:1180px) and (min-width:961px){
+ #adminTopTabs{overflow-x:auto!important}
+ #adminTopTabs:before{display:none!important}
+ #adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
+ #adminPane-referrals .topStudioWins{grid-template-columns:repeat(2,1fr)!important}
+}
+</style>
+
+<style id="symbli-admin-v62-nav-fix">
+/* V62: repair desktop top navigation after V61 sidebar conversion */
+@media(min-width:961px){
+ #adminView{
+   display:block!important;width:100%!important;max-width:none!important;
+   padding:0!important;border:0!important;background:transparent!important;
+   box-shadow:none!important
+ }
+ #adminTopTabs{
+   position:sticky!important;top:8px!important;z-index:100!important;
+   display:flex!important;flex-direction:row!important;align-items:center!important;
+   width:100%!important;max-width:none!important;height:auto!important;min-height:58px!important;
+   padding:8px!important;margin:0 0 20px!important;gap:6px!important;
+   border:1px solid #e7dbd5!important;border-radius:16px!important;
+   background:rgba(255,252,250,.96)!important;box-shadow:0 8px 24px rgba(18,34,56,.06)!important;
+   overflow-x:auto!important;overflow-y:hidden!important;backdrop-filter:blur(14px)
+ }
+ #adminTopTabs:before{display:none!important;content:none!important}
+ #adminTopTabs .adminTab,#adminTopTabs button,#adminTopTabs .tab{
+   display:inline-flex!important;align-items:center!important;justify-content:center!important;
+   flex:0 0 auto!important;width:auto!important;min-width:auto!important;max-width:none!important;
+   min-height:40px!important;padding:10px 14px!important;margin:0!important;
+   border-radius:11px!important;white-space:nowrap!important;font-size:9px!important;
+   box-shadow:none!important
+ }
+ #adminTopTabs .adminTab.active,#adminTopTabs button.active,#adminTopTabs .tab.active{
+   background:#193451!important;color:#fff!important
+ }
+ #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{
+   margin-left:auto!important
+ }
+ #adminView>.adminPane,#adminView>[id^="adminPane-"],#adminMain,#adminContent,.adminMain,.adminWorkspace{
+   width:100%!important;max-width:none!important;margin-left:0!important
+ }
+}
+@media(min-width:961px) and (max-width:1180px){
+ #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
+}
+</style>
+
+<style id="symbli-admin-v64-referrals-only">
+/* V64: referral page only. Keep V62 top navigation untouched. */
+@media(min-width:961px){
+ #adminPane-referrals{
+   display:block!important;width:100%!important;max-width:none!important;
+ }
+ /* Kill the old two-column referrals layout only */
+ #adminPane-referrals .refAdminGrid,
+ #adminPane-referrals .referralsGrid,
+ #adminPane-referrals .refGrid{
+   display:block!important;grid-template-columns:none!important;width:100%!important
+ }
+ #adminPane-referrals .refAdminGrid>div,
+ #adminPane-referrals .referralsGrid>div,
+ #adminPane-referrals .refGrid>div{width:100%!important;max-width:none!important}
+}
+#adminPane-referrals .adminReferralAttention{margin:18px 0 12px!important}
+#adminPane-referrals .adminReferralToolbar{margin:0 0 20px!important;padding:13px;border:1px solid #eadfd9;border-radius:16px;background:#fff}
+#adminPane-referrals .topStudiosSection{
+ width:100%!important;max-width:none!important;box-sizing:border-box!important;
+ margin:0 0 22px!important;padding:29px!important;border-radius:22px!important
+}
+#adminPane-referrals .topStudioWins{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important}
+#adminPane-referrals .topStudioWin{min-width:0!important;min-height:145px!important}
+#adminPane-referrals .topStudioWin strong{white-space:normal!important}
+#adminPane-referrals .topStudioTable{display:none!important}
+#adminPane-referrals #refStudioRows{display:none!important}
+
+/* Hide the now-redundant studio-performance card/panel, not the ledger */
+#adminPane-referrals .refStudioPanel,
+#adminPane-referrals .refPerformancePanel{display:none!important}
+
+/* Make ledger the second full-width block */
+#adminPane-referrals .refLedgerPanel,
+#adminPane-referrals .refLedgerCard{
+ width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important
+}
+#adminPane-referrals #refLedgerRows{width:100%!important}
+#adminPane-referrals .refLedgerRow{
+ grid-template-columns:minmax(300px,1.8fr) minmax(125px,.65fr) minmax(170px,.85fr) minmax(125px,.65fr)!important;
+ gap:14px!important;min-height:66px!important;padding:15px 18px!important
+}
+#adminPane-referrals .refLedgerTitle{font-size:12px!important}
+#adminPane-referrals .refLedgerMeta{font-size:9px!important}
+#adminPane-referrals .refMoney{font-size:12px!important}
+
+@media(max-width:1100px){
+ #adminPane-referrals .topStudioWins{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:720px){
+ #adminPane-referrals .topStudiosSection{padding:18px!important}
+ #adminPane-referrals .topStudioWins{grid-template-columns:1fr!important}
+ #adminPane-referrals .refLedgerRow{min-width:700px!important}
+ #adminPane-referrals .refLedgerCard,#adminPane-referrals .refLedgerPanel{overflow-x:auto!important}
+}
+</style>
+
+<style id="symbli-admin-v65-no-desktop-nav-scroll">
+/* Desktop only: fit all Admin tabs in one row. Mobile behaviour unchanged. */
+@media(min-width:961px){
+ #adminTopTabs{
+   display:grid!important;
+   grid-template-columns:repeat(6,minmax(0,1fr)) minmax(125px,1fr)!important;
+   overflow:visible!important;
+   overflow-x:visible!important;
+   overflow-y:visible!important;
+   gap:6px!important;
+ }
+ #adminTopTabs:before{display:none!important;content:none!important}
+ #adminTopTabs .adminTab,#adminTopTabs button,#adminTopTabs .tab{
+   width:100%!important;min-width:0!important;max-width:none!important;
+   margin:0!important;padding:10px 6px!important;
+   white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
+ }
+ #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin:0!important}
+}
+</style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
 
@@ -1940,7 +2159,19 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    </div>
    <div class="refAdminGrid">
     <section class="refAdminPanel"><div class="adminReferralAttention" id="adminReferralAttention"><div style="display:flex;gap:11px;align-items:center"><div class="count" id="adminPendingBadge">0</div><div><strong id="adminAttentionTitle">No referrals need attention</strong><span>Pending studio outcomes stay visible here until they are resolved.</span></div></div></div>
-<div class="adminReferralToolbar"><input id="adminReferralSearch" type="search" placeholder="Search studio or referral reference…"><select id="adminReferralPeriod"><option value="all">All time</option><option value="this_month">This month</option><option value="last_month">Last month</option></select></div>
+<div class="adminReferralToolbar"><input id="adminReferralSearch" type="search" placeholder="Search studio or referral reference…"><select id="adminReferralPeriod"><option value="all">All time</option><option value="this_month">This month</option><option value="last_month">Last month</option></select></div><div class="topStudiosSection">
+ <div class="topStudiosHead"><div><div class="adminEyebrow">PERFORMANCE LEADERS</div><h3>Studio leaderboard</h3><p>Your strongest-performing SYMBLI studios at a glance. Use the controls above to compare this month, last month or all time.</p></div></div>
+ <div class="topStudioWins">
+  <div class="topStudioWin"><div class="icon">🥇</div><span>Top revenue</span><strong id="topRevenueStudio">—</strong><small id="topRevenueValue">No data yet</small></div>
+  <div class="topStudioWin"><div class="icon">🏆</div><span>Most bookings</span><strong id="topBookingsStudio">—</strong><small id="topBookingsValue">No data yet</small></div>
+  <div class="topStudioWin"><div class="icon">🎯</div><span>Best conversion</span><strong id="topConversionStudio">—</strong><small id="topConversionValue">No data yet</small></div>
+  <div class="topStudioWin"><div class="icon">📈</div><span>Most referrals</span><strong id="topReferralsStudio">—</strong><small id="topReferralsValue">No data yet</small></div>
+ </div>
+ <div style="display:flex;justify-content:space-between;align-items:center;margin:2px 2px 10px"><strong style="font-size:11px;color:#203149">Performance leaders</strong><span style="font-size:8px;color:#9a7f73;font-weight:700">SELECTED PERIOD</span></div><div class="topStudioTable">
+  <div class="topStudioRow head"><div>Studio</div><div>Referrals sent</div><div>Confirmed</div><div>Conversion</div><div>Revenue generated</div><div>SYMBLI commission</div></div>
+  <div id="topStudioRows"></div>
+ </div>
+</div>
 <div class="opsEyebrow">BY STUDIO</div><h3>Studio performance</h3><p>Referral volume, confirmed revenue and commission by studio.</p><div id="refStudioRows" class="refStudioRows"><div class="refEmpty">Loading studio performance…</div></div></section>
     <section class="refAdminPanel"><div class="opsEyebrow">REFERRAL LEDGER</div><h3>All referrals</h3><p>A live operational view of the referrals recorded by SYMBLI.</p>
      <div class="refFilters"><button class="refFilter active" data-ref-filter="all">All</button><button class="refFilter" data-ref-filter="pending">Pending</button><button class="refFilter" data-ref-filter="booked">Booked</button><button class="refFilter" data-ref-filter="not_booked">Didn't book</button></div>
@@ -2291,6 +2522,31 @@ document.addEventListener('click',function(e){
  function filteredRefs(){
    return (allRefs||[]).filter(r=>periodMatch(r,activePeriod)&&searchMatch(r));
  }
+
+ function studioStats(refs){
+   const m=new Map();
+   refs.forEach(r=>{
+     const id=String(r.studio_id||'');
+     if(!m.has(id))m.set(id,{id,total:0,booked:0,revenue:0,commission:0,conversion:0});
+     const g=m.get(id);g.total++;
+     if(r.status==='booked'){g.booked++;g.revenue+=Number(r.booking_value||0);g.commission+=Number(r.commission_amount||0)}
+   });
+   m.forEach(g=>g.conversion=g.total?Math.round(g.booked/g.total*100):0);
+   return [...m.values()];
+ }
+ function renderTopStudios(refs){
+   const stats=studioStats(refs);
+   const name=g=>studioMap.get(g?.id)?.name||'Unknown studio';
+   const top=(field)=>stats.length?[...stats].sort((a,b)=>b[field]-a[field]||b.revenue-a.revenue)[0]:null;
+   const rev=top('revenue'),books=top('booked'),conv=top('conversion'),refsTop=top('total');
+   const set=(id,v)=>{if(q(id))q(id).textContent=v};
+   set('topRevenueStudio',rev?name(rev):'—');set('topRevenueValue',rev?money(rev.revenue)+' generated':'No data yet');
+   set('topBookingsStudio',books?name(books):'—');set('topBookingsValue',books?books.booked+' confirmed booking'+(books.booked===1?'':'s'):'No data yet');
+   set('topConversionStudio',conv?name(conv):'—');set('topConversionValue',conv?conv.conversion+'% conversion':'No data yet');
+   set('topReferralsStudio',refsTop?name(refsTop):'—');set('topReferralsValue',refsTop?refsTop.total+' referral'+(refsTop.total===1?'':'s'):'No data yet');
+   const ranked=[...stats].sort((a,b)=>b.revenue-a.revenue||b.booked-a.booked||b.total-a.total).slice(0,5);
+   if(q('topStudioRows'))q('topStudioRows').innerHTML=ranked.length?ranked.map((g,n)=>`<div class="topStudioRow"><div class="topStudioName"><span class="topStudioRank">${n+1}</span>${esc(name(g))}</div><div class="topStudioValue">${g.total}</div><div class="topStudioValue">${g.booked}</div><div class="topStudioValue">${g.conversion}%</div><div class="topStudioValue">${money(g.revenue)}</div><div class="topStudioValue">${money(g.commission)}</div></div>`).join(''):'<div class="refEmpty">No studio performance matches these filters.</div>';
+ }
  function render(){
    const refs=allRefs||[], booked=refs.filter(r=>r.status==='booked'), pending=refs.filter(r=>(r.status||'pending')==='pending');
    const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0), commission=booked.reduce((a,r)=>a+Number(r.commission_amount||0),0);
@@ -2304,6 +2560,7 @@ document.addEventListener('click',function(e){
    if(q('adminAttentionTitle'))q('adminAttentionTitle').textContent=pending.length?pending.length+' pending referral'+(pending.length===1?' needs':'s need')+' an outcome':'No referrals need attention';
 
    const filtered=filteredRefs();
+   renderTopStudios(filtered);
    const grouped=new Map();
    filtered.forEach(r=>{
      const k=String(r.studio_id||'');
