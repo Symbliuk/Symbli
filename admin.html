@@ -1262,15 +1262,15 @@ html, body, .page, main, #adminDashboard {
 }
 </style>
 
-<style id="symbli-v71-clock">
-#foundingClockCard .fClockDays{display:grid!important;grid-template-columns:repeat(4,minmax(62px,1fr))!important;gap:7px!important;min-width:330px!important}
-#foundingClockCard .v71TimeUnit{padding:9px 8px 8px;border:1px solid #eaded6;border-radius:12px;background:rgba(255,255,255,.78);text-align:center}
-#foundingClockCard .v71TimeUnit strong{font:400 25px/1 Georgia,serif!important;color:#c37e5e!important;font-variant-numeric:tabular-nums}
-#foundingClockCard .v71TimeUnit span{display:block!important;margin-top:5px!important;font-size:6px!important;letter-spacing:.13em!important;font-weight:900!important;color:#8f776b!important}
+<style id="symbli-v71a-live-clock">
+#foundingClockCard .fClockDays{display:grid!important;grid-template-columns:repeat(4,minmax(68px,1fr))!important;gap:7px!important;min-width:350px!important;align-items:stretch!important}
+#foundingClockCard .v71Unit{padding:10px 8px 8px!important;border:1px solid #eaded6!important;border-radius:12px!important;background:rgba(255,255,255,.82)!important;text-align:center!important}
+#foundingClockCard .v71Unit strong{display:block!important;font:400 25px/1 Georgia,serif!important;color:#c37e5e!important;font-variant-numeric:tabular-nums!important}
+#foundingClockCard .v71Unit span{display:block!important;margin-top:5px!important;font-size:6px!important;letter-spacing:.13em!important;font-weight:900!important;color:#8f776b!important}
 #foundingClockCard.v71Triggered .fClockDays{grid-template-columns:1fr!important;min-width:180px!important}
-#foundingClockCard.v71Triggered .v71TimeUnit:not(:first-child){display:none!important}
-#foundingClockCard.v71Triggered .v71TimeUnit:first-child strong{font-size:17px!important}
-@media(max-width:720px){#foundingClockCard .fClockDays{min-width:0!important;width:100%!important;grid-template-columns:repeat(4,1fr)!important}#foundingClockCard .v71TimeUnit{padding:8px 4px}}
+#foundingClockCard.v71Triggered .v71Unit:not(:first-child){display:none!important}
+#foundingClockCard.v71Triggered .v71Unit:first-child strong{font-size:16px!important}
+@media(max-width:760px){#foundingClockCard .fClockDays{width:100%!important;min-width:0!important;grid-template-columns:repeat(4,1fr)!important}#foundingClockCard .v71Unit{padding:9px 3px!important}}
 </style>
 </head><body><div class="wrap">
 <div class="top"><div><div class="brand">SYMBLI</div><div class="tag">STUDIO ADMIN • STUDIO MANAGER</div></div>
@@ -1315,11 +1315,11 @@ html, body, .page, main, #adminDashboard {
 
 <div id="foundingClockCard" class="hidden">
  <div class="fClockTop"><div><div class="fClockEyebrow">FOUNDING STUDIO</div><h3>Founding membership clock</h3><p id="foundingClockCopy">The 90-day clock begins only when this studio goes live.</p></div><div class="fClockDays">
- <div class="v71TimeUnit"><strong id="foundingDays">90</strong><span id="foundingDaysLabel">DAYS</span></div>
- <div class="v71TimeUnit"><strong id="foundingHours">00</strong><span>HOURS</span></div>
- <div class="v71TimeUnit"><strong id="foundingMinutes">00</strong><span>MINUTES</span></div>
- <div class="v71TimeUnit"><strong id="foundingSeconds">00</strong><span>SECONDS</span></div>
- </div></div>
+<div class="v71Unit"><strong id="foundingDays">90</strong><span id="foundingDaysLabel">DAYS</span></div>
+<div class="v71Unit"><strong id="foundingHours">00</strong><span>HOURS</span></div>
+<div class="v71Unit"><strong id="foundingMinutes">00</strong><span>MINUTES</span></div>
+<div class="v71Unit"><strong id="foundingSeconds">00</strong><span>SECONDS</span></div>
+</div></div>
  <div class="fClockTrack"><div class="fClockFill" id="foundingClockFill"></div></div>
  <div class="fClockMeta"><div><span>WENT LIVE</span><b id="foundingLiveDate">Not live yet</b></div><div><span>90-DAY DATE</span><b id="foundingDueDate">Starts when published</b></div><div><span>LIVE STUDIOS</span><b id="foundingStudioCount">Checking…</b></div><div><span>BILLING STATUS</span><b id="foundingBillingStatus">Free period</b></div><div><span>BILLING START</span><b id="foundingBillingStart">Not triggered</b></div><div><span>FOUNDING RATE</span><b id="foundingRate">£29.99/month locked</b></div></div>
  <div id="foundingClockTrigger" class="fClockTriggered hidden"></div><button class="v64ClockToggle" type="button" onclick="toggleV64Clock()">View billing details ↓</button>
@@ -2086,29 +2086,27 @@ async function persistFoundingBillingTrigger(studio, billingStart, reason){
  return studio;
 }
 
-let foundingClockTicker=null;
-function paintFoundingCountdown(due,ended){
- const card=$('foundingClockCard');if(!card)return;
- const d=$('foundingDays'),h=$('foundingHours'),m=$('foundingMinutes'),s=$('foundingSeconds');
- if(ended){
-  card.classList.add('v71Triggered');
-  if(d)d.textContent='BILLING STARTED';
-  if($('foundingDaysLabel'))$('foundingDaysLabel').textContent='FOUNDING RATE ACTIVE';
-  return;
+let foundingClockTickerV71A=null;
+function renderFoundingClockV71A(dueMs,triggered){
+ const card=$('foundingClockCard'); if(!card)return;
+ if(triggered){
+   card.classList.add('v71Triggered');
+   $('foundingDays').textContent='BILLING STARTED';
+   $('foundingDaysLabel').textContent='FOUNDING RATE ACTIVE';
+   return;
  }
  card.classList.remove('v71Triggered');
- const ms=Math.max(0,due-Date.now());
- const days=Math.floor(ms/86400000),hours=Math.floor(ms%86400000/3600000),mins=Math.floor(ms%3600000/60000),secs=Math.floor(ms%60000/1000);
- if(d)d.textContent=String(days).padStart(2,'0');
- if(h)h.textContent=String(hours).padStart(2,'0');
- if(m)m.textContent=String(mins).padStart(2,'0');
- if(s)s.textContent=String(secs).padStart(2,'0');
- if($('foundingDaysLabel'))$('foundingDaysLabel').textContent='DAYS';
+ const left=Math.max(0,dueMs-Date.now());
+ $('foundingDays').textContent=String(Math.floor(left/86400000)).padStart(2,'0');
+ $('foundingHours').textContent=String(Math.floor((left%86400000)/3600000)).padStart(2,'0');
+ $('foundingMinutes').textContent=String(Math.floor((left%3600000)/60000)).padStart(2,'0');
+ $('foundingSeconds').textContent=String(Math.floor((left%60000)/1000)).padStart(2,'0');
+ $('foundingDaysLabel').textContent='DAYS';
 }
-function startFoundingTicker(due,ended){
- if(foundingClockTicker){clearInterval(foundingClockTicker);foundingClockTicker=null}
- paintFoundingCountdown(due,ended);
- if(!ended&&due>Date.now())foundingClockTicker=setInterval(()=>paintFoundingCountdown(due,false),1000);
+function startFoundingClockV71A(dueMs,triggered){
+ if(foundingClockTickerV71A){clearInterval(foundingClockTickerV71A);foundingClockTickerV71A=null}
+ renderFoundingClockV71A(dueMs,triggered);
+ if(!triggered&&dueMs>Date.now())foundingClockTickerV71A=setInterval(()=>renderFoundingClockV71A(dueMs,false),1000);
 }
 
 async function updateFoundingClock(){
@@ -2126,7 +2124,7 @@ async function updateFoundingClock(){
 
  $('foundingLiveDate').textContent=live?fmtFoundingDate(live):(st.is_active===true?'Live date not recorded':'Not live yet');
  if(!live){
-  if(foundingClockTicker){clearInterval(foundingClockTicker);foundingClockTicker=null}
+  if(foundingClockTickerV71A){clearInterval(foundingClockTickerV71A);foundingClockTickerV71A=null}
   card.classList.remove('v71Triggered');
   $('foundingDays').textContent='90';$('foundingHours').textContent='00';$('foundingMinutes').textContent='00';$('foundingSeconds').textContent='00';$('foundingDaysLabel').textContent='DAYS READY';
   $('foundingDueDate').textContent='Starts when published';$('foundingClockFill').style.width='0%';
@@ -2150,10 +2148,10 @@ async function updateFoundingClock(){
  const storedStart=foundingDate(st.founding_billing_started_at)||triggerDate;
  const storedReason=st.founding_billing_trigger||reason;
  const now=new Date();
- const remainingMs=Math.max(0,due90-now);
- const elapsedPct=Math.min(100,Math.max(0,((now-live)/(90*86400000))*100));
- startFoundingTicker(due90.getTime(),!!storedStart);
- $('foundingClockFill').style.width=(storedStart?100:elapsedPct)+'%';
+ const remaining=Math.max(0,Math.ceil((due90-now)/86400000));
+ const elapsed=Math.min(90,Math.max(0,90-remaining));
+ startFoundingClockV71A(due90.getTime(),!!storedStart);
+ $('foundingClockFill').style.width=(storedStart?100:(elapsed/90*100))+'%';
 
  const trig=$('foundingClockTrigger');
  if(storedStart){
@@ -2347,9 +2345,6 @@ function applicationDetailHtml(a){
  if(d.legacy)return `<div class="appDetailGrid"><div class="appDetailBlock wide"><span>Application notes</span>${appEsc(d.description||'No extra information supplied.')}</div></div>`;
  const treatments=Array.isArray(d.treatments)?d.treatments.filter(x=>x&&(x.name||x.treatment||x.service_name)):[];
  const methods=Array.isArray(d.contact_methods)?d.contact_methods.join(', '):(d.contact_methods||'Not supplied');
- const categories=Array.isArray(d.treatment_categories)&&d.treatment_categories.length?d.treatment_categories.join(', '):'Not supplied';
- const vibes=Array.isArray(d.vibes)&&d.vibes.length?d.vibes.join(', '):'Not supplied';
- const knownFor=Array.isArray(d.known_for)&&d.known_for.length?d.known_for.join(', '):'Not supplied';
  const rows=treatments.length?treatments.map(t=>{
    const name=t.name||t.treatment||t.service_name||'Treatment';
    const price=t.price||t.price_from||'';
@@ -2362,7 +2357,6 @@ function applicationDetailHtml(a){
    <div class="appDetailBlock wide"><span>About the studio</span>${appEsc(d.description||'No description supplied.')}</div>
    <div class="appDetailBlock"><span>Online</span>Instagram: ${appLink(d.instagram||a.instagram_url,'Open Instagram')}<br>Website: ${appLink(d.website||a.website_url,'Open website')}<br>Booking: ${appLink(d.booking_url,'Open booking link')}<br>WhatsApp: ${appLink(d.whatsapp,'Open WhatsApp')}</div>
    <div class="appDetailBlock"><span>Client contact methods</span>${appEsc(methods||'Not supplied')} ${d.notes?`<br><br><b>Notes:</b> ${appEsc(d.notes)}`:''}</div>
-   <div class="appDetailBlock"><span>Discovery profile</span><b>Treatment areas:</b> ${appEsc(categories)}<br><b>Studio vibe:</b> ${appEsc(vibes)}<br><b>Best known for:</b> ${appEsc(knownFor)}</div>
    <div class="appDetailBlock wide"><span>Treatments & pricing</span><table class="appTreatmentTable">${rows}</table></div>
  </div>
  <div class="appFoundingTerms"><strong>Founding Studio offer</strong>£29.99/month locked in while continuously subscribed. Monthly subscription begins when SYMBLI reaches 10 live studios or 90 days after this studio profile goes live, whichever comes first. 5% commission applies to SYMBLI-generated revenue.</div>`;
@@ -2450,7 +2444,6 @@ async function approveApplication(id){
     try{
       const cats=await authFetch('/rest/v1/treatments?select=id,name&order=name.asc');
       const submitted=d.treatments.map(t=>String(t?.name||t?.treatment||t?.service_name||'').toLowerCase()).join(' ');
-      const selectedCategories=Array.isArray(d.treatment_categories)?d.treatment_categories.map(x=>String(x).toLowerCase().trim()):[];
       const categoryKeywords={
         'brows':['brow','eyebrow','microblad'],
         'lips':['lip','filler'],
@@ -2460,7 +2453,7 @@ async function approveApplication(id){
       for(const cat of (cats||[])){
         const cn=String(cat.name||'').toLowerCase().trim();
         const keys=categoryKeywords[cn]||[cn];
-        if(selectedCategories.includes(cn)||keys.some(k=>k&&submitted.includes(k))){
+        if(keys.some(k=>k&&submitted.includes(k))){
           try{
             await authFetch('/rest/v1/studio_treatments',{
               method:'POST',
@@ -2471,21 +2464,6 @@ async function approveApplication(id){
         }
       }
     }catch(categoryErr){/* services still transfer even if category mapping is unavailable */}
-  }
-
-
-  // Carry selected onboarding vibes directly into the Studio vibe section.
-  if(!d.legacy&&Array.isArray(d.vibes)&&d.vibes.length){
-    for(const vibe of d.vibes.slice(0,3)){
-      const clean=String(vibe||'').trim();if(!clean)continue;
-      try{
-        await authFetch('/rest/v1/studio_vibes',{
-          method:'POST',
-          headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
-          body:JSON.stringify({studio_id:created.id,vibe:clean})
-        });
-      }catch(vibeErr){console.warn('Could not transfer studio vibe',clean,vibeErr)}
-    }
   }
 
   // Carry the applicant email into Studio Portal access automatically.
