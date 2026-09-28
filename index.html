@@ -1718,6 +1718,49 @@ html,body,#root,.page{background:#fff!important}
   background:radial-gradient(ellipse at center,transparent 50%,rgba(255,255,255,.60) 72%,#fff 92%)!important;
 }
 </style>
+
+<style id="symbli-v3g-tighter-section-spacing">
+/* Close the oversized gap between the horizontal studio scroller and the next studio section */
+.meetSection, .meet-section, .discoverSection, .discover-section {
+  margin-bottom: 26px !important;
+  padding-bottom: 12px !important;
+}
+.meetSection + section, .meet-section + section,
+.discoverSection + section, .discover-section + section {
+  margin-top: 20px !important;
+  padding-top: 18px !important;
+}
+</style>
+
+<style id="symbli-v3h-tight-gap">
+/* Pull the next studio section much closer to the horizontal studio scroller */
+.meetSection, .meet-section, .discoverSection, .discover-section {
+  margin-bottom: 8px !important;
+  padding-bottom: 0 !important;
+}
+.meetSection + section, .meet-section + section,
+.discoverSection + section, .discover-section + section {
+  margin-top: 4px !important;
+  padding-top: 8px !important;
+}
+</style>
+
+<style id="symbli-v3i-actual-gap-fix">
+/* Actual desktop gap controls */
+.meetStudios{
+  padding-bottom:6px !important;
+}
+.discoveryStage{
+  margin-top:6px !important;
+  padding-top:0 !important;
+}
+
+/* Keep a little breathing room on phones */
+@media(max-width:639px){
+  .meetStudios{padding-bottom:8px !important;}
+  .discoveryStage{margin-top:10px !important;}
+}
+</style>
 </head><body><div id="symbliLiveLoading" role="status" aria-live="polite">
   <div class="loadInner">
     <div class="loadMark" aria-hidden="true"></div>
