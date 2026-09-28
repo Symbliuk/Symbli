@@ -1516,6 +1516,7 @@ const SUPABASE_KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
 const BUCKET='studio-images';let token='',studios=[],images=[],studioDetail=null,studioColumns=[],treatments=[],studioTreatmentIds=new Set(),vibeRows=[],draftVibes=[],vibeValueColumn='vibe';
 const $=id=>document.getElementById(id);const safe=s=>String(s||'').replace(/[^a-zA-Z0-9._-]/g,'-');
 function status(el,msg,type=''){el.textContent=msg;el.className='status'+(type?' '+type:'')}
+function statusHtml(el,html,type=''){el.innerHTML=html;el.className='status'+(type?' '+type:'')}
 async function refreshAdminSession(){
  const rt=localStorage.getItem('symbli_admin_refresh')||'';
  if(!rt)throw new Error('No saved refresh session');
@@ -2069,6 +2070,16 @@ function toggleV64Clock(){
  const c=$('foundingClockCard'),b=c?.querySelector('.v64ClockToggle');if(!c)return;
  const open=c.classList.toggle('v64Expanded');if(b)b.textContent=open?'Hide billing details ↑':'View billing details ↓';
 }
+function removeLegacyStudioReferralBlocksV69(){
+ const pane=$('adminPane-studios');if(!pane)return;
+ [...pane.querySelectorAll('h1,h2,h3,.adminEyebrow,strong')].forEach(label=>{
+   const t=(label.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
+   if(t==='referrals & revenue'||t==='booking attribution'||t==='referral analytics'){
+     const block=label.closest('.card,section,.panel,.analyticsCard,.referralCard');
+     if(block&&block!==pane)block.classList.add('v65HiddenStudioAnalytics');
+   }
+ });
+}
 function cleanStudioWorkspaceV65(){
  const studioArea=$('detailsForm')?.parentElement;
  if(!studioArea)return;
@@ -2087,7 +2098,7 @@ document.addEventListener('click',e=>{
  const el=$(b.dataset.v65target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
 });
 function updateStudioOverviewV64(){
- setTimeout(cleanStudioWorkspaceV65,0);
+ setTimeout(()=>{cleanStudioWorkspaceV65();removeLegacyStudioReferralBlocksV69();},0);
  const box=$('studioOverviewV64'),st=studioDetail,r=getListingReadiness();if(!box)return;
  if(!st||!r){box.classList.add('hidden');return}
  box.classList.remove('hidden');
@@ -2313,11 +2324,48 @@ async function approveApplication(id){
       const note=t.duration?String(t.duration):null;
       await authFetch('/rest/v1/studio_services',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({studio_id:created.id,service_name:name,price:price,price_note:note,sort_order:i,is_active:true})});
     }
+
+    // Link submitted services to SYMBLI's broader discovery categories where there is a clear match.
+    try{
+      const cats=await authFetch('/rest/v1/treatments?select=id,name&order=name.asc');
+      const submitted=d.treatments.map(t=>String(t?.name||t?.treatment||t?.service_name||'').toLowerCase()).join(' ');
+      const categoryKeywords={
+        'brows':['brow','eyebrow','microblad'],
+        'lips':['lip','filler'],
+        'nails':['nail','manicure','pedicure'],
+        'skin':['skin','facial','peel','microneed','dermaplan','hydrafacial']
+      };
+      for(const cat of (cats||[])){
+        const cn=String(cat.name||'').toLowerCase().trim();
+        const keys=categoryKeywords[cn]||[cn];
+        if(keys.some(k=>k&&submitted.includes(k))){
+          try{
+            await authFetch('/rest/v1/studio_treatments',{
+              method:'POST',
+              headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+              body:JSON.stringify({studio_id:created.id,treatment_id:cat.id})
+            });
+          }catch(linkErr){/* ignore duplicate/existing category links */}
+        }
+      }
+    }catch(categoryErr){/* services still transfer even if category mapping is unavailable */}
   }
+
+  // Carry the applicant email into Studio Portal access automatically.
+  if(a.email){
+    try{
+      await authFetch('/rest/v1/rpc/set_studio_owner_email',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({p_studio:created.id,p_email:String(a.email).trim().toLowerCase()})
+      });
+    }catch(ownerErr){console.warn('Could not set owner email automatically',ownerErr)}
+  }
+
   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:'approved',studio_id:created.id,reviewed_at:new Date().toISOString()})});
   await Promise.all([loadApplications(),loadStudios(created.id)]);
   setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
-  status($('applicationsStatus'),`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The Founding Studio 90-day clock starts only when the studio goes live.</span></div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${created.id}')">Open studio draft →</button></div>`,'ok');
+  statusHtml($('applicationsStatus'),`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The Founding Studio 90-day clock starts only when the studio goes live.</span></div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${appEsc(created.id)}')">Open studio draft →</button></div>`,'ok');
  }catch(e){status($('applicationsStatus'),'Could not approve application: '+cleanErr(e),'bad')}
 }
 function slugifyStudio(v){
@@ -2615,6 +2663,8 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    candidates.forEach(el=>studios.appendChild(el));
 
    
+   setTimeout(()=>{try{removeLegacyStudioReferralBlocksV69()}catch(e){}},50);
+
    const existingAnalytics=q('analyticsCard');
    analytics.insertAdjacentHTML('beforeend',`
      <div class="opsLane">
