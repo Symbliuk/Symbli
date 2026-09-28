@@ -77,6 +77,7 @@
 .headerInstagram:hover{transform:translateY(-1px);background:#FBE7DD;box-shadow:0 5px 16px rgba(184,120,91,.15)}
 @media(max-width:980px){.headerNav{display:none}.headerInner{max-width:1120px}}
 @media(max-width:639px){.headerRight{gap:8px}.headerInstagram{width:34px;height:34px}.mobileJoin span{padding:8px 13px}}
+@media(max-width:639px){#foundingModal .foundForm input,#foundingModal .foundForm textarea,#foundingModal .foundForm select{font-size:16px!important}}
 </style><style id="symbliGalleryFix">
 /* Edit 06C: functional shared studio galleries */
 .studioImage,.compareMedia{position:relative!important;overflow:hidden}
@@ -4126,7 +4127,12 @@ window.SYMBLI_ADD_DEMOS=function(d){
 .symNav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid #f0e5de}.symNav button{height:43px;padding:0 19px;border-radius:999px;font-size:11px;font-weight:700;cursor:pointer}.symBack{border:1px solid #e6d8d0;background:white;color:#665952}.symNext{margin-left:auto;border:0;background:#122238;color:white}.symSubmit{border:1px solid #d2ad6b!important;background:linear-gradient(110deg,#fffaf6,#fde6de 55%,#fff8ef)!important;color:#122238!important}
 .symPriceCallout{padding:14px;border:1px solid #e6d4b1;background:#fffaf0;border-radius:14px;margin-bottom:16px}.symPriceCallout b{display:block;color:#122238;font:500 18px Fraunces,serif}.symPriceCallout span{display:block;margin-top:4px;color:#806f66;font-size:10px;line-height:1.5}
 #foundingModal .foundSuccess{padding:48px 30px}.foundSuccess .symNoPay{display:inline-block;margin-top:15px;padding:7px 11px;border-radius:999px;background:#fff1eb;color:#a36a59;font-size:9px;font-weight:700;letter-spacing:.08em}
-@media(max-width:639px){#foundingModal{padding:0;align-items:flex-end}#foundingModal .foundModalBox{width:100%;max-height:94vh;border-radius:24px 24px 0 0}.symOnboardHead{padding:24px 20px 18px!important}.symOnboardBody{padding:20px}.symGrid2{grid-template-columns:1fr}.symTreatRow{grid-template-columns:1fr .72fr 34px}.symTreatRow .duration{display:none}.symContactChoices{grid-template-columns:1fr}.symNav{position:sticky;bottom:-20px;background:#fffdfa;padding-bottom:20px;z-index:2}}
+@media(max-width:639px){
+#foundingModal .symField input,
+#foundingModal .symField textarea,
+#foundingModal .symField select,
+#foundingModal .symTreatRow input{font-size:16px!important}
+#foundingModal{padding:0;align-items:flex-end}#foundingModal .foundModalBox{width:100%;max-height:94vh;border-radius:24px 24px 0 0}.symOnboardHead{padding:24px 20px 18px!important}.symOnboardBody{padding:20px}.symGrid2{grid-template-columns:1fr}.symTreatRow{grid-template-columns:1fr .72fr 34px}.symTreatRow .duration{display:none}.symContactChoices{grid-template-columns:1fr}.symNav{position:sticky;bottom:-20px;background:#fffdfa;padding-bottom:20px;z-index:2}}
 </style>
 <script id="symbliFoundingOnboardingV1Script">
 (function(){
