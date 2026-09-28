@@ -2328,8 +2328,8 @@ function formatApplicationDateTime(v){
 }
 function parseFoundingApplication(a){
  const raw=String(a?.message||'');
- if(!raw.startsWith('FOUNDING ONBOARDING V1'))return {legacy:true,description:raw};
- let json=raw.replace(/^FOUNDING ONBOARDING V1/,'').trim();
+ if(!/^FOUNDING ONBOARDING V[12]/.test(raw))return {legacy:true,description:raw};
+ let json=raw.replace(/^FOUNDING ONBOARDING V[12]/,'').trim();
  // Public onboarding stores the separator as the literal characters "\\n".
  // Remove those before parsing the JSON payload.
  json=json.replace(/^(?:\\\\n|\\n)+/,'').trim();
@@ -2345,6 +2345,9 @@ function applicationDetailHtml(a){
  if(d.legacy)return `<div class="appDetailGrid"><div class="appDetailBlock wide"><span>Application notes</span>${appEsc(d.description||'No extra information supplied.')}</div></div>`;
  const treatments=Array.isArray(d.treatments)?d.treatments.filter(x=>x&&(x.name||x.treatment||x.service_name)):[];
  const methods=Array.isArray(d.contact_methods)?d.contact_methods.join(', '):(d.contact_methods||'Not supplied');
+ const categories=Array.isArray(d.treatment_categories)&&d.treatment_categories.length?d.treatment_categories.join(', '):'Not supplied';
+ const vibes=Array.isArray(d.vibes)&&d.vibes.length?d.vibes.join(', '):'Not supplied';
+ const knownFor=Array.isArray(d.known_for)&&d.known_for.length?d.known_for.join(', '):'Not supplied';
  const rows=treatments.length?treatments.map(t=>{
    const name=t.name||t.treatment||t.service_name||'Treatment';
    const price=t.price||t.price_from||'';
@@ -2357,6 +2360,7 @@ function applicationDetailHtml(a){
    <div class="appDetailBlock wide"><span>About the studio</span>${appEsc(d.description||'No description supplied.')}</div>
    <div class="appDetailBlock"><span>Online</span>Instagram: ${appLink(d.instagram||a.instagram_url,'Open Instagram')}<br>Website: ${appLink(d.website||a.website_url,'Open website')}<br>Booking: ${appLink(d.booking_url,'Open booking link')}<br>WhatsApp: ${appLink(d.whatsapp,'Open WhatsApp')}</div>
    <div class="appDetailBlock"><span>Client contact methods</span>${appEsc(methods||'Not supplied')} ${d.notes?`<br><br><b>Notes:</b> ${appEsc(d.notes)}`:''}</div>
+   <div class="appDetailBlock"><span>Discovery profile</span><b>Treatment areas:</b> ${appEsc(categories)}<br><b>Studio vibe:</b> ${appEsc(vibes)}<br><b>Best known for:</b> ${appEsc(knownFor)}</div>
    <div class="appDetailBlock wide"><span>Treatments & pricing</span><table class="appTreatmentTable">${rows}</table></div>
  </div>
  <div class="appFoundingTerms"><strong>Founding Studio offer</strong>£29.99/month locked in while continuously subscribed. Monthly subscription begins when SYMBLI reaches 10 live studios or 90 days after this studio profile goes live, whichever comes first. 5% commission applies to SYMBLI-generated revenue.</div>`;
@@ -2413,75 +2417,89 @@ async function approveApplication(id){
  const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
  const d=parseFoundingApplication(a);
  if(!window.confirm('Approve '+(a.studio_name||'this studio')+'? This creates a PRIVATE Founding Studio draft listing.'))return;
- status($('applicationsStatus'),'Creating private Founding Studio draft…');
+ const box=$('applicationsStatus');
+ status(box,'Creating private Founding Studio draft…');
+ let stage='starting';
  try{
-  let base=slugifyStudio(a.studio_name),slug=base||('studio-'+Date.now());
-  const existing=await authFetch('/rest/v1/studios?select=id,slug&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
-  if(existing&&existing.length)slug=slug+'-'+slugifyStudio(a.town||'studio')+'-'+String(Date.now()).slice(-5);
-  const body={
-    name:a.studio_name,slug,town:a.town,
-    description:(d.description&&!d.legacy)?d.description:(a.message||null),
-    website_url:d.website||a.website_url||null,
-    instagram_url:d.instagram||a.instagram_url||null,
-    booking_url:d.booking_url||null,
-    phone:d.phone||a.phone||null,
-    is_founding:true,founding_monthly_rate:29.99,is_active:false
-  };
-  const made=await authFetch('/rest/v1/studios?select=*',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)});
-  if(!Array.isArray(made)||made.length!==1)throw new Error('Supabase did not return the new studio.');
-  const created=made[0];
+  let base=slugifyStudio(a.studio_name),slug=base||('studio-'+Date.now()),created=null;
+
+  // Idempotency: if a previous approval attempt created the draft before a later
+  // request failed, reuse that draft instead of creating a duplicate.
+  stage='checking for an existing draft';
+  const same=await authFetch('/rest/v1/studios?select=*&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
+  if(Array.isArray(same)&&same.length&&String(same[0].name||'').trim().toLowerCase()===String(a.studio_name||'').trim().toLowerCase()){
+    created=same[0];
+  }else{
+    if(same&&same.length)slug=slug+'-'+slugifyStudio(a.town||'studio')+'-'+String(Date.now()).slice(-5);
+    stage='creating the studio draft';
+    const body={name:a.studio_name,slug,town:a.town,description:(d.description&&!d.legacy)?d.description:(a.message||null),website_url:d.website||a.website_url||null,instagram_url:d.instagram||a.instagram_url||null,booking_url:d.booking_url||null,phone:d.phone||a.phone||null,is_founding:true,founding_monthly_rate:29.99,is_active:false};
+    const made=await authFetch('/rest/v1/studios?select=*',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)});
+    if(!Array.isArray(made)||made.length!==1)throw new Error('Supabase did not return the new studio.');
+    created=made[0];
+  }
+
+  const warnings=[];
+
+  // Services are useful, but a single failed service must never strand the whole approval.
   if(!d.legacy&&Array.isArray(d.treatments)){
+    stage='copying services';
+    let existingServices=[];
+    try{existingServices=await authFetch('/rest/v1/studio_services?select=service_name&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
+    const existingNames=new Set((existingServices||[]).map(x=>String(x.service_name||'').toLowerCase().trim()));
     for(let i=0;i<d.treatments.length;i++){
-      const t=d.treatments[i]||{},name=t.name||t.treatment||t.service_name;
-      if(!name)continue;
-      let price=t.price??t.price_from??null;
-      if(typeof price==='string')price=Number(price.replace(/[^0-9.]/g,''))||null;
-      const note=t.duration?String(t.duration):null;
-      await authFetch('/rest/v1/studio_services',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({studio_id:created.id,service_name:name,price:price,price_note:note,sort_order:i,is_active:true})});
+      const t=d.treatments[i]||{},name=t.name||t.treatment||t.service_name;if(!name||existingNames.has(String(name).toLowerCase().trim()))continue;
+      let price=t.price??t.price_from??null;if(typeof price==='string')price=Number(price.replace(/[^0-9.]/g,''))||null;
+      try{await authFetch('/rest/v1/studio_services',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,service_name:name,price:price,price_note:t.duration?String(t.duration):null,sort_order:i,is_active:true})})}
+      catch(e){warnings.push('one or more services')}
     }
+  }
 
-    // Link submitted services to SYMBLI's broader discovery categories where there is a clear match.
-    try{
-      const cats=await authFetch('/rest/v1/treatments?select=id,name&order=name.asc');
-      const submitted=d.treatments.map(t=>String(t?.name||t?.treatment||t?.service_name||'').toLowerCase()).join(' ');
-      const categoryKeywords={
-        'brows':['brow','eyebrow','microblad'],
-        'lips':['lip','filler'],
-        'nails':['nail','manicure','pedicure'],
-        'skin':['skin','facial','peel','microneed','dermaplan','hydrafacial']
-      };
-      for(const cat of (cats||[])){
-        const cn=String(cat.name||'').toLowerCase().trim();
-        const keys=categoryKeywords[cn]||[cn];
-        if(keys.some(k=>k&&submitted.includes(k))){
-          try{
-            await authFetch('/rest/v1/studio_treatments',{
-              method:'POST',
-              headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
-              body:JSON.stringify({studio_id:created.id,treatment_id:cat.id})
-            });
-          }catch(linkErr){/* ignore duplicate/existing category links */}
-        }
+  // Discovery categories: explicit V2 choices first, keyword fallback for older applications.
+  stage='copying discovery treatments';
+  try{
+    const cats=await authFetch('/rest/v1/treatments?select=id,name&order=name.asc');
+    const submitted=(Array.isArray(d.treatments)?d.treatments:[]).map(t=>String(t?.name||t?.treatment||t?.service_name||'').toLowerCase()).join(' ');
+    const selected=new Set((Array.isArray(d.treatment_categories)?d.treatment_categories:[]).map(x=>String(x).toLowerCase().trim()));
+    const kw={'brows':['brow','eyebrow','microblad'],'lips':['lip','filler'],'nails':['nail','manicure','pedicure'],'skin':['skin','facial','peel','microneed','dermaplan','hydrafacial']};
+    let linked=[];try{linked=await authFetch('/rest/v1/studio_treatments?select=treatment_id&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
+    const linkedIds=new Set(linked.map(x=>String(x.treatment_id)));
+    for(const cat of (cats||[])){
+      const cn=String(cat.name||'').toLowerCase().trim(),keys=kw[cn]||[cn];
+      if((selected.has(cn)||keys.some(k=>k&&submitted.includes(k)))&&!linkedIds.has(String(cat.id))){
+        try{await authFetch('/rest/v1/studio_treatments',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,treatment_id:cat.id})})}catch(e){warnings.push('treatment categories')}
       }
-    }catch(categoryErr){/* services still transfer even if category mapping is unavailable */}
-  }
+    }
+  }catch(e){warnings.push('treatment categories')}
 
-  // Carry the applicant email into Studio Portal access automatically.
-  if(a.email){
+  // Vibes use the same columns as the existing Studio Vibe editor.
+  if(!d.legacy&&Array.isArray(d.vibes)&&d.vibes.length){
+    stage='copying studio vibe';
     try{
-      await authFetch('/rest/v1/rpc/set_studio_owner_email',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({p_studio:created.id,p_email:String(a.email).trim().toLowerCase()})
-      });
-    }catch(ownerErr){console.warn('Could not set owner email automatically',ownerErr)}
+      let existingV=[];try{existingV=await authFetch('/rest/v1/studio_vibes?select=*&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
+      const existingNames=new Set(existingV.map(x=>String(x.vibe||x.name||x.label||'').toLowerCase().trim()));
+      for(const vibe of d.vibes.slice(0,3)){
+        const clean=String(vibe||'').trim();if(!clean||existingNames.has(clean.toLowerCase()))continue;
+        // Existing Admin's saveVibes function defines the live schema. Use its common `vibe` field.
+        try{await authFetch('/rest/v1/studio_vibes',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,vibe:clean})})}catch(e){warnings.push('studio vibes')}
+      }
+    }catch(e){warnings.push('studio vibes')}
   }
 
+  if(a.email){
+    stage='setting owner portal email';
+    try{await authFetch('/rest/v1/rpc/set_studio_owner_email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({p_studio:created.id,p_email:String(a.email).trim().toLowerCase()})})}
+    catch(e){warnings.push('owner email')}
+  }
+
+  stage='marking the application approved';
   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:'approved',studio_id:created.id,reviewed_at:new Date().toISOString()})});
-  await Promise.all([loadApplications(),loadStudios(created.id)]);
+  await Promise.allSettled([loadApplications(),loadStudios(created.id)]);
   setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
-  statusHtml($('applicationsStatus'),`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The Founding Studio 90-day clock starts only when the studio goes live.</span></div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${appEsc(created.id)}')">Open studio draft →</button></div>`,'ok');
- }catch(e){status($('applicationsStatus'),'Could not approve application: '+cleanErr(e),'bad')}
+  const warn=warnings.length?`<span style="color:#9a6b35">Draft created, but please check: ${appEsc([...new Set(warnings)].join(', '))}.</span>`:'';
+  statusHtml(box,`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The 90-day clock starts only when the studio goes live.</span>${warn}</div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${appEsc(created.id)}')">Open studio draft →</button></div>`,'ok');
+ }catch(e){
+  status(box,'Could not approve application while '+stage+': '+cleanErr(e),'bad');
+ }
 }
 function slugifyStudio(v){
  return String(v||'').toLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,80);
