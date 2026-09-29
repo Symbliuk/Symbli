@@ -1835,6 +1835,49 @@ html,body,#root,.page{background:#fff!important}
 <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=20260929c">
 <link rel="shortcut icon" type="image/png" href="favicon.png?v=20260929c">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20260929c">
+
+<style id="symbli-mobile-founding-badge-fix">
+@media (max-width:639px){
+  /* Keep the Founding Studio plaque compact and fully inside each card. */
+  .foundingBadge,
+  .founding-badge,
+  .foundingStudioBadge,
+  .founding-studio-badge,
+  .founderBadge,
+  .founder-badge,
+  [class*="founding"][class*="badge"],
+  [class*="founder"][class*="badge"]{
+    top:8px!important;
+    left:8px!important;
+    width:auto!important;
+    max-width:205px!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:7px 12px 6px!important;
+    border-radius:12px 12px 12px 4px!important;
+    line-height:1.08!important;
+    transform:none!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  .foundingBadge *,
+  .founding-badge *,
+  .foundingStudioBadge *,
+  .founding-studio-badge *,
+  .founderBadge *,
+  .founder-badge *,
+  [class*="founding"][class*="badge"] *,
+  [class*="founder"][class*="badge"] *{
+    line-height:1.08!important;
+  }
+  [class*="founding"][class*="badge"] strong,
+  [class*="founder"][class*="badge"] strong{
+    font-size:11px!important;
+    letter-spacing:.08em!important;
+  }
+}
+</style>
 </head><body><div id="symbliLiveLoading" role="status" aria-live="polite">
   <div class="loadInner">
     <div class="loadMark" aria-hidden="true"></div>
