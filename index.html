@@ -1878,6 +1878,39 @@ html,body,#root,.page{background:#fff!important}
   }
 }
 </style>
+
+<style id="symbli-header-stacking-fix">
+/* Keep studio-card artwork and Founding badges underneath the sticky site header while scrolling. */
+header,
+.siteHeader,
+.site-header,
+.topbar,
+.topBar,
+nav[aria-label="Primary"],
+body > header{
+  position:relative;
+  z-index:10000!important;
+  isolation:isolate;
+}
+@media (max-width:639px){
+  .foundingBadge,
+  .founding-badge,
+  .foundingStudioBadge,
+  .founding-studio-badge,
+  .founderBadge,
+  .founder-badge,
+  [class*="founding"][class*="badge"],
+  [class*="founder"][class*="badge"]{
+    z-index:5!important;
+  }
+  .compareCard,
+  .studioCard,
+  [class*="compareCard"],
+  [class*="studioCard"]{
+    isolation:isolate;
+  }
+}
+</style>
 </head><body><div id="symbliLiveLoading" role="status" aria-live="polite">
   <div class="loadInner">
     <div class="loadMark" aria-hidden="true"></div>
