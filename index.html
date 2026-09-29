@@ -2740,7 +2740,7 @@ window.SYMBLI_IS_LEGACY_DEMO=s=>window.SYMBLI_LEGACY_DEMO_SLUGS.has(String(s?.sl
 window.SYMBLI_DEMO_SLUGS=new Set(['studio-portsmouth','studio-waterlooville','studio-fareham','studio-chichester','studio-southampton','studio-havant','studio-gosport','studio-petersfield','studio-winchester','studio-eastleigh','studio-alton','studio-basingstoke']);
 window.SYMBLI_IS_DEMO=s=>window.SYMBLI_DEMO_SLUGS.has(String(s?.slug||'').trim().toLowerCase());
 window.SYMBLI_DEMO_FOUNDING_SLUGS=new Set(['studio-portsmouth','studio-havant','studio-waterlooville']);
-const SYMBLI_PREVIEW_PHOTOS=['/images/demo-1.jpg','/images/demo-2.jpg','/images/demo-3.jpg','/images/demo-4.jpg']
+const SYMBLI_PREVIEW_PHOTOS=Array(4).fill('data:image/svg+xml;charset=utf-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="900" height="650" viewBox="0 0 900 650"><rect width="900" height="650" fill="#f4e9e5"/><circle cx="450" cy="310" r="83" fill="#e6cfca"/><text x="450" y="335" text-anchor="middle" font-family="Georgia,serif" font-size="88" fill="#966e77">S</text><text x="450" y="460" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" letter-spacing="7" fill="#966e77">SYMBLI</text></svg>'));
 window.SYMBLI_ADD_DEMOS=function(d){
  if(d.__symbliDemosAdded)return;d.__symbliDemosAdded=true;
  // This test row remains active in Supabase after the admin deletion; exclude its exact ID from the preview.
