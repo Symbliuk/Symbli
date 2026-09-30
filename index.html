@@ -4603,6 +4603,21 @@ window.SYMBLI_ADD_DEMOS=function(d){
  document.addEventListener('change',()=>setTimeout(sync,0),true);
 })();
 </script>
+
+<script id="symbli-site-visit-tracking">
+/* SYMBLI anonymous visit tracking: one site_visit per browser tab/session. */
+(function(){
+ const URL='https://hbfajmdwwdamdrxqrrvl.supabase.co';
+ const KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
+ const FLAG='symbli_site_visit_recorded_v2';
+ try{
+  if(sessionStorage.getItem(FLAG))return;
+  fetch(URL+'/rest/v1/analytics',{method:'POST',keepalive:true,headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({event_type:'site_visit'})})
+   .then(r=>{if(r.ok)sessionStorage.setItem(FLAG,'1');else console.warn('SYMBLI site visit not recorded:',r.status)})
+   .catch(e=>console.warn('SYMBLI site visit tracking:',e));
+ }catch(e){}
+})();
+</script>
 </body>
 </html>
 <style id="symbli-dropdown-clean-white-fix">
