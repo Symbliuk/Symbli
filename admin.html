@@ -1,56 +1,54 @@
-<!doctype html>
-<!-- SYMBLI ADMIN V73 | V72 master + archive, decline, clear resolved and safer cleanup -->
-<html><head><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png?v=2"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SYMBLI Admin • Studio Images</title>
-<style id="symbli-clean-master-styles">
-/* SYMBLI ADMIN V73: V72 visual master preserved; Admin workflow additions layered in */
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SYMBLI Admin • Studio Images</title>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
-*{box-sizing:border-box}body{margin:0;background:#fffaf6;color:#122238;font-family:Inter,sans-serif}.wrap{max-width:1080px;margin:auto;padding:34px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-family:Fraunces,serif;letter-spacing:.14em;font-size:22px}.tag{font-size:10px;letter-spacing:.18em;color:#d27e67;margin-top:5px}.pill{border:1px solid #ead8ce;background:#fff;border-radius:999px;padding:9px 13px;font-size:11px;color:#6f5e54}.card{background:#fff;border:1px solid #eee1d8;border-radius:24px;box-shadow:0 12px 38px rgba(18,34,56,.06);padding:24px;margin-bottom:18px}.card h1,.card h2{font-family:Fraunces,serif;font-weight:400;margin:0}.card h1{font-size:34px}.card h2{font-size:23px}.muted{color:#7c6d64;font-size:12px;line-height:1.6}.login{max-width:460px;margin:70px auto}.field{display:grid;gap:6px;margin-top:12px}.field span{font-size:10px;letter-spacing:.1em;color:#8e7568}.field input,.field select{height:44px;border:1px solid #eadbd2;border-radius:13px;background:#fffdfa;padding:0 13px;font:inherit;color:#122238;outline:none}.field input:focus,.field select:focus{border-color:#df9b83}.btn{border:0;border-radius:999px;height:44px;padding:0 19px;background:#e69a7d;color:#fff;font-weight:600;cursor:pointer}.btn.secondary{background:#fff;color:#7b5c50;border:1px solid #e7cfc2}.btn.danger{background:#fff;color:#b55462;border:1px solid #eccbd0}.btn:disabled{opacity:.5;cursor:not-allowed}.login .btn{width:100%;margin-top:16px}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.toolbar .field{min-width:260px;flex:1}.drop{margin-top:18px;border:2px dashed #e4b7a5;background:#fff8f4;border-radius:20px;padding:30px;text-align:center;cursor:pointer}.drop strong{display:block;font-family:Fraunces,serif;font-size:20px;font-weight:400}.drop input{display:none}.status{margin-top:12px;padding:10px 12px;border-radius:12px;background:#f8f2ed;font-size:11px;color:#6f625a}.status.ok{background:#eef8f1;color:#356a45}.status.bad{background:#fff0f1;color:#9c4450}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.photo{border:1px solid #eadfd8;border-radius:18px;overflow:hidden;background:#fff}.photo.cover{box-shadow:0 0 0 2px #d9a44c}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f4ebe5}.photoBody{padding:11px}.photoMeta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#806f65}.coverTag{color:#a67525;font-weight:700}.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.actions button{height:30px;padding:0 10px;border-radius:999px;border:1px solid #eadbd2;background:#fff;color:#62534c;font-size:10px;cursor:pointer}.actions button:hover{background:#fff5ef}.empty{text-align:center;padding:34px 10px;color:#8c7b71;font-size:12px}.hidden{display:none!important}.headRow{display:flex;justify-content:space-between;gap:16px;align-items:center}.saveHint{font-size:10px;color:#a18475}.liveDot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#59a36a;margin-right:5px}
+*{box-sizing:border-box}body{margin:0;background:#fcf7fa;color:#302c39;font-family:Inter,sans-serif}.wrap{max-width:1080px;margin:auto;padding:34px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-family:Fraunces,serif;letter-spacing:.14em;font-size:22px}.tag{font-size:10px;letter-spacing:.18em;color:#d27e67;margin-top:5px}.pill{border:1px solid #ead8ce;background:#fff;border-radius:999px;padding:9px 13px;font-size:11px;color:#6f5e54}.card{background:#fff;border:1px solid #eee1d8;border-radius:24px;box-shadow:0 12px 38px rgba(18,34,56,.06);padding:24px;margin-bottom:18px}.card h1,.card h2{font-family:Fraunces,serif;font-weight:400;margin:0}.card h1{font-size:34px}.card h2{font-size:23px}.muted{color:#7c6d64;font-size:12px;line-height:1.6}.login{max-width:460px;margin:70px auto}.field{display:grid;gap:6px;margin-top:12px}.field span{font-size:10px;letter-spacing:.1em;color:#8e7568}.field input,.field select{height:44px;border:1px solid #eadbd2;border-radius:13px;background:#fffdfd;padding:0 13px;font:inherit;color:#302c39;outline:none}.field input:focus,.field select:focus{border-color:#df9b83}.btn{border:0;border-radius:999px;height:44px;padding:0 19px;background:#e69a7d;color:#fff;font-weight:600;cursor:pointer}.btn.secondary{background:#fff;color:#7b5c50;border:1px solid #e7cfc2}.btn.danger{background:#fff;color:#b55462;border:1px solid #eccbd0}.btn:disabled{opacity:.5;cursor:not-allowed}.login .btn{width:100%;margin-top:16px}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.toolbar .field{min-width:260px;flex:1}.drop{margin-top:18px;border:2px dashed #e4b7a5;background:#faf2f6;border-radius:20px;padding:30px;text-align:center;cursor:pointer}.drop strong{display:block;font-family:Fraunces,serif;font-size:20px;font-weight:400}.drop input{display:none}.status{margin-top:12px;padding:10px 12px;border-radius:12px;background:#f8f2ed;font-size:11px;color:#6f625a}.status.ok{background:#eef8f1;color:#356a45}.status.bad{background:#fff0f1;color:#9c4450}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.photo{border:1px solid #e6d7df;border-radius:18px;overflow:hidden;background:#fff}.photo.cover{box-shadow:0 0 0 2px #d9a44c}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f4ebe5}.photoBody{padding:11px}.photoMeta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#806f65}.coverTag{color:#a67525;font-weight:700}.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.actions button{height:30px;padding:0 10px;border-radius:999px;border:1px solid #eadbd2;background:#fff;color:#62534c;font-size:10px;cursor:pointer}.actions button:hover{background:#faf1f5}.empty{text-align:center;padding:34px 10px;color:#8c7b71;font-size:12px}.hidden{display:none!important}.headRow{display:flex;justify-content:space-between;gap:16px;align-items:center}.saveHint{font-size:10px;color:#a18475}.liveDot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#59a36a;margin-right:5px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.top,.headRow{align-items:flex-start;flex-direction:column}.card{padding:18px}.card h1{font-size:29px}.toolbar{align-items:stretch}.toolbar .field{min-width:100%}}
 
 .detailsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
 .detailsGrid .wide{grid-column:1/-1}
-.field textarea{width:100%;min-height:105px;resize:vertical;border:1px solid #eadfd8;border-radius:14px;padding:12px 13px;background:#fff;color:#26344a;font:inherit;outline:none}
-.field input[type="text"],.field input[type="url"],.field input[type="number"]{width:100%;border:1px solid #eadfd8;border-radius:14px;padding:12px 13px;background:#fff;color:#26344a;font:inherit;outline:none;box-sizing:border-box}
+.field textarea{width:100%;min-height:105px;resize:vertical;border:1px solid #e6d7df;border-radius:14px;padding:12px 13px;background:#fff;color:#26344a;font:inherit;outline:none}
+.field input[type="text"],.field input[type="url"],.field input[type="number"]{width:100%;border:1px solid #e6d7df;border-radius:14px;padding:12px 13px;background:#fff;color:#26344a;font:inherit;outline:none;box-sizing:border-box}
 .field textarea:focus,.field input:focus{border-color:#d9a44c;box-shadow:0 0 0 3px rgba(217,164,76,.12)}
-.checkRow{display:flex;align-items:center;gap:10px;margin-top:8px;padding:12px 14px;border:1px solid #eadfd8;border-radius:14px;background:#fff}
+.checkRow{display:flex;align-items:center;gap:10px;margin-top:8px;padding:12px 14px;border:1px solid #e6d7df;border-radius:14px;background:#fff}
 .checkRow input{width:18px;height:18px}
 .detailsActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
 .smallNote{font-size:10px;color:#9a887e;line-height:1.5}
 @media(max-width:720px){.detailsGrid{grid-template-columns:1fr}.detailsGrid .wide{grid-column:auto}}
 
+
 .treatmentList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
-.treatmentOption{display:flex;align-items:center;gap:10px;border:1px solid #eadfd8;border-radius:14px;padding:13px 14px;background:#fff;cursor:pointer}
+.treatmentOption{display:flex;align-items:center;gap:10px;border:1px solid #e6d7df;border-radius:14px;padding:13px 14px;background:#fff;cursor:pointer}
 .treatmentOption input{width:18px;height:18px}
 .treatmentOption b{font-size:13px;font-weight:600}
 @media(max-width:720px){.treatmentList{grid-template-columns:1fr}}
 
 .vibeList{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.vibeChip{display:flex;align-items:center;gap:8px;border:1px solid #eadfd8;background:#fffaf6;border-radius:999px;padding:9px 12px;font-size:12px}
+.vibeChip{display:flex;align-items:center;gap:8px;border:1px solid #e6d7df;background:#fcf7fa;border-radius:999px;padding:9px 12px;font-size:12px}
 .vibeChip button{border:0;background:transparent;color:#a45c61;cursor:pointer;font-size:15px;line-height:1;padding:0}
 .vibeAdd{display:flex;gap:9px;align-items:center;margin-top:14px;flex-wrap:wrap}
-.vibeAdd input{height:42px;min-width:220px;flex:1;border:1px solid #eadfd8;border-radius:13px;padding:0 13px;font:inherit;color:#122238;background:#fff}
+.vibeAdd input{height:42px;min-width:220px;flex:1;border:1px solid #e6d7df;border-radius:13px;padding:0 13px;font:inherit;color:#302c39;background:#fff}
 
 .serviceRows{display:grid;gap:10px;margin-top:16px}
-.serviceRow{display:grid;grid-template-columns:minmax(180px,2fr) minmax(90px,.7fr) minmax(150px,1.2fr) auto;gap:9px;align-items:center;border:1px solid #eadfd8;background:#fff;border-radius:14px;padding:10px}
-.serviceRow input{height:40px;border:1px solid #eadfd8;border-radius:10px;padding:0 11px;font:inherit;color:#122238;background:#fffaf6}
+.serviceRow{display:grid;grid-template-columns:minmax(180px,2fr) minmax(90px,.7fr) minmax(150px,1.2fr) auto;gap:9px;align-items:center;border:1px solid #e6d7df;background:#fff;border-radius:14px;padding:10px}
+.serviceRow input{height:40px;border:1px solid #e6d7df;border-radius:10px;padding:0 11px;font:inherit;color:#302c39;background:#fcf7fa}
 .serviceRow .removeService{border:0;background:transparent;color:#a45c61;cursor:pointer;font-size:18px;padding:8px}
 @media(max-width:800px){.serviceRow{grid-template-columns:1fr 1fr}.serviceRow .serviceName,.serviceRow .serviceNote{grid-column:1/-1}}
 
 .reviewRows{display:grid;gap:12px;margin:14px 0}
-.reviewAdminRow{border:1px solid #eaded6;border-radius:16px;padding:14px;background:#fffaf7;display:grid;grid-template-columns:1.1fr 120px 1.7fr auto;gap:10px;align-items:start}
-.reviewAdminRow input,.reviewAdminRow select,.reviewAdminRow textarea{width:100%;box-sizing:border-box;border:1px solid #dccfc7;border-radius:10px;padding:10px;background:white;color:#122238;font:inherit}
+.reviewAdminRow{border:1px solid #eadde3;border-radius:16px;padding:14px;background:#fcf7fa;display:grid;grid-template-columns:1.1fr 120px 1.7fr auto;gap:10px;align-items:start}
+.reviewAdminRow input,.reviewAdminRow select,.reviewAdminRow textarea{width:100%;box-sizing:border-box;border:1px solid #dccfc7;border-radius:10px;padding:10px;background:white;color:#302c39;font:inherit}
 .reviewAdminRow textarea{min-height:74px;resize:vertical}
 .reviewFlags{grid-column:1/-1;display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:#45505d}
 .reviewFlags label{display:flex;align-items:center;gap:7px}
 .removeReview{border:0;background:#f8e9e5;color:#8b3f35;border-radius:10px;width:38px;height:38px;font-size:20px;cursor:pointer}
 @media(max-width:760px){.reviewAdminRow{grid-template-columns:1fr}.reviewFlags{grid-column:1}}
 
-.analyticsRange.active{background:#122238!important;color:white!important;border-color:#122238!important}
+.analyticsRange.active{background:#302c39!important;color:white!important;border-color:#302c39!important}
 #analyticsCard .field strong{display:block;margin-top:6px}
 
 #createStudioModal{position:fixed;inset:0;background:rgba(18,34,56,.45);display:none;align-items:center;justify-content:center;padding:24px;z-index:9999}
 #createStudioModal.open{display:flex}
-#createStudioModal .createPanel{width:min(860px,100%);max-height:90vh;overflow:auto;background:#fffdfb;border:1px solid #eaded6;border-radius:22px;padding:22px;box-shadow:0 24px 70px rgba(18,34,56,.24)}
+#createStudioModal .createPanel{width:min(860px,100%);max-height:90vh;overflow:auto;background:#fffdfd;border:1px solid #eadde3;border-radius:22px;padding:22px;box-shadow:0 24px 70px rgba(18,34,56,.24)}
 #createStudioModal .createGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 #createStudioModal .wide{grid-column:1/-1}
 #createStudioModal .createActions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px}
@@ -62,8 +60,8 @@
 #studioStatePill .stateDot{width:7px;height:7px;border-radius:50%;background:currentColor}
 #toggleStudioActiveBtn.danger{border-color:#e3bcbc;color:#9a4f4f;background:#fff8f8}
 
-:root{--navy:#122238;--ink:#243246;--cream:#fffaf6;--peach:#e99576;--blush:#f8ebe5;--line:#eaded6;--muted:#8c7a70}
-body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);color:var(--ink)}
+:root{--navy:#302c39;--ink:#243246;--cream:#fcf7fa;--peach:#a97b94;--blush:#f8ebe5;--line:#eadde3;--muted:#8c7a70}
+body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfd 340px,#faf6f2 100%);color:var(--ink)}
 .wrap{max-width:1180px}
 #adminView>.topbar{position:sticky;top:0;z-index:40;margin:-24px -24px 22px;padding:16px 24px;background:rgba(255,253,251,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(234,222,214,.9)}
 .card{border:1px solid #eee2da;border-radius:22px;box-shadow:0 12px 34px rgba(18,34,56,.045);background:rgba(255,255,255,.94)}
@@ -71,7 +69,7 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .btn{transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(18,34,56,.08)}
 #adminDashboard{margin-bottom:18px}
-.adminHero{padding:24px;border-radius:24px;background:linear-gradient(135deg,#122238,#1d3553);color:#fff;box-shadow:0 18px 46px rgba(18,34,56,.16)}
+.adminHero{padding:24px;border-radius:24px;background:linear-gradient(135deg,#302c39,#1d3553);color:#fff;box-shadow:0 18px 46px rgba(18,34,56,.16)}
 .adminHeroTop{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .adminEyebrow{font-size:10px;letter-spacing:.2em;color:#f0b49e;text-transform:uppercase}
 .adminHero h1{margin:7px 0 5px;font-family:Georgia,serif;font-weight:400;font-size:31px}
@@ -87,64 +85,64 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .onboardStep.done{border-color:rgba(150,220,175,.34);background:rgba(110,190,140,.10)}
 .onboardStep.done b:before{content:"✓ ";color:#a6e1b9}.onboardStep.missing b:before{content:"○ ";color:#efb49f}
 .adminQuickNav{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.adminQuickNav button{appearance:none;border:1px solid #eaded6;background:#fff;color:#6e5f57;border-radius:999px;padding:9px 13px;font-size:10px;cursor:pointer}
-.adminQuickNav button:hover{border-color:#e99576;color:#b66f57}
+.adminQuickNav button{appearance:none;border:1px solid #eadde3;background:#fff;color:#6e5f57;border-radius:999px;padding:9px 13px;font-size:10px;cursor:pointer}
+.adminQuickNav button:hover{border-color:#a97b94;color:#b66f57}
 .sectionFlash{animation:sectionFlash .7s ease}
 @keyframes sectionFlash{0%{box-shadow:0 0 0 0 rgba(233,149,118,.38)}100%{box-shadow:0 0 0 12px rgba(233,149,118,0)}}
 @media(max-width:800px){.onboardingGrid{grid-template-columns:1fr 1fr}.completenessBox{width:100%}}
 @media(max-width:520px){.onboardingGrid{grid-template-columns:1fr}}
 
 #analyticsCard{padding:0;overflow:hidden;border:1px solid #e8ddd6;background:#fff}
-.analyticsTop{padding:24px 26px 20px;background:linear-gradient(145deg,#122238 0%,#1a304c 72%,#253d58 100%);color:#fff}
+.analyticsTop{padding:24px 26px 20px;background:linear-gradient(145deg,#302c39 0%,#1a304c 72%,#253d58 100%);color:#fff}
 .analyticsTop .headRow{margin:0;align-items:center}.analyticsTop h2{color:#fff;margin-bottom:5px}.analyticsTop .muted{color:#b9c5d3}.analyticsTop .saveHint{color:#d7e0e9}
 .analyticsToolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}
 #analyticsRanges{display:flex!important;gap:3px!important;padding:4px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.11);border-radius:999px}
 #analyticsRanges .btn{border:0!important;background:transparent!important;color:#cbd5e1!important;box-shadow:none!important;padding:8px 14px}
-#analyticsRanges .analyticsRange.active{background:#fff!important;color:#122238!important}
+#analyticsRanges .analyticsRange.active{background:#fff!important;color:#302c39!important}
 #refreshAnalyticsBtn{border-color:rgba(255,255,255,.18)!important;background:rgba(255,255,255,.08)!important;color:#fff!important}
 .analyticsMetrics{display:grid!important;grid-template-columns:1.25fr repeat(2,1fr)!important;gap:12px!important;padding:20px 24px 10px;margin:0!important}
-.metricTile{position:relative;min-height:112px;padding:17px!important;border:1px solid #ece1da!important;border-radius:18px!important;background:#fff!important;overflow:hidden}
-.metricTile:after{content:"";position:absolute;right:-18px;bottom:-24px;width:75px;height:75px;border-radius:50%;background:#fff5ef}
+.metricTile{position:relative;min-height:112px;padding:17px!important;border:1px solid #eee2e8!important;border-radius:18px!important;background:#fff!important;overflow:hidden}
+.metricTile:after{content:"";position:absolute;right:-18px;bottom:-24px;width:75px;height:75px;border-radius:50%;background:#faf1f5}
 .metricTile .metricLabel{display:flex;align-items:center;gap:7px;font-size:9px!important;letter-spacing:.13em;color:#8f7b70!important}
-.metricTile .metricIcon{width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:#fff3ed;color:#cf8065;font-size:12px}
-.metricTile strong{position:relative;z-index:1;display:block;margin-top:13px;font-family:Georgia,serif;font-weight:400!important;font-size:34px!important;color:#122238!important}
+.metricTile .metricIcon{width:24px;height:24px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;background:#f8eef3;color:#cf8065;font-size:12px}
+.metricTile strong{position:relative;z-index:1;display:block;margin-top:13px;font-family:Georgia,serif;font-weight:400!important;font-size:34px!important;color:#302c39!important}
 .metricTile.heroMetric{background:#fff7f2!important;border-color:#efcdbc!important}
 .metricTile.heroMetric:after{background:#fce9df}
 .metricSub{position:relative;z-index:1;margin-top:4px;font-size:9px;color:#a08d82}
 .analyticsLower{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;padding:2px 24px 22px}
-.analyticsJourney,.analyticsPulse{border:1px solid #ece1da;border-radius:18px;padding:17px;background:#fff}
+.analyticsJourney,.analyticsPulse{border:1px solid #eee2e8;border-radius:18px;padding:17px;background:#fff}
 .analyticsBlockEyebrow{font-size:9px;letter-spacing:.14em;color:#b47b66;text-transform:uppercase}
-.analyticsJourney h3,.analyticsPulse h3{margin:5px 0 14px;font-family:Georgia,serif;font-size:19px;font-weight:400;color:#122238}
+.analyticsJourney h3,.analyticsPulse h3{margin:5px 0 14px;font-family:Georgia,serif;font-size:19px;font-weight:400;color:#302c39}
 .journeyRow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin:10px 0}
-.journeyRow span{font-size:10px;color:#75665e}.journeyRow b{font-size:11px;color:#122238}
+.journeyRow span{font-size:10px;color:#75665e}.journeyRow b{font-size:11px;color:#302c39}
 .journeyTrack{grid-column:1/-1;height:5px;background:#f4ece7;border-radius:99px;overflow:hidden}
-.journeyFill{height:100%;width:0;background:#e99576;border-radius:99px;transition:width .3s ease}
+.journeyFill{height:100%;width:0;background:#a97b94;border-radius:99px;transition:width .3s ease}
 #analyticsInsight{font-size:11px;line-height:1.55;color:#75665e}
-#analyticsInsight b{color:#122238}
+#analyticsInsight b{color:#302c39}
 .analyticsStatusRow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:13px;padding-top:12px;border-top:1px solid #f0e7e1}
 #analyticsStatus{font-size:9px}
 @media(max-width:850px){.analyticsMetrics{grid-template-columns:1fr 1fr!important}.analyticsLower{grid-template-columns:1fr}}
 @media(max-width:540px){.analyticsMetrics{grid-template-columns:1fr!important}}
-.adminQuickNav button.active{background:#122238;color:#fff;border-color:#122238}
+.adminQuickNav button.active{background:#302c39;color:#fff;border-color:#302c39}
 
 .onboardingFlow{margin:14px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .flowStage{position:relative;padding:10px 12px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.055);color:#cbd5e1;font-size:9px;letter-spacing:.06em;text-transform:uppercase}
 .flowStage b{display:block;color:#fff;font-size:11px;letter-spacing:0;text-transform:none;margin-top:3px}.flowStage.current{background:rgba(233,149,118,.16);border-color:rgba(239,180,158,.45)}.flowStage.done{background:rgba(117,190,145,.11)}
-.publishPanel{margin:18px 0;padding:22px;border-radius:22px;border:1px solid #eaded6;background:linear-gradient(135deg,#fffaf6,#fff);box-shadow:0 10px 28px rgba(18,34,56,.04)}
-.publishTop{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}.publishEyebrow{font-size:9px;letter-spacing:.16em;color:#b8755d;text-transform:uppercase}.publishPanel h2{margin:5px 0 6px;font-family:Georgia,serif;font-size:24px;font-weight:400;color:#122238}.publishPanel p{margin:0;color:#7c6b62;font-size:11px;line-height:1.55;max-width:650px}
-.publishState{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:10px;font-weight:700}.publishState.ready{background:#edf7f0;color:#477257}.publishState.live{background:#122238;color:#fff}
+.publishPanel{margin:18px 0;padding:22px;border-radius:22px;border:1px solid #eadde3;background:linear-gradient(135deg,#fcf7fa,#fff);box-shadow:0 10px 28px rgba(18,34,56,.04)}
+.publishTop{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}.publishEyebrow{font-size:9px;letter-spacing:.16em;color:#b8755d;text-transform:uppercase}.publishPanel h2{margin:5px 0 6px;font-family:Georgia,serif;font-size:24px;font-weight:400;color:#302c39}.publishPanel p{margin:0;color:#7c6b62;font-size:11px;line-height:1.55;max-width:650px}
+.publishState{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:10px;font-weight:700}.publishState.ready{background:#edf7f0;color:#477257}.publishState.live{background:#302c39;color:#fff}
 .publishChecklist{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:17px 0}.publishCheck{padding:10px 12px;border:1px solid #eee3dc;border-radius:12px;background:#fff;font-size:10px;color:#7b6b62}.publishCheck.done{background:#f4faf6;color:#4f755d;border-color:#dcecdf}.publishCheck.done:before{content:'✓ ';font-weight:800}.publishCheck.missing:before{content:'○ ';color:#c98b73}
-.publishActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.publishBtn{background:#122238!important;color:#fff!important}.publishBtn:disabled{opacity:.38;cursor:not-allowed;transform:none!important;box-shadow:none!important}.nextBtn{background:#fff!important;color:#122238!important;border:1px solid #dccdc4!important}.publishNote{font-size:10px;color:#917f75}
+.publishActions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.publishBtn{background:#302c39!important;color:#fff!important}.publishBtn:disabled{opacity:.38;cursor:not-allowed;transform:none!important;box-shadow:none!important}.nextBtn{background:#fff!important;color:#302c39!important;border:1px solid #dccdc4!important}.publishNote{font-size:10px;color:#917f75}
 @media(max-width:760px){.onboardingFlow{grid-template-columns:1fr 1fr}.publishChecklist{grid-template-columns:1fr 1fr}}@media(max-width:480px){.onboardingFlow,.publishChecklist{grid-template-columns:1fr}}
 
 /* #44 Studio Applications */
-.applicationsCard{border:1px solid #eaded6;background:#fff}
-.applicationsHeader{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}.applicationCount{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 9px;border-radius:999px;background:#fff0e9;color:#b96f56;font-size:11px;font-weight:700}
-.applicationRows{display:grid;gap:10px;margin-top:16px}.applicationRow{display:grid;grid-template-columns:1.25fr .8fr .9fr auto;gap:12px;align-items:center;border:1px solid #eee2da;border-radius:16px;padding:14px;background:#fffaf7}.applicationRow h3{margin:0 0 4px;font:500 16px Fraunces,serif;color:#122238}.applicationMeta{font-size:10px;color:#8a776d;line-height:1.5}.applicationStatus{font-size:9px;font-weight:700;letter-spacing:.08em;padding:7px 9px;border-radius:999px;background:#fff0e9;color:#a86650;text-transform:uppercase;display:inline-block}.applicationStatus.approved{background:#edf7f0;color:#477257}.applicationActions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.applicationActions .btn{height:36px;padding:0 13px;font-size:10px}.applicationDetail{grid-column:1/-1;padding-top:10px;border-top:1px solid #f0e5de;font-size:11px;color:#6f625a;line-height:1.6;display:none}.applicationRow.open .applicationDetail{display:block}@media(max-width:800px){.applicationRow{grid-template-columns:1fr 1fr}.applicationActions{justify-content:flex-start}.applicationDetail{grid-column:1/-1}}@media(max-width:520px){.applicationRow{grid-template-columns:1fr}}
+.applicationsCard{border:1px solid #eadde3;background:#fff}
+.applicationsHeader{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}.applicationCount{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 9px;border-radius:999px;background:#f7edf3;color:#b96f56;font-size:11px;font-weight:700}
+.applicationRows{display:grid;gap:10px;margin-top:16px}.applicationRow{display:grid;grid-template-columns:1.25fr .8fr .9fr auto;gap:12px;align-items:center;border:1px solid #eee2da;border-radius:16px;padding:14px;background:#fcf7fa}.applicationRow h3{margin:0 0 4px;font:500 16px Fraunces,serif;color:#302c39}.applicationMeta{font-size:10px;color:#8a776d;line-height:1.5}.applicationStatus{font-size:9px;font-weight:700;letter-spacing:.08em;padding:7px 9px;border-radius:999px;background:#f7edf3;color:#8f687f;text-transform:uppercase;display:inline-block}.applicationStatus.approved{background:#edf7f0;color:#477257}.applicationActions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.applicationActions .btn{height:36px;padding:0 13px;font-size:10px}.applicationDetail{grid-column:1/-1;padding-top:10px;border-top:1px solid #f1e6eb;font-size:11px;color:#6f625a;line-height:1.6;display:none}.applicationRow.open .applicationDetail{display:block}@media(max-width:800px){.applicationRow{grid-template-columns:1fr 1fr}.applicationActions{justify-content:flex-start}.applicationDetail{grid-column:1/-1}}@media(max-width:520px){.applicationRow{grid-template-columns:1fr}}
 
 /* #47 Owner listing review */
-.ownerReviewPanel{margin:18px 0;padding:22px;border-radius:22px;border:1px solid #eaded6;background:#fff;box-shadow:0 10px 28px rgba(18,34,56,.04)}
-.ownerReviewTop{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}.ownerReviewPanel h2{margin:5px 0 6px;font-family:Georgia,serif;font-size:24px;font-weight:400;color:#122238}.ownerReviewPanel p{margin:0;color:#7c6b62;font-size:11px;line-height:1.55}.ownerReviewBadge{padding:8px 11px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.ownerReviewBadge.submitted{background:#fff0e9;color:#a86650}.ownerReviewBadge.reviewed{background:#edf7f0;color:#477257}.ownerReviewBadge.changes_requested{background:#fff0f1;color:#9c4450}.ownerReviewBody{margin-top:15px;padding:14px;border-radius:14px;background:#fffaf7;border:1px solid #f0e5de}.ownerReviewActions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.ownerReviewNote{width:100%;min-height:76px;border:1px solid #e5d8d0;border-radius:12px;padding:11px;font:inherit;color:#122238;background:#fff;resize:vertical}.ownerReviewPanel.hidden{display:none}#requestChangesBtn{background:#b53d4b!important;border:1px solid #b53d4b!important;color:#fff!important}#markReviewedBtn{background:#26804b!important;border:1px solid #26804b!important;color:#fff!important}.ownerReviewActions .btn{font-weight:700;min-height:46px;padding:0 20px}.ownerReviewActions .btn:disabled{opacity:.45;cursor:not-allowed}
+.ownerReviewPanel{margin:18px 0;padding:22px;border-radius:22px;border:1px solid #eadde3;background:#fff;box-shadow:0 10px 28px rgba(18,34,56,.04)}
+.ownerReviewTop{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap}.ownerReviewPanel h2{margin:5px 0 6px;font-family:Georgia,serif;font-size:24px;font-weight:400;color:#302c39}.ownerReviewPanel p{margin:0;color:#7c6b62;font-size:11px;line-height:1.55}.ownerReviewBadge{padding:8px 11px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.ownerReviewBadge.submitted{background:#f7edf3;color:#8f687f}.ownerReviewBadge.reviewed{background:#edf7f0;color:#477257}.ownerReviewBadge.changes_requested{background:#fff0f1;color:#9c4450}.ownerReviewBody{margin-top:15px;padding:14px;border-radius:14px;background:#fcf7fa;border:1px solid #f1e6eb}.ownerReviewActions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}.ownerReviewNote{width:100%;min-height:76px;border:1px solid #e5d8d0;border-radius:12px;padding:11px;font:inherit;color:#302c39;background:#fff;resize:vertical}.ownerReviewPanel.hidden{display:none}#requestChangesBtn{background:#b53d4b!important;border:1px solid #b53d4b!important;color:#fff!important}#markReviewedBtn{background:#26804b!important;border:1px solid #26804b!important;color:#fff!important}.ownerReviewActions .btn{font-weight:700;min-height:46px;padding:0 20px}.ownerReviewActions .btn:disabled{opacity:.45;cursor:not-allowed}
 
 /* #48 Admin Dashboard Overhaul */
 .opsDashboard{margin-bottom:18px}
@@ -153,38 +151,39 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .opsHero h1{font-family:Georgia,serif;font-size:34px;font-weight:400;margin:5px 0 7px}
 .opsHero p{margin:0;color:#d7e0ea;max-width:650px;line-height:1.55}
 .opsEyebrow{font-size:10px;letter-spacing:.18em;color:#f0a187;font-weight:800}
-.opsAdd{background:#ef9273!important;border-color:#ef9273!important}
+.opsAdd{background:#c58fa7!important;border-color:#c58fa7!important}
 .opsMetrics{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-top:22px}
 .opsMetric{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:15px}
 .opsMetric span{display:block;font-size:9px;letter-spacing:.12em;color:#bfcddd;text-transform:uppercase}
 .opsMetric strong{display:block;font-size:29px;margin-top:5px}
 .opsLanes{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-.opsLane{background:#fff;border:1px solid #eadfd9;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(25,38,55,.04)}
+.opsLane{background:#fff;border:1px solid #e6d7df;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(25,38,55,.04)}
 .opsLaneHead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
-.opsLane h2{font-family:Georgia,serif;color:#122238;font-size:23px;font-weight:400;margin:3px 0 4px}
+.opsLane h2{font-family:Georgia,serif;color:#302c39;font-size:23px;font-weight:400;margin:3px 0 4px}
 .opsLane p{font-size:11px;color:#7d6d65;margin:0;line-height:1.5}
-.opsCount{min-width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#fff0e9;color:#aa674f;font-weight:800;font-size:11px}
+.opsCount{min-width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#f7edf3;color:#aa674f;font-weight:800;font-size:11px}
 .opsRows{display:grid;gap:9px}
-.opsRow{border:1px solid #eee2dc;background:#fffaf7;border-radius:14px;padding:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.opsRowTitle{font-weight:800;color:#17283d;font-size:13px}
-.opsMeta{font-size:10px;color:#8a766c;margin-top:4px}
+.opsRow{border:1px solid #eee2e8;background:#fcf7fa;border-radius:14px;padding:13px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.opsRowTitle{font-weight:800;color:#403743;font-size:13px}
+.opsMeta{font-size:10px;color:#897580;margin-top:4px}
 .opsBadge{display:inline-block;border-radius:999px;padding:6px 9px;font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#f4eee9;color:#75665f}
-.opsBadge.attn{background:#fff0e9;color:#a76049}.opsBadge.live{background:#eaf6ee;color:#47735a}.opsBadge.owner{background:#eef3fb;color:#486582}
+.opsBadge.attn{background:#f7edf3;color:#a76049}.opsBadge.live{background:#eaf6ee;color:#47735a}.opsBadge.owner{background:#eef3fb;color:#486582}
 .opsRowActions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .opsSmallBtn{border:1px solid #e5d3ca;background:#fff;border-radius:999px;padding:8px 11px;font:inherit;font-size:10px;font-weight:700;color:#755d52;cursor:pointer}
-.opsSmallBtn.primary{background:#ef9273;color:#fff;border-color:#ef9273}
-.opsEmpty{padding:18px;border:1px dashed #e8d9d1;border-radius:14px;color:#8a766c;font-size:11px;text-align:center}
+.opsSmallBtn.primary{background:#c58fa7;color:#fff;border-color:#c58fa7}
+.opsEmpty{padding:18px;border:1px dashed #e8d9d1;border-radius:14px;color:#897580;font-size:11px;text-align:center}
 .opsSectionTitle{margin:22px 0 10px;display:flex;justify-content:space-between;align-items:end;gap:12px}
-.opsSectionTitle h2{font-family:Georgia,serif;font-weight:400;color:#122238;margin:0;font-size:25px}
+.opsSectionTitle h2{font-family:Georgia,serif;font-weight:400;color:#302c39;margin:0;font-size:25px}
 .opsSectionTitle p{margin:4px 0 0;color:#88766d;font-size:11px}
 .opsStudioGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.opsStudio{border:1px solid #eadfd9;background:#fff;border-radius:16px;padding:14px;cursor:pointer;text-align:left}
+.opsStudio{border:1px solid #e6d7df;background:#fff;border-radius:16px;padding:14px;cursor:pointer;text-align:left}
 .opsStudio:hover{border-color:#e9a087;transform:translateY(-1px)}
 .opsStudioTop{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.opsStudioName{font-weight:800;color:#17283d}.opsStudioMeta{font-size:10px;color:#8b776d;margin-top:6px}
+.opsStudioName{font-weight:800;color:#403743}.opsStudioMeta{font-size:10px;color:#8b776d;margin-top:6px}
 #adminView>.card:first-child{margin-top:18px}
 @media(max-width:850px){.opsMetrics{grid-template-columns:1fr 1fr}.opsLanes{grid-template-columns:1fr}.opsStudioGrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.opsStudioGrid{grid-template-columns:1fr}.opsHero{padding:20px}.opsMetric strong{font-size:24px}}
+
 
 /* #48B Top-level Admin Tabs */
 .adminTopTabs{
@@ -193,7 +192,7 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
   padding:12px 0;margin:0 0 18px;
   background:rgba(251,248,245,.96);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid #eee2dc;
+  border-bottom:1px solid #eee2e8;
   overflow-x:auto;
 }
 .adminTopTab{
@@ -202,11 +201,11 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
   font:inherit;font-size:11px;font-weight:800;cursor:pointer;
 }
 .adminTopTab.active{background:#162f4d;color:#fff;border-color:#162f4d}
-.adminTopTab.add{background:#ef9273;color:#fff;border-color:#ef9273}
+.adminTopTab.add{background:#c58fa7;color:#fff;border-color:#c58fa7}
 .adminTopTab .count{
   display:inline-grid;place-items:center;min-width:20px;height:20px;
   margin-left:6px;padding:0 6px;border-radius:999px;
-  background:#fff0e9;color:#aa6048;font-size:9px
+  background:#f7edf3;color:#aa6048;font-size:9px
 }
 .adminTopTab.active .count{background:rgba(255,255,255,.16);color:#fff}
 .adminTabPane{display:none}
@@ -215,6 +214,7 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .adminPaneIntro h2{font-family:Georgia,serif;font-size:30px;font-weight:400;color:#13263d;margin:0 0 5px}
 .adminPaneIntro p{color:#806e65;font-size:12px;margin:0}
 
+
 /* #50 Studio deletion */
 .dangerZone{margin-top:18px;padding:20px;border:1px solid #efc9c9;border-radius:18px;background:#fff8f7}
 .dangerZone h3{margin:0 0 5px;color:#8f3737;font-family:Georgia,serif;font-size:22px;font-weight:400}
@@ -222,15 +222,16 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .dangerBtn{margin-top:14px!important;background:#fff!important;color:#a33e3e!important;border:1px solid #dfaaaa!important;box-shadow:none!important}
 .deleteModal{position:fixed;inset:0;z-index:10000;background:rgba(17,31,49,.56);display:none;align-items:center;justify-content:center;padding:22px}
 .deleteModal.open{display:flex}
-.deletePanel{width:min(520px,100%);background:#fffdfb;border-radius:22px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.18)}
+.deletePanel{width:min(520px,100%);background:#fffdfd;border-radius:22px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.18)}
 .deletePanel h2{font-family:Georgia,serif;font-size:28px;font-weight:400;color:#842f2f;margin:4px 0 8px}
 .deletePanel p{color:#765f5f;font-size:12px;line-height:1.6}
 .deletePanel input{width:100%;box-sizing:border-box;margin-top:10px}
 .deleteActions{display:flex;justify-content:flex-end;gap:9px;margin-top:16px}
 .deleteConfirm{background:#a64040!important;border-color:#a64040!important;color:#fff!important}
 
+
 /* #51 make readiness impossible to miss */
-.readinessHero{margin:18px 0 20px;padding:24px;border:2px solid #efb29d;border-radius:22px;background:linear-gradient(135deg,#fff8f4,#fff);box-shadow:0 14px 34px rgba(37,48,65,.07)}
+.readinessHero{margin:18px 0 20px;padding:24px;border:2px solid #efb29d;border-radius:22px;background:linear-gradient(135deg,#faf2f6,#fff);box-shadow:0 14px 34px rgba(37,48,65,.07)}
 .readinessHeroTop{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .readinessHero .rhEyebrow{font-size:10px;letter-spacing:.18em;font-weight:800;color:#c87559}
 .readinessHero h2{margin:5px 0 6px;font-family:Georgia,serif;font-size:28px;font-weight:400;color:#142940}
@@ -252,21 +253,22 @@ body{background:linear-gradient(180deg,#fbf5f0 0,#fffdfb 340px,#faf6f2 100%);col
 .publishBtn:not(:disabled):hover{transform:translateY(-1px)!important;box-shadow:0 14px 28px rgba(20,43,70,.24)!important}
 .publishBtn.readyPulse{background:linear-gradient(135deg,#e9896b,#dc7658)!important;color:#fff!important;border-color:#dc7658!important;box-shadow:0 12px 28px rgba(220,118,88,.28)!important}
 @media(max-width:600px){.publishBtn{width:100%!important;min-width:0!important}.publishActions{align-items:stretch!important}}
-
+</style>
+<style id="edit53-final-admin-visual">
 /* =========================================================
    SYMBLI ADMIN #53 — long-term visual master
    Visual/UX refinement only. Existing IDs and workflows stay intact.
    ========================================================= */
 :root{
- --a53-navy:#122238;--a53-navy2:#1b314d;--a53-ink:#263548;
- --a53-peach:#e99576;--a53-peach2:#f4b19a;--a53-cream:#fbf6f2;
- --a53-paper:#fffdfb;--a53-line:#eaded6;--a53-soft:#f7eee9;
- --a53-muted:#806f66;--a53-green:#527a61;--a53-shadow:0 18px 48px rgba(41,31,27,.07);
+ --a53-navy:#302c39;--a53-navy2:#1b314d;--a53-ink:#263548;
+ --a53-peach:#a97b94;--a53-peach2:#f4b19a;--a53-cream:#fbf6f2;
+ --a53-paper:#fffdfd;--a53-line:#eadde3;--a53-soft:#f7eee9;
+ --a53-muted:#806d78;--a53-green:#527a61;--a53-shadow:0 18px 48px rgba(41,31,27,.07);
 }
 html{scroll-behavior:smooth}
 body{background:
  radial-gradient(circle at 8% 0%,rgba(233,149,118,.10),transparent 25rem),
- linear-gradient(180deg,#fbf6f2 0,#fffdfb 34rem,#faf7f4 100%)!important}
+ linear-gradient(180deg,#fbf6f2 0,#fffdfd 34rem,#faf7f4 100%)!important}
 .wrap{max-width:1240px!important;padding-bottom:80px}
 .top{padding-top:28px!important;margin-bottom:20px!important}
 .brand{letter-spacing:.20em!important}
@@ -298,13 +300,13 @@ body{background:
  background:rgba(255,253,251,.96)!important
 }
 .card{padding:26px!important;margin-bottom:18px!important}
-.card>.headRow{padding-bottom:17px!important;margin-bottom:19px!important;border-bottom:1px solid #f0e6df}
+.card>.headRow{padding-bottom:17px!important;margin-bottom:19px!important;border-bottom:1px solid #f1e6eb}
 .card h2,.card h1{letter-spacing:-.025em}
 .card h2{font-size:25px!important}
 .muted{color:var(--a53-muted)!important;line-height:1.6!important}
 
 /* Studio selector becomes a compact control station rather than an image manager */
-.studioManagerCard{padding:22px 24px!important;background:linear-gradient(135deg,#fffdfb,#fff8f4)!important}
+.studioManagerCard{padding:22px 24px!important;background:linear-gradient(135deg,#fffdfd,#faf2f6)!important}
 .studioManagerCard .headRow{align-items:flex-start!important}
 .studioManagerCard h1{font-size:27px!important;margin:4px 0 5px!important}
 .studioManagerCard .toolbar{
@@ -338,7 +340,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 /* Control Centre: cleaner hierarchy */
 .adminHero{
  border-radius:24px!important;padding:27px!important;
- background:linear-gradient(135deg,#122238 0%,#193451 100%)!important;
+ background:linear-gradient(135deg,#302c39 0%,#193451 100%)!important;
  box-shadow:0 22px 55px rgba(18,34,56,.16)!important
 }
 .adminHeroTop h1{font-size:32px!important;line-height:1.05!important}
@@ -359,25 +361,25 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .adminQuickNav button{min-height:35px!important;padding:8px 14px!important;font-weight:700!important}
 
 /* Readiness/publishing read as one launch workflow */
-.readinessHero{padding:24px!important;background:linear-gradient(135deg,#fffaf7,#fff)!important}
+.readinessHero{padding:24px!important;background:linear-gradient(135deg,#fcf7fa,#fff)!important}
 .readinessScore{min-width:100px!important;border-radius:16px!important}
 .publishPanel{padding:24px!important}
 .publishChecklist{gap:9px!important}
 .publishCheck{min-height:44px!important;border-radius:12px!important;display:flex!important;align-items:center!important;padding:10px 13px!important}
-.publishActions{padding-top:18px!important;border-top:1px solid #f0e5de!important}
+.publishActions{padding-top:18px!important;border-top:1px solid #f1e6eb!important}
 
 /* Analytics */
 .analyticsMetrics{gap:11px!important}
 .metricTile{border-radius:16px!important;padding:17px!important;box-shadow:none!important}
 .metricTile strong{font-size:29px!important}
-.heroMetric{background:linear-gradient(145deg,#fff8f4,#fff)!important;border-color:#eed6ca!important}
+.heroMetric{background:linear-gradient(145deg,#faf2f6,#fff)!important;border-color:#eed6ca!important}
 .analyticsJourney,.analyticsPulse{border-radius:18px!important;padding:20px!important}
 .analyticsToolbar{padding:10px 0 0!important}
 
 /* Forms and content sections */
 .detailsGrid{gap:14px!important}
 .detailsActions{
- margin-top:20px!important;padding-top:18px!important;border-top:1px solid #f0e6df!important;
+ margin-top:20px!important;padding-top:18px!important;border-top:1px solid #f1e6eb!important;
  align-items:center!important
 }
 .status{border-radius:11px!important;line-height:1.45!important}
@@ -463,56 +465,61 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 @media(max-width:410px){
  .analyticsMetrics,.opsMetrics,.onboardingFlow{grid-template-columns:1fr!important}
 }
+</style>
 
+
+<style id="edit53b-add-studio-flow">
 .addStudioFlow{max-width:940px;margin:0 auto 40px}
 .addStudioIntro{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin:4px 0 18px;padding:0 4px}
-.addStudioIntro h2{font-family:Georgia,serif;color:#122238;font-size:34px;line-height:1;margin:5px 0 8px}
-.addStudioIntro p{margin:0;color:#806f66;line-height:1.55;max-width:620px}
-.addDraftBadge{flex:0 0 auto;border:1px solid #ead7cc;background:#fff8f4;color:#b66e55;border-radius:999px;padding:9px 12px;font-size:9px;font-weight:850;letter-spacing:.12em}
+.addStudioIntro h2{font-family:Georgia,serif;color:#302c39;font-size:34px;line-height:1;margin:5px 0 8px}
+.addStudioIntro p{margin:0;color:#806d78;line-height:1.55;max-width:620px}
+.addDraftBadge{flex:0 0 auto;border:1px solid #ead7cc;background:#faf2f6;color:#b66e55;border-radius:999px;padding:9px 12px;font-size:9px;font-weight:850;letter-spacing:.12em}
 .addStudioSteps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.addStep{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid #eaded6;background:#fffdfb;border-radius:14px;color:#85766e}
-.addStep.active{border-color:#efb49f;background:#fff7f2;color:#122238}
+.addStep{display:flex;align-items:center;gap:10px;padding:11px 13px;border:1px solid #eadde3;background:#fffdfd;border-radius:14px;color:#85766e}
+.addStep.active{border-color:#efb49f;background:#fff7f2;color:#302c39}
 .addStep>span{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#f5ebe5;font-size:11px;font-weight:850}
-.addStep.active>span{background:#e99576;color:white}
+.addStep.active>span{background:#a97b94;color:white}
 .addStep b,.addStep small{display:block}.addStep b{font-size:11px}.addStep small{font-size:9px;margin-top:2px}
-.addStudioForm{border:1px solid #eaded6;background:#fffdfb;border-radius:22px;box-shadow:0 18px 48px rgba(41,31,27,.07);overflow:hidden}
+.addStudioForm{border:1px solid #eadde3;background:#fffdfd;border-radius:22px;box-shadow:0 18px 48px rgba(41,31,27,.07);overflow:hidden}
 .addFormSection{padding:22px 24px}
-.addFormSection+.addFormSection{border-top:1px solid #f0e6df}
+.addFormSection+.addFormSection{border-top:1px solid #f1e6eb}
 .addSectionHead{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:16px}
 .addSectionHead span,.addOptionalToggle>div>span{display:block;font-size:9px;font-weight:850;letter-spacing:.14em;color:#e18768;margin-bottom:4px}
-.addSectionHead h3{font-family:Georgia,serif;color:#122238;font-size:23px;margin:0 0 4px}
-.addSectionHead p{margin:0;color:#806f66;font-size:12px}
+.addSectionHead h3{font-family:Georgia,serif;color:#302c39;font-size:23px;margin:0 0 4px}
+.addSectionHead p{margin:0;color:#806d78;font-size:12px}
 .requiredPill{font-size:8px!important;letter-spacing:.12em!important;font-weight:850!important;color:#527a61!important;background:#eef6f0;border:1px solid #d8e8dc;border-radius:999px;padding:7px 9px}
 .addTwo{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .addTwo .wide{grid-column:1/-1}
-.addOptionalToggle{width:100%;border:0;background:transparent;padding:0;display:flex;justify-content:space-between;align-items:center;text-align:left;cursor:pointer;color:#122238}
+.addOptionalToggle{width:100%;border:0;background:transparent;padding:0;display:flex;justify-content:space-between;align-items:center;text-align:left;cursor:pointer;color:#302c39}
 .addOptionalToggle b{display:block;font-family:Georgia,serif;font-size:19px;margin-bottom:3px}
-.addOptionalToggle small{display:block;color:#806f66;font-size:11px}
+.addOptionalToggle small{display:block;color:#806d78;font-size:11px}
 .toggleMark{font-size:25px!important;color:#e18768!important;margin:0!important}
 .addOptionalBody{display:none;padding-top:18px}.addOptionalBody.open{display:block}
-.addFounding{margin-top:13px;padding:12px 14px;border:1px solid #eaded6;border-radius:13px;background:#fff9f5}
-.addCreateBar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 24px;background:#122238;color:white}
+.addFounding{margin-top:13px;padding:12px 14px;border:1px solid #eadde3;border-radius:13px;background:#fff9f5}
+.addCreateBar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 24px;background:#302c39;color:white}
 .addCreateBar b,.addCreateBar span{display:block}.addCreateBar b{font-size:13px}.addCreateBar span{font-size:10px;color:#d8e0e8;margin-top:3px}
-.addCreatePrimary{background:#e99576!important;border-color:#e99576!important;color:white!important;min-width:180px}
-.addQuickStatus{margin:0!important;border-radius:0!important;border:0!important;border-top:1px solid #eaded6!important;padding:11px 24px!important;background:#fffaf7!important}
+.addCreatePrimary{background:#a97b94!important;border-color:#a97b94!important;color:white!important;min-width:180px}
+.addQuickStatus{margin:0!important;border-radius:0!important;border:0!important;border-top:1px solid #eadde3!important;padding:11px 24px!important;background:#fcf7fa!important}
 @media(max-width:700px){
  .addStudioIntro{display:block}.addDraftBadge{display:inline-block;margin-top:12px}
  .addStudioSteps{grid-template-columns:1fr}.addStep:not(.active){display:none}
  .addTwo{grid-template-columns:1fr}.addTwo .wide{grid-column:auto}
  .addFormSection{padding:18px}.addCreateBar{align-items:stretch;flex-direction:column;padding:18px}.addCreatePrimary{width:100%}
 }
+</style>
 
+<style id="symbli-analytics-refresh">
 #analyticsCard{overflow:hidden;border-color:#e9d9d1;box-shadow:0 18px 44px rgba(27,31,49,.07)}
-#analyticsCard .analyticsTop{background:linear-gradient(125deg,#16263d,#24384e 58%,#704f64);color:white;padding:26px 26px 20px}
+#analyticsCard .analyticsTop{background:linear-gradient(125deg,#3a323d,#24384e 58%,#704f64);color:white;padding:26px 26px 20px}
 #analyticsCard .analyticsTop h2,#analyticsCard .analyticsTop .muted{color:white}
 #analyticsCard .analyticsTop .muted{opacity:.75}
 #analyticsCard .analyticsTop .adminEyebrow{color:#f5c9ad}
 #analyticsCard .analyticsTop .saveHint{color:#f6dfca;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2)}
 #analyticsCard .analyticsRange,#analyticsCard #refreshAnalyticsBtn{background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.22)}
-#analyticsCard .analyticsRange.active{background:#f2c2aa;color:#16263d;border-color:#f2c2aa;font-weight:700}
+#analyticsCard .analyticsRange.active{background:#f2c2aa;color:#3a323d;border-color:#f2c2aa;font-weight:700}
 #analyticsCard .analyticsMetrics{gap:12px;padding:22px 24px}
-#analyticsCard .metricTile{border-radius:18px;background:#fffdfa;box-shadow:0 8px 20px rgba(36,38,56,.05)}
-#analyticsCard .metricTile.heroMetric{background:linear-gradient(140deg,#fff0e7,#fffaf6)!important}
+#analyticsCard .metricTile{border-radius:18px;background:#fffdfd;box-shadow:0 8px 20px rgba(36,38,56,.05)}
+#analyticsCard .metricTile.heroMetric{background:linear-gradient(140deg,#fff0e7,#fcf7fa)!important}
 #analyticsCard .metricTile strong{font-variant-numeric:tabular-nums}
 .analyticsStory{display:flex;align-items:center;justify-content:space-between;gap:28px;margin:0 24px 16px;padding:22px 24px;border-radius:19px;background:linear-gradient(110deg,#fff3ec,#f8e7e4 70%,#f4edf3);color:#263044}
 .analyticsStoryLabel{font-size:10px;font-weight:800;letter-spacing:.18em;color:#b16d5e}
@@ -521,9 +528,9 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .analyticsStoryRate{min-width:135px;text-align:center;border-left:1px solid #e6cfc7;padding-left:20px}
 .analyticsStoryRate strong{display:block;font:600 34px Georgia,serif;color:#b36658}
 .analyticsStoryRate span{display:block;max-width:145px;font-size:10px;line-height:1.35;color:#756b69}
-.analyticsTrend{margin:0 24px 16px;padding:21px 24px;border:1px solid #ece1da;border-radius:19px;background:white}
+.analyticsTrend{margin:0 24px 16px;padding:21px 24px;border:1px solid #eee2e8;border-radius:19px;background:white}
 .analyticsTrendHead{display:flex;justify-content:space-between;align-items:end;gap:12px}
-.analyticsTrendHead h3{margin:5px 0 0;font:400 21px Georgia,serif;color:#16263d}
+.analyticsTrendHead h3{margin:5px 0 0;font:400 21px Georgia,serif;color:#3a323d}
 #analyticsTrendPeriod{font-size:11px;color:#8b7770}
 .analyticsTrendChart{height:145px;display:flex;align-items:end;gap:3px;margin-top:22px;border-bottom:1px solid #e9ded8}
 .analyticsTrendCol{height:100%;flex:1;min-width:2px;display:flex;flex-direction:column;justify-content:end;align-items:center;position:relative}
@@ -532,9 +539,9 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .analyticsTrendLegend{display:flex;justify-content:space-between;gap:10px;margin-top:25px;font-size:11px;color:#776d6a}
 .analyticsTrendLegend i{display:inline-block;width:8px;height:8px;border-radius:3px;background:#dc9980;margin-right:5px}
 @media(max-width:700px){#analyticsCard .analyticsTop{padding:22px 17px}#analyticsCard .analyticsMetrics{padding:16px} .analyticsStory{margin:0 16px 14px;padding:18px;align-items:flex-start}.analyticsStory h3{font-size:21px}.analyticsStoryRate{min-width:80px;padding-left:12px}.analyticsStoryRate strong{font-size:27px}.analyticsTrend{margin:0 16px 14px;padding:17px}.analyticsTrendChart{height:110px}}
-
-.ownerAccessCard{border-color:#ead7ce;background:linear-gradient(130deg,#fffdfa,#fff8f4)}
-.ownerAccessCurrent{padding:14px;border:1px solid #eaded6;border-radius:13px;background:white;font-size:12px;color:#625750}
+</style><style id="symbli-owner-access-style">
+.ownerAccessCard{border-color:#ead7ce;background:linear-gradient(130deg,#fffdfd,#faf2f6)}
+.ownerAccessCurrent{padding:14px;border:1px solid #eadde3;border-radius:13px;background:white;font-size:12px;color:#625750}
 .ownerAccessRow{display:flex;justify-content:space-between;align-items:center;gap:12px;overflow-wrap:anywhere}
 .ownerAccessRow+.ownerAccessRow{margin-top:10px;padding-top:10px;border-top:1px solid #eee5df}
 .ownerAccessRow button{flex:none}
@@ -543,7 +550,8 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .ownerAccessForm input{width:100%;font-family:monospace;font-size:12px}
 @media(max-width:650px){.ownerAccessForm{flex-direction:column;align-items:stretch}.ownerAccessForm button{width:100%}.ownerAccessRow{align-items:flex-start;flex-direction:column}}
 .ownerEmailQuick{margin-top:16px;padding:17px 19px;border:1px solid #e6c9b9;border-radius:15px;background:#fff9f5}.ownerEmailQuick input{width:100%;max-width:550px}.ownerEmailQuick .field{margin:0!important}.ownerEmailQuick button{margin-top:10px}.ownerEmailQuick .smallNote{margin-left:10px}
-
+</style>
+<style id="symbli-admin-layout-v54">
 /* =========================================================
    SYMBLI ADMIN V54 — dashboard-first layout
    Layout / UX only. Existing Admin workflows remain intact.
@@ -569,7 +577,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
   margin:0!important;
   padding:17px!important;
   overflow:visible!important;
-  border:1px solid #eaded6!important;
+  border:1px solid #eadde3!important;
   border-radius:22px!important;
   background:rgba(255,253,251,.93)!important;
   box-shadow:0 16px 42px rgba(31,38,51,.065)!important;
@@ -635,7 +643,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 #adminTopTabs .adminTopTab.active:before{background:rgba(255,255,255,.13)!important;color:#fff!important}
 #adminTopTabs .adminTopTab.add{
   margin-top:7px!important;
-  background:#fff3ed!important;
+  background:#f8eef3!important;
   color:#a6634f!important;
   border:1px solid #f0d5c9!important;
 }
@@ -651,7 +659,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .adminPaneIntro{
   margin:3px 0 18px!important;
   padding:0 3px 15px!important;
-  border-bottom:1px solid #eadfd9;
+  border-bottom:1px solid #e6d7df;
 }
 .adminPaneIntro h2{font-size:32px!important}
 .adminPaneIntro p{font-size:12px!important;max-width:700px}
@@ -661,7 +669,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
   position:relative;overflow:hidden;
   background:
     radial-gradient(circle at 90% 0,rgba(233,149,118,.18),transparent 31%),
-    linear-gradient(135deg,#122238,#213b58)!important;
+    linear-gradient(135deg,#302c39,#213b58)!important;
 }
 #adminPane-overview .opsHero:after{
   content:"";position:absolute;right:-70px;bottom:-110px;width:250px;height:250px;
@@ -675,7 +683,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 /* Studio manager reads as a workspace rather than one endless settings page */
 #adminPane-studios>.studioManagerCard{
   position:relative;
-  border-left:4px solid #e99576!important;
+  border-left:4px solid #a97b94!important;
 }
 #adminPane-studios #adminDashboard{margin-top:4px}
 #adminPane-studios .adminHero{padding:25px!important}
@@ -720,7 +728,7 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 
 /* Analytics: one obvious route into studio performance */
 #adminPane-analytics>.opsLane:first-of-type{
-  background:linear-gradient(135deg,#fffaf7,#fff)!important;
+  background:linear-gradient(135deg,#fcf7fa,#fff)!important;
   border-left:4px solid #aa7c9e!important;
 }
 
@@ -754,8 +762,10 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
  #adminPane-studios .adminQuickNav{padding:7px!important}
  #adminPane-studios .adminQuickNav:before{display:none}
 }
+</style>
 
-.refAdminHero{padding:27px;border-radius:24px;background:linear-gradient(130deg,#122238,#203b59 62%,#674b61);color:#fff;box-shadow:0 20px 48px rgba(18,34,56,.14);margin-bottom:16px}
+<style id="symbli-admin-referrals-v55">
+.refAdminHero{padding:27px;border-radius:24px;background:linear-gradient(130deg,#302c39,#203b59 62%,#674b61);color:#fff;box-shadow:0 20px 48px rgba(18,34,56,.14);margin-bottom:16px}
 .refAdminHeroTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .refAdminHero h2{margin:6px 0 5px;font:400 30px Georgia,serif}.refAdminHero p{margin:0;color:#d4dce5;font-size:12px;line-height:1.55;max-width:680px}
 .refAdminRefresh{background:rgba(255,255,255,.11)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)!important}
@@ -763,456 +773,321 @@ input:disabled{background:#f7f3f0!important;color:#9a8d85!important}
 .refAdminMetric{padding:15px;border:1px solid rgba(255,255,255,.13);border-radius:16px;background:rgba(255,255,255,.075)}
 .refAdminMetric span{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:#becbd9}.refAdminMetric strong{display:block;margin-top:6px;font:500 27px Georgia,serif}
 .refAdminGrid{display:grid;grid-template-columns:.78fr 1.22fr;gap:16px}
-.refAdminPanel{background:#fff;border:1px solid #eadfd9;border-radius:20px;padding:20px;box-shadow:0 12px 34px rgba(18,34,56,.045)}
-.refAdminPanel h3{margin:4px 0;font:400 22px Georgia,serif;color:#122238}.refAdminPanel>p{margin:0 0 14px;color:#85736a;font-size:11px}
+.refAdminPanel{background:#fff;border:1px solid #e6d7df;border-radius:20px;padding:20px;box-shadow:0 12px 34px rgba(18,34,56,.045)}
+.refAdminPanel h3{margin:4px 0;font:400 22px Georgia,serif;color:#302c39}.refAdminPanel>p{margin:0 0 14px;color:#85736a;font-size:11px}
 .refStudioRows,.refLedgerRows{display:grid;gap:8px}
-.refStudioRow{border:1px solid #eee2dc;border-radius:14px;padding:12px;background:#fffaf7}
-.refStudioTop{display:flex;justify-content:space-between;gap:10px;align-items:center}.refStudioName{font-weight:800;font-size:12px;color:#17283d}.refStudioMeta{margin-top:5px;font-size:9px;color:#8a766c}
-.refStudioMoney{text-align:right;font-weight:800;color:#17283d;font-size:12px}.refStudioMoney small{display:block;font-weight:500;color:#9a8378;font-size:8px;margin-top:3px}
-.refFilters{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.refFilter{border:1px solid #e5d7cf;background:#fff;border-radius:999px;padding:7px 11px;font-size:9px;font-weight:800;color:#77645b;cursor:pointer}.refFilter.active{background:#122238;color:#fff;border-color:#122238}
-.refLedgerRow{display:grid;grid-template-columns:1.3fr .7fr .65fr auto;gap:10px;align-items:center;padding:12px;border:1px solid #eee2dc;border-radius:14px;background:#fff}
-.refLedgerTitle{font-weight:800;color:#17283d;font-size:11px}.refLedgerMeta{font-size:9px;color:#8b776d;margin-top:4px;overflow-wrap:anywhere}
-.refBadge{display:inline-block;padding:6px 8px;border-radius:999px;font-size:8px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;background:#fff0e9;color:#a86650}.refBadge.booked{background:#edf7f0;color:#477257}.refBadge.not_booked{background:#f4eeee;color:#8c6666}
-.refMoney{font-size:11px;font-weight:800;color:#17283d}.refMoney small{display:block;font-size:8px;font-weight:500;color:#9b867c;margin-top:3px}
-.refEmpty{padding:18px;border:1px dashed #e7d8d0;border-radius:14px;background:#fffaf7;color:#8b786e;font-size:11px;text-align:center;line-height:1.55}
+.refStudioRow{border:1px solid #eee2e8;border-radius:14px;padding:12px;background:#fcf7fa}
+.refStudioTop{display:flex;justify-content:space-between;gap:10px;align-items:center}.refStudioName{font-weight:800;font-size:12px;color:#403743}.refStudioMeta{margin-top:5px;font-size:9px;color:#897580}
+.refStudioMoney{text-align:right;font-weight:800;color:#403743;font-size:12px}.refStudioMoney small{display:block;font-weight:500;color:#9a8378;font-size:8px;margin-top:3px}
+.refFilters{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.refFilter{border:1px solid #e5d7cf;background:#fff;border-radius:999px;padding:7px 11px;font-size:9px;font-weight:800;color:#77645b;cursor:pointer}.refFilter.active{background:#302c39;color:#fff;border-color:#302c39}
+.refLedgerRow{display:grid;grid-template-columns:1.3fr .7fr .65fr auto;gap:10px;align-items:center;padding:12px;border:1px solid #eee2e8;border-radius:14px;background:#fff}
+.refLedgerTitle{font-weight:800;color:#403743;font-size:11px}.refLedgerMeta{font-size:9px;color:#8b776d;margin-top:4px;overflow-wrap:anywhere}
+.refBadge{display:inline-block;padding:6px 8px;border-radius:999px;font-size:8px;font-weight:850;letter-spacing:.07em;text-transform:uppercase;background:#f7edf3;color:#8f687f}.refBadge.booked{background:#edf7f0;color:#477257}.refBadge.not_booked{background:#f4eeee;color:#8c6666}
+.refMoney{font-size:11px;font-weight:800;color:#403743}.refMoney small{display:block;font-size:8px;font-weight:500;color:#9b867c;margin-top:3px}
+.refEmpty{padding:18px;border:1px dashed #e7d8d0;border-radius:14px;background:#fcf7fa;color:#8b786e;font-size:11px;text-align:center;line-height:1.55}
 @media(max-width:950px){.refAdminMetrics{grid-template-columns:repeat(3,1fr)}.refAdminGrid{grid-template-columns:1fr}}
 @media(max-width:600px){.refAdminHero{padding:20px}.refAdminMetrics{grid-template-columns:1fr 1fr}.refLedgerRow{grid-template-columns:1fr 1fr}.refLedgerRow>div:first-child{grid-column:1/-1}}
+</style>
 
+<style id="symbli-admin-referrals-v56-polish">
 /* V56: scalable referral control-room polish */
 #pane-referrals .adminRefHero,#referralsPane .adminRefHero,.refAdminHero{
  position:relative;overflow:hidden;border-radius:25px!important;
  background:radial-gradient(circle at 91% 7%,rgba(231,177,151,.20),transparent 29%),
  radial-gradient(circle at 72% 115%,rgba(171,126,158,.18),transparent 32%),
- linear-gradient(130deg,#122238,#263b57)!important;
+ linear-gradient(130deg,#302c39,#263b57)!important;
  box-shadow:0 20px 48px rgba(18,34,56,.14)!important
 }
 #pane-referrals .adminRefHero:after,#referralsPane .adminRefHero:after,.refAdminHero:after{
  content:'';position:absolute;right:-45px;top:-65px;width:190px;height:190px;border:1px solid rgba(255,255,255,.10);border-radius:50%
 }
-.adminReferralAttention{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:15px 0 18px;padding:16px 18px;border:1px solid #efd2c3;border-radius:17px;background:linear-gradient(135deg,#fff3ed,#fffaf7)}
+.adminReferralAttention{display:flex;justify-content:space-between;gap:16px;align-items:center;margin:15px 0 18px;padding:16px 18px;border:1px solid #efd2c3;border-radius:17px;background:linear-gradient(135deg,#f8eef3,#fcf7fa)}
 .adminReferralAttention strong{font-size:12px}.adminReferralAttention span{display:block;margin-top:4px;font-size:9px;color:#826f65}
-.adminReferralAttention .count{display:grid;place-items:center;min-width:34px;height:34px;padding:0 10px;border-radius:11px;background:#e99576;color:#fff;font-weight:800}
+.adminReferralAttention .count{display:grid;place-items:center;min-width:34px;height:34px;padding:0 10px;border-radius:11px;background:#a97b94;color:#fff;font-weight:800}
 .adminReferralToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:13px 0}
 .adminReferralToolbar input,.adminReferralToolbar select{min-height:38px;border:1px solid #e7d9d2;border-radius:999px;background:#fff;padding:0 13px;color:#5f5652;font:600 10px Inter,sans-serif;outline:none}
 .adminReferralToolbar input{min-width:210px;flex:1}.adminReferralToolbar input:focus,.adminReferralToolbar select:focus{border-color:#c99bad;box-shadow:0 0 0 3px rgba(170,124,158,.08)}
-.adminReferralLedgerWrap{border:1px solid #eadfd9;border-radius:18px;overflow:hidden;background:#fff}
+.adminReferralLedgerWrap{border:1px solid #e6d7df;border-radius:18px;overflow:hidden;background:#fff}
 .adminReferralPager{display:flex;justify-content:center;padding:14px;border-top:1px solid #eee4df}
 @media(max-width:720px){.adminReferralAttention{align-items:flex-start}.adminReferralToolbar input{width:100%;flex-basis:100%}}
+</style>
 
-.topStudiosSection{margin:18px 0;padding:21px;border:1px solid #eadfd9;border-radius:20px;background:linear-gradient(145deg,#fff,#fffaf7);box-shadow:0 10px 28px rgba(18,34,56,.04)}
-.topStudiosHead{display:flex;justify-content:space-between;gap:14px;align-items:flex-end;margin-bottom:15px}
-.topStudiosHead h3{margin:4px 0 0;font:500 24px Georgia,serif;color:#17283e}.topStudiosHead p{margin:5px 0 0;font-size:9px;color:#8a766c}
-.topStudioWins{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:17px}
-.topStudioWin{padding:13px 14px;border:1px solid #eadfd9;border-radius:15px;background:#fff}
-.topStudioWin .icon{font-size:15px}.topStudioWin span{display:block;margin-top:8px;font-size:7px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#aa7c9e}.topStudioWin strong{display:block;margin-top:4px;font-size:11px;color:#203149;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.topStudioWin small{display:block;margin-top:3px;font-size:8px;color:#8c7970}
-.topStudioTable{border:1px solid #eee2dc;border-radius:16px;overflow:hidden;background:#fff}.topStudioRow{display:grid;grid-template-columns:minmax(150px,1.5fr) repeat(5,minmax(70px,.7fr));gap:8px;align-items:center;padding:11px 13px;border-bottom:1px solid #f1e8e3;font-size:9px}.topStudioRow:last-child{border-bottom:0}.topStudioRow.head{background:#faf5f2;color:#9a7f73;font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.topStudioName{font-weight:800;color:#203149}.topStudioRank{display:inline-grid;place-items:center;width:22px;height:22px;margin-right:7px;border-radius:8px;background:#f7ebe6;color:#9b6856;font-size:9px}.topStudioValue{font-weight:700;color:#4c4541}
-@media(max-width:900px){.topStudioWins{grid-template-columns:repeat(2,1fr)}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:720px}}
-@media(max-width:560px){.topStudioWins{grid-template-columns:1fr 1fr}.topStudiosSection{padding:16px}}
-
-/* V59: larger, clearer Top Studios workspace */
-.topStudiosSection{padding:27px!important;border-radius:23px!important}
-.topStudiosHead{margin-bottom:20px!important;align-items:center!important}
-.topStudiosHead h3{font-size:29px!important;letter-spacing:-.02em}
-.topStudiosHead p{font-size:10px!important;line-height:1.5;max-width:540px}
-.topStudioWins{gap:13px!important;margin-bottom:22px!important}
-.topStudioWin{position:relative;min-height:132px;padding:18px 18px 16px!important;border-radius:18px!important;box-shadow:0 8px 22px rgba(18,34,56,.035);overflow:hidden}
-.topStudioWin:after{content:'';position:absolute;right:-22px;top:-24px;width:78px;height:78px;border-radius:50%;background:rgba(170,124,158,.055)}
-.topStudioWin .icon{display:grid!important;place-items:center;width:35px;height:35px;border-radius:11px;background:#faf0eb;font-size:17px!important}
-.topStudioWin span{margin-top:13px!important;font-size:8px!important}
-.topStudioWin strong{margin-top:6px!important;font-size:14px!important;line-height:1.3}
-.topStudioWin small{margin-top:5px!important;font-size:9px!important}
-.topStudioTable{border-radius:18px!important}
-.topStudioRow{grid-template-columns:minmax(190px,1.55fr) repeat(5,minmax(85px,.72fr))!important;min-height:55px;padding:13px 16px!important;font-size:10px!important}
-.topStudioRow.head{min-height:43px;font-size:8px!important}
-.topStudioName{display:flex;align-items:center;font-size:11px!important}
-.topStudioRank{flex:0 0 28px;width:28px!important;height:28px!important;margin-right:10px!important;border-radius:9px!important;font-size:10px!important}
-.topStudioValue{font-size:10px!important}
-.topStudioRow:not(.head):hover{background:#fff9f6}
-@media(max-width:1050px){.topStudioWins{grid-template-columns:repeat(2,1fr)!important}}
-@media(max-width:720px){
- .topStudiosSection{padding:18px!important}.topStudiosHead h3{font-size:25px!important}
- .topStudioWins{grid-template-columns:1fr!important;gap:9px!important}
- .topStudioWin{min-height:0;padding:15px!important;display:grid;grid-template-columns:38px 1fr;column-gap:11px}
- .topStudioWin .icon{grid-row:1/4}.topStudioWin span,.topStudioWin strong,.topStudioWin small{grid-column:2;margin-top:0!important}
- .topStudioWin strong{margin-top:3px!important}.topStudioWin small{margin-top:3px!important}
- .topStudioTable{overflow-x:auto}.topStudioRow{min-width:760px}
+<style id="symbli-admin-v58-colour-system">
+/* =========================================================
+   SYMBLI ADMIN V58 — V24-aligned colour system
+   Mauve / blush / soft white. Red and green remain semantic.
+   ========================================================= */
+:root{
+ --a53-navy:#302c39!important;
+ --a53-navy2:#4b3d49!important;
+ --a53-ink:#302c39!important;
+ --a53-peach:#a97b94!important;
+ --a53-peach2:#c58fa7!important;
+ --a53-cream:#fbf7f9!important;
+ --a53-paper:#fffdfd!important;
+ --a53-line:#eadde3!important;
+ --a53-soft:#f7edf3!important;
+ --a53-muted:#85727d!important;
+ --a53-green:#527a61!important;
+ --a53-shadow:0 18px 48px rgba(74,51,65,.075)!important;
+ --sym-action:#9f7894;
+ --sym-action-dark:#7b5b70;
+ --sym-pink:#c58fa7;
+ --sym-rose:#d9a1aa;
+ --sym-blush:#f7edf3;
+ --sym-border:#e6d7df;
+ --sym-ink:#302c39;
 }
-
-/* V60: executive Top Studios board */
-.topStudiosSection{padding:30px!important;background:linear-gradient(155deg,#fff,#fffaf7 70%)!important}
-.topStudiosHead{padding-bottom:18px;border-bottom:1px solid #eee2dc;margin-bottom:20px!important}
-.topStudiosHead h3{font-size:31px!important}.topStudiosHead p{font-size:11px!important}
-.topStudioWins{grid-template-columns:1.35fr repeat(3,1fr)!important;gap:12px!important}
-.topStudioWin{min-height:150px!important;padding:19px!important;display:flex;flex-direction:column}
-.topStudioWin:first-child{background:linear-gradient(145deg,#17283e,#263d59)!important;border-color:#17283e!important}
-.topStudioWin:first-child span,.topStudioWin:first-child small{color:#d8cbd5!important}.topStudioWin:first-child strong{color:#fff!important;font-size:17px!important}
-.topStudioWin:first-child .icon{background:rgba(255,255,255,.12)!important}
-.topStudioWin strong{font-size:15px!important;white-space:normal!important}
-.topStudioWin small{font-size:10px!important}
-.topStudioTable{margin-top:5px;box-shadow:0 7px 20px rgba(18,34,56,.025)}
-.topStudioRow{grid-template-columns:minmax(220px,1.7fr) repeat(3,minmax(90px,.72fr)) minmax(115px,.9fr) minmax(115px,.9fr)!important;min-height:61px!important;padding:14px 18px!important}
-.topStudioRow.head{min-height:45px!important;background:#f8f2ee!important}
-.topStudioName{font-size:12px!important}.topStudioValue{font-size:11px!important}
-.topStudioRank{width:31px!important;height:31px!important;flex-basis:31px!important}
-.topStudioRow:nth-child(2) .topStudioRank{background:#17283e!important;color:#fff!important}
-.topStudioRow:nth-child(3) .topStudioRank{background:#ead7bd!important;color:#6e5233!important}
-.topStudioRow:nth-child(4) .topStudioRank{background:#ead9d1!important;color:#755c50!important}
-@media(max-width:1100px){.topStudioWins{grid-template-columns:repeat(2,1fr)!important}}
-@media(max-width:720px){.topStudiosSection{padding:18px!important}.topStudioWins{grid-template-columns:1fr!important}.topStudioWin{min-height:112px!important;display:block}.topStudioWin .icon{margin-bottom:8px}.topStudioTable{overflow-x:auto}.topStudioRow{min-width:820px}}
-
-/* V61: desktop top-nav shell + full-width workspaces */
-@media(min-width:961px){
- #adminView{display:block!important;max-width:none!important;width:100%!important}
- #adminTopTabs{
-  position:sticky!important;top:0!important;z-index:100!important;width:100%!important;height:auto!important;
-  display:flex!important;flex-direction:row!important;align-items:center!important;gap:5px!important;
-  padding:10px 18px!important;margin:0 0 20px!important;border:1px solid #eadfd9!important;border-radius:17px!important;
-  background:rgba(255,252,250,.94)!important;box-shadow:0 10px 28px rgba(18,34,56,.06)!important;backdrop-filter:blur(14px)
- }
- #adminTopTabs:before{content:'SYMBLI ADMIN';display:block!important;margin:0 14px 0 2px!important;padding-right:16px;border-right:1px solid #e9ddd7;color:#17283e;font-size:9px;font-weight:900;letter-spacing:.13em;white-space:nowrap}
- #adminTopTabs button,#adminTopTabs .tab{width:auto!important;min-width:0!important;flex:0 0 auto!important;margin:0!important;padding:10px 13px!important;border-radius:11px!important;font-size:9px!important;white-space:nowrap}
- #adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:auto!important}
- #adminMain,#adminContent,.adminMain,.adminWorkspace{width:100%!important;max-width:none!important;margin:0!important}
- .adminPane{max-width:none!important;width:100%!important}
-}
-#adminPane-referrals{max-width:none!important}
-#adminPane-referrals .refAdminHero,#adminPane-referrals [class*="refHero"]{width:100%}
-#adminPane-referrals .refMetrics{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important}
-#adminPane-referrals .topStudiosSection{padding:32px!important}
-#adminPane-referrals .topStudioWins{grid-template-columns:1.45fr repeat(3,1fr)!important;gap:15px!important}
-#adminPane-referrals .topStudioWin{min-height:165px!important}
-#adminPane-referrals .topStudioTable{width:100%!important}
-#adminPane-referrals .topStudioRow{grid-template-columns:minmax(250px,1.8fr) repeat(3,minmax(105px,.7fr)) minmax(140px,.9fr) minmax(140px,.9fr)!important}
-#adminPane-referrals .refStudioRow{padding:16px 18px!important}
-#adminPane-referrals .refLedgerRow{grid-template-columns:minmax(250px,1.6fr) minmax(110px,.7fr) minmax(150px,.9fr) minmax(110px,.7fr)!important;padding:15px 18px!important}
-@media(max-width:1180px) and (min-width:961px){
- #adminTopTabs{overflow-x:auto!important}
- #adminTopTabs:before{display:none!important}
- #adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
- #adminPane-referrals .topStudioWins{grid-template-columns:repeat(2,1fr)!important}
-}
-
-/* V62: repair desktop top navigation after V61 sidebar conversion */
-@media(min-width:961px){
- #adminView{
-   display:block!important;width:100%!important;max-width:none!important;
-   padding:0!important;border:0!important;background:transparent!important;
-   box-shadow:none!important
- }
- #adminTopTabs{
-   position:sticky!important;top:8px!important;z-index:100!important;
-   display:flex!important;flex-direction:row!important;align-items:center!important;
-   width:100%!important;max-width:none!important;height:auto!important;min-height:58px!important;
-   padding:8px!important;margin:0 0 20px!important;gap:6px!important;
-   border:1px solid #e7dbd5!important;border-radius:16px!important;
-   background:rgba(255,252,250,.96)!important;box-shadow:0 8px 24px rgba(18,34,56,.06)!important;
-   overflow-x:auto!important;overflow-y:hidden!important;backdrop-filter:blur(14px)
- }
- #adminTopTabs:before{display:none!important;content:none!important}
- #adminTopTabs .adminTab,#adminTopTabs button,#adminTopTabs .tab{
-   display:inline-flex!important;align-items:center!important;justify-content:center!important;
-   flex:0 0 auto!important;width:auto!important;min-width:auto!important;max-width:none!important;
-   min-height:40px!important;padding:10px 14px!important;margin:0!important;
-   border-radius:11px!important;white-space:nowrap!important;font-size:9px!important;
-   box-shadow:none!important
- }
- #adminTopTabs .adminTab.active,#adminTopTabs button.active,#adminTopTabs .tab.active{
-   background:#193451!important;color:#fff!important
- }
- #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{
-   margin-left:auto!important
- }
- #adminView>.adminPane,#adminView>[id^="adminPane-"],#adminMain,#adminContent,.adminMain,.adminWorkspace{
-   width:100%!important;max-width:none!important;margin-left:0!important
- }
-}
-@media(min-width:961px) and (max-width:1180px){
- #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin-left:0!important}
-}
-
-/* V64: referral page only. Keep V62 top navigation untouched. */
-@media(min-width:961px){
- #adminPane-referrals{
-   display:block!important;width:100%!important;max-width:none!important;
- }
- /* Kill the old two-column referrals layout only */
- #adminPane-referrals .refAdminGrid,
- #adminPane-referrals .referralsGrid,
- #adminPane-referrals .refGrid{
-   display:block!important;grid-template-columns:none!important;width:100%!important
- }
- #adminPane-referrals .refAdminGrid>div,
- #adminPane-referrals .referralsGrid>div,
- #adminPane-referrals .refGrid>div{width:100%!important;max-width:none!important}
-}
-#adminPane-referrals .adminReferralAttention{margin:18px 0 12px!important}
-#adminPane-referrals .adminReferralToolbar{margin:0 0 20px!important;padding:13px;border:1px solid #eadfd9;border-radius:16px;background:#fff}
-#adminPane-referrals .topStudiosSection{
- width:100%!important;max-width:none!important;box-sizing:border-box!important;
- margin:0 0 22px!important;padding:29px!important;border-radius:22px!important
-}
-#adminPane-referrals .topStudioWins{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important}
-#adminPane-referrals .topStudioWin{min-width:0!important;min-height:145px!important}
-#adminPane-referrals .topStudioWin strong{white-space:normal!important}
-#adminPane-referrals .topStudioTable{display:none!important}
-#adminPane-referrals #refStudioRows{display:none!important}
-
-/* Hide the now-redundant studio-performance card/panel, not the ledger */
-#adminPane-referrals .refStudioPanel,
-#adminPane-referrals .refPerformancePanel{display:none!important}
-
-/* Make ledger the second full-width block */
-#adminPane-referrals .refLedgerPanel,
-#adminPane-referrals .refLedgerCard{
- width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important
-}
-#adminPane-referrals #refLedgerRows{width:100%!important}
-#adminPane-referrals .refLedgerRow{
- grid-template-columns:minmax(300px,1.8fr) minmax(125px,.65fr) minmax(170px,.85fr) minmax(125px,.65fr)!important;
- gap:14px!important;min-height:66px!important;padding:15px 18px!important
-}
-#adminPane-referrals .refLedgerTitle{font-size:12px!important}
-#adminPane-referrals .refLedgerMeta{font-size:9px!important}
-#adminPane-referrals .refMoney{font-size:12px!important}
-
-@media(max-width:1100px){
- #adminPane-referrals .topStudioWins{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-}
-@media(max-width:720px){
- #adminPane-referrals .topStudiosSection{padding:18px!important}
- #adminPane-referrals .topStudioWins{grid-template-columns:1fr!important}
- #adminPane-referrals .refLedgerRow{min-width:700px!important}
- #adminPane-referrals .refLedgerCard,#adminPane-referrals .refLedgerPanel{overflow-x:auto!important}
-}
-
-/* Desktop only: fit all Admin tabs in one row. Mobile behaviour unchanged. */
-@media(min-width:961px){
- #adminTopTabs{
-   display:grid!important;
-   grid-template-columns:repeat(6,minmax(0,1fr)) minmax(125px,1fr)!important;
-   overflow:visible!important;
-   overflow-x:visible!important;
-   overflow-y:visible!important;
-   gap:6px!important;
- }
- #adminTopTabs:before{display:none!important;content:none!important}
- #adminTopTabs .adminTab,#adminTopTabs button,#adminTopTabs .tab{
-   width:100%!important;min-width:0!important;max-width:none!important;
-   margin:0!important;padding:10px 6px!important;
-   white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;
- }
- #adminTopTabs .adminTab:last-child,#adminTopTabs button:last-child,#adminTopTabs .tab:last-child{margin:0!important}
-}
-
-.applicationDetail{padding:18px!important;background:#fffdfb;border-radius:14px;margin-top:4px}
-.appDetailGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
-.appDetailBlock{padding:13px;border:1px solid #eee2da;border-radius:13px;background:#fff}
-.appDetailBlock.wide{grid-column:1/-1}
-.appDetailBlock span{display:block;font-size:8px;font-weight:850;letter-spacing:.13em;color:#c6785e;text-transform:uppercase;margin-bottom:5px}
-.appDetailBlock b{color:#122238}
-.appTreatmentTable{width:100%;border-collapse:collapse;margin-top:5px}
-.appTreatmentTable td{padding:7px 5px;border-bottom:1px solid #f0e6df;font-size:11px}
-.appTreatmentTable td:last-child{text-align:right}
-.appFoundingTerms{margin-top:12px;padding:14px;border-radius:13px;background:#fff5ef;border:1px solid #efd8ca;color:#65564e}
-.appFoundingTerms strong{display:block;color:#122238;margin-bottom:4px}
-.appDecisionBar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:13px;border-top:1px solid #eee2da}
-.appDecisionBar .approveApp{background:#26804b!important;color:#fff!important}
-.appDecisionBar .requestApp{background:#fff!important;color:#a65f43!important;border:1px solid #e3b8a7!important}
-.appDecisionBar .rejectApp{background:#fff!important;color:#a33e3e!important;border:1px solid #dfaaaa!important}
-.applicationStatus.changes_requested{background:#fff5df;color:#966c22}
-.applicationStatus.rejected{background:#fff0f1;color:#9c4450}
-@media(max-width:650px){.appDetailGrid{grid-template-columns:1fr}.appDetailBlock.wide{grid-column:auto}}
-
-.draftHandoff{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:12px;padding:14px 16px;border:1px solid #cfe5d5;border-radius:14px;background:#f1f9f3}
-.draftHandoffText b{display:block;color:#285d39;font-size:12px}
-.draftHandoffText span{display:block;margin-top:3px;color:#64806c;font-size:10px}
-.openDraftBtn{background:#122238!important;color:#fff!important;border-color:#122238!important}
-@media(max-width:560px){.draftHandoff{align-items:stretch}.openDraftBtn{width:100%}}
-
-#foundingClockCard{margin:18px 0;padding:20px 22px;border:1px solid #ead8c8;border-radius:20px;background:linear-gradient(135deg,#fff8f2,#fffdfb);box-shadow:0 12px 32px rgba(18,34,56,.05)}
-#foundingClockCard.hidden{display:none!important}
-.fClockTop{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
-.fClockEyebrow{font-size:9px;font-weight:850;letter-spacing:.16em;color:#c7785e}
-.fClockTop h3{margin:5px 0 4px;font:400 23px Georgia,serif;color:#122238}
-.fClockTop p{margin:0;color:#806f66;font-size:11px;line-height:1.55}
-.fClockDays{text-align:right;min-width:120px}.fClockDays strong{display:block;font:500 32px Georgia,serif;color:#122238}.fClockDays span{font-size:9px;font-weight:800;letter-spacing:.1em;color:#8a776d}
-.fClockTrack{height:8px;background:#f1e6df;border-radius:99px;overflow:hidden;margin:17px 0 13px}.fClockFill{height:100%;background:#e99576;border-radius:99px;width:0;transition:width .3s}
-.fClockMeta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.fClockMeta div{padding:10px 12px;border:1px solid #eee2da;border-radius:12px;background:#fff}.fClockMeta span{display:block;font-size:8px;letter-spacing:.11em;font-weight:850;color:#a27d6c}.fClockMeta b{display:block;margin-top:4px;font-size:11px;color:#122238}
-.fClockTriggered{margin-top:12px;padding:11px 13px;border-radius:12px;background:#edf7f0;color:#477257;font-size:10px;font-weight:750}.fClockTriggered.due{background:#fff0e9;color:#a86650}.fBillingBadge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf7f0;color:#477257;font-size:9px;font-weight:850;letter-spacing:.06em}
-@media(max-width:650px){.fClockDays{text-align:left}.fClockMeta{grid-template-columns:1fr}}
-
-#studioOverviewV64{margin:14px 0 18px;padding:18px 20px;border:1px solid #eaded6;border-radius:20px;background:linear-gradient(135deg,#fffdfb,#fff8f3);box-shadow:0 10px 30px rgba(18,34,56,.045)}
-#studioOverviewV64.hidden{display:none!important}
-.v64Top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
-.v64Name{font:400 24px Georgia,serif;color:#122238}.v64Sub{margin-top:4px;font-size:10px;color:#8a776d}
-.v64Badges{display:flex;gap:6px;flex-wrap:wrap}.v64Badge{padding:6px 9px;border-radius:999px;background:#f5eee9;color:#79685f;font-size:8px;font-weight:850;letter-spacing:.08em}.v64Badge.live{background:#edf7f0;color:#477257}.v64Badge.founding{background:#fff0e9;color:#a86650}
-.v64Stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.v64Stat{padding:10px 11px;border:1px solid #eee3dc;border-radius:12px;background:#fff}.v64Stat span{display:block;font-size:8px;font-weight:850;letter-spacing:.1em;color:#9b8174}.v64Stat b{display:block;margin-top:4px;color:#122238;font-size:11px}
-.v64Actions{display:flex;gap:7px;flex-wrap:wrap}.v64Jump{border:1px solid #e6d9d1;background:#fff;color:#263548;border-radius:10px;padding:8px 10px;font-size:9px;font-weight:750;cursor:pointer}.v64Jump:hover{background:#fff6f0}
-#foundingClockCard{padding:14px 16px!important;margin:10px 0 18px!important}
-#foundingClockCard .fClockTop h3{font-size:18px!important}
-#foundingClockCard .fClockMeta{display:none}
-#foundingClockCard.v64Expanded .fClockMeta{display:grid}
-#foundingClockCard .fClockTrack{margin:11px 0 9px}
-#foundingClockCard .fClockDays strong{font-size:26px}
-.v64ClockToggle{margin-top:10px;border:0;background:transparent;color:#b66f57;font-size:9px;font-weight:800;cursor:pointer;padding:0}
-.publishPanel{padding:15px 17px!important;margin:12px 0 18px!important}
-.publishPanel h2{font-size:19px!important}.publishChecklist{margin:12px 0!important}.publishCheck{padding:7px 9px!important}
-@media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr}}
-@media(max-width:440px){.v64Stats{grid-template-columns:1fr}.v64Actions{display:grid;grid-template-columns:1fr 1fr}.v64Jump{width:100%}}
-
-/* V65: turn Studios into a focused listing workspace */
-#studioOverviewV64{padding:22px!important;margin:12px 0 14px!important;background:#fff!important}
-.v64Top{align-items:center!important}.v64Name{font-size:28px!important}.v64Sub{font-size:11px!important}
-.v64Stats{grid-template-columns:repeat(4,minmax(0,1fr))!important;margin:18px 0 14px!important}
-.v64Stat{padding:13px 14px!important;background:#fbf8f5!important;border-color:#eee4dd!important}
-.v64Stat b{font-size:12px!important}
-.v64Actions{padding-top:13px;border-top:1px solid #eee4dd;gap:8px!important}
-.v64Jump{padding:10px 13px!important;background:#fff!important}
-.v65SectionNav{position:sticky;top:8px;z-index:15;display:flex;gap:6px;overflow-x:auto;padding:8px;margin:0 0 14px;border:1px solid #eaded6;border-radius:14px;background:rgba(255,253,251,.96);backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(18,34,56,.05);scrollbar-width:none}
-.v65SectionNav::-webkit-scrollbar{display:none}.v65NavBtn{white-space:nowrap;border:0;border-radius:9px;background:transparent;color:#78675f;padding:9px 12px;font-size:9px;font-weight:800;cursor:pointer}.v65NavBtn:hover{background:#f8efea;color:#122238}.v65NavBtn.primary{background:#122238;color:#fff}
-.v65WorkspaceTitle{margin:24px 0 9px;font:400 20px Georgia,serif;color:#122238}.v65WorkspaceHint{margin:-4px 0 13px;font-size:10px;color:#8a776d}
-#foundingClockCard{border-radius:16px!important}
-.publishPanel{border-radius:16px!important;box-shadow:none!important}
-.v65HiddenStudioAnalytics{display:none!important}
-@media(max-width:760px){.v64Stats{grid-template-columns:1fr 1fr!important}.v65SectionNav{top:4px}}
-@media(max-width:440px){.v64Stats{grid-template-columns:1fr 1fr!important}.v64Stat{padding:10px!important}.v64Name{font-size:23px!important}}
-
-#foundingClockCard{
- margin:12px 0 16px!important;
- padding:18px 20px!important;
- border:1px solid #eadbd2!important;
- border-radius:18px!important;
- background:linear-gradient(135deg,#fff7f1 0%,#fffdfb 58%,#fff 100%)!important;
- box-shadow:0 8px 24px rgba(18,34,56,.05)!important;
-}
-#foundingClockCard .fClockTop{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important}
-#foundingClockCard .fClockEyebrow{font-size:9px!important;letter-spacing:.14em!important}
-#foundingClockCard .fClockTop h3{margin:3px 0 3px!important;font-size:19px!important}
-#foundingClockCard .fClockTop p{margin:0!important}
-#foundingClockCard .fClockDays{display:flex!important;flex-direction:column!important;align-items:flex-end!important;min-width:130px!important}
-#foundingClockCard .fClockDays strong{font-size:34px!important;line-height:.95!important}
-#foundingClockCard .fClockTrack{height:6px!important;margin:13px 0 8px!important}
-#foundingClockCard .fClockMeta{display:none!important}
-#foundingClockCard.v64Expanded .fClockMeta{display:grid!important}
-#foundingClockCard .v64ClockToggle{margin-top:8px!important}
-@media(max-width:600px){
- #foundingClockCard .fClockTop{align-items:flex-start!important}
- #foundingClockCard .fClockDays{min-width:auto!important;align-items:flex-start!important}
-}
-
-#foundingClockCard{
- position:relative!important;
- overflow:hidden!important;
- margin:14px 0 18px!important;
- padding:0!important;
- border:1px solid rgba(211,171,145,.38)!important;
- border-radius:22px!important;
+body{
  background:
-   radial-gradient(circle at 88% 8%,rgba(231,190,166,.22),transparent 34%),
-   linear-gradient(135deg,#fffaf7 0%,#fff 58%,#fff8f3 100%)!important;
- box-shadow:0 14px 38px rgba(73,49,38,.075)!important;
+ radial-gradient(circle at 8% 0%,rgba(197,143,167,.10),transparent 25rem),
+ linear-gradient(180deg,#fbf7f9 0,#fffdfd 34rem,#faf7f9 100%)!important;
+ color:var(--sym-ink)!important;
 }
-#foundingClockCard:before{
- content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
- background:linear-gradient(#d9a98c,#efcbbb,#c89072)
+.brand,.adminPaneIntro h1,.adminPaneIntro h2,.card h1,.card h2,
+.studioManagerCard h1,.readinessHero h2,.deletePanel h2{color:var(--sym-ink)!important}
+.muted,.adminPaneIntro p{color:#85727d!important}
+
+.adminTopTabs{background:rgba(255,253,253,.95)!important;border-color:#eadde3!important}
+.adminTopTab{color:#745e6b!important;border-color:#eadde3!important;background:#fff!important}
+.adminTopTab:hover{background:#faf1f5!important;border-color:#dbc5d0!important}
+.adminTopTab.active{
+ background:linear-gradient(135deg,#8f687f,#a97b94)!important;
+ color:#fff!important;border-color:#8f687f!important;
+ box-shadow:0 7px 18px rgba(126,86,108,.18)!important
 }
-#foundingClockCard .fClockTop{padding:20px 22px 14px!important;display:grid!important;grid-template-columns:1fr auto!important;gap:22px!important;align-items:center!important}
-#foundingClockCard .fClockEyebrow{
- display:inline-flex!important;align-items:center!important;width:max-content!important;
- padding:5px 9px!important;border-radius:999px!important;
- background:#fff0e7!important;color:#a66b50!important;
- font-size:8px!important;font-weight:900!important;letter-spacing:.13em!important
+.adminTopTab.add{
+ background:linear-gradient(135deg,#a97b94,#c58fa7)!important;
+ color:#fff!important;border-color:#a97b94!important
 }
-#foundingClockCard .fClockTop h3{font:400 21px/1.15 Georgia,serif!important;color:#15243a!important;margin:7px 0 4px!important}
-#foundingClockCard .fClockTop p{font-size:9px!important;line-height:1.55!important;color:#8d7b71!important;max-width:460px!important}
-#foundingClockCard .fClockDays{
- min-width:138px!important;padding:12px 15px!important;border:1px solid #eee0d7!important;
- border-radius:16px!important;background:rgba(255,255,255,.78)!important;text-align:center!important;
- box-shadow:0 6px 18px rgba(73,49,38,.04)!important
+.adminTopTab .count{background:#f6e8ef!important;color:#91677e!important}
+.adminTopTab.active .count{background:rgba(255,255,255,.17)!important;color:#fff!important}
+
+.card,.applicationsCard,.ownerReviewPanel,.readinessHero,.publishPanel{
+ border-color:#eadde3!important;background:rgba(255,253,253,.97)!important;
+ box-shadow:var(--a53-shadow)!important
 }
-#foundingClockCard .fClockDays strong{display:block!important;font:400 34px/1 Georgia,serif!important;color:#c37e5e!important}
-#foundingClockCard .fClockDays span{display:block!important;margin-top:5px!important;font-size:7px!important;font-weight:900!important;letter-spacing:.12em!important;color:#8f776b!important}
-#foundingClockCard .fClockTrack{height:7px!important;margin:0 22px 9px!important;border-radius:999px!important;background:#f2e8e2!important;overflow:hidden!important}
-#foundingClockCard .fClockTrack>div{height:100%!important;border-radius:999px!important;background:linear-gradient(90deg,#d79a7b,#edc1ac)!important}
-#foundingClockCard .fClockCopy{margin:0 22px 15px!important;font-size:9px!important;color:#88756c!important}
-#foundingClockCard .fClockMeta{margin:0 22px 15px!important;padding:14px!important;border-radius:14px!important;background:#fff!important;border:1px solid #eee4dd!important}
-#foundingClockCard .fClockTriggered{margin:0 22px 14px!important}
-#foundingClockCard .v64ClockToggle{
- margin:0!important;width:100%!important;padding:11px 22px!important;border:0!important;border-top:1px solid #eee3dc!important;
- background:rgba(255,255,255,.58)!important;text-align:left!important;color:#a66b50!important;
- font-size:8px!important;font-weight:900!important;letter-spacing:.05em!important;cursor:pointer!important
+.studioManagerCard{background:linear-gradient(135deg,#fffdfd,#fbf3f7)!important}
+.card>.headRow{border-bottom-color:#f0e5ea!important}
+
+input,select,textarea{border-color:#e7d8df!important}
+input:hover,select:hover,textarea:hover{border-color:#d7beca!important}
+input:focus,select:focus,textarea:focus{
+ border-color:#a97b94!important;
+ box-shadow:0 0 0 4px rgba(169,123,148,.12)!important;
+ background:#fffdfd!important
 }
-#foundingClockCard .v64ClockToggle:hover{background:#fff!important}
-@media(max-width:600px){
- #foundingClockCard .fClockTop{grid-template-columns:1fr!important;padding:18px 18px 13px!important;gap:13px!important}
- #foundingClockCard .fClockDays{min-width:0!important;width:100%!important;text-align:left!important}
- #foundingClockCard .fClockTrack{margin-left:18px!important;margin-right:18px!important}
- #foundingClockCard .fClockCopy,#foundingClockCard .fClockMeta,#foundingClockCard .fClockTriggered{margin-left:18px!important;margin-right:18px!important}
+.field span:first-child{color:#8c7581!important}
+
+/* Primary actions */
+.btn:not(.secondary):not(.dangerBtn):not(.deleteConfirm):not(.adminDeleteQuick){
+ background:linear-gradient(135deg,#a97b94,#c58fa7)!important;
+ border-color:#a97b94!important;color:#fff!important
+}
+.btn:not(.secondary):not(.dangerBtn):not(.deleteConfirm):not(.adminDeleteQuick):hover:not(:disabled){
+ background:linear-gradient(135deg,#946b82,#b77f98)!important
+}
+.btn.secondary{background:#fff!important;color:#735c69!important;border-color:#dfcdd6!important}
+.btn.secondary:hover:not(:disabled){background:#faf2f6!important;border-color:#cdb1bf!important}
+
+/* Control Centre */
+.adminHero{
+ background:linear-gradient(135deg,#443440 0%,#6f5264 58%,#8f687f 100%)!important;
+ box-shadow:0 22px 55px rgba(80,55,70,.17)!important
+}
+.completenessBox{background:rgba(255,255,255,.10)!important}
+.progressTrack>div,#completionBar{background:linear-gradient(90deg,#c58fa7,#d9a1aa)!important}
+.adminQuickNav{background:rgba(255,253,253,.95)!important;border-color:#eadde3!important}
+.adminQuickNav button:hover,.adminQuickNav button.active{background:#f5e8ee!important;color:#815e72!important}
+
+/* Onboarding / applications / analytics accents */
+.onboardStep:hover{border-color:#d7b4c5!important}
+.opsAdd{background:linear-gradient(135deg,#a97b94,#c58fa7)!important}
+.opsEyebrow,.adminEyebrow,.publishEyebrow,.rhEyebrow,.analyticsStoryLabel{color:#9b7087!important}
+.readinessHero{border-color:#dec1cf!important;background:linear-gradient(135deg,#fcf5f8,#fff)!important}
+.readinessMissing{background:#f8edf2!important;color:#865f74!important}
+.readinessMissing.ready{background:#edf8f0!important;color:#4c7359!important}
+.publishBtn,.publishBtn.readyPulse{
+ background:linear-gradient(135deg,#8f687f,#a97b94)!important;
+ border-color:#8f687f!important;color:#fff!important;
+ box-shadow:0 12px 28px rgba(143,104,127,.22)!important
 }
 
-#referralsCard{display:none!important}
-#adminPane-referrals.active #referralsCard{display:block!important}
+/* Keep destructive actions unmistakably destructive */
+.adminDeleteQuick,.dangerBtn{
+ background:#fff!important;color:#a04747!important;border:1px solid #e1b4b4!important;
+ box-shadow:none!important
+}
+.adminDeleteQuick:hover,.dangerBtn:hover{background:#fff5f5!important;border-color:#cc8f8f!important}
+.deleteModal{background:rgba(48,44,57,.58)!important;backdrop-filter:blur(4px)}
+.deletePanel{background:#fffdfd!important;border:1px solid #eadde3!important}
+.deleteConfirm{background:#a64040!important;border-color:#a64040!important;color:#fff!important}
+.dangerZone{border-color:#ebcaca!important;background:#fff8f8!important}
 
-.adminTabPane[hidden]{display:none!important}
+/* Status colours stay semantic */
+.status.ok,.saveHint .liveDot{color:#527a61}
+#studioStatePill{background:#eef7f0!important;color:#477356!important}
+#studioStatePill.inactive{background:#f7eeee!important;color:#9a5f5f!important}
 
-/* Final authority: Referrals exists ONLY on the active Referrals tab.
-   This overrides the legacy V64 desktop display:block!important rule. */
-#adminPane-referrals{display:none!important}
-#adminPane-referrals.active:not([hidden]){display:block!important}
-#adminPane-referrals[hidden]{display:none!important}
+/* Mobile */
+@media(max-width:760px){
+ .studioManagerCard .toolbar{display:flex!important;flex-direction:column!important;align-items:stretch!important}
+ .studioManagerCard .toolbar .btn{width:100%!important}
+ input,select,textarea{font-size:16px!important}
+ .adminDeleteQuick{margin-top:2px}
+}
+</style>
 
-#adminPane-overview{padding-top:4px}
-#adminPane-overview #opsDashboard{display:none!important}
-#v70bDashboard{max-width:1370px;margin:0 auto 34px}
-.v70bHero{position:relative;overflow:hidden;border-radius:30px;padding:38px;background:
- radial-gradient(circle at 88% 5%,rgba(239,164,132,.25),transparent 28%),
- linear-gradient(135deg,#102b47,#173c5e 62%,#244e70);color:white;box-shadow:0 25px 65px rgba(18,43,68,.18)}
-.v70bHeroRow{display:flex;justify-content:space-between;gap:25px;align-items:flex-start}
-.v70bEyebrow{font-size:10px;font-weight:900;letter-spacing:.23em;text-transform:uppercase;color:#f2a487}
-.v70bHero h1{font-family:Georgia,serif;font-weight:500;font-size:40px;line-height:1.05;margin:10px 0 10px}
-.v70bHero p{margin:0;max-width:650px;color:rgba(255,255,255,.69);line-height:1.55}
-.v70bDate{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);padding:10px 14px;border-radius:999px;font-size:11px;color:rgba(255,255,255,.72);white-space:nowrap}
-.v70bStats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}
-.v70bStat{padding:17px 16px;border-radius:17px;background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.11);backdrop-filter:blur(10px)}
-.v70bStat label{display:block;font-size:9px;letter-spacing:.13em;text-transform:uppercase;font-weight:900;color:rgba(255,255,255,.55);margin-bottom:9px}
-.v70bStat strong{font:500 28px Georgia,serif}.v70bStat small{display:block;margin-top:5px;font-size:9px;color:rgba(255,255,255,.46)}
-.v70bMid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin:17px 0}
-.v70bPanel{border:1px solid #eaded8;background:linear-gradient(180deg,#fff,#fffbf8);border-radius:23px;padding:23px;box-shadow:0 12px 34px rgba(18,43,68,.055)}
-.v70bHead{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:17px}
-.v70bHead h2{font:500 24px Georgia,serif;color:#102d49;margin:4px 0 4px}.v70bHead p{margin:0;color:#8d7165;font-size:11px}
-.v70bChip{padding:7px 10px;border-radius:999px;background:#fff0e9;color:#b7664b;font-size:9px;letter-spacing:.09em;text-transform:uppercase;font-weight:900}
-.v70bTasks{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
-.v70bTask{border:1px solid #eee2dc;border-radius:15px;background:white;padding:14px}
-.v70bTask strong{display:block;color:#153450;font-size:23px;font-family:Georgia,serif}.v70bTask span{font-size:10px;color:#907469}
-.v70bProgressTop{display:flex;align-items:flex-end;gap:8px;margin-top:10px}.v70bProgressTop strong{font:500 44px Georgia,serif;color:#153450}.v70bProgressTop span{padding-bottom:7px;color:#94766a}
-.v70bTrack{height:10px;background:#f0e7e2;border-radius:999px;overflow:hidden;margin:15px 0 9px}.v70bFill{height:100%;border-radius:999px;background:linear-gradient(90deg,#e68f70,#f0b08e)}
-.v70bNetwork{border:1px solid #eaded8;background:#fff;border-radius:25px;padding:25px;box-shadow:0 14px 38px rgba(18,43,68,.055)}
-.v70bTools{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0 19px}
-#v70bSearch{flex:1;min-width:230px;border:1px solid #e5d8d1;border-radius:13px;padding:11px 13px;font:inherit;font-size:13px}
-.v70bFilter{border:1px solid #e6d8d1;background:white;color:#765d52;border-radius:999px;padding:8px 12px;font-size:10px;font-weight:900;cursor:pointer}.v70bFilter.on{background:#143450;color:white;border-color:#143450}
-#v70bGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.v70bStudio{position:relative;border:1px solid #eaded8;background:linear-gradient(145deg,#fff,#fffcfa);border-radius:17px;padding:16px;min-height:108px;cursor:pointer;transition:.16s ease;outline:none}
-.v70bStudio:hover,.v70bStudio:focus{transform:translateY(-2px);border-color:#eca88d;box-shadow:0 12px 25px rgba(18,43,68,.09)}
-.v70bStudio:after{content:"→";position:absolute;right:15px;bottom:14px;color:#d78668;font-weight:900}
-.v70bStudioName{font-size:14px;font-weight:900;color:#102d49;padding-right:25px}.v70bMeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
-.v70bBadge{font-size:8px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;border-radius:999px;padding:6px 8px;background:#f3eeeb;color:#826b61}
-.v70bBadge.live{background:#e7f5eb;color:#39784f}.v70bBadge.founder{background:#fff0dd;color:#a66a28}
-.v70bEmpty{grid-column:1/-1;border:1px dashed #e3d5ce;border-radius:15px;padding:24px;text-align:center;color:#8c7166}
-@media(max-width:1050px){.v70bStats{grid-template-columns:repeat(3,1fr)}.v70bMid{grid-template-columns:1fr}#v70bGrid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:650px){.v70bHero{padding:25px 20px;border-radius:22px}.v70bHeroRow{display:block}.v70bDate{display:inline-block;margin-top:17px}.v70bHero h1{font-size:31px}.v70bStats{grid-template-columns:repeat(2,1fr)}.v70bTasks{grid-template-columns:1fr}#v70bGrid{grid-template-columns:1fr}.v70bNetwork,.v70bPanel{padding:18px}}
+<link rel="icon" type="image/png" href="/favicon.png?v=58"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=58">
 
-html, body, .page, main, #adminDashboard {
-  background: #ffffff !important;
+<style id="symbli-admin-v59-dashboard-delete">
+/* Dashboard studio cards: delete exactly where studios are managed */
+.opsStudioWithDelete{
+ position:relative!important;display:block!important;padding:0!important;overflow:hidden!important;
+ background:#fffdfd!important;border:1px solid #eadde3!important;border-radius:16px!important;
+ transition:.18s ease!important
+}
+.opsStudioWithDelete:hover{border-color:#d8c1cc!important;box-shadow:0 8px 22px rgba(74,51,65,.06)!important}
+.opsStudioOpen{
+ appearance:none;border:0;background:transparent;width:100%;text-align:left;cursor:pointer;
+ padding:15px 82px 15px 16px;color:inherit;font:inherit;min-height:82px
+}
+.opsStudioOpen:hover{background:#fdf8fa}
+.opsStudioDelete{
+ position:absolute;right:13px;bottom:13px;appearance:none;border:1px solid #e8caca;
+ background:#fff8f8;color:#a04f4f;border-radius:9px;padding:6px 9px;
+ font:800 8px/1 inherit;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;
+ transition:.15s ease
+}
+.opsStudioDelete:hover{background:#a64040;color:#fff;border-color:#a64040}
+@media(max-width:760px){
+ .opsStudioOpen{padding-right:78px}
+ .opsStudioDelete{right:11px;bottom:11px}
+}
+</style>
+
+
+<style id="symbli-admin-v60-total-recolour">
+/* V60 authoritative colour migration: no legacy orange/peach UI */
+html body{background:#fbf7f9!important;color:#302c39!important}
+.adminShell,.adminMain,.adminWorkspace,.adminContent,.opsShell{background:transparent!important}
+.adminSidebar,.opsSidebar{background:#fffdfd!important;border-color:#eadde3!important}
+.adminSidebar:before,.opsSidebar:before{background:linear-gradient(180deg,#a97b94,#c58fa7)!important}
+
+.opsStudio,.opsRow,.metricCard,.analyticsCard,.refCard,.applicationRow,
+.ownerReviewCard,.studioPanel,.imageCard,.treatmentCard,.serviceCard{
+ border-color:#eadde3!important;background:#fffdfd!important
+}
+.opsStudio:hover,.opsRow:hover{border-color:#d7beca!important;background:#fdf8fa!important}
+
+.opsBadge:not(.live):not(.owner):not(.attn),
+.pill:not(.live):not(.success):not(.danger),.statusPill:not(.live):not(.success):not(.danger){
+ background:#f3e8ee!important;color:#806477!important;border-color:#e7d5de!important
+}
+.opsBadge.owner{background:#edf3fb!important;color:#55708d!important}
+.opsBadge.attn{background:#f7edf3!important;color:#8c6279!important}
+.opsBadge.live{background:#edf7f0!important;color:#477257!important}
+
+.opsSmallBtn.primary,.primaryBtn,.saveBtn,.actionBtn,
+button[data-action="publish"],button[data-action="save"]{
+ background:linear-gradient(135deg,#a97b94,#c58fa7)!important;
+ border-color:#a97b94!important;color:#fff!important
+}
+.opsSmallBtn.primary:hover,.primaryBtn:hover,.saveBtn:hover,.actionBtn:hover{
+ background:linear-gradient(135deg,#946b82,#b77f98)!important
 }
 
-#foundingClockCard .fClockDays{display:grid!important;grid-template-columns:repeat(4,minmax(68px,1fr))!important;gap:7px!important;min-width:350px!important;align-items:stretch!important}
-#foundingClockCard .v71Unit{padding:10px 8px 8px!important;border:1px solid #eaded6!important;border-radius:12px!important;background:rgba(255,255,255,.82)!important;text-align:center!important}
-#foundingClockCard .v71Unit strong{display:block!important;font:400 25px/1 Georgia,serif!important;color:#c37e5e!important;font-variant-numeric:tabular-nums!important}
-#foundingClockCard .v71Unit span{display:block!important;margin-top:5px!important;font-size:6px!important;letter-spacing:.13em!important;font-weight:900!important;color:#8f776b!important}
-#foundingClockCard.v71Triggered .fClockDays{grid-template-columns:1fr!important;min-width:180px!important}
-#foundingClockCard.v71Triggered .v71Unit:not(:first-child){display:none!important}
-#foundingClockCard.v71Triggered .v71Unit:first-child strong{font-size:16px!important}
-@media(max-width:760px){#foundingClockCard .fClockDays{width:100%!important;min-width:0!important;grid-template-columns:repeat(4,1fr)!important}#foundingClockCard .v71Unit{padding:9px 3px!important}}
+.adminSectionLabel,.eyebrow,.sectionEyebrow,.opsKicker{
+ color:#9b7087!important
+}
+a{color:#8f687f}
+.progressFill,.meterFill,.barFill{background:linear-gradient(90deg,#a97b94,#c58fa7)!important}
+
+/* Neutralise old inline-ish warm backgrounds in common admin surfaces */
+.notice:not(.error):not(.success),.infoBox,.helperBox,.emptyState,.opsEmpty{
+ background:#faf2f6!important;border-color:#eadde3!important;color:#735f6b!important
+}
+table thead th{background:#f8f0f4!important;color:#725d69!important}
+table tbody tr:hover{background:#fdf8fa!important}
+
+/* Dashboard delete stays exactly on each studio card */
+.opsStudioWithDelete{background:#fffdfd!important;border-color:#eadde3!important}
+.opsStudioDelete{background:#fff8f8!important;color:#a04f4f!important;border-color:#e8caca!important}
+.opsStudioDelete:hover{background:#a64040!important;color:#fff!important;border-color:#a64040!important}
+</style>
+
+
+<style id="symbli-admin-v61-archive-css">
+#adminTopTabs [data-admin-tab="archived"]:before{content:"▣"}
+.opsStudioArchive{
+ position:absolute;right:13px;bottom:13px;appearance:none;border:1px solid #ddcbd4;
+ background:#faf3f7;color:#7d6271;border-radius:9px;padding:6px 9px;
+ font:800 8px/1 inherit;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.15s ease
+}
+.opsStudioArchive:hover{background:#8f687f;color:#fff;border-color:#8f687f}
+.archivedStudioGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:12px}
+.archiveToolbar{display:flex;justify-content:flex-end;margin:4px 0 8px}
+.archivedStudioCard{
+ display:flex;align-items:center;justify-content:space-between;gap:14px;
+ border:1px solid #eadde3;background:#fffdfd;border-radius:16px;padding:15px 16px;
+ box-shadow:0 6px 18px rgba(74,51,65,.035)
+}
+.archivedStudioName{font-weight:800;color:#403743;font-size:13px}
+.archivedStudioMeta{font-size:9px;color:#96808b;margin-top:5px}
+.restoreStudioBtn{
+ appearance:none;border:1px solid #d9c2ce;background:#faf2f6;color:#7b5b70;
+ border-radius:10px;padding:8px 11px;font:800 9px/1 inherit;cursor:pointer
+}
+.restoreStudioBtn:hover{background:#a97b94;border-color:#a97b94;color:#fff}
+.archiveEmpty{grid-column:1/-1;border:1px dashed #dfccd6;border-radius:17px;padding:30px;text-align:center;background:#fcf7fa}
+.archiveEmpty strong{display:block;color:#4c3d46;font-size:14px}
+.archiveEmpty span{display:block;color:#8d7884;font-size:10px;margin-top:5px}
+@media(max-width:760px){.archivedStudioGrid{grid-template-columns:1fr}}
+</style>
+
+
+<style id="symbli-admin-v63-archive-delete">
+.archiveActions{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.archivePermanentDeleteBtn{
+ appearance:none;border:1px solid #e2baba;background:#fff8f8;color:#a04747;
+ border-radius:10px;padding:8px 11px;font:800 9px/1 inherit;cursor:pointer
+}
+.archivePermanentDeleteBtn:hover{background:#a64040;border-color:#a64040;color:#fff}
+@media(max-width:620px){
+ .archivedStudioCard{align-items:flex-start}
+ .archiveActions{flex-direction:column;align-items:stretch}
+ .archiveActions button{width:100%}
+}
+</style>
+
+
+<style id="symbli-admin-v64-simple-delete-confirm">
+.deleteSure{
+ margin:16px 0 12px;padding:13px 14px;border:1px solid #e8caca;border-radius:13px;
+ background:#fff7f7;color:#7f4545
+}
+.deleteSure strong{display:block;font-size:12px;margin-bottom:3px}
+.deleteSure span{display:block;font-size:10px;line-height:1.45;color:#986363}
+</style>
+
+
+<style id="symbli-admin-v66-decline-applications">
+.applicationStatus.declined{background:#f8eeee!important;color:#9b555d!important}
+.applicationDeclineBtn{
+ background:#fff!important;color:#9a5960!important;border:1px solid #e6c7ca!important;
+ box-shadow:none!important
+}
+.applicationDeclineBtn:hover{background:#fff4f5!important;border-color:#d7a8ad!important}
+</style>
+
+
+<style id="symbli-admin-v67-clear-resolved-css">
+.applicationsHeaderActions{display:flex;align-items:center;gap:9px}
+.clearResolvedBtn{height:34px!important;padding:0 12px!important;font-size:9px!important}
+@media(max-width:520px){
+ .applicationsHeaderActions{width:100%;justify-content:space-between}
+ .clearResolvedBtn{flex:1}
+}
 </style>
 
 </head><body><div class="wrap">
@@ -1252,22 +1127,12 @@ html, body, .page, main, #adminDashboard {
 </div>
 
 <div class="card studioManagerCard"><div class="headRow"><div><div class="adminEyebrow">STUDIO MANAGER</div><h1>Manage studio</h1><p class="muted">Choose a studio to manage its listing, content, photos, services, publishing and performance.</p></div><button id="logoutBtn" class="btn secondary">Sign out</button></div>
-<div class="toolbar"><label class="field"><span>STUDIO</span><select id="studioSelect"><option>Loading studios…</option></select></label><button id="addStudioBtn" class="btn">+ Add Studio</button><button id="refreshBtn" class="btn secondary">Refresh</button></div>      <div class="ownerEmailQuick"><label class="field" for="studioOwnerEmail"><span>OWNER EMAIL · PORTAL ACCESS</span><input id="studioOwnerEmail" type="email" autocomplete="off" placeholder="owner@example.com"></label><div style="display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap"><button id="saveOwnerEmailBtn" class="btn secondary" type="button">Save owner email</button><span id="ownerEmailStatus" class="smallNote" role="status">Owners create their own portal account with this email.</span></div></div></div>
+<div class="toolbar"><label class="field"><span>STUDIO</span><select id="studioSelect"><option>Loading studios…</option></select></label><button id="addStudioBtn" class="btn">+ Add Studio</button><button id="refreshBtn" class="btn secondary">Refresh</button><button id="deleteStudioQuickBtn" class="btn adminDeleteQuick" type="button">Delete studio</button></div>      <div class="ownerEmailQuick"><label class="field" for="studioOwnerEmail"><span>OWNER EMAIL · PORTAL ACCESS</span><input id="studioOwnerEmail" type="email" autocomplete="off" placeholder="owner@example.com"></label><div style="display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap"><button id="saveOwnerEmailBtn" class="btn secondary" type="button">Save owner email</button><span id="ownerEmailStatus" class="smallNote" role="status">Owners create their own portal account with this email.</span></div></div></div>
 
-<div id="foundingClockCard" class="hidden">
- <div class="fClockTop"><div><div class="fClockEyebrow">FOUNDING STUDIO</div><h3>Founding membership clock</h3><p id="foundingClockCopy">The 90-day clock begins only when this studio goes live.</p></div><div class="fClockDays">
-<div class="v71Unit"><strong id="foundingDays">90</strong><span id="foundingDaysLabel">DAYS</span></div>
-<div class="v71Unit"><strong id="foundingHours">00</strong><span>HOURS</span></div>
-<div class="v71Unit"><strong id="foundingMinutes">00</strong><span>MINUTES</span></div>
-<div class="v71Unit"><strong id="foundingSeconds">00</strong><span>SECONDS</span></div>
-</div></div>
- <div class="fClockTrack"><div class="fClockFill" id="foundingClockFill"></div></div>
- <div class="fClockMeta"><div><span>WENT LIVE</span><b id="foundingLiveDate">Not live yet</b></div><div><span>90-DAY DATE</span><b id="foundingDueDate">Starts when published</b></div><div><span>LIVE STUDIOS</span><b id="foundingStudioCount">Checking…</b></div><div><span>BILLING STATUS</span><b id="foundingBillingStatus">Free period</b></div><div><span>BILLING START</span><b id="foundingBillingStart">Not triggered</b></div><div><span>FOUNDING RATE</span><b id="foundingRate">£29.99/month locked</b></div></div>
- <div id="foundingClockTrigger" class="fClockTriggered hidden"></div><button class="v64ClockToggle" type="button" onclick="toggleV64Clock()">View billing details ↓</button>
-</div>
+
 
 <div class="card applicationsCard" id="applicationsCard">
- <div class="applicationsHeader"><div><div class="adminEyebrow" style="color:#c67d63">STUDIO PIPELINE</div><h2>Studio Applications</h2><p class="muted">Review businesses that want to join SYMBLI. Approving an application creates a private draft studio and sends it into the onboarding workflow.</p></div><span class="applicationCount" id="applicationCount">0</span></div>
+ <div class="applicationsHeader"><div><div class="adminEyebrow" style="color:#c67d63">STUDIO PIPELINE</div><h2>Studio Applications</h2><p class="muted">Review businesses that want to join SYMBLI. Approving an application creates a private draft studio and sends it into the onboarding workflow.</p></div><div class="applicationsHeaderActions"><button type="button" class="btn secondary clearResolvedBtn" id="clearResolvedApplications">Clear resolved</button><span class="applicationCount" id="applicationCount">0</span></div></div>
  <div id="applicationsStatus" class="status">Loading applications…</div>
  <div id="applicationRows" class="applicationRows"><div class="empty">No applications loaded.</div></div>
 </div>
@@ -1310,26 +1175,6 @@ html, body, .page, main, #adminDashboard {
  <div class="readinessMissing" id="readinessMissing">Choose a studio to begin.</div>
  <button type="button" class="btn secondary readinessJump" id="readinessJump" disabled>Go to missing requirement</button>
 </div>
-<div id="studioOverviewV64" class="hidden">
- <div class="v64Top"><div><div class="v64Name" id="v64StudioName">Studio</div><div class="v64Sub" id="v64StudioTown">Studio overview</div></div><div class="v64Badges"><span class="v64Badge" id="v64StateBadge">DRAFT</span><span class="v64Badge founding hidden" id="v64FoundingBadge">FOUNDING STUDIO</span></div></div>
- <div class="v64Stats"><div class="v64Stat"><span>LISTING</span><b id="v64Listing">0% complete</b></div><div class="v64Stat"><span>STATUS</span><b id="v64Status">Draft</b></div><div class="v64Stat"><span>FOUNDING</span><b id="v64Founding">Standard studio</b></div><div class="v64Stat"><span>BILLING</span><b id="v64Billing">Not applicable</b></div></div>
- <div class="v64Actions">
-  <button class="v64Jump" type="button" data-target="detailsForm">Profile</button>
-  <button class="v64Jump" type="button" data-target="gallery">Photos</button>
-  <button class="v64Jump" type="button" data-target="serviceRows">Treatments</button>
-  <button class="v64Jump" type="button" data-target="ownerAccessCard">Owner access</button>
-  <button class="v64Jump" type="button" onclick="document.getElementById('foundingClockCard')?.scrollIntoView({behavior:'smooth',block:'center'})">Billing</button>
- </div>
-</div>
-<div class="v65SectionNav" id="v65SectionNav">
- <button class="v65NavBtn primary" type="button" data-v65target="studioOverviewV64">Overview</button>
- <button class="v65NavBtn" type="button" data-v65target="detailsForm">Profile</button>
- <button class="v65NavBtn" type="button" data-v65target="serviceRows">Treatments</button>
- <button class="v65NavBtn" type="button" data-v65target="gallery">Photos</button>
- <button class="v65NavBtn" type="button" data-v65target="ownerAccessCard">Owner access</button>
- <button class="v65NavBtn" type="button" data-v65target="foundingClockCard">Founding billing</button>
-</div>
-
 <div class="publishPanel" id="publishPanel">
  <div class="publishTop"><div><div class="publishEyebrow">PUBLISHING</div><h2>Ready for SYMBLI?</h2><p id="publishCopy">Choose a studio to check whether its listing is ready to publish.</p></div><div class="publishState" id="publishState">NO STUDIO SELECTED</div></div>
  <div class="publishChecklist" id="publishChecklist">
@@ -1371,6 +1216,7 @@ html, body, .page, main, #adminDashboard {
   </div>
  </div>
 </div>
+
 
 <div class="card" id="detailsCard">
   <div class="headRow">
@@ -1414,6 +1260,10 @@ html, body, .page, main, #adminDashboard {
   </div>
 </div>
 
+
+
+
+
 <div class="card" id="treatmentsCard">
   <div class="headRow">
     <div>
@@ -1432,6 +1282,8 @@ html, body, .page, main, #adminDashboard {
     </div>
   </div>
 </div>
+
+
 
 <div class="card" id="servicesCard">
   <div class="headRow">
@@ -1452,6 +1304,7 @@ html, body, .page, main, #adminDashboard {
     </div>
   </div>
 </div>
+
 
 <div class="card" id="reviewsCard">
   <div class="headRow">
@@ -1529,7 +1382,6 @@ const SUPABASE_KEY='sb_publishable_IqqsvmuC_zQ-_lDtnGzp8g_i3exrXGz';
 const BUCKET='studio-images';let token='',studios=[],images=[],studioDetail=null,studioColumns=[],treatments=[],studioTreatmentIds=new Set(),vibeRows=[],draftVibes=[],vibeValueColumn='vibe';
 const $=id=>document.getElementById(id);const safe=s=>String(s||'').replace(/[^a-zA-Z0-9._-]/g,'-');
 function status(el,msg,type=''){el.textContent=msg;el.className='status'+(type?' '+type:'')}
-function statusHtml(el,html,type=''){el.innerHTML=html;el.className='status'+(type?' '+type:'')}
 async function refreshAdminSession(){
  const rt=localStorage.getItem('symbli_admin_refresh')||'';
  if(!rt)throw new Error('No saved refresh session');
@@ -1800,6 +1652,7 @@ async function saveServices(){
  }catch(e){status($('servicesStatus'),'Could not save services: '+cleanErr(e),'bad')}
 }
 
+
 function reviewEsc(v){return String(v??'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
 function reviewRowHtml(r={},i=0){
  const rating=Number(r.rating||5);
@@ -1929,6 +1782,8 @@ async function moveImage(id,dir){const i=images.findIndex(x=>x.id===id),j=i+dir;
 async function setCover(id){const s=currentStudio();try{await authFetch('/rest/v1/studio_images?studio_id=eq.'+encodeURIComponent(s.id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({is_cover:false})});await patchImage(id,{is_cover:true,sort_order:1});await loadImages();status($('uploadStatus'),'Cover image updated.','ok')}catch(e){status($('uploadStatus'),'Could not set cover: '+cleanErr(e),'bad')}}
 async function deleteImage(id){const x=images.find(a=>a.id===id);if(!x||!confirm('Delete this image from the studio gallery?'))return;try{const marker='/storage/v1/object/public/'+BUCKET+'/';const path=x.image_url.includes(marker)?x.image_url.split(marker)[1]:'';await authFetch('/rest/v1/studio_images?id=eq.'+encodeURIComponent(id),{method:'DELETE',headers:{'Prefer':'return=minimal'}});if(path){await fetch(SUPABASE_URL+'/storage/v1/object/'+BUCKET+'/'+path,{method:'DELETE',headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+token}})}await loadImages();status($('uploadStatus'),'Image deleted.','ok')}catch(e){status($('uploadStatus'),'Could not delete image: '+cleanErr(e),'bad')}}
 
+
+
 function refreshAnalyticsPresentation(){
  const num=id=>Number(String($(id)?.textContent||'0').replace(/[^0-9.-]/g,''))||0;
  const views=num('metricProfile'),studio=num('metricStudio'),booking=num('metricBooking'),web=num('metricWebsite'),insta=num('metricInstagram'),out=booking+web+insta;
@@ -1972,189 +1827,7 @@ function getListingReadiness(){
  const done=Object.values(checks).filter(Boolean).length;
  return {checks,done,pct:Math.round(done/6*100),ready:done===6,active:studioDetail.is_active!==false};
 }
-function foundingDate(v){
- if(!v)return null;const d=new Date(v);return Number.isNaN(d.getTime())?null:d;
-}
-function fmtFoundingDate(d){
- return d?new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(d):'—';
-}
-let foundingMilestoneCache=null;
-async function getFoundingMilestone(){
- if(foundingMilestoneCache!==null)return foundingMilestoneCache;
- try{
-  const rows=await authFetch('/rest/v1/symbli_settings?key=eq.founding_10_live_milestone_at&select=key,value&limit=1');
-  foundingMilestoneCache=rows?.[0]?.value||'';
- }catch(e){foundingMilestoneCache=''}
- return foundingMilestoneCache;
-}
-async function setFoundingMilestoneIfNeeded(){
- try{
-  const live=await authFetch('/rest/v1/studios?select=id&is_active=eq.true');
-  const count=Array.isArray(live)?live.length:0;
-  let milestone=await getFoundingMilestone();
-  if(count>=10&&!milestone){
-   const now=new Date().toISOString();
-   const rows=await authFetch('/rest/v1/symbli_settings?on_conflict=key',{
-    method:'POST',
-    headers:{'Content-Type':'application/json','Prefer':'resolution=merge-duplicates,return=representation'},
-    body:JSON.stringify({key:'founding_10_live_milestone_at',value:now})
-   });
-   milestone=rows?.[0]?.value||now;foundingMilestoneCache=milestone;
-  }
-  return {count,milestone};
- }catch(e){return {count:null,milestone:await getFoundingMilestone()}}
-}
-async function persistFoundingBillingTrigger(studio, billingStart, reason){
- if(!studio?.id||studio.founding_billing_started_at)return studio;
- try{
-  const body={founding_billing_started_at:billingStart.toISOString(),founding_billing_trigger:reason,founding_monthly_rate:29.99};
-  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(studio.id)+'&select=*',{
-   method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)
-  });
-  if(Array.isArray(rows)&&rows.length===1){studioDetail=rows[0];studioColumns=Object.keys(studioDetail);return rows[0]}
- }catch(e){}
- return studio;
-}
-
-let foundingClockTickerV71A=null;
-function renderFoundingClockV71A(dueMs,triggered){
- const card=$('foundingClockCard'); if(!card)return;
- if(triggered){
-   card.classList.add('v71Triggered');
-   $('foundingDays').textContent='BILLING STARTED';
-   $('foundingDaysLabel').textContent='FOUNDING RATE ACTIVE';
-   return;
- }
- card.classList.remove('v71Triggered');
- const left=Math.max(0,dueMs-Date.now());
- $('foundingDays').textContent=String(Math.floor(left/86400000)).padStart(2,'0');
- $('foundingHours').textContent=String(Math.floor((left%86400000)/3600000)).padStart(2,'0');
- $('foundingMinutes').textContent=String(Math.floor((left%3600000)/60000)).padStart(2,'0');
- $('foundingSeconds').textContent=String(Math.floor((left%60000)/1000)).padStart(2,'0');
- $('foundingDaysLabel').textContent='DAYS';
-}
-function startFoundingClockV71A(dueMs,triggered){
- if(foundingClockTickerV71A){clearInterval(foundingClockTickerV71A);foundingClockTickerV71A=null}
- renderFoundingClockV71A(dueMs,triggered);
- if(!triggered&&dueMs>Date.now())foundingClockTickerV71A=setInterval(()=>renderFoundingClockV71A(dueMs,false),1000);
-}
-
-async function updateFoundingClock(){
- const card=$('foundingClockCard');if(!card)return;
- let st=studioDetail;
- if(!st||st.is_founding!==true){card.classList.add('hidden');return}
- card.classList.remove('hidden');
-
- const rate=Number(st.founding_monthly_rate||29.99);
- $('foundingRate').textContent='£'+rate.toFixed(2)+'/month locked';
-
- const live=foundingDate(st.went_live_at);
- const state=await setFoundingMilestoneIfNeeded();
- $('foundingStudioCount').textContent=state.count===null?'Unavailable':Math.min(state.count,10)+' / 10 live';
-
- $('foundingLiveDate').textContent=live?fmtFoundingDate(live):(st.is_active===true?'Live date not recorded':'Not live yet');
- if(!live){
-  if(foundingClockTickerV71A){clearInterval(foundingClockTickerV71A);foundingClockTickerV71A=null}
-  card.classList.remove('v71Triggered');
-  $('foundingDays').textContent='90';$('foundingHours').textContent='00';$('foundingMinutes').textContent='00';$('foundingSeconds').textContent='00';$('foundingDaysLabel').textContent='DAYS READY';
-  $('foundingDueDate').textContent='Starts when published';$('foundingClockFill').style.width='0%';
-  $('foundingBillingStatus').textContent='Free period not started';$('foundingBillingStart').textContent='Not triggered';
-  $('foundingClockCopy').textContent='The 90-day clock begins only when this studio goes live.';
-  $('foundingClockTrigger').classList.add('hidden');return;
- }
-
- const due90=new Date(live.getTime()+90*86400000);
- $('foundingDueDate').textContent=fmtFoundingDate(due90);
-
- const milestone=foundingDate(state.milestone);
- let triggerDate=null, reason='';
- if(milestone && milestone>=live && milestone<=due90){triggerDate=milestone;reason='10_studios'}
- else if(new Date()>=due90){triggerDate=due90;reason='90_days'}
-
- if(triggerDate && !st.founding_billing_started_at){
-  st=await persistFoundingBillingTrigger(st,triggerDate,reason);
- }
-
- const storedStart=foundingDate(st.founding_billing_started_at)||triggerDate;
- const storedReason=st.founding_billing_trigger||reason;
- const now=new Date();
- const remaining=Math.max(0,Math.ceil((due90-now)/86400000));
- const elapsed=Math.min(90,Math.max(0,90-remaining));
- startFoundingClockV71A(due90.getTime(),!!storedStart);
- $('foundingClockFill').style.width=(storedStart?100:(elapsed/90*100))+'%';
-
- const trig=$('foundingClockTrigger');
- if(storedStart){
-  const label=storedReason==='10_studios'?'10 live studios':'90-day milestone';
-  $('foundingBillingStatus').textContent='SUBSCRIPTION DUE';
-  $('foundingBillingStart').textContent=fmtFoundingDate(storedStart);
-  $('foundingClockCopy').textContent='Founding free period has ended. Payment setup/collection is handled separately.';
-  trig.textContent='Subscription triggered by '+label+' • £'+rate.toFixed(2)+'/month due from '+fmtFoundingDate(storedStart)+'.';
-  trig.classList.remove('hidden');trig.classList.add('due');
- }else{
-  $('foundingBillingStatus').textContent='FREE PERIOD';
-  $('foundingBillingStart').textContent='Not triggered';
-  $('foundingClockCopy').textContent='Subscription begins at the earlier of 10 live SYMBLI studios or this studio’s 90-day date.';
-  if(milestone&&milestone<live){
-   trig.textContent='SYMBLI had already reached 10 live studios before this studio went live. Review billing terms for this later-joining studio.';
-   trig.classList.remove('hidden');trig.classList.remove('due');
-  }else trig.classList.add('hidden');
- }
-}
-function toggleV64Clock(){
- const c=$('foundingClockCard'),b=c?.querySelector('.v64ClockToggle');if(!c)return;
- const open=c.classList.toggle('v64Expanded');if(b)b.textContent=open?'Hide billing details ↑':'View billing details ↓';
-}
-function removeLegacyStudioReferralBlocksV69(){
- const pane=$('adminPane-studios');if(!pane)return;
- [...pane.querySelectorAll('h1,h2,h3,.adminEyebrow,strong')].forEach(label=>{
-   const t=(label.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
-   if(t==='referrals & revenue'||t==='booking attribution'||t==='referral analytics'){
-     const block=label.closest('.card,section,.panel,.analyticsCard,.referralCard');
-     if(block&&block!==pane)block.classList.add('v65HiddenStudioAnalytics');
-   }
- });
-}
-function cleanStudioWorkspaceV65(){
- const studioArea=$('detailsForm')?.parentElement;
- if(!studioArea)return;
- const nodes=[...studioArea.querySelectorAll('section,.card,.panel,div')];
- nodes.forEach(el=>{
-   if(el.id==='foundingClockCard'||el.id==='studioOverviewV64')return;
-   const t=(el.textContent||'').replace(/\s+/g,' ').trim().toLowerCase();
-   if((t.includes('referrals')&&t.includes('revenue')&&t.includes('analytics')) ||
-      (t.startsWith('referrals & revenue')&&t.length<5000)){
-     el.classList.add('v65HiddenStudioAnalytics');
-   }
- });
-}
-document.addEventListener('click',e=>{
- const b=e.target.closest?.('[data-v65target]');if(!b)return;
- const el=$(b.dataset.v65target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
-});
-function updateStudioOverviewV64(){
- setTimeout(()=>{cleanStudioWorkspaceV65();removeLegacyStudioReferralBlocksV69();},0);
- const box=$('studioOverviewV64'),st=studioDetail,r=getListingReadiness();if(!box)return;
- if(!st||!r){box.classList.add('hidden');return}
- box.classList.remove('hidden');
- $('v64StudioName').textContent=st.name||currentStudio()?.name||'Studio';
- $('v64StudioTown').textContent=st.town||'Studio overview';
- const active=st.is_active===true, founding=st.is_founding===true;
- $('v64StateBadge').textContent=active?'LIVE':'DRAFT';$('v64StateBadge').classList.toggle('live',active);
- $('v64FoundingBadge').classList.toggle('hidden',!founding);
- $('v64Listing').textContent=r.pct+'% complete';$('v64Status').textContent=active?'Live':'Draft';
- if(!founding){$('v64Founding').textContent='Standard studio';$('v64Billing').textContent='Standard plan';return}
- const live=foundingDate(st.went_live_at),started=foundingDate(st.founding_billing_started_at);
- if(!live){$('v64Founding').textContent='90 days ready';$('v64Billing').textContent='Not started'}
- else if(started){$('v64Founding').textContent='Free period ended';$('v64Billing').textContent='£'+Number(st.founding_monthly_rate||29.99).toFixed(2)+' due'}
- else{
-  const due=new Date(live.getTime()+90*86400000),days=Math.max(0,Math.ceil((due-new Date())/86400000));
-  $('v64Founding').textContent=days+' days remaining';$('v64Billing').textContent='Free period';
- }
-}
 function updateListingCompleteness(){
- setTimeout(updateStudioOverviewV64,0);
- updateFoundingClock();
  const s=currentStudio(),r=getListingReadiness();
  if(!s||!studioDetail||!r){
   $('dashboardStudioName').textContent='Choose a studio';$('dashboardStudioCopy').textContent='Select a studio above to see its listing readiness and jump straight to the section you need.';
@@ -2203,20 +1876,22 @@ async function publishStudio(){
  if(!window.confirm('Publish '+(studioDetail.name||s.name)+' to SYMBLI? It will become eligible to appear on the public website.'))return;
  status($('detailsStatus'),'Publishing studio…');
  try{
-  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=*',{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({is_active:true,...(studioDetail.went_live_at?{}:{went_live_at:new Date().toISOString()})})});
+  const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(s.id)+'&select=*',{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify({is_active:true})});
   if(!Array.isArray(rows)||rows.length!==1)throw new Error('Supabase returned an invalid update.');
-  studioDetail=rows[0];studioColumns=Object.keys(studioDetail);foundingMilestoneCache=null;await setFoundingMilestoneIfNeeded();await loadStudios(s.id);setTimeout(updateListingCompleteness,120);status($('detailsStatus'),'Published to SYMBLI. This studio is now live. Founding billing milestones have been checked.','ok');
+  studioDetail=rows[0];studioColumns=Object.keys(studioDetail);await loadStudios(s.id);setTimeout(updateListingCompleteness,120);status($('detailsStatus'),'Published to SYMBLI. This studio is now live.','ok');
  }catch(e){status($('detailsStatus'),'Could not publish studio: '+cleanErr(e),'bad')}
 }
 
 document.addEventListener('click',e=>{
- const b=e.target.closest?.('.adminQuickNav [data-target], .onboardStep[data-target], .v64Jump[data-target]');
+ const b=e.target.closest?.('.adminQuickNav [data-target], .onboardStep[data-target]');
  if(!b)return; e.preventDefault(); jumpAdminSection(b.dataset.target);
 });
+
 
 const onboardingRefreshObserver=new MutationObserver(()=>setTimeout(updateListingCompleteness,60));
 ['treatmentList','vibeList','serviceRows','gallery'].forEach(id=>{const el=$(id);if(el)onboardingRefreshObserver.observe(el,{childList:true,subtree:true,attributes:true,attributeFilter:['checked','src']})});
 document.addEventListener('change',e=>{if(e.target.closest?.('#detailsForm,#treatmentsForm,#vibesForm,#servicesForm'))setTimeout(updateListingCompleteness,60)});
+
 
 let ownerReviewSubmission=null;
 async function loadOwnerReview(){
@@ -2245,54 +1920,6 @@ async function setOwnerReview(statusValue){
 }
 let studioApplications=[];
 function appEsc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
-function formatApplicationDateTime(v){
- if(!v)return 'Date unavailable';
- const d=new Date(v);
- if(Number.isNaN(d.getTime()))return 'Date unavailable';
- return new Intl.DateTimeFormat('en-GB',{
-   day:'2-digit',month:'short',year:'numeric',
-   hour:'2-digit',minute:'2-digit',hour12:false
- }).format(d);
-}
-function parseFoundingApplication(a){
- const raw=String(a?.message||'');
- if(!/^FOUNDING ONBOARDING V[12]/.test(raw))return {legacy:true,description:raw};
- let json=raw.replace(/^FOUNDING ONBOARDING V[12]/,'').trim();
- // Public onboarding stores the separator as the literal characters "\\n".
- // Remove those before parsing the JSON payload.
- json=json.replace(/^(?:\\\\n|\\n)+/,'').trim();
- try{return {legacy:false,...JSON.parse(json)}}catch(e){return {legacy:true,description:raw}}
-}
-function appLink(v,label){
- const x=String(v||'').trim();if(!x)return 'Not supplied';
- const href=/^https?:\/\//i.test(x)?x:(x.startsWith('@')?'https://instagram.com/'+x.slice(1):'https://'+x);
- return `<a href="${appEsc(href)}" target="_blank" rel="noopener">${appEsc(label||x)}</a>`;
-}
-function applicationDetailHtml(a){
- const d=parseFoundingApplication(a);
- if(d.legacy)return `<div class="appDetailGrid"><div class="appDetailBlock wide"><span>Application notes</span>${appEsc(d.description||'No extra information supplied.')}</div></div>`;
- const treatments=Array.isArray(d.treatments)?d.treatments.filter(x=>x&&(x.name||x.treatment||x.service_name)):[];
- const methods=Array.isArray(d.contact_methods)?d.contact_methods.join(', '):(d.contact_methods||'Not supplied');
- const categories=Array.isArray(d.treatment_categories)&&d.treatment_categories.length?d.treatment_categories.join(', '):'Not supplied';
- const vibes=Array.isArray(d.vibes)&&d.vibes.length?d.vibes.join(', '):'Not supplied';
- const knownFor=Array.isArray(d.known_for)&&d.known_for.length?d.known_for.join(', '):'Not supplied';
- const rows=treatments.length?treatments.map(t=>{
-   const name=t.name||t.treatment||t.service_name||'Treatment';
-   const price=t.price||t.price_from||'';
-   const duration=t.duration||'';
-   return `<tr><td><b>${appEsc(name)}</b>${duration?`<br><small>${appEsc(duration)}</small>`:''}</td><td>${price?appEsc(String(price).match(/^£/)?price:'£'+price):'Price not supplied'}</td></tr>`;
- }).join(''):'<tr><td>No treatments supplied</td><td></td></tr>';
- return `<div class="appDetailGrid">
-   <div class="appDetailBlock"><span>Contact</span><b>${appEsc(a.contact_name||'Not supplied')}</b><br>${appEsc(a.email||'')}<br>${appEsc(d.phone||a.phone||'No phone supplied')}</div>
-   <div class="appDetailBlock"><span>Studio location</span><b>${appEsc(a.town||'Not supplied')}</b><br>${appEsc(d.address||d.full_address||'Full address not supplied')}<br>${d.show_address?'Address may be shown publicly':'Keep full address private'}</div>
-   <div class="appDetailBlock wide"><span>About the studio</span>${appEsc(d.description||'No description supplied.')}</div>
-   <div class="appDetailBlock"><span>Online</span>Instagram: ${appLink(d.instagram||a.instagram_url,'Open Instagram')}<br>Website: ${appLink(d.website||a.website_url,'Open website')}<br>Booking: ${appLink(d.booking_url,'Open booking link')}<br>WhatsApp: ${appLink(d.whatsapp,'Open WhatsApp')}</div>
-   <div class="appDetailBlock"><span>Client contact methods</span>${appEsc(methods||'Not supplied')} ${d.notes?`<br><br><b>Notes:</b> ${appEsc(d.notes)}`:''}</div>
-   <div class="appDetailBlock"><span>Discovery profile</span><b>Treatment areas:</b> ${appEsc(categories)}<br><b>Studio vibe:</b> ${appEsc(vibes)}<br><b>Best known for:</b> ${appEsc(knownFor)}</div>
-   <div class="appDetailBlock wide"><span>Treatments & pricing</span><table class="appTreatmentTable">${rows}</table></div>
- </div>
- <div class="appFoundingTerms"><strong>Founding Studio offer</strong>£29.99/month locked in while continuously subscribed. Monthly subscription begins when SYMBLI reaches 10 live studios or 90 days after this studio profile goes live, whichever comes first. 5% commission applies to SYMBLI-generated revenue.</div>`;
-}
 async function loadApplications(){
  const box=$('applicationsStatus'),rowsEl=$('applicationRows');if(!box||!rowsEl)return;
  status(box,'Loading applications…');
@@ -2301,133 +1928,43 @@ async function loadApplications(){
   studioApplications=Array.isArray(rows)?rows:[];
   const pending=studioApplications.filter(x=>(x.status||'pending')==='pending');$('applicationCount').textContent=pending.length;
   rowsEl.innerHTML=studioApplications.length?studioApplications.map(a=>{
-   const st=a.status||'pending',approved=st==='approved',d=parseFoundingApplication(a);
-   const phone=d.phone||a.phone||'No phone';
-   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(phone)}<br><b>Submitted:</b> ${appEsc(formatApplicationDateTime(a.created_at))}</div></div><div><span class="applicationStatus ${appEsc(st)}">${appEsc(st.replaceAll('_',' '))}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View application</button></div><div class="applicationDetail">${applicationDetailHtml(a)}${approved?'':`<div class="appDecisionBar"><button class="btn approveApp" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button><button class="btn requestApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','changes_requested')">Request changes</button><button class="btn rejectApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','declined')">Decline</button></div>`}${a.studio_id?`<div class="smallNote" style="margin-top:10px">Created studio: ${appEsc(a.studio_id)}</div>`:''}</div></div>`;
+   const st=a.status||'pending',approved=st==='approved',declined=st==='declined';
+   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(a.phone||'No phone')}</div></div><div><span class="applicationStatus ${approved?'approved':declined?'declined':''}">${appEsc(st)}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View</button>${(!approved&&!declined)?`<button class="btn applicationDeclineBtn" type="button" onclick="declineApplication('${appEsc(a.id)}')">Decline</button><button class="btn" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button>`:''}</div><div class="applicationDetail"><b>About:</b> ${appEsc(a.message||'No extra information supplied.')}<br><b>Website:</b> ${appEsc(a.website_url||'Not supplied')} &nbsp; <b>Instagram:</b> ${appEsc(a.instagram_url||'Not supplied')}${a.studio_id?`<br><b>Created studio:</b> ${appEsc(a.studio_id)}`:''}</div></div>`;
   }).join(''):'<div class="empty">No studio applications yet.</div>';
   status(box,pending.length?`${pending.length} application${pending.length===1?'':'s'} waiting for review.`:'No applications waiting for review.','ok');
- }catch(e){status(box,'Could not load applications: '+cleanErr(e),'bad');rowsEl.innerHTML='<div class="empty">Applications unavailable.</div>'}
+ }catch(e){status(box,'Could not load applications: '+cleanErr(e),'bad');rowsEl.innerHTML='<div class="empty">Applications unavailable. Run the #44 Supabase setup SQL first.</div>'}
 }
 function toggleApplication(id){document.querySelector(`.applicationRow[data-app-id="${CSS.escape(String(id))}"]`)?.classList.toggle('open')}
-async function setApplicationStatus(id,next){
+async function declineApplication(id){
  const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
- const label=next==='declined'?'decline':'request changes for';
- if(!confirm(`Are you sure you want to ${label} ${a.studio_name||'this application'}?`))return;
+ if(!window.confirm('Decline '+(a.studio_name||'this application')+'? No studio will be created.'))return;
+ status($('applicationsStatus'),'Declining application…');
  try{
-  await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:next,reviewed_at:new Date().toISOString()})});
-  await loadApplications();status($('applicationsStatus'),next==='declined'?'Application declined. No studio was created.':'Changes requested.','ok');
- }catch(e){status($('applicationsStatus'),'Could not update application: '+cleanErr(e),'bad')}
-}
-async function openCreatedDraft(studioId){
- const studiosTab=document.querySelector('.adminTopTab[data-admin-tab="studios"]');
- if(studiosTab)studiosTab.click();
-
- // Refresh the studio list so a newly-approved draft exists in the selector,
- // then open that exact draft.
- try{
-   await loadStudios(String(studioId));
- }catch(e){
-   console.warn('Could not refresh studio list before opening draft',e);
- }
-
- const select=$('studioSelect');
- if(select){
-   select.value=String(studioId);
-   select.dispatchEvent(new Event('change',{bubbles:true}));
- }
-
- setTimeout(()=>{
-   const target=document.querySelector('.studioManagerCard')||$('adminDashboard')||$('detailsCard');
-   target?.scrollIntoView({behavior:'smooth',block:'start'});
- },180);
+   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{
+     method:'PATCH',
+     headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+     body:JSON.stringify({status:'declined',reviewed_at:new Date().toISOString()})
+   });
+   await loadApplications();
+   status($('applicationsStatus'),'Application declined. No studio was created.','ok');
+ }catch(e){status($('applicationsStatus'),'Could not decline application: '+cleanErr(e),'bad')}
 }
 async function approveApplication(id){
  const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
- const d=parseFoundingApplication(a);
- if(!window.confirm('Approve '+(a.studio_name||'this studio')+'? This creates a PRIVATE Founding Studio draft listing.'))return;
- const box=$('applicationsStatus');
- status(box,'Creating private Founding Studio draft…');
- let stage='starting';
+ if(!window.confirm('Approve '+(a.studio_name||'this studio')+'? This creates a PRIVATE draft listing for onboarding.'))return;
+ status($('applicationsStatus'),'Creating private draft studio…');
  try{
-  let base=slugifyStudio(a.studio_name),slug=base||('studio-'+Date.now()),created=null;
-
-  // Idempotency: if a previous approval attempt created the draft before a later
-  // request failed, reuse that draft instead of creating a duplicate.
-  stage='checking for an existing draft';
-  const same=await authFetch('/rest/v1/studios?select=*&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
-  if(Array.isArray(same)&&same.length&&String(same[0].name||'').trim().toLowerCase()===String(a.studio_name||'').trim().toLowerCase()){
-    created=same[0];
-  }else{
-    if(same&&same.length)slug=slug+'-'+slugifyStudio(a.town||'studio')+'-'+String(Date.now()).slice(-5);
-    stage='creating the studio draft';
-    const body={name:a.studio_name,slug,town:a.town,description:(d.description&&!d.legacy)?d.description:(a.message||null),website_url:d.website||a.website_url||null,instagram_url:d.instagram||a.instagram_url||null,booking_url:d.booking_url||null,phone:d.phone||a.phone||null,is_founding:true,founding_monthly_rate:29.99,is_active:false};
-    const made=await authFetch('/rest/v1/studios?select=*',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)});
-    if(!Array.isArray(made)||made.length!==1)throw new Error('Supabase did not return the new studio.');
-    created=made[0];
-  }
-
-  const warnings=[];
-
-  // Services are useful, but a single failed service must never strand the whole approval.
-  if(!d.legacy&&Array.isArray(d.treatments)){
-    stage='copying services';
-    let existingServices=[];
-    try{existingServices=await authFetch('/rest/v1/studio_services?select=service_name&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
-    const existingNames=new Set((existingServices||[]).map(x=>String(x.service_name||'').toLowerCase().trim()));
-    for(let i=0;i<d.treatments.length;i++){
-      const t=d.treatments[i]||{},name=t.name||t.treatment||t.service_name;if(!name||existingNames.has(String(name).toLowerCase().trim()))continue;
-      let price=t.price??t.price_from??null;if(typeof price==='string')price=Number(price.replace(/[^0-9.]/g,''))||null;
-      try{await authFetch('/rest/v1/studio_services',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,service_name:name,price:price,price_note:t.duration?String(t.duration):null,sort_order:i,is_active:true})})}
-      catch(e){warnings.push('one or more services')}
-    }
-  }
-
-  // Discovery categories: explicit V2 choices first, keyword fallback for older applications.
-  stage='copying discovery treatments';
-  try{
-    const cats=await authFetch('/rest/v1/treatments?select=id,name&order=name.asc');
-    const submitted=(Array.isArray(d.treatments)?d.treatments:[]).map(t=>String(t?.name||t?.treatment||t?.service_name||'').toLowerCase()).join(' ');
-    const selected=new Set((Array.isArray(d.treatment_categories)?d.treatment_categories:[]).map(x=>String(x).toLowerCase().trim()));
-    const kw={'brows':['brow','eyebrow','microblad'],'lips':['lip','filler'],'nails':['nail','manicure','pedicure'],'skin':['skin','facial','peel','microneed','dermaplan','hydrafacial']};
-    let linked=[];try{linked=await authFetch('/rest/v1/studio_treatments?select=treatment_id&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
-    const linkedIds=new Set(linked.map(x=>String(x.treatment_id)));
-    for(const cat of (cats||[])){
-      const cn=String(cat.name||'').toLowerCase().trim(),keys=kw[cn]||[cn];
-      if((selected.has(cn)||keys.some(k=>k&&submitted.includes(k)))&&!linkedIds.has(String(cat.id))){
-        try{await authFetch('/rest/v1/studio_treatments',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,treatment_id:cat.id})})}catch(e){warnings.push('treatment categories')}
-      }
-    }
-  }catch(e){warnings.push('treatment categories')}
-
-  // Vibes use the same columns as the existing Studio Vibe editor.
-  if(!d.legacy&&Array.isArray(d.vibes)&&d.vibes.length){
-    stage='copying studio vibe';
-    try{
-      let existingV=[];try{existingV=await authFetch('/rest/v1/studio_vibes?select=*&studio_id=eq.'+encodeURIComponent(created.id))||[]}catch(e){}
-      const existingNames=new Set(existingV.map(x=>String(x.vibe||x.name||x.label||'').toLowerCase().trim()));
-      for(const vibe of d.vibes.slice(0,3)){
-        const clean=String(vibe||'').trim();if(!clean||existingNames.has(clean.toLowerCase()))continue;
-        // Existing Admin's saveVibes function defines the live schema. Use its common `vibe` field.
-        try{await authFetch('/rest/v1/studio_vibes',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({studio_id:created.id,vibe:clean})})}catch(e){warnings.push('studio vibes')}
-      }
-    }catch(e){warnings.push('studio vibes')}
-  }
-
-  if(a.email){
-    stage='setting owner portal email';
-    try{await authFetch('/rest/v1/rpc/set_studio_owner_email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({p_studio:created.id,p_email:String(a.email).trim().toLowerCase()})})}
-    catch(e){warnings.push('owner email')}
-  }
-
-  stage='marking the application approved';
+  let base=slugifyStudio(a.studio_name),slug=base||('studio-'+Date.now());
+  const existing=await authFetch('/rest/v1/studios?select=id,slug&slug=eq.'+encodeURIComponent(slug)+'&limit=1');
+  if(existing&&existing.length)slug=slug+'-'+slugifyStudio(a.town||'studio')+'-'+String(Date.now()).slice(-5);
+  const body={name:a.studio_name,slug,town:a.town,description:a.message||null,website_url:a.website_url||null,instagram_url:a.instagram_url||null,phone:a.phone||null,is_founding:false,is_active:false};
+  const made=await authFetch('/rest/v1/studios?select=*',{method:'POST',headers:{'Content-Type':'application/json','Prefer':'return=representation'},body:JSON.stringify(body)});
+  if(!Array.isArray(made)||made.length!==1)throw new Error('Supabase did not return the new studio.');
+  const created=made[0];
   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:'approved',studio_id:created.id,reviewed_at:new Date().toISOString()})});
-  await Promise.allSettled([loadApplications(),loadStudios(created.id)]);
-  setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
-  const warn=warnings.length?`<span style="color:#9a6b35">Draft created, but please check: ${appEsc([...new Set(warnings)].join(', '))}.</span>`:'';
-  statusHtml(box,`<div class="draftHandoff"><div class="draftHandoffText"><b>Founding Studio approved. Private draft created.</b><span>It is not live yet. Finish the listing, review it, then publish when ready. The 90-day clock starts only when the studio goes live.</span>${warn}</div><button class="btn openDraftBtn" type="button" onclick="openCreatedDraft('${appEsc(created.id)}')">Open studio draft →</button></div>`,'ok');
- }catch(e){
-  status(box,'Could not approve application while '+stage+': '+cleanErr(e),'bad');
- }
+  await Promise.all([loadApplications(),loadStudios(created.id)]);setTimeout(()=>{$('adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'});updateListingCompleteness()},180);
+  status($('applicationsStatus'),'Application approved. Private draft created and opened in onboarding.','ok');
+ }catch(e){status($('applicationsStatus'),'Could not approve application: '+cleanErr(e),'bad')}
 }
 function slugifyStudio(v){
  return String(v||'').toLowerCase().trim().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,80);
@@ -2598,15 +2135,15 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
        authFetch('/rest/v1/studio_owners?select=studio_id,user_id'),
        authFetch('/rest/v1/studios?select=id,name,slug,is_active,archived_at&order=name.asc')
      ]);
-     const visibleStudios=(allStudios||[]).filter(s=>!s.archived_at);
      const pendingApps=(apps||[]).filter(a=>(a.status||'pending')==='pending');
      const pendingSubs=(subs||[]).filter(s=>(s.status||'')==='submitted');
      const ownerIds=new Set((owners||[]).map(o=>String(o.studio_id)));
-     const studioMap=new Map((visibleStudios||[]).map(s=>[String(s.id),s]));
+     const visibleStudios=(allStudios||[]).filter(s=>!s.archived_at);
+     const studioMap=new Map(visibleStudios.map(s=>[String(s.id),s]));
      document.getElementById('opsApplications').textContent=pendingApps.length;
      document.getElementById('opsReviews').textContent=pendingSubs.length;
-     document.getElementById('opsLive').textContent=(visibleStudios||[]).filter(s=>s.is_active===true).length;
-     document.getElementById('opsDrafts').textContent=(visibleStudios||[]).filter(s=>s.is_active!==true).length;
+     document.getElementById('opsLive').textContent=visibleStudios.filter(s=>s.is_active===true).length;
+     document.getElementById('opsDrafts').textContent=visibleStudios.filter(s=>s.is_active!==true).length;
      document.getElementById('opsApplicationCount').textContent=pendingApps.length;
      document.getElementById('opsReviewCount').textContent=pendingSubs.length;
 
@@ -2618,10 +2155,10 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
        const st=studioMap.get(String(s.studio_id)); return `<div class="opsRow"><div><div class="opsRowTitle">${esc(st?.name||'Studio')}</div><div class="opsMeta">Owner submitted listing for review</div></div>
        <div class="opsRowActions"><span class="opsBadge attn">SUBMITTED</span><button class="opsSmallBtn primary" data-review-studio="${esc(s.studio_id)}">Review listing</button></div></div>`}).join(''):'<div class="opsEmpty">No owner listings waiting for review.</div>';
 
-     grid.innerHTML=(visibleStudios||[]).length?(visibleStudios||[]).map(s=>{
+     grid.innerHTML=visibleStudios.length?visibleStudios.map(s=>{
        const managed=ownerIds.has(String(s.id))?'OWNER MANAGED':'ADMIN MANAGED';
        const state=s.is_active===true?'LIVE':'DRAFT';
-       return `<div class="opsStudio v73StudioCard"><button type="button" class="v73StudioOpen" data-studio="${esc(s.id)}"><div class="opsStudioTop"><span class="opsStudioName">${esc(s.name)}</span><span class="opsBadge ${s.is_active===true?'live':''}">${state}</span></div><div class="opsStudioMeta"><span class="opsBadge ${managed==='OWNER MANAGED'?'owner':''}">${managed}</span></div></button><button type="button" class="v73ArchiveBtn" data-v73-archive="${esc(s.id)}" data-v73-name="${esc(s.name)}">Archive</button></div>`;
+       return `<div class="opsStudio opsStudioWithDelete"><button type="button" class="opsStudioOpen" data-studio="${esc(s.id)}"><div class="opsStudioTop"><span class="opsStudioName">${esc(s.name)}</span><span class="opsBadge ${s.is_active===true?'live':''}">${state}</span></div><div class="opsStudioMeta"><span class="opsBadge ${managed==='OWNER MANAGED'?'owner':''}">${managed}</span></div></button><button type="button" class="opsStudioArchive" data-archive-dashboard-studio="${esc(s.id)}" data-archive-dashboard-name="${esc(s.name)}" aria-label="Archive ${esc(s.name)}" title="Archive studio">Archive</button></div>`;
      }).join(''):'<div class="opsEmpty">No studios yet.</div>';
    }catch(e){
      grid.innerHTML='<div class="opsEmpty">Dashboard could not load: '+esc(e.message||e)+'</div>';
@@ -2633,6 +2170,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    setTimeout(()=>document.getElementById(review?'ownerReviewPanel':'adminDashboard')?.scrollIntoView({behavior:'smooth',block:'start'}),350);
  }
  document.addEventListener('click',e=>{
+
    const app=e.target.closest?.('[data-app]'); if(app){document.getElementById('applicationsCard')?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>toggleApplication(app.dataset.app),350);return}
    const review=e.target.closest?.('[data-review-studio]'); if(review){openStudio(review.dataset.reviewStudio,true);return}
    const studio=e.target.closest?.('[data-studio]'); if(studio){openStudio(studio.dataset.studio,false);return}
@@ -2646,6 +2184,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
  setTimeout(refreshOps,1000);
 })();
 </script>
+
 
 <script>
 /* #48B tab navigation */
@@ -2676,14 +2215,13 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const applications=makePane('applications','Studio applications','Businesses that have applied to join SYMBLI themselves.');
    const reviews=makePane('reviews','Owner reviews','Listings that studio owners have submitted for your approval.');
    const studios=makePane('studios','Studio Manager','Choose a studio, then manage its profile, readiness, publishing and content from one workspace.');
-   const archived=makePane('archived','Archived studios','Studios removed from the active workspace. Restore them or permanently delete them here.');
-   archived.insertAdjacentHTML('beforeend','<div class="v73ArchiveToolbar"><button type="button" class="btn secondary" id="v73RefreshArchived">↻ Refresh archived</button></div><div id="v73ArchivedGrid" class="v73ArchivedGrid"><div class="opsEmpty">Loading archived studios…</div></div>');
+   const archived=makePane('archived','Archived studios','Studios moved out of the active SYMBLI workspace. Restore one at any time.');
+   archived.insertAdjacentHTML('beforeend','<div class="archiveToolbar"><button type="button" class="btn secondary" id="refreshArchived">↻ Refresh archived</button></div><div class="archivedStudioGrid" id="archivedStudioGrid"><div class="opsEmpty">Loading archived studios…</div></div>');
+   admin.appendChild(archived);
    const analytics=makePane('analytics','Performance','See how individual studios are performing across SYMBLI.');
    const referrals=makePane('referrals','','');
    const add=makePane('add','Add a studio','Create a studio manually from the Admin side.');
-   overview.after(applications,reviews,studios,archived,analytics,referrals,add);
-   [applications,reviews,studios,archived,analytics,referrals,add].forEach(p=>p.hidden=true);
-   overview.hidden=false;
+   overview.after(applications,reviews,studios,analytics,referrals,add);
 
    referrals.innerHTML=`
    <div class="refAdminHero">
@@ -2701,19 +2239,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    </div>
    <div class="refAdminGrid">
     <section class="refAdminPanel"><div class="adminReferralAttention" id="adminReferralAttention"><div style="display:flex;gap:11px;align-items:center"><div class="count" id="adminPendingBadge">0</div><div><strong id="adminAttentionTitle">No referrals need attention</strong><span>Pending studio outcomes stay visible here until they are resolved.</span></div></div></div>
-<div class="adminReferralToolbar"><input id="adminReferralSearch" type="search" placeholder="Search studio or referral reference…"><select id="adminReferralPeriod"><option value="all">All time</option><option value="this_month">This month</option><option value="last_month">Last month</option></select></div><div class="topStudiosSection">
- <div class="topStudiosHead"><div><div class="adminEyebrow">PERFORMANCE LEADERS</div><h3>Studio leaderboard</h3><p>Your strongest-performing SYMBLI studios at a glance. Use the controls above to compare this month, last month or all time.</p></div></div>
- <div class="topStudioWins">
-  <div class="topStudioWin"><div class="icon">🥇</div><span>Top revenue</span><strong id="topRevenueStudio">—</strong><small id="topRevenueValue">No data yet</small></div>
-  <div class="topStudioWin"><div class="icon">🏆</div><span>Most bookings</span><strong id="topBookingsStudio">—</strong><small id="topBookingsValue">No data yet</small></div>
-  <div class="topStudioWin"><div class="icon">🎯</div><span>Best conversion</span><strong id="topConversionStudio">—</strong><small id="topConversionValue">No data yet</small></div>
-  <div class="topStudioWin"><div class="icon">📈</div><span>Most referrals</span><strong id="topReferralsStudio">—</strong><small id="topReferralsValue">No data yet</small></div>
- </div>
- <div style="display:flex;justify-content:space-between;align-items:center;margin:2px 2px 10px"><strong style="font-size:11px;color:#203149">Performance leaders</strong><span style="font-size:8px;color:#9a7f73;font-weight:700">SELECTED PERIOD</span></div><div class="topStudioTable">
-  <div class="topStudioRow head"><div>Studio</div><div>Referrals sent</div><div>Confirmed</div><div>Conversion</div><div>Revenue generated</div><div>SYMBLI commission</div></div>
-  <div id="topStudioRows"></div>
- </div>
-</div>
+<div class="adminReferralToolbar"><input id="adminReferralSearch" type="search" placeholder="Search studio or referral reference…"><select id="adminReferralPeriod"><option value="all">All time</option><option value="this_month">This month</option><option value="last_month">Last month</option></select></div>
 <div class="opsEyebrow">BY STUDIO</div><h3>Studio performance</h3><p>Referral volume, confirmed revenue and commission by studio.</p><div id="refStudioRows" class="refStudioRows"><div class="refEmpty">Loading studio performance…</div></div></section>
     <section class="refAdminPanel"><div class="opsEyebrow">REFERRAL LEDGER</div><h3>All referrals</h3><p>A live operational view of the referrals recorded by SYMBLI.</p>
      <div class="refFilters"><button class="refFilter active" data-ref-filter="all">All</button><button class="refFilter" data-ref-filter="pending">Pending</button><button class="refFilter" data-ref-filter="booked">Booked</button><button class="refFilter" data-ref-filter="not_booked">Didn't book</button></div>
@@ -2721,21 +2247,14 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
     </section>
    </div>`;
 
+
    const appCard=[...admin.querySelectorAll('*')].find(el=>el.children?.length && /Studio Applications/.test(el.textContent||'') && (el.classList.contains('card')||el.tagName==='SECTION'));
    if(appCard)applications.appendChild(appCard);
 
    const candidates=[...admin.children].filter(el=>el!==q('adminTopTabs')&&!el.classList.contains('adminTabPane'));
    candidates.forEach(el=>studios.appendChild(el));
 
-   setTimeout(()=>{try{removeLegacyStudioReferralBlocksV69()}catch(e){}},50);
-
-   // Keep referral management exclusively inside the Referrals tab.
-   const referralPane=q('adminPane-referrals');
-   const referralCard=q('referralsCard');
-   if(referralPane&&referralCard&&referralCard.parentElement!==referralPane){
-     referralPane.appendChild(referralCard);
-   }
-
+   
    const existingAnalytics=q('analyticsCard');
    analytics.insertAdjacentHTML('beforeend',`
      <div class="opsLane">
@@ -2856,15 +2375,11 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
  }
  function switchTab(name){
    document.querySelectorAll('.adminTopTab').forEach(b=>b.classList.toggle('active',b.dataset.adminTab===name));
-   document.querySelectorAll('.adminTabPane').forEach(p=>{
-     const isActive=p.id==='adminPane-'+name;
-     p.classList.toggle('active',isActive);
-     p.hidden=!isActive;
-   });
+   document.querySelectorAll('.adminTabPane').forEach(p=>p.classList.toggle('active',p.id==='adminPane-'+name));
    window.scrollTo({top:0,behavior:'smooth'});
    if(name==='add')setTimeout(()=>q('quickCreateName')?.focus(),100);
    if(name==='reviews')hydrateTabQueues();
-   if(name==='archived' && window.SYMBLI_V73_LOAD_ARCHIVED) window.SYMBLI_V73_LOAD_ARCHIVED();
+   if(name==='archived'){ setTimeout(()=>window.SYMBLI_LOAD_ARCHIVED?.(),0); }
    if(name==='referrals' && window.SYMBLI_LOAD_ADMIN_REFERRALS) window.SYMBLI_LOAD_ADMIN_REFERRALS();
    if(name==='analytics'){
      const srcSel=q('studioSelect'), dst=q('analyticsStudioSelect');
@@ -2906,15 +2421,18 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 })();
 </script>
 
+
 <div class="deleteModal" id="deleteStudioModal">
  <div class="deletePanel">
   <div class="adminEyebrow" style="color:#a64a4a">PERMANENT ACTION</div>
   <h2 id="deleteStudioTitle">Delete studio?</h2>
   <p id="deleteStudioCopy">This cannot be undone.</p>
-    <div id="deleteStudioStatus" class="status">Nothing has been deleted yet.</div>
+  <div class="deleteSure"><strong>Are you sure?</strong><span>This permanently deletes the studio and cannot be undone.</span></div>
+  <div id="deleteStudioStatus" class="status">Nothing has been deleted yet.</div>
   <div class="deleteActions"><button type="button" class="btn secondary" id="cancelDeleteStudio">Cancel</button><button type="button" class="btn deleteConfirm" id="confirmDeleteStudio">Yes, permanently delete</button></div>
  </div>
 </div>
+
 
 <script>
 /* #50 safe Admin studio deletion */
@@ -2925,11 +2443,10 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const st=selected();
    if(!st){alert('Choose a studio first.');return}
    $d('deleteStudioTitle').textContent='Delete '+st.name+'?';
-   $d('deleteStudioCopy').textContent='Are you sure? This permanently removes '+st.name+' and its linked SYMBLI listing data. This cannot be undone.';
+   $d('deleteStudioCopy').textContent='This permanently removes '+st.name+' and its linked SYMBLI listing data.';
    $d('deleteStudioStatus').textContent='Nothing has been deleted yet.';
    $d('deleteStudioStatus').className='status';
    $d('deleteStudioModal').classList.add('open');
-   
  }
  function closeDelete(){ $d('deleteStudioModal').classList.remove('open') }
  async function del(path){
@@ -2982,7 +2499,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
      });
      const remaining=await authFetch('/rest/v1/studios?select=id&id=eq.'+sid);
      if(!Array.isArray(removed)||removed.length!==1||!Array.isArray(remaining)||remaining.length)
-       throw new Error('The studio was unpublished, but permanent deletion was blocked. It will no longer appear on the public site. Check database permissions or linked records before retrying.');
+       throw new Error('The studio is safely unpublished, but Supabase did not allow the final DELETE. Run the V65 delete-permissions migration once, then retry from Archived.');
 
      // Only remove storage objects after the database deletion is verified.
      const marker='/storage/v1/object/public/'+BUCKET+'/';
@@ -3033,6 +2550,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 })();
 </script>
 
+
 <script>
 document.addEventListener('click',function(e){
  const b=e.target&&e.target.closest?e.target.closest('#readinessJump'):null;if(!b||b.disabled)return;
@@ -3041,6 +2559,9 @@ document.addEventListener('click',function(e){
  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
 });
 </script>
+
+
+
 
 <script id="symbli-admin-referrals-v57-js">
 (function(){
@@ -3065,31 +2586,6 @@ document.addEventListener('click',function(e){
  function filteredRefs(){
    return (allRefs||[]).filter(r=>periodMatch(r,activePeriod)&&searchMatch(r));
  }
-
- function studioStats(refs){
-   const m=new Map();
-   refs.forEach(r=>{
-     const id=String(r.studio_id||'');
-     if(!m.has(id))m.set(id,{id,total:0,booked:0,revenue:0,commission:0,conversion:0});
-     const g=m.get(id);g.total++;
-     if(r.status==='booked'){g.booked++;g.revenue+=Number(r.booking_value||0);g.commission+=Number(r.commission_amount||0)}
-   });
-   m.forEach(g=>g.conversion=g.total?Math.round(g.booked/g.total*100):0);
-   return [...m.values()];
- }
- function renderTopStudios(refs){
-   const stats=studioStats(refs);
-   const name=g=>studioMap.get(g?.id)?.name||'Unknown studio';
-   const top=(field)=>stats.length?[...stats].sort((a,b)=>b[field]-a[field]||b.revenue-a.revenue)[0]:null;
-   const rev=top('revenue'),books=top('booked'),conv=top('conversion'),refsTop=top('total');
-   const set=(id,v)=>{if(q(id))q(id).textContent=v};
-   set('topRevenueStudio',rev?name(rev):'—');set('topRevenueValue',rev?money(rev.revenue)+' generated':'No data yet');
-   set('topBookingsStudio',books?name(books):'—');set('topBookingsValue',books?books.booked+' confirmed booking'+(books.booked===1?'':'s'):'No data yet');
-   set('topConversionStudio',conv?name(conv):'—');set('topConversionValue',conv?conv.conversion+'% conversion':'No data yet');
-   set('topReferralsStudio',refsTop?name(refsTop):'—');set('topReferralsValue',refsTop?refsTop.total+' referral'+(refsTop.total===1?'':'s'):'No data yet');
-   const ranked=[...stats].sort((a,b)=>b.revenue-a.revenue||b.booked-a.booked||b.total-a.total).slice(0,5);
-   if(q('topStudioRows'))q('topStudioRows').innerHTML=ranked.length?ranked.map((g,n)=>`<div class="topStudioRow"><div class="topStudioName"><span class="topStudioRank">${n+1}</span>${esc(name(g))}</div><div class="topStudioValue">${g.total}</div><div class="topStudioValue">${g.booked}</div><div class="topStudioValue">${g.conversion}%</div><div class="topStudioValue">${money(g.revenue)}</div><div class="topStudioValue">${money(g.commission)}</div></div>`).join(''):'<div class="refEmpty">No studio performance matches these filters.</div>';
- }
  function render(){
    const refs=allRefs||[], booked=refs.filter(r=>r.status==='booked'), pending=refs.filter(r=>(r.status||'pending')==='pending');
    const revenue=booked.reduce((a,r)=>a+Number(r.booking_value||0),0), commission=booked.reduce((a,r)=>a+Number(r.commission_amount||0),0);
@@ -3103,7 +2599,6 @@ document.addEventListener('click',function(e){
    if(q('adminAttentionTitle'))q('adminAttentionTitle').textContent=pending.length?pending.length+' pending referral'+(pending.length===1?' needs':'s need')+' an outcome':'No referrals need attention';
 
    const filtered=filteredRefs();
-   renderTopStudios(filtered);
    const grouped=new Map();
    filtered.forEach(r=>{
      const k=String(r.studio_id||'');
@@ -3154,237 +2649,133 @@ document.addEventListener('click',function(e){
 })();
 </script>
 
-<script id="symbli-v70b-dashboard">
-(function(){
- const q=id=>document.getElementById(id);
- const esc=v=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
- let ST=[],AP=[],RF=[],filter='all';
-
- async function get(path){try{return await authFetch(path)}catch(e){console.warn('Dashboard data:',path,e);return []}}
- function stat(v){return String(v||'').toLowerCase()}
- function money(n){return '£'+Number(n||0).toLocaleString('en-GB',{maximumFractionDigits:0})}
-
- async function goStudio(id){
-   // Use the same tab mechanism as the working top navigation.
-   const tab=document.querySelector('.adminTopTab[data-admin-tab="studios"]');
-   if(tab)tab.click();
-   await new Promise(r=>setTimeout(r,80));
-   try{await loadStudios(String(id))}catch(e){console.warn(e)}
-   const sel=q('studioSelect');
-   if(sel){
-     sel.value=String(id);
-     sel.dispatchEvent(new Event('change',{bubbles:true}));
-     try{await Promise.all([loadStudioDetail(),loadTreatments(),loadServices(),loadReviews(),loadVibes(),loadImages(),loadOwnerReview()])}catch(e){}
-   }
-   setTimeout(()=>{
-     const target=q('studioSelect')?.closest('.card')||q('studioSelect');
-     target?.scrollIntoView({behavior:'smooth',block:'start'});
-   },120);
- }
- window.SYMBLI_V70B_OPEN_STUDIO=goStudio;
-
- function shell(){
-   const pane=q('adminPane-overview'); if(!pane)return null;
-   let d=q('v70bDashboard');
-   if(!d){d=document.createElement('div');d.id='v70bDashboard';pane.appendChild(d)}
-   return d;
- }
- function render(){
-   const d=shell();if(!d)return;
-   const live=ST.filter(x=>x.is_active===true).length, drafts=ST.length-live;
-   const founders=ST.filter(x=>x.is_founding===true), founderLive=founders.filter(x=>x.is_active===true).length;
-   const apps=AP.filter(x=>stat(x.status)==='pending').length;
-   const pending=RF.filter(x=>['pending','new','sent'].includes(stat(x.status))).length;
-   const booked=RF.filter(x=>['booked','confirmed','completed'].includes(stat(x.status)));
-   const revenue=booked.reduce((a,x)=>a+Number(x.revenue_amount??x.revenue??x.booking_value??0),0);
-   const pc=Math.min(100,founderLive*10);
-   const date=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
-   d.innerHTML=`
-    <section class="v70bHero">
-     <div class="v70bHeroRow"><div><div class="v70bEyebrow">SYMBLI · CONTROL CENTRE</div><h1>Good evening. Here’s SYMBLI.</h1><p>A live view of the network, what needs your attention and where every studio sits.</p></div><div class="v70bDate">${esc(date)}</div></div>
-     <div class="v70bStats">
-      <div class="v70bStat"><label>Live studios</label><strong>${live}</strong><small>Public on SYMBLI</small></div>
-      <div class="v70bStat"><label>Draft studios</label><strong>${drafts}</strong><small>Still being prepared</small></div>
-      <div class="v70bStat"><label>Founding studios</label><strong>${founders.length}</strong><small>${founderLive} currently live</small></div>
-      <div class="v70bStat"><label>Applications</label><strong>${apps}</strong><small>Awaiting review</small></div>
-      <div class="v70bStat"><label>Pending referrals</label><strong>${pending}</strong><small>Awaiting outcome</small></div>
-      <div class="v70bStat"><label>Revenue generated</label><strong>${money(revenue)}</strong><small>Confirmed referrals</small></div>
-     </div>
-    </section>
-    <div class="v70bMid">
-     <section class="v70bPanel"><div class="v70bHead"><div><div class="v70bEyebrow">TODAY</div><h2>Needs attention</h2><p>The shortest route to what needs doing.</p></div><span class="v70bChip">${apps+pending+drafts} items</span></div>
-      <div class="v70bTasks"><div class="v70bTask"><strong>${apps}</strong><span>applications to review</span></div><div class="v70bTask"><strong>${pending}</strong><span>referrals awaiting outcome</span></div><div class="v70bTask"><strong>${drafts}</strong><span>studio drafts off-site</span></div></div>
-     </section>
-     <section class="v70bPanel"><div class="v70bHead"><div><div class="v70bEyebrow">FOUNDING 10</div><h2>Launch milestone</h2><p>Live Founding Studios towards the first ten.</p></div><span class="v70bChip">${pc}%</span></div>
-      <div class="v70bProgressTop"><strong>${founderLive}</strong><span>/ 10 live</span></div><div class="v70bTrack"><div class="v70bFill" style="width:${pc}%"></div></div><div style="font-size:10px;color:#8d7165">${Math.max(0,10-founderLive)} remaining</div>
-     </section>
-    </div>
-    <section class="v70bNetwork">
-     <div class="v70bHead"><div><div class="v70bEyebrow">STUDIO NETWORK</div><h2>Your studios</h2><p>Search or filter the network. Click any card to open that studio directly.</p></div><span class="v70bChip">${ST.length} total</span></div>
-     <div class="v70bTools"><input id="v70bSearch" type="search" placeholder="Search by studio name…">
-      <button class="v70bFilter on" data-f="all">All</button><button class="v70bFilter" data-f="live">Live</button><button class="v70bFilter" data-f="draft">Draft</button><button class="v70bFilter" data-f="founding">Founding</button>
-     </div><div id="v70bGrid"></div>
-    </section>`;
-   q('v70bSearch').addEventListener('input',renderStudios);
-   d.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;d.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));renderStudios()});
-   renderStudios();
- }
- function renderStudios(){
-   const grid=q('v70bGrid');if(!grid)return;
-   const term=(q('v70bSearch')?.value||'').toLowerCase().trim();
-   const rows=ST.filter(x=>{
-     if(term&&!String(x.name||'').toLowerCase().includes(term))return false;
-     if(filter==='live'&&x.is_active!==true)return false;
-     if(filter==='draft'&&x.is_active===true)return false;
-     if(filter==='founding'&&x.is_founding!==true)return false;
-     return true;
-   });
-   grid.innerHTML=rows.length?rows.map(x=>`<div class="v70bStudio" tabindex="0" role="button" data-id="${esc(x.id)}"><div class="v70bStudioName">${esc(x.name||'Untitled studio')}</div><div class="v70bMeta"><span class="v70bBadge ${x.is_active?'live':''}">${x.is_active?'Live':'Draft'}</span>${x.is_founding?'<span class="v70bBadge founder">Founding Studio</span>':''}</div></div>`).join(''):'<div class="v70bEmpty">No studios match this view.</div>';
-   grid.querySelectorAll('[data-id]').forEach(c=>{c.onclick=()=>goStudio(c.dataset.id);c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();goStudio(c.dataset.id)}}});
- }
- async function load(){
-   // Independent requests: one missing table/column cannot kill the whole dashboard.
-   const results=await Promise.allSettled([
-     get('/rest/v1/studios?select=*'),
-     get('/rest/v1/studio_applications?select=id,status,created_at'),
-     get('/rest/v1/referrals?select=*')
-   ]);
-   ST=results[0].status==='fulfilled'&&Array.isArray(results[0].value)?results[0].value:[];
-   AP=results[1].status==='fulfilled'&&Array.isArray(results[1].value)?results[1].value:[];
-   RF=results[2].status==='fulfilled'&&Array.isArray(results[2].value)?results[2].value:[];
-   ST.sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
-   render();
- }
- function boot(){
-   const dashTab=document.querySelector('.adminTopTab[data-admin-tab="overview"]');
-   if(dashTab&&!dashTab.dataset.v70b){dashTab.dataset.v70b='1';dashTab.addEventListener('click',()=>setTimeout(load,60))}
-   if(q('adminPane-overview')?.classList.contains('active'))load();
- }
- setTimeout(boot,700);
-})();
+<script id="symbli-admin-v58-delete-shortcut">
+document.addEventListener('click',function(e){
+  const quick=e.target && e.target.closest && e.target.closest('#deleteStudioQuickBtn');
+  if(!quick)return;
+  const original=document.getElementById('deleteStudioBtn');
+  if(original) original.click();
+});
 </script>
 
-<style id="symbli-v73-workflow-styles">
-.v73StudioCard{display:grid!important;grid-template-columns:1fr auto;gap:8px;align-items:stretch;padding:0!important;overflow:hidden}
-.v73StudioOpen{appearance:none;border:0;background:transparent;text-align:left;padding:14px;cursor:pointer;color:inherit}
-.v73ArchiveBtn{border:0;border-left:1px solid #eadde3;background:#fbf1f3;color:#8d5d76;font:inherit;font-size:10px;font-weight:800;padding:0 14px;cursor:pointer}
-.v73ArchiveBtn:hover{background:#f5e5ed}
-.v73ArchiveToolbar{display:flex;justify-content:flex-end;margin:0 0 12px}
-.v73ArchivedGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.v73ArchivedCard{border:1px solid #e6d7df;background:#fff;border-radius:18px;padding:17px}
-.v73ArchivedCard h3{margin:0 0 5px;font:500 18px Fraunces,Georgia,serif;color:#302c39}
-.v73ArchivedMeta{font-size:10px;color:#8a7481;margin-bottom:13px}
-.v73ArchivedActions{display:flex;gap:8px;flex-wrap:wrap}
-.v73ArchivedActions button{min-height:38px}
-.v73Permanent{background:#fff!important;color:#a33e4d!important;border:1px solid #e7c3ca!important}
-.v73AppHeaderActions{display:flex;align-items:center;gap:9px}
-#v73ClearResolved{background:#fff!important;color:#805e72!important;border:1px solid #dfcdd7!important}
-.applicationStatus.declined{background:#fff0f1!important;color:#9c4450!important}
-@media(max-width:700px){.v73ArchivedGrid{grid-template-columns:1fr}}
-</style>
-<script>
-/* SYMBLI ADMIN V73 workflow additions */
+
+<script id="symbli-admin-v61-archive">
 (function(){
  const esc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 
  async function archiveStudio(id,name){
-   if(!confirm('Archive '+name+'? It will be unpublished and moved to Archived.'))return;
+   if(!id)return;
+   if(!window.confirm('Archive '+name+'?\n\nIt will be removed from the Dashboard and Studio Manager, unpublished from SYMBLI, and moved to Archived. Its data is kept.'))return;
    try{
-     await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id),{
-       method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+     const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id)+'&select=id,name,is_active,archived_at',{
+       method:'PATCH',
+       headers:{'Content-Type':'application/json','Prefer':'return=representation'},
        body:JSON.stringify({is_active:false,archived_at:new Date().toISOString()})
      });
+     if(!Array.isArray(rows)||rows.length!==1||!rows[0].archived_at)throw new Error('Archive was not confirmed by Supabase.');
      if(typeof loadStudios==='function')await loadStudios();
      if(window.SYMBLI_REFRESH_OPS)await window.SYMBLI_REFRESH_OPS();
      await loadArchived();
-   }catch(e){alert('Could not archive studio: '+cleanErr(e))}
+   }catch(e){alert('Could not archive studio: '+String(e.message||e))}
  }
-
  async function restoreStudio(id,name){
-   if(!confirm('Restore '+name+' to Studio Manager as a draft?'))return;
+   if(!window.confirm('Restore '+name+' to the main SYMBLI workspace?'))return;
    try{
-     await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id),{
-       method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+     const rows=await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id)+'&select=id,name,is_active,archived_at',{
+       method:'PATCH',
+       headers:{'Content-Type':'application/json','Prefer':'return=representation'},
        body:JSON.stringify({archived_at:null,is_active:false})
      });
-     await loadArchived();
+     if(!Array.isArray(rows)||rows.length!==1||rows[0].archived_at)throw new Error('Restore was not confirmed by Supabase.');
      if(typeof loadStudios==='function')await loadStudios();
      if(window.SYMBLI_REFRESH_OPS)await window.SYMBLI_REFRESH_OPS();
-   }catch(e){alert('Could not restore studio: '+cleanErr(e))}
+     await loadArchived();
+   }catch(e){alert('Could not restore studio: '+String(e.message||e))}
  }
-
- async function openArchivedDelete(id,name){
-   try{
-     // Reuse the existing, tested permanent-delete routine by temporarily making
-     // the archived studio selectable in Studio Manager.
-     let s=studios.find(x=>String(x.id)===String(id));
-     if(!s){s={id:id,name:name,slug:'',is_active:false,archived_at:new Date().toISOString()};studios.push(s)}
-     const sel=document.getElementById('studioSelect');
-     let opt=[...sel.options].find(o=>String(o.value)===String(id));
-     if(!opt){opt=document.createElement('option');opt.value=id;opt.textContent=name+' (Archived)';sel.appendChild(opt)}
-     sel.value=String(id);
-     document.getElementById('deleteStudioTitle').textContent='Delete '+name+'?';
-     document.getElementById('deleteStudioCopy').textContent='Are you sure? This permanently deletes '+name+' and its linked SYMBLI listing data. This cannot be undone.';
-     document.getElementById('deleteStudioStatus').textContent='Nothing has been deleted yet.';
-     document.getElementById('deleteStudioStatus').className='status';
-     document.getElementById('deleteStudioModal').classList.add('open');
-   }catch(e){alert('Could not open permanent delete: '+cleanErr(e))}
- }
-
  async function loadArchived(){
-   const grid=document.getElementById('v73ArchivedGrid'); if(!grid)return;
+   const grid=document.getElementById('archivedStudioGrid');
+   if(!grid)return;
    grid.innerHTML='<div class="opsEmpty">Loading archived studios…</div>';
    try{
      const rows=await authFetch('/rest/v1/studios?select=id,name,slug,is_active,archived_at&archived_at=not.is.null&order=archived_at.desc');
-     const count=document.getElementById('tabArchivedCount');if(count)count.textContent=(rows||[]).length;
-     grid.innerHTML=(rows||[]).length?(rows||[]).map(s=>`<div class="v73ArchivedCard"><h3>${esc(s.name||'Studio')}</h3><div class="v73ArchivedMeta">Archived ${s.archived_at?new Date(s.archived_at).toLocaleString('en-GB'):'previously'}</div><div class="v73ArchivedActions"><button class="btn secondary" type="button" data-v73-restore="${esc(s.id)}" data-v73-name="${esc(s.name)}">Restore</button><button class="btn v73Permanent" type="button" data-v73-delete="${esc(s.id)}" data-v73-name="${esc(s.name)}">Delete permanently</button></div></div>`).join(''):'<div class="opsEmpty">No archived studios.</div>';
-   }catch(e){grid.innerHTML='<div class="status bad">Could not load archived studios: '+esc(cleanErr(e))+'</div>'}
- }
- window.SYMBLI_V73_LOAD_ARCHIVED=loadArchived;
-
- async function clearResolved(){
-   const resolved=(studioApplications||[]).filter(a=>['approved','declined'].includes(String(a.status||'').toLowerCase()));
-   if(!resolved.length){alert('There are no approved or declined applications to clear.');return}
-   const approved=resolved.filter(a=>a.status==='approved').length;
-   const declined=resolved.filter(a=>a.status==='declined').length;
-   if(!confirm(`Clear ${resolved.length} resolved application record${resolved.length===1?'':'s'}?\n\nApproved: ${approved}\nDeclined: ${declined}\n\nThis removes application records only. Existing studios are not affected and pending applications will stay.`))return;
-   const box=document.getElementById('applicationsStatus');
-   status(box,'Clearing resolved applications…');
-   try{
-     for(const a of resolved){
-       await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(a.id),{method:'DELETE',headers:{'Prefer':'return=minimal'}});
-     }
-     await loadApplications();
-     status(box,'Resolved applications cleared. Pending applications were kept.','ok');
-   }catch(e){status(box,'Could not clear resolved applications: '+cleanErr(e),'bad')}
- }
- window.SYMBLI_V73_CLEAR_RESOLVED=clearResolved;
-
- function installClearButton(){
-   const card=document.getElementById('applicationsCard')||[...document.querySelectorAll('.applicationsCard,.card')].find(x=>/Studio Applications/i.test(x.textContent||''));
-   if(!card||document.getElementById('v73ClearResolved'))return;
-   const header=card.querySelector('.applicationsHeader,.headRow')||card;
-   const count=document.getElementById('applicationCount');
-   const holder=document.createElement('div');holder.className='v73AppHeaderActions';
-   const btn=document.createElement('button');btn.id='v73ClearResolved';btn.type='button';btn.className='btn secondary';btn.textContent='Clear resolved';btn.onclick=clearResolved;
-   if(count&&count.parentElement===header){header.insertBefore(holder,count);holder.append(btn,count)}
-   else{holder.appendChild(btn);header.appendChild(holder)}
- }
-
- document.addEventListener('click',e=>{
-   const a=e.target.closest?.('[data-v73-archive]');if(a){e.preventDefault();e.stopPropagation();archiveStudio(a.dataset.v73Archive,a.dataset.v73Name);return}
-   const r=e.target.closest?.('[data-v73-restore]');if(r){restoreStudio(r.dataset.v73Restore,r.dataset.v73Name);return}
-   const d=e.target.closest?.('[data-v73-delete]');if(d){openArchivedDelete(d.dataset.v73Delete,d.dataset.v73Name);return}
- });
- document.addEventListener('click',e=>{if(e.target?.id==='v73RefreshArchived')loadArchived()});
-
- const boot=setInterval(()=>{
-   if(document.getElementById('adminView')){
-     installClearButton();
-     const archivedTab=document.querySelector('[data-admin-tab="archived"]');
-     if(archivedTab){clearInterval(boot);loadArchived()}
+     const count=document.getElementById('tabArchivedCount'); if(count)count.textContent=(rows||[]).length;
+     grid.innerHTML=(rows||[]).length?(rows||[]).map(s=>`
+       <div class="archivedStudioCard">
+        <div><div class="archivedStudioName">${esc(s.name)}</div><div class="archivedStudioMeta">Archived ${s.archived_at?new Date(s.archived_at).toLocaleDateString('en-GB'):'recently'}</div></div>
+        <div class="archiveActions"><button type="button" class="restoreStudioBtn" data-restore-studio="${esc(s.id)}" data-restore-name="${esc(s.name)}">Restore</button><button type="button" class="archivePermanentDeleteBtn" data-permadelete-studio="${esc(s.id)}" data-permadelete-name="${esc(s.name)}">Delete permanently</button></div>
+       </div>`).join(''):'<div class="archiveEmpty"><strong>No archived studios</strong><span>Studios you archive from the Dashboard will appear here.</span></div>';
+   }catch(e){
+     grid.innerHTML='<div class="opsEmpty">Archived studios could not load. Run the V61 Supabase archive migration first.</div>';
    }
- },150);
+ }
+ document.addEventListener('click',e=>{
+   const a=e.target.closest?.('[data-archive-dashboard-studio]');
+   if(a){e.preventDefault();e.stopPropagation();archiveStudio(a.dataset.archiveDashboardStudio,a.dataset.archiveDashboardName);return}
+   const r=e.target.closest?.('[data-restore-studio]');
+   if(r){restoreStudio(r.dataset.restoreStudio,r.dataset.restoreName);return}
+   const d=e.target.closest?.('[data-permadelete-studio]');
+   if(d){
+     e.preventDefault();e.stopPropagation();
+     const id=d.dataset.permadeleteStudio,name=d.dataset.permadeleteName;
+     const sel=document.getElementById('studioSelect');
+     if(!sel)return;
+     let opt=[...sel.options].find(o=>String(o.value)===String(id));
+     if(!opt){opt=document.createElement('option');opt.value=id;opt.textContent=name+' (Archived)';opt.dataset.tempArchived='1';sel.appendChild(opt)}
+     sel.value=String(id);
+     // Populate the in-memory studios collection so currentStudio() resolves for the existing safe delete modal.
+     if(Array.isArray(window.studios)){
+       if(!window.studios.some(s=>String(s.id)===String(id)))window.studios.push({id,name,slug:'',is_active:false,archived_at:new Date().toISOString()});
+     }else{
+       try{if(typeof studios!=='undefined'&&!studios.some(s=>String(s.id)===String(id)))studios.push({id,name,slug:'',is_active:false,archived_at:new Date().toISOString()})}catch(_){}
+     }
+     setTimeout(()=>document.getElementById('deleteStudioBtn')?.click(),0);
+     return;
+   }
+ });
+ document.getElementById('refreshArchived')?.addEventListener('click',loadArchived);
+ window.SYMBLI_LOAD_ARCHIVED=loadArchived;
+ setTimeout(loadArchived,900);
+})();
+</script>
+
+
+<script id="symbli-admin-v67-clear-resolved">
+(function(){
+ async function clearResolvedApplications(){
+   try{
+     const resolved=(typeof studioApplications!=='undefined'?studioApplications:[])
+       .filter(a=>['approved','declined'].includes(String(a.status||'').toLowerCase()));
+     if(!resolved.length){
+       alert('There are no resolved applications to clear.');
+       return;
+     }
+     const approved=resolved.filter(a=>String(a.status).toLowerCase()==='approved').length;
+     const declined=resolved.filter(a=>String(a.status).toLowerCase()==='declined').length;
+     const ok=window.confirm(
+       'Clear '+resolved.length+' resolved application'+(resolved.length===1?'':'s')+'?\n\n'+
+       approved+' approved • '+declined+' declined\n\n'+
+       'This removes the application records only. Existing studios are not affected and pending applications will stay.'
+     );
+     if(!ok)return;
+     const ids=resolved.map(a=>String(a.id)).filter(Boolean);
+     for(const id of ids){
+       await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{
+         method:'DELETE',
+         headers:{'Prefer':'return=minimal'}
+       });
+     }
+     if(typeof loadApplications==='function')await loadApplications();
+     const box=document.getElementById('applicationsStatus');
+     if(box && typeof status==='function')status(box,resolved.length+' resolved application'+(resolved.length===1?'':'s')+' cleared. Pending applications were kept.','ok');
+   }catch(e){
+     const box=document.getElementById('applicationsStatus');
+     if(box && typeof status==='function')status(box,'Could not clear resolved applications: '+(typeof cleanErr==='function'?cleanErr(e):String(e.message||e)),'bad');
+     else alert('Could not clear resolved applications: '+String(e.message||e));
+   }
+ }
+ document.addEventListener('click',e=>{
+   if(e.target.closest?.('#clearResolvedApplications'))clearResolvedApplications();
+ });
 })();
 </script>
 
