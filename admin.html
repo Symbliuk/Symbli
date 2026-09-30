@@ -1,8 +1,8 @@
 <!doctype html>
-<!-- SYMBLI ADMIN V72 CLEAN MASTER | conservative cleanup: CSS consolidated, behavior preserved -->
+<!-- SYMBLI ADMIN V73 | V72 master + archive, decline, clear resolved and safer cleanup -->
 <html><head><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png?v=2"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SYMBLI Admin • Studio Images</title>
 <style id="symbli-clean-master-styles">
-/* SYMBLI ADMIN V72 CLEAN MASTER: consolidated in original cascade order */
+/* SYMBLI ADMIN V73: V72 visual master preserved; Admin workflow additions layered in */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
 *{box-sizing:border-box}body{margin:0;background:#fffaf6;color:#122238;font-family:Inter,sans-serif}.wrap{max-width:1080px;margin:auto;padding:34px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}.brand{font-family:Fraunces,serif;letter-spacing:.14em;font-size:22px}.tag{font-size:10px;letter-spacing:.18em;color:#d27e67;margin-top:5px}.pill{border:1px solid #ead8ce;background:#fff;border-radius:999px;padding:9px 13px;font-size:11px;color:#6f5e54}.card{background:#fff;border:1px solid #eee1d8;border-radius:24px;box-shadow:0 12px 38px rgba(18,34,56,.06);padding:24px;margin-bottom:18px}.card h1,.card h2{font-family:Fraunces,serif;font-weight:400;margin:0}.card h1{font-size:34px}.card h2{font-size:23px}.muted{color:#7c6d64;font-size:12px;line-height:1.6}.login{max-width:460px;margin:70px auto}.field{display:grid;gap:6px;margin-top:12px}.field span{font-size:10px;letter-spacing:.1em;color:#8e7568}.field input,.field select{height:44px;border:1px solid #eadbd2;border-radius:13px;background:#fffdfa;padding:0 13px;font:inherit;color:#122238;outline:none}.field input:focus,.field select:focus{border-color:#df9b83}.btn{border:0;border-radius:999px;height:44px;padding:0 19px;background:#e69a7d;color:#fff;font-weight:600;cursor:pointer}.btn.secondary{background:#fff;color:#7b5c50;border:1px solid #e7cfc2}.btn.danger{background:#fff;color:#b55462;border:1px solid #eccbd0}.btn:disabled{opacity:.5;cursor:not-allowed}.login .btn{width:100%;margin-top:16px}.toolbar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.toolbar .field{min-width:260px;flex:1}.drop{margin-top:18px;border:2px dashed #e4b7a5;background:#fff8f4;border-radius:20px;padding:30px;text-align:center;cursor:pointer}.drop strong{display:block;font-family:Fraunces,serif;font-size:20px;font-weight:400}.drop input{display:none}.status{margin-top:12px;padding:10px 12px;border-radius:12px;background:#f8f2ed;font-size:11px;color:#6f625a}.status.ok{background:#eef8f1;color:#356a45}.status.bad{background:#fff0f1;color:#9c4450}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}.photo{border:1px solid #eadfd8;border-radius:18px;overflow:hidden;background:#fff}.photo.cover{box-shadow:0 0 0 2px #d9a44c}.photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f4ebe5}.photoBody{padding:11px}.photoMeta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:#806f65}.coverTag{color:#a67525;font-weight:700}.actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.actions button{height:30px;padding:0 10px;border-radius:999px;border:1px solid #eadbd2;background:#fff;color:#62534c;font-size:10px;cursor:pointer}.actions button:hover{background:#fff5ef}.empty{text-align:center;padding:34px 10px;color:#8c7b71;font-size:12px}.hidden{display:none!important}.headRow{display:flex;justify-content:space-between;gap:16px;align-items:center}.saveHint{font-size:10px;color:#a18475}.liveDot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#59a36a;margin-right:5px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.top,.headRow{align-items:flex-start;flex-direction:column}.card{padding:18px}.card h1{font-size:29px}.toolbar{align-items:stretch}.toolbar .field{min-width:100%}}
@@ -1552,7 +1552,7 @@ function cleanErr(e){try{const j=JSON.parse(e.message);return j.message||j.msg||
 async function showAdmin(email='Admin'){ $('loginView').classList.add('hidden');$('adminView').classList.remove('hidden');$('sessionPill').textContent=email||'Signed in';await Promise.all([loadStudios(),loadApplications()]) }
 async function loadStudios(preferredId=''){try{
  const previous=preferredId||$('studioSelect').value;
- studios=await authFetch('/rest/v1/studios?select=id,name,slug,is_active&order=name.asc');
+ studios=await authFetch('/rest/v1/studios?select=id,name,slug,is_active,archived_at&archived_at=is.null&order=name.asc');
  $('studioSelect').innerHTML='<option value="">Choose a studio…</option>'+studios.map(s=>`<option value="${s.id}">${s.name}${s.is_active===false?' (Inactive)':''}</option>`).join('');
  const p=new URLSearchParams(location.search).get('studio');const hit=studios.find(s=>s.id===previous)||studios.find(s=>s.slug===p);
  if(hit){$('studioSelect').value=hit.id;await Promise.all([loadStudioDetail(),loadTreatments(),loadServices(),loadReviews(),loadVibes(),loadImages(),loadOwnerReview()]);setTimeout(updateListingCompleteness,120)}
@@ -2303,7 +2303,7 @@ async function loadApplications(){
   rowsEl.innerHTML=studioApplications.length?studioApplications.map(a=>{
    const st=a.status||'pending',approved=st==='approved',d=parseFoundingApplication(a);
    const phone=d.phone||a.phone||'No phone';
-   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(phone)}<br><b>Submitted:</b> ${appEsc(formatApplicationDateTime(a.created_at))}</div></div><div><span class="applicationStatus ${appEsc(st)}">${appEsc(st.replaceAll('_',' '))}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View application</button></div><div class="applicationDetail">${applicationDetailHtml(a)}${approved?'':`<div class="appDecisionBar"><button class="btn approveApp" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button><button class="btn requestApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','changes_requested')">Request changes</button><button class="btn rejectApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','rejected')">Reject</button></div>`}${a.studio_id?`<div class="smallNote" style="margin-top:10px">Created studio: ${appEsc(a.studio_id)}</div>`:''}</div></div>`;
+   return `<div class="applicationRow" data-app-id="${appEsc(a.id)}"><div><h3>${appEsc(a.studio_name||'Unnamed studio')}</h3><div class="applicationMeta">${appEsc(a.contact_name||'')} • ${appEsc(a.email||'')}</div></div><div><div class="applicationMeta">${appEsc(a.town||'Town not supplied')}<br>${appEsc(phone)}<br><b>Submitted:</b> ${appEsc(formatApplicationDateTime(a.created_at))}</div></div><div><span class="applicationStatus ${appEsc(st)}">${appEsc(st.replaceAll('_',' '))}</span></div><div class="applicationActions"><button class="btn secondary" type="button" onclick="toggleApplication('${appEsc(a.id)}')">View application</button></div><div class="applicationDetail">${applicationDetailHtml(a)}${approved?'':`<div class="appDecisionBar"><button class="btn approveApp" type="button" onclick="approveApplication('${appEsc(a.id)}')">Approve & create studio</button><button class="btn requestApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','changes_requested')">Request changes</button><button class="btn rejectApp" type="button" onclick="setApplicationStatus('${appEsc(a.id)}','declined')">Decline</button></div>`}${a.studio_id?`<div class="smallNote" style="margin-top:10px">Created studio: ${appEsc(a.studio_id)}</div>`:''}</div></div>`;
   }).join(''):'<div class="empty">No studio applications yet.</div>';
   status(box,pending.length?`${pending.length} application${pending.length===1?'':'s'} waiting for review.`:'No applications waiting for review.','ok');
  }catch(e){status(box,'Could not load applications: '+cleanErr(e),'bad');rowsEl.innerHTML='<div class="empty">Applications unavailable.</div>'}
@@ -2311,11 +2311,11 @@ async function loadApplications(){
 function toggleApplication(id){document.querySelector(`.applicationRow[data-app-id="${CSS.escape(String(id))}"]`)?.classList.toggle('open')}
 async function setApplicationStatus(id,next){
  const a=studioApplications.find(x=>String(x.id)===String(id));if(!a)return;
- const label=next==='rejected'?'reject':'request changes for';
+ const label=next==='declined'?'decline':'request changes for';
  if(!confirm(`Are you sure you want to ${label} ${a.studio_name||'this application'}?`))return;
  try{
   await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({status:next,reviewed_at:new Date().toISOString()})});
-  await loadApplications();status($('applicationsStatus'),next==='rejected'?'Application rejected.':'Changes requested.','ok');
+  await loadApplications();status($('applicationsStatus'),next==='declined'?'Application declined. No studio was created.':'Changes requested.','ok');
  }catch(e){status($('applicationsStatus'),'Could not update application: '+cleanErr(e),'bad')}
 }
 async function openCreatedDraft(studioId){
@@ -2596,16 +2596,17 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
        authFetch('/rest/v1/studio_applications?select=*&order=created_at.desc&limit=100'),
        authFetch('/rest/v1/studio_listing_submissions?select=*&order=submitted_at.desc&limit=100'),
        authFetch('/rest/v1/studio_owners?select=studio_id,user_id'),
-       authFetch('/rest/v1/studios?select=id,name,slug,is_active&order=name.asc')
+       authFetch('/rest/v1/studios?select=id,name,slug,is_active,archived_at&order=name.asc')
      ]);
+     const visibleStudios=(allStudios||[]).filter(s=>!s.archived_at);
      const pendingApps=(apps||[]).filter(a=>(a.status||'pending')==='pending');
      const pendingSubs=(subs||[]).filter(s=>(s.status||'')==='submitted');
      const ownerIds=new Set((owners||[]).map(o=>String(o.studio_id)));
-     const studioMap=new Map((allStudios||[]).map(s=>[String(s.id),s]));
+     const studioMap=new Map((visibleStudios||[]).map(s=>[String(s.id),s]));
      document.getElementById('opsApplications').textContent=pendingApps.length;
      document.getElementById('opsReviews').textContent=pendingSubs.length;
-     document.getElementById('opsLive').textContent=(allStudios||[]).filter(s=>s.is_active===true).length;
-     document.getElementById('opsDrafts').textContent=(allStudios||[]).filter(s=>s.is_active!==true).length;
+     document.getElementById('opsLive').textContent=(visibleStudios||[]).filter(s=>s.is_active===true).length;
+     document.getElementById('opsDrafts').textContent=(visibleStudios||[]).filter(s=>s.is_active!==true).length;
      document.getElementById('opsApplicationCount').textContent=pendingApps.length;
      document.getElementById('opsReviewCount').textContent=pendingSubs.length;
 
@@ -2617,10 +2618,10 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
        const st=studioMap.get(String(s.studio_id)); return `<div class="opsRow"><div><div class="opsRowTitle">${esc(st?.name||'Studio')}</div><div class="opsMeta">Owner submitted listing for review</div></div>
        <div class="opsRowActions"><span class="opsBadge attn">SUBMITTED</span><button class="opsSmallBtn primary" data-review-studio="${esc(s.studio_id)}">Review listing</button></div></div>`}).join(''):'<div class="opsEmpty">No owner listings waiting for review.</div>';
 
-     grid.innerHTML=(allStudios||[]).length?(allStudios||[]).map(s=>{
+     grid.innerHTML=(visibleStudios||[]).length?(visibleStudios||[]).map(s=>{
        const managed=ownerIds.has(String(s.id))?'OWNER MANAGED':'ADMIN MANAGED';
        const state=s.is_active===true?'LIVE':'DRAFT';
-       return `<button type="button" class="opsStudio" data-studio="${esc(s.id)}"><div class="opsStudioTop"><span class="opsStudioName">${esc(s.name)}</span><span class="opsBadge ${s.is_active===true?'live':''}">${state}</span></div><div class="opsStudioMeta"><span class="opsBadge ${managed==='OWNER MANAGED'?'owner':''}">${managed}</span></div></button>`;
+       return `<div class="opsStudio v73StudioCard"><button type="button" class="v73StudioOpen" data-studio="${esc(s.id)}"><div class="opsStudioTop"><span class="opsStudioName">${esc(s.name)}</span><span class="opsBadge ${s.is_active===true?'live':''}">${state}</span></div><div class="opsStudioMeta"><span class="opsBadge ${managed==='OWNER MANAGED'?'owner':''}">${managed}</span></div></button><button type="button" class="v73ArchiveBtn" data-v73-archive="${esc(s.id)}" data-v73-name="${esc(s.name)}">Archive</button></div>`;
      }).join(''):'<div class="opsEmpty">No studios yet.</div>';
    }catch(e){
      grid.innerHTML='<div class="opsEmpty">Dashboard could not load: '+esc(e.message||e)+'</div>';
@@ -2663,6 +2664,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
  <button class="adminTopTab" data-admin-tab="applications">Applications <span class="count" id="tabApplicationsCount">0</span></button>
  <button class="adminTopTab" data-admin-tab="reviews">Listing Reviews <span class="count" id="tabReviewsCount">0</span></button>
  <button class="adminTopTab" data-admin-tab="studios">Studios</button>
+ <button class="adminTopTab" data-admin-tab="archived">Archived <span class="count" id="tabArchivedCount">0</span></button>
  <button class="adminTopTab" data-admin-tab="analytics">Analytics</button>
  <button class="adminTopTab" data-admin-tab="referrals">Referrals <span class="count" id="tabReferralsCount">0</span></button>
  <button class="adminTopTab add" data-admin-tab="add">+ Add Studio</button>
@@ -2674,11 +2676,13 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const applications=makePane('applications','Studio applications','Businesses that have applied to join SYMBLI themselves.');
    const reviews=makePane('reviews','Owner reviews','Listings that studio owners have submitted for your approval.');
    const studios=makePane('studios','Studio Manager','Choose a studio, then manage its profile, readiness, publishing and content from one workspace.');
+   const archived=makePane('archived','Archived studios','Studios removed from the active workspace. Restore them or permanently delete them here.');
+   archived.insertAdjacentHTML('beforeend','<div class="v73ArchiveToolbar"><button type="button" class="btn secondary" id="v73RefreshArchived">↻ Refresh archived</button></div><div id="v73ArchivedGrid" class="v73ArchivedGrid"><div class="opsEmpty">Loading archived studios…</div></div>');
    const analytics=makePane('analytics','Performance','See how individual studios are performing across SYMBLI.');
    const referrals=makePane('referrals','','');
    const add=makePane('add','Add a studio','Create a studio manually from the Admin side.');
-   overview.after(applications,reviews,studios,analytics,referrals,add);
-   [applications,reviews,studios,analytics,referrals,add].forEach(p=>p.hidden=true);
+   overview.after(applications,reviews,studios,archived,analytics,referrals,add);
+   [applications,reviews,studios,archived,analytics,referrals,add].forEach(p=>p.hidden=true);
    overview.hidden=false;
 
    referrals.innerHTML=`
@@ -2860,6 +2864,7 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    window.scrollTo({top:0,behavior:'smooth'});
    if(name==='add')setTimeout(()=>q('quickCreateName')?.focus(),100);
    if(name==='reviews')hydrateTabQueues();
+   if(name==='archived' && window.SYMBLI_V73_LOAD_ARCHIVED) window.SYMBLI_V73_LOAD_ARCHIVED();
    if(name==='referrals' && window.SYMBLI_LOAD_ADMIN_REFERRALS) window.SYMBLI_LOAD_ADMIN_REFERRALS();
    if(name==='analytics'){
      const srcSel=q('studioSelect'), dst=q('analyticsStudioSelect');
@@ -2906,9 +2911,8 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
   <div class="adminEyebrow" style="color:#a64a4a">PERMANENT ACTION</div>
   <h2 id="deleteStudioTitle">Delete studio?</h2>
   <p id="deleteStudioCopy">This cannot be undone.</p>
-  <label class="field"><span>TYPE THE STUDIO NAME TO CONFIRM</span><input id="deleteStudioConfirmName" autocomplete="off"></label>
-  <div id="deleteStudioStatus" class="status">Nothing has been deleted yet.</div>
-  <div class="deleteActions"><button type="button" class="btn secondary" id="cancelDeleteStudio">Cancel</button><button type="button" class="btn deleteConfirm" id="confirmDeleteStudio">Permanently delete</button></div>
+    <div id="deleteStudioStatus" class="status">Nothing has been deleted yet.</div>
+  <div class="deleteActions"><button type="button" class="btn secondary" id="cancelDeleteStudio">Cancel</button><button type="button" class="btn deleteConfirm" id="confirmDeleteStudio">Yes, permanently delete</button></div>
  </div>
 </div>
 
@@ -2921,12 +2925,11 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
    const st=selected();
    if(!st){alert('Choose a studio first.');return}
    $d('deleteStudioTitle').textContent='Delete '+st.name+'?';
-   $d('deleteStudioCopy').textContent='This permanently removes '+st.name+' and its linked SYMBLI listing data. Type the studio name exactly below to confirm.';
-   $d('deleteStudioConfirmName').value='';
+   $d('deleteStudioCopy').textContent='Are you sure? This permanently removes '+st.name+' and its linked SYMBLI listing data. This cannot be undone.';
    $d('deleteStudioStatus').textContent='Nothing has been deleted yet.';
    $d('deleteStudioStatus').className='status';
    $d('deleteStudioModal').classList.add('open');
-   setTimeout(()=>$d('deleteStudioConfirmName').focus(),100);
+   
  }
  function closeDelete(){ $d('deleteStudioModal').classList.remove('open') }
  async function del(path){
@@ -2934,9 +2937,6 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
  }
  async function deleteStudio(){
    const st=selected(); if(!st)return;
-   if($d('deleteStudioConfirmName').value.trim()!==st.name){
-     status($d('deleteStudioStatus'),'Studio name does not match. Nothing deleted.','bad');return;
-   }
    const btn=$d('confirmDeleteStudio');btn.disabled=true;
    status($d('deleteStudioStatus'),'Removing linked studio data…');
    try{
@@ -2957,13 +2957,13 @@ $('requestChangesBtn').onclick=()=>setOwnerReview('changes_requested');$('markRe
 
      // Child records first. These are deliberately separate so a database/RLS
      // restriction stops the operation rather than pretending deletion succeeded.
-     const childTables=['studio_listing_submissions','studio_owners','studio_treatments','studio_vibes','studio_services','reviews','analytics','studio_images'];
+     const childTables=['analytics_events','booking_referrals','referrals','studio_listing_submissions','studio_owners','studio_treatments','studio_vibes','studio_services','reviews','analytics','studio_images'];
      for(const table of childTables){
        try{await del('/rest/v1/'+table+'?studio_id=eq.'+sid)}
        catch(e){
          // analytics deployments may use a different relationship; only tolerate
          // a missing table/column there. Everything else must succeed.
-         if(table!=='analytics')throw e;
+         if(!['analytics','analytics_events','referrals'].includes(table))throw e;
        }
      }
 
@@ -3263,4 +3263,129 @@ document.addEventListener('click',function(e){
  setTimeout(boot,700);
 })();
 </script>
+
+<style id="symbli-v73-workflow-styles">
+.v73StudioCard{display:grid!important;grid-template-columns:1fr auto;gap:8px;align-items:stretch;padding:0!important;overflow:hidden}
+.v73StudioOpen{appearance:none;border:0;background:transparent;text-align:left;padding:14px;cursor:pointer;color:inherit}
+.v73ArchiveBtn{border:0;border-left:1px solid #eadde3;background:#fbf1f3;color:#8d5d76;font:inherit;font-size:10px;font-weight:800;padding:0 14px;cursor:pointer}
+.v73ArchiveBtn:hover{background:#f5e5ed}
+.v73ArchiveToolbar{display:flex;justify-content:flex-end;margin:0 0 12px}
+.v73ArchivedGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.v73ArchivedCard{border:1px solid #e6d7df;background:#fff;border-radius:18px;padding:17px}
+.v73ArchivedCard h3{margin:0 0 5px;font:500 18px Fraunces,Georgia,serif;color:#302c39}
+.v73ArchivedMeta{font-size:10px;color:#8a7481;margin-bottom:13px}
+.v73ArchivedActions{display:flex;gap:8px;flex-wrap:wrap}
+.v73ArchivedActions button{min-height:38px}
+.v73Permanent{background:#fff!important;color:#a33e4d!important;border:1px solid #e7c3ca!important}
+.v73AppHeaderActions{display:flex;align-items:center;gap:9px}
+#v73ClearResolved{background:#fff!important;color:#805e72!important;border:1px solid #dfcdd7!important}
+.applicationStatus.declined{background:#fff0f1!important;color:#9c4450!important}
+@media(max-width:700px){.v73ArchivedGrid{grid-template-columns:1fr}}
+</style>
+<script>
+/* SYMBLI ADMIN V73 workflow additions */
+(function(){
+ const esc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+ async function archiveStudio(id,name){
+   if(!confirm('Archive '+name+'? It will be unpublished and moved to Archived.'))return;
+   try{
+     await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id),{
+       method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+       body:JSON.stringify({is_active:false,archived_at:new Date().toISOString()})
+     });
+     if(typeof loadStudios==='function')await loadStudios();
+     if(window.SYMBLI_REFRESH_OPS)await window.SYMBLI_REFRESH_OPS();
+     await loadArchived();
+   }catch(e){alert('Could not archive studio: '+cleanErr(e))}
+ }
+
+ async function restoreStudio(id,name){
+   if(!confirm('Restore '+name+' to Studio Manager as a draft?'))return;
+   try{
+     await authFetch('/rest/v1/studios?id=eq.'+encodeURIComponent(id),{
+       method:'PATCH',headers:{'Content-Type':'application/json','Prefer':'return=minimal'},
+       body:JSON.stringify({archived_at:null,is_active:false})
+     });
+     await loadArchived();
+     if(typeof loadStudios==='function')await loadStudios();
+     if(window.SYMBLI_REFRESH_OPS)await window.SYMBLI_REFRESH_OPS();
+   }catch(e){alert('Could not restore studio: '+cleanErr(e))}
+ }
+
+ async function openArchivedDelete(id,name){
+   try{
+     // Reuse the existing, tested permanent-delete routine by temporarily making
+     // the archived studio selectable in Studio Manager.
+     let s=studios.find(x=>String(x.id)===String(id));
+     if(!s){s={id:id,name:name,slug:'',is_active:false,archived_at:new Date().toISOString()};studios.push(s)}
+     const sel=document.getElementById('studioSelect');
+     let opt=[...sel.options].find(o=>String(o.value)===String(id));
+     if(!opt){opt=document.createElement('option');opt.value=id;opt.textContent=name+' (Archived)';sel.appendChild(opt)}
+     sel.value=String(id);
+     document.getElementById('deleteStudioTitle').textContent='Delete '+name+'?';
+     document.getElementById('deleteStudioCopy').textContent='Are you sure? This permanently deletes '+name+' and its linked SYMBLI listing data. This cannot be undone.';
+     document.getElementById('deleteStudioStatus').textContent='Nothing has been deleted yet.';
+     document.getElementById('deleteStudioStatus').className='status';
+     document.getElementById('deleteStudioModal').classList.add('open');
+   }catch(e){alert('Could not open permanent delete: '+cleanErr(e))}
+ }
+
+ async function loadArchived(){
+   const grid=document.getElementById('v73ArchivedGrid'); if(!grid)return;
+   grid.innerHTML='<div class="opsEmpty">Loading archived studios…</div>';
+   try{
+     const rows=await authFetch('/rest/v1/studios?select=id,name,slug,is_active,archived_at&archived_at=not.is.null&order=archived_at.desc');
+     const count=document.getElementById('tabArchivedCount');if(count)count.textContent=(rows||[]).length;
+     grid.innerHTML=(rows||[]).length?(rows||[]).map(s=>`<div class="v73ArchivedCard"><h3>${esc(s.name||'Studio')}</h3><div class="v73ArchivedMeta">Archived ${s.archived_at?new Date(s.archived_at).toLocaleString('en-GB'):'previously'}</div><div class="v73ArchivedActions"><button class="btn secondary" type="button" data-v73-restore="${esc(s.id)}" data-v73-name="${esc(s.name)}">Restore</button><button class="btn v73Permanent" type="button" data-v73-delete="${esc(s.id)}" data-v73-name="${esc(s.name)}">Delete permanently</button></div></div>`).join(''):'<div class="opsEmpty">No archived studios.</div>';
+   }catch(e){grid.innerHTML='<div class="status bad">Could not load archived studios: '+esc(cleanErr(e))+'</div>'}
+ }
+ window.SYMBLI_V73_LOAD_ARCHIVED=loadArchived;
+
+ async function clearResolved(){
+   const resolved=(studioApplications||[]).filter(a=>['approved','declined'].includes(String(a.status||'').toLowerCase()));
+   if(!resolved.length){alert('There are no approved or declined applications to clear.');return}
+   const approved=resolved.filter(a=>a.status==='approved').length;
+   const declined=resolved.filter(a=>a.status==='declined').length;
+   if(!confirm(`Clear ${resolved.length} resolved application record${resolved.length===1?'':'s'}?\n\nApproved: ${approved}\nDeclined: ${declined}\n\nThis removes application records only. Existing studios are not affected and pending applications will stay.`))return;
+   const box=document.getElementById('applicationsStatus');
+   status(box,'Clearing resolved applications…');
+   try{
+     for(const a of resolved){
+       await authFetch('/rest/v1/studio_applications?id=eq.'+encodeURIComponent(a.id),{method:'DELETE',headers:{'Prefer':'return=minimal'}});
+     }
+     await loadApplications();
+     status(box,'Resolved applications cleared. Pending applications were kept.','ok');
+   }catch(e){status(box,'Could not clear resolved applications: '+cleanErr(e),'bad')}
+ }
+ window.SYMBLI_V73_CLEAR_RESOLVED=clearResolved;
+
+ function installClearButton(){
+   const card=document.getElementById('applicationsCard')||[...document.querySelectorAll('.applicationsCard,.card')].find(x=>/Studio Applications/i.test(x.textContent||''));
+   if(!card||document.getElementById('v73ClearResolved'))return;
+   const header=card.querySelector('.applicationsHeader,.headRow')||card;
+   const count=document.getElementById('applicationCount');
+   const holder=document.createElement('div');holder.className='v73AppHeaderActions';
+   const btn=document.createElement('button');btn.id='v73ClearResolved';btn.type='button';btn.className='btn secondary';btn.textContent='Clear resolved';btn.onclick=clearResolved;
+   if(count&&count.parentElement===header){header.insertBefore(holder,count);holder.append(btn,count)}
+   else{holder.appendChild(btn);header.appendChild(holder)}
+ }
+
+ document.addEventListener('click',e=>{
+   const a=e.target.closest?.('[data-v73-archive]');if(a){e.preventDefault();e.stopPropagation();archiveStudio(a.dataset.v73Archive,a.dataset.v73Name);return}
+   const r=e.target.closest?.('[data-v73-restore]');if(r){restoreStudio(r.dataset.v73Restore,r.dataset.v73Name);return}
+   const d=e.target.closest?.('[data-v73-delete]');if(d){openArchivedDelete(d.dataset.v73Delete,d.dataset.v73Name);return}
+ });
+ document.addEventListener('click',e=>{if(e.target?.id==='v73RefreshArchived')loadArchived()});
+
+ const boot=setInterval(()=>{
+   if(document.getElementById('adminView')){
+     installClearButton();
+     const archivedTab=document.querySelector('[data-admin-tab="archived"]');
+     if(archivedTab){clearInterval(boot);loadArchived()}
+   }
+ },150);
+})();
+</script>
+
 </body></html>
