@@ -4682,18 +4682,18 @@ window.SYMBLI_ADD_DEMOS=function(d){
   }
 }
 
-/* SYMBLI FIX: consistent glow for newly loaded standard studio cards */
+/* SYMBLI FIX V3: standard cards inherit the same treatment-derived outer glow as existing cards. */
 .compareCard:not(.isFounding):not(:has(.foundingBadge)){
-  border:1.5px solid #D9B6C8!important;
+  border:1.5px solid color-mix(in srgb,var(--card-accent,#a7799d) 58%,white)!important;
   box-shadow:
-    0 0 0 1px rgba(197,143,167,.16),
-    0 10px 28px rgba(159,120,148,.13)!important;
+    0 0 0 1px color-mix(in srgb,var(--card-accent,#a7799d) 24%,transparent),
+    0 10px 30px color-mix(in srgb,var(--card-accent,#a7799d) 20%,transparent)!important;
 }
 .compareCard:not(.isFounding):not(:has(.foundingBadge)):hover{
-  border-color:#C58FA7!important;
+  border-color:var(--card-accent,#a7799d)!important;
   box-shadow:
-    0 0 0 1px rgba(197,143,167,.22),
-    0 16px 38px rgba(159,120,148,.18)!important;
+    0 0 0 1px color-mix(in srgb,var(--card-accent,#a7799d) 34%,transparent),
+    0 16px 40px color-mix(in srgb,var(--card-accent,#a7799d) 27%,transparent)!important;
 }
 
 </style>
