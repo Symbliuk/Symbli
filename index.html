@@ -4619,25 +4619,10 @@ window.SYMBLI_ADD_DEMOS=function(d){
 })();
 </script>
 
-<style id="symbli-standard-card-glow-v2">
-/* Standard live studio cards: consistent SYMBLI mauve/pink treatment.
-   Founding cards are deliberately excluded so their gold treatment remains untouched. */
-.comparisonGrid > .compareCard.liveSupabaseCard:not(.isFounding){
-  border:1.5px solid #d9b6c8 !important;
-  box-shadow:
-    0 0 0 1px rgba(197,143,167,.24),
-    0 12px 30px rgba(159,120,148,.18) !important;
-}
-.comparisonGrid > .compareCard.liveSupabaseCard:not(.isFounding):hover{
-  border-color:#c58fa7 !important;
-  box-shadow:
-    0 0 0 1px rgba(197,143,167,.32),
-    0 18px 40px rgba(159,120,148,.24) !important;
-}
-</style>
 
-</body>
-</html>
+
+
+
 <style id="symbli-dropdown-clean-white-fix">
 /* Dropdown polish: clean white surfaces + no sticky helper collision */
 .symFilterMenu{
@@ -4682,18 +4667,20 @@ window.SYMBLI_ADD_DEMOS=function(d){
   }
 }
 
-/* SYMBLI FIX V3: standard cards inherit the same treatment-derived outer glow as existing cards. */
-.compareCard:not(.isFounding):not(:has(.foundingBadge)){
-  border:1.5px solid color-mix(in srgb,var(--card-accent,#a7799d) 58%,white)!important;
-  box-shadow:
-    0 0 0 1px color-mix(in srgb,var(--card-accent,#a7799d) 24%,transparent),
-    0 10px 30px color-mix(in srgb,var(--card-accent,#a7799d) 20%,transparent)!important;
-}
-.compareCard:not(.isFounding):not(:has(.foundingBadge)):hover{
-  border-color:var(--card-accent,#a7799d)!important;
-  box-shadow:
-    0 0 0 1px color-mix(in srgb,var(--card-accent,#a7799d) 34%,transparent),
-    0 16px 40px color-mix(in srgb,var(--card-accent,#a7799d) 27%,transparent)!important;
-}
-
 </style>
+
+<style id="symbli-universal-card-glow-v3">
+/* Applies as soon as a studio card is rendered, including future Admin additions. */
+.comparisonGrid > .compareCard:not(.isFounding):not(:has(.foundingBadge)),
+#rail .studioMiniCard:not(.isFounding):not(:has(.foundingBadge)) {
+  border:1.5px solid #d9b6c8!important;
+  box-shadow:0 0 0 1px rgba(197,143,167,.24),0 0 22px rgba(197,143,167,.23),0 12px 30px rgba(159,120,148,.18)!important;
+}
+.comparisonGrid > .compareCard:not(.isFounding):not(:has(.foundingBadge)):hover,
+#rail .studioMiniCard:not(.isFounding):not(:has(.foundingBadge)):hover {
+  border-color:#c58fa7!important;
+  box-shadow:0 0 0 1px rgba(197,143,167,.32),0 0 28px rgba(197,143,167,.30),0 18px 40px rgba(159,120,148,.24)!important;
+}
+</style>
+</body>
+</html>
